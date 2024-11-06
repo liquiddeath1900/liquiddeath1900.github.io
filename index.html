@@ -31,25 +31,8 @@
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* Changed from space-between to flex-end */
             align-items: center;
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo {
-            height: 45px;
-            width: auto;
-        }
-
-        .company-name {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: #333;
         }
 
         .nav-links {
@@ -190,12 +173,7 @@
             }
             
             .nav-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .logo {
-                height: 40px;
+                justify-content: center; /* Center navigation on mobile */
             }
 
             .nav-links {
@@ -218,10 +196,6 @@
 
         /* Small Mobile Devices */
         @media (max-width: 480px) {
-            .company-name {
-                font-size: 1.2rem;
-            }
-            
             h1 {
                 font-size: 2rem;
             }
@@ -240,10 +214,6 @@
 <body>
     <nav>
         <div class="nav-content">
-            <div class="nav-left">
-                <img src="assets/logo.png" alt="Seamless Flow Logo" class="logo">
-                <span class="company-name">seamlessflow</span>
-            </div>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#about">About Us</a>
