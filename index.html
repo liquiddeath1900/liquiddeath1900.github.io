@@ -32,21 +32,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
         }
 
         .logo {
-            height: 40px;
+            height: 50px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .nav-links a {
             color: #333;
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.1rem;
             transition: color 0.3s;
         }
 
@@ -74,12 +76,13 @@
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             color: #fff;
             text-align: center;
             position: relative;
             z-index: 1;
+            padding: 0 20px;
         }
 
         .hero-overlay {
@@ -93,26 +96,29 @@
         }
 
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
             font-weight: bold;
+            line-height: 1.2;
         }
 
         .hero-description {
             font-size: 1.5rem;
             max-width: 600px;
-            margin-bottom: 2rem;
+            margin: 2rem auto;
+            line-height: 1.8;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: 1rem 3rem;
             background: #007bff;
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.1rem;
-            transition: background 0.3s ease;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
         }
 
         .cta-button:hover {
@@ -126,6 +132,14 @@
             
             .hero-description {
                 font-size: 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
             }
         }
     </style>
@@ -149,7 +163,7 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <video class="hero-video" autoplay loop muted playsinline>
-            <source src="assets/Gen-3 Alpha 3733506814, bring the future to the present.mp4" type="video/mp4">
+            <source src="assets/Sequence 02.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
             <h1>Transform Your Business with Automation</h1>
