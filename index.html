@@ -1,143 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seamless Flow - Business Automation Solutions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Seamless Flow - Business Automation Solutions</title>
+   <style>
+       /* Reset and Base Styles */
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
 
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            line-height: 1.5;
-        }
+       body {
+           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+           line-height: 1.5;
+           color: #333;
+       }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
+       /* Navigation */
+       nav {
+           position: fixed;
+           width: 100%;
+           background: white;
+           padding: 1.5rem 2rem;
+           z-index: 1000;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+       }
 
-        .company-name {
-            font-size: 1.25rem;
-            color: #000;
-            text-decoration: none;
-        }
+       .nav-wrapper {
+           max-width: 1400px;
+           margin: 0 auto;
+           width: 100%;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+       }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+       .nav-left {
+           display: flex;
+           align-items: center;
+       }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #000;
-        }
+       .nav-right {
+           display: flex;
+           align-items: center;
+           gap: 2rem;
+       }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+       .company-name {
+           font-size: 1.2rem;
+           color: #000;
+           text-decoration: none;
+           font-weight: 500;
+       }
 
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+       .nav-links a {
+           text-decoration: none;
+           color: #000;
+           font-weight: 400;
+           font-size: 1rem;
+           padding: 0.5rem 1rem;
+       }
 
-        .hero-content {
-            text-align: center;
-            color: white;
-            max-width: 1000px;
-            padding: 0 2rem;
-            z-index: 1;
-        }
+       .contact-button {
+           background: white;
+           border: 1px solid #eee;
+           padding: 0.5rem 1.5rem;
+           border-radius: 4px;
+           text-decoration: none;
+           color: #000;
+       }
 
-        h1 {
-            font-size: 5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
+       /* Hero Section */
+       .hero {
+           height: 100vh;
+           position: relative;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           overflow: hidden;
+           background: #000;
+       }
 
-        .hero-description {
-            font-size: 1.5rem;
-            line-height: 1.4;
-            margin: 1.5rem 0;
-        }
+       .hero-video {
+           position: absolute;
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+           opacity: 0.7;
+       }
 
-        .cta-button {
-            display: inline-block;
-            background: #007BFF;
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
+       .hero-content {
+           position: relative;
+           z-index: 2;
+           text-align: left;
+           max-width: 1200px;
+           padding: 0 2rem;
+           color: white;
+       }
 
-        .scroll-prompt {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            text-align: center;
-        }
+       .hero-title {
+           font-size: 4rem;
+           font-weight: 600;
+           margin-bottom: 2rem;
+           line-height: 1.2;
+       }
 
-        .scroll-arrow {
-            display: block;
-            margin-top: 0.5rem;
-            font-size: 1.5rem;
-        }
-    </style>
+       .hero-description {
+           font-size: 1.25rem;
+           margin-bottom: 2rem;
+           max-width: 600px;
+       }
+
+       .hero-buttons {
+           display: flex;
+           gap: 1rem;
+       }
+
+       .primary-button {
+           background: #007bff;
+           color: white;
+           text-decoration: none;
+           padding: 0.75rem 2rem;
+           border-radius: 4px;
+           font-weight: 500;
+       }
+
+       /* Services Section */
+       .services {
+           padding: 6rem 2rem;
+           background: #f5f5f5;
+       }
+
+       .services-inner {
+           max-width: 1200px;
+           margin: 0 auto;
+       }
+
+       .services-header {
+           margin-bottom: 4rem;
+       }
+
+       .services-grid {
+           display: grid;
+           grid-template-columns: repeat(3, 1fr);
+           gap: 2rem;
+       }
+
+       .service-card {
+           background: white;
+           padding: 2rem;
+           border-radius: 10px;
+           display: flex;
+           flex-direction: column;
+           gap: 1rem;
+       }
+
+       .service-number {
+           font-size: 0.875rem;
+           color: #666;
+       }
+
+       .service-title {
+           font-size: 1.5rem;
+           font-weight: 600;
+           color: #007bff;
+       }
+
+       .service-features {
+           display: flex;
+           flex-direction: column;
+           gap: 0.5rem;
+       }
+
+       .service-feature {
+           padding: 0.5rem;
+           border: 1px solid #eee;
+           border-radius: 4px;
+           font-size: 0.875rem;
+       }
+
+       /* Footer */
+       footer {
+           background: #111;
+           color: white;
+           padding: 4rem 2rem;
+       }
+
+       .footer-inner {
+           max-width: 1200px;
+           margin: 0 auto;
+           display: flex;
+           justify-content: space-between;
+       }
+
+       .footer-info {
+           max-width: 300px;
+       }
+
+       .footer-links {
+           display: grid;
+           grid-template-columns: repeat(2, 1fr);
+           gap: 4rem;
+       }
+
+       @media (max-width: 768px) {
+           .services-grid {
+               grid-template-columns: 1fr;
+           }
+           
+           .hero-title {
+               font-size: 2.5rem;
+           }
+           
+           .footer-inner {
+               flex-direction: column;
+               gap: 2rem;
+           }
+       }
+   </style>
 </head>
 <body>
-    <nav>
-        <a href="#" class="company-name">seamlessflow</a>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+   <!-- Navigation -->
+   <nav>
+       <div class="nav-wrapper">
+           <div class="nav-left">
+               <a href="#" class="company-name">seamlessflow</a>
+           </div>
+           <div class="nav-right">
+               <div class="nav-links">
+                   <a href="#home">Home</a>
+                   <a href="#services">Services</a>
+                   <a href="#about">About Us</a>
+               </div>
+               <a href="#contact" class="contact-button">Contact</a>
+           </div>
+       </div>
+   </nav>
 
-    <section class="hero">
-        <video class="hero-video" autoplay loop muted playsinline>
-            <source src="assets/Sequence 02_1.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
-            <h1>Transform Your Business with Automation</h1>
-            <p class="hero-description">
-                Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your operations.
-            </p>
-            <a href="#contact" class="cta-button">Get Started</a>
-        </div>
-        <div class="scroll-prompt">
-            Scroll to explore
-            <span class="scroll-arrow">↓</span>
-        </div>
-    </section>
+   <!-- Hero Section -->
+   <section class="hero" id="home">
+       <video class="hero-video" autoplay loop muted playsinline>
+           <source src="assets/Sequence 02_1.mp4" type="video/mp4">
+       </video>
+       <div class="hero-content">
+           <h1 class="hero-title">Transform Your Business<br>with Automation</h1>
+           <p class="hero-description">
+               Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your operations.
+           </p>
+           <div class="hero-buttons">
+               <a href="#contact" class="primary-button">Let's Talk</a>
+           </div>
+       </div>
+   </section>
+
+   <!-- Services Section -->
+   <section class="services" id="services">
+       <div class="services-inner">
+           <div class="services-header">
+               <h2>OUR SERVICES</h2>
+               <p>Comprehensive automation solutions for modern businesses</p>
+           </div>
+           <div class="services-grid">
+               <div class="service-card">
+                   <span class="service-number">#1</span>
+                   <h3 class="service-title">Website Chat Bots</h3>
+                   <div class="service-features">
+                       <span class="service-feature">24/7 Customer Support</span>
+                       <span class="service-feature">Lead Generation</span>
+                       <span class="service-feature">Instant Responses</span>
+                       <span class="service-feature">Custom Integration</span>
+                   </div>
+               </div>
+               <div class="service-card">
+                   <span class="service-number">#2</span>
+                   <h3 class="service-title">Social Media Automation</h3>
+                   <div class="service-features">
+                       <span class="service-feature">Instagram Management</span>
+                       <span class="service-feature">Content Scheduling</span>
+                       <span class="service-feature">Engagement Analytics</span>
+                       <span class="service-feature">Growth Optimization</span>
+                   </div>
+               </div>
+               <div class="service-card">
+                   <span class="service-number">#3</span>
+                   <h3 class="service-title">Digital Agent Development</h3>
+                   <div class="service-features">
+                       <span class="service-feature">AI Integration</span>
+                       <span class="service-feature">Process Automation</span>
+                       <span class="service-feature">Custom Solutions</span>
+                       <span class="service-feature">24/7 Operations</span>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Footer -->
+   <footer>
+       <div class="footer-inner">
+           <div class="footer-info">
+               <h3>seamlessflow</h3>
+               <p>Transforming businesses through intelligent automation</p>
+           </div>
+           <div class="footer-links">
+               <div>
+                   <h4>Contact</h4>
+                   <p>Email: contact@seamlessflow.ai</p>
+               </div>
+               <div>
+                   <h4>Legal</h4>
+                   <p>Privacy Policy</p>
+                   <p>Terms of Service</p>
+               </div>
+           </div>
+       </div>
+   </footer>
+
+   <script>
+       document.addEventListener('DOMContentLoaded', () => {
+           const video = document.querySelector('.hero-video');
+           window.addEventListener('scroll', () => {
+               const scrolled = window.pageYOffset;
+               const val = scrolled * 0.5;
+               video.style.transform = `translateY(${val}px)`;
+           });
+       });
+   </script>
 </body>
 </html>
