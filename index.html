@@ -5,7 +5,6 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Seamless Flow - Business Automation Solutions</title>
    <style>
-       /* Reset and Base Styles */
        * {
            margin: 0;
            padding: 0;
@@ -13,65 +12,41 @@
        }
 
        body {
-           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+           font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
            line-height: 1.5;
-           color: #333;
+           color: #000;
        }
 
        /* Navigation */
        nav {
            position: fixed;
-           width: 100%;
+           top: 0;
+           left: 0;
+           right: 0;
            background: white;
-           padding: 1.5rem 2rem;
+           padding: 1rem 2rem;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
            z-index: 1000;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-       }
-
-       .nav-wrapper {
-           max-width: 1400px;
-           margin: 0 auto;
-           width: 100%;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-       }
-
-       .nav-left {
-           display: flex;
-           align-items: center;
-       }
-
-       .nav-right {
-           display: flex;
-           align-items: center;
-           gap: 2rem;
+           border-bottom: 1px solid #eee;
        }
 
        .company-name {
-           font-size: 1.2rem;
+           font-size: 1.25rem;
            color: #000;
            text-decoration: none;
-           font-weight: 500;
+       }
+
+       .nav-links {
+           display: flex;
+           gap: 2rem;
        }
 
        .nav-links a {
-           text-decoration: none;
            color: #000;
-           font-weight: 400;
+           text-decoration: none;
            font-size: 1rem;
-           padding: 0.5rem 1rem;
-       }
-
-       .contact-button {
-           background: white;
-           border: 1px solid #eee;
-           padding: 0.5rem 1.5rem;
-           border-radius: 4px;
-           text-decoration: none;
-           color: #000;
        }
 
        /* Hero Section */
@@ -81,67 +56,75 @@
            display: flex;
            align-items: center;
            justify-content: center;
-           overflow: hidden;
-           background: #000;
+           text-align: center;
+           padding-top: 60px;
        }
 
        .hero-video {
            position: absolute;
+           top: 0;
+           left: 0;
            width: 100%;
            height: 100%;
            object-fit: cover;
-           opacity: 0.7;
+           z-index: -1;
        }
 
        .hero-content {
-           position: relative;
-           z-index: 2;
-           text-align: left;
-           max-width: 1200px;
+           max-width: 800px;
            padding: 0 2rem;
            color: white;
+           position: relative;
+           z-index: 1;
        }
 
        .hero-title {
-           font-size: 4rem;
-           font-weight: 600;
+           font-size: 5rem;
+           line-height: 1.1;
            margin-bottom: 2rem;
-           line-height: 1.2;
+           font-weight: 600;
        }
 
        .hero-description {
            font-size: 1.25rem;
-           margin-bottom: 2rem;
-           max-width: 600px;
+           margin-bottom: 3rem;
+           line-height: 1.5;
        }
 
-       .hero-buttons {
-           display: flex;
-           gap: 1rem;
-       }
-
-       .primary-button {
+       .cta-button {
+           display: inline-block;
            background: #007bff;
            color: white;
            text-decoration: none;
-           padding: 0.75rem 2rem;
-           border-radius: 4px;
-           font-weight: 500;
+           padding: 1rem 2rem;
+           border-radius: 6px;
+           font-size: 1rem;
        }
 
        /* Services Section */
        .services {
            padding: 6rem 2rem;
-           background: #f5f5f5;
+           background: #f8f9fa;
        }
 
-       .services-inner {
+       .services-container {
            max-width: 1200px;
            margin: 0 auto;
        }
 
        .services-header {
            margin-bottom: 4rem;
+       }
+
+       .services-header h2 {
+           font-size: 2rem;
+           margin-bottom: 1rem;
+           color: #000;
+       }
+
+       .services-header p {
+           color: #666;
+           font-size: 1.1rem;
        }
 
        .services-grid {
@@ -153,182 +136,167 @@
        .service-card {
            background: white;
            padding: 2rem;
-           border-radius: 10px;
-           display: flex;
-           flex-direction: column;
-           gap: 1rem;
+           border-radius: 8px;
        }
 
        .service-number {
-           font-size: 0.875rem;
            color: #666;
+           font-size: 0.9rem;
+           margin-bottom: 1rem;
        }
 
        .service-title {
-           font-size: 1.5rem;
-           font-weight: 600;
            color: #007bff;
+           font-size: 1.5rem;
+           margin-bottom: 2rem;
+           font-weight: 500;
        }
 
        .service-features {
            display: flex;
            flex-direction: column;
-           gap: 0.5rem;
+           gap: 0.75rem;
        }
 
-       .service-feature {
-           padding: 0.5rem;
+       .feature-item {
+           padding: 0.75rem;
            border: 1px solid #eee;
            border-radius: 4px;
-           font-size: 0.875rem;
+           font-size: 0.9rem;
+           color: #333;
        }
 
        /* Footer */
        footer {
-           background: #111;
+           background: #000;
            color: white;
            padding: 4rem 2rem;
        }
 
-       .footer-inner {
+       .footer-content {
            max-width: 1200px;
            margin: 0 auto;
-           display: flex;
-           justify-content: space-between;
-       }
-
-       .footer-info {
-           max-width: 300px;
-       }
-
-       .footer-links {
            display: grid;
-           grid-template-columns: repeat(2, 1fr);
+           grid-template-columns: 2fr 1fr 1fr;
            gap: 4rem;
        }
 
+       .footer-brand h3 {
+           font-size: 1.25rem;
+           margin-bottom: 1rem;
+       }
+
+       .footer-brand p {
+           color: #888;
+       }
+
+       .footer-section h4 {
+           font-size: 1rem;
+           margin-bottom: 1rem;
+       }
+
+       .footer-section p {
+           color: #888;
+           margin-bottom: 0.5rem;
+       }
+
        @media (max-width: 768px) {
+           .hero-title {
+               font-size: 3rem;
+           }
+
            .services-grid {
                grid-template-columns: 1fr;
            }
-           
-           .hero-title {
-               font-size: 2.5rem;
-           }
-           
-           .footer-inner {
-               flex-direction: column;
+
+           .footer-content {
+               grid-template-columns: 1fr;
                gap: 2rem;
            }
        }
    </style>
 </head>
 <body>
-   <!-- Navigation -->
    <nav>
-       <div class="nav-wrapper">
-           <div class="nav-left">
-               <a href="#" class="company-name">seamlessflow</a>
-           </div>
-           <div class="nav-right">
-               <div class="nav-links">
-                   <a href="#home">Home</a>
-                   <a href="#services">Services</a>
-                   <a href="#about">About Us</a>
-               </div>
-               <a href="#contact" class="contact-button">Contact</a>
-           </div>
+       <a href="#" class="company-name">seamlessflow</a>
+       <div class="nav-links">
+           <a href="#home">Home</a>
+           <a href="#services">Services</a>
+           <a href="#about">About Us</a>
+           <a href="#contact">Contact</a>
        </div>
    </nav>
 
-   <!-- Hero Section -->
    <section class="hero" id="home">
        <video class="hero-video" autoplay loop muted playsinline>
            <source src="assets/Sequence 02_1.mp4" type="video/mp4">
        </video>
        <div class="hero-content">
-           <h1 class="hero-title">Transform Your Business<br>with Automation</h1>
+           <h1 class="hero-title">Transform Your Business with Automation</h1>
            <p class="hero-description">
                Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your operations.
            </p>
-           <div class="hero-buttons">
-               <a href="#contact" class="primary-button">Let's Talk</a>
-           </div>
+           <a href="#contact" class="cta-button">Let's Talk</a>
        </div>
    </section>
 
-   <!-- Services Section -->
    <section class="services" id="services">
-       <div class="services-inner">
+       <div class="services-container">
            <div class="services-header">
                <h2>OUR SERVICES</h2>
                <p>Comprehensive automation solutions for modern businesses</p>
            </div>
            <div class="services-grid">
                <div class="service-card">
-                   <span class="service-number">#1</span>
+                   <div class="service-number">#1</div>
                    <h3 class="service-title">Website Chat Bots</h3>
                    <div class="service-features">
-                       <span class="service-feature">24/7 Customer Support</span>
-                       <span class="service-feature">Lead Generation</span>
-                       <span class="service-feature">Instant Responses</span>
-                       <span class="service-feature">Custom Integration</span>
+                       <div class="feature-item">24/7 Customer Support</div>
+                       <div class="feature-item">Lead Generation</div>
+                       <div class="feature-item">Instant Responses</div>
+                       <div class="feature-item">Custom Integration</div>
                    </div>
                </div>
                <div class="service-card">
-                   <span class="service-number">#2</span>
+                   <div class="service-number">#2</div>
                    <h3 class="service-title">Social Media Automation</h3>
                    <div class="service-features">
-                       <span class="service-feature">Instagram Management</span>
-                       <span class="service-feature">Content Scheduling</span>
-                       <span class="service-feature">Engagement Analytics</span>
-                       <span class="service-feature">Growth Optimization</span>
+                       <div class="feature-item">Instagram Management</div>
+                       <div class="feature-item">Content Scheduling</div>
+                       <div class="feature-item">Engagement Analytics</div>
+                       <div class="feature-item">Growth Optimization</div>
                    </div>
                </div>
                <div class="service-card">
-                   <span class="service-number">#3</span>
+                   <div class="service-number">#3</div>
                    <h3 class="service-title">Digital Agent Development</h3>
                    <div class="service-features">
-                       <span class="service-feature">AI Integration</span>
-                       <span class="service-feature">Process Automation</span>
-                       <span class="service-feature">Custom Solutions</span>
-                       <span class="service-feature">24/7 Operations</span>
+                       <div class="feature-item">AI Integration</div>
+                       <div class="feature-item">Process Automation</div>
+                       <div class="feature-item">Custom Solutions</div>
+                       <div class="feature-item">24/7 Operations</div>
                    </div>
                </div>
            </div>
        </div>
    </section>
 
-   <!-- Footer -->
    <footer>
-       <div class="footer-inner">
-           <div class="footer-info">
+       <div class="footer-content">
+           <div class="footer-brand">
                <h3>seamlessflow</h3>
                <p>Transforming businesses through intelligent automation</p>
            </div>
-           <div class="footer-links">
-               <div>
-                   <h4>Contact</h4>
-                   <p>Email: contact@seamlessflow.ai</p>
-               </div>
-               <div>
-                   <h4>Legal</h4>
-                   <p>Privacy Policy</p>
-                   <p>Terms of Service</p>
-               </div>
+           <div class="footer-section">
+               <h4>Contact</h4>
+               <p>Email: contact@seamlessflow.ai</p>
+           </div>
+           <div class="footer-section">
+               <h4>Legal</h4>
+               <p>Privacy Policy</p>
+               <p>Terms of Service</p>
            </div>
        </div>
    </footer>
-
-   <script>
-       document.addEventListener('DOMContentLoaded', () => {
-           const video = document.querySelector('.hero-video');
-           window.addEventListener('scroll', () => {
-               const scrolled = window.pageYOffset;
-               const val = scrolled * 0.5;
-               video.style.transform = `translateY(${val}px)`;
-           });
-       });
-   </script>
 </body>
 </html>
