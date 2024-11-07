@@ -2,146 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seamless Flow - Business Automation Solutions</title>
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-blue: #007BFF;
-            --dark-blue: #0056b3;
-            --black: #000000;
-            --white: #FFFFFF;
-            --overlay: rgba(0, 0, 0, 0.4);
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.5;
         }
 
-        /* Navigation Styles */
+        /* Navigation */
         nav {
             position: fixed;
+            top: 0;
             width: 100%;
-            background: var(--white);
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            background: white;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            z-index: 1000;
         }
 
         .company-name {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--black);
+            font-size: 1.25rem;
+            color: #000;
             text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .nav-links a {
-            color: var(--black);
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
+            color: #000;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-blue);
-        }
-
-        /* Hero Section Styles */
+        /* Hero Section */
         .hero {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .video-container {
-            position: relative;
             height: 100vh;
             width: 100%;
+            position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-video {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform-origin: center center;
-            transition: transform 0.1s ease-out;
-        }
-
-        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--overlay);
-            z-index: 1;
+            object-fit: cover;
+            z-index: -1;
         }
 
         .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 1000px;
             text-align: center;
-            z-index: 2;
-            color: var(--white);
+            color: white;
+            max-width: 1000px;
+            padding: 0 2rem;
+            z-index: 1;
         }
 
         h1 {
-            font-size: 6rem;
-            font-weight: 600;
-            line-height: 1;
-            margin-bottom: 2rem;
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
 
         .hero-description {
             font-size: 1.5rem;
-            line-height: 1.5;
-            margin: 2rem auto;
-            max-width: 700px;
+            line-height: 1.4;
+            margin: 1.5rem 0;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary-blue);
-            color: var(--white);
+            background: #007BFF;
+            color: white;
             text-decoration: none;
-            border-radius: 6px;
-            font-size: 1.25rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
             margin-top: 2rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--dark-blue);
         }
 
         .scroll-prompt {
@@ -149,122 +101,43 @@
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            color: var(--white);
+            color: white;
             text-align: center;
-            font-size: 1rem;
-            z-index: 2;
         }
 
-        .scroll-prompt::after {
-            content: "↓";
+        .scroll-arrow {
             display: block;
             margin-top: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            h1 {
-                font-size: 5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-content {
-                flex-direction: column;
-                height: auto;
-                padding: 1rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            h1 {
-                font-size: 3.5rem;
-            }
-
-            .hero-description {
-                font-size: 1.2rem;
-                padding: 0 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 1.1rem;
-            }
+            font-size: 1.5rem;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
-        <div class="nav-content">
-            <a href="#" class="company-name">seamlessflow</a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact</a>
-            </div>
+        <a href="#" class="company-name">seamlessflow</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="video-container">
-            <div class="hero-overlay"></div>
-            <video class="hero-video" autoplay loop muted playsinline>
-                <source src="assets/Sequence 02_1.mp4" type="video/mp4">
-            </video>
-            <div class="hero-content">
-                <h1>Transform Your Business with Automation</h1>
-                <p class="hero-description">
-                    Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your operations.
-                </p>
-                <a href="#contact" class="cta-button">Get Started</a>
-            </div>
-            <div class="scroll-prompt">
-                Scroll to explore
-            </div>
+    <section class="hero">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="assets/Sequence 02_1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Transform Your Business with Automation</h1>
+            <p class="hero-description">
+                Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your operations.
+            </p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+        <div class="scroll-prompt">
+            Scroll to explore
+            <span class="scroll-arrow">↓</span>
         </div>
     </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.querySelector('.hero-video');
-            const hero = document.querySelector('.hero');
-            let isScrolling = false;
-
-            window.addEventListener('scroll', () => {
-                if (!isScrolling) {
-                    window.requestAnimationFrame(() => {
-                        const scrollPosition = window.scrollY;
-                        const viewportHeight = window.innerHeight;
-                        const scrollPercent = Math.min(scrollPosition / viewportHeight, 1);
-                        
-                        const scale = 1 + (scrollPercent * 0.3);
-                        
-                        video.style.transform = `scale(${scale})`;
-                        document.querySelector('.hero-overlay').style.opacity = 
-                            0.4 + (scrollPercent * 0.3);
-                        
-                        isScrolling = false;
-                    });
-                }
-                isScrolling = true;
-            });
-        });
-    </script>
 </body>
 </html>
