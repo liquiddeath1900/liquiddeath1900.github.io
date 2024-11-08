@@ -72,10 +72,13 @@
 
        .hero-content {
            max-width: 800px;
-           padding: 0 2rem;
+           padding: 2rem;
            color: white;
            position: relative;
            z-index: 1;
+           background: rgba(0, 0, 0, 0.4);
+           border-radius: 10px;
+           backdrop-filter: blur(5px);
        }
 
        .hero-title {
@@ -83,12 +86,14 @@
            line-height: 1.1;
            margin-bottom: 2rem;
            font-weight: 600;
+           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
        }
 
        .hero-description {
            font-size: 1.25rem;
            margin-bottom: 3rem;
            line-height: 1.5;
+           text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
        }
 
        .cta-button {
@@ -99,6 +104,13 @@
            padding: 1rem 2rem;
            border-radius: 6px;
            font-size: 1rem;
+           transition: all 0.3s ease;
+       }
+
+       .cta-button:hover {
+           background: #0056b3;
+           transform: translateY(-2px);
+           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
        }
 
        /* Services Section */
@@ -137,6 +149,15 @@
            background: white;
            padding: 2rem;
            border-radius: 8px;
+           transition: all 0.3s ease;
+           border: 1px solid transparent;
+           cursor: pointer;
+       }
+
+       .service-card:hover {
+           transform: translateY(-10px);
+           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+           border-color: #007bff;
        }
 
        .service-number {
@@ -164,6 +185,12 @@
            border-radius: 4px;
            font-size: 0.9rem;
            color: #333;
+           transition: all 0.3s ease;
+       }
+
+       .service-card:hover .feature-item {
+           border-color: #007bff;
+           background: rgba(0, 123, 255, 0.02);
        }
 
        /* Footer */
