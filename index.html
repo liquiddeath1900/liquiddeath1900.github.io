@@ -17,7 +17,7 @@
             color: #000;
         }
 
-        /* Navigation */
+        /* === START: NAVIGATION STYLES === */
         nav {
             position: fixed;
             top: 0;
@@ -37,10 +37,6 @@
             font-weight: 700;
             color: #000;
             text-decoration: none;
-            margin: 0 auto;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .mobile-menu-btn {
@@ -61,7 +57,112 @@
             transition: all 0.3s ease;
         }
 
-        /* Hero Section */
+        /* Desktop Navigation (Large Screens) */
+        @media (min-width: 1024px) {
+            .company-name {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                margin-left: auto;
+            }
+
+            .nav-links a {
+                color: #000;
+                text-decoration: none;
+                font-size: 1rem;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: #007bff;
+            }
+        }
+
+        /* Tablet Navigation (Medium Screens) */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            .company-name {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .nav-links a {
+                color: #000;
+                text-decoration: none;
+                font-size: 1rem;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: #007bff;
+            }
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .company-name {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            /* Hamburger Animation */
+            .mobile-menu-btn.active .bar:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 6px);
+            }
+
+            .mobile-menu-btn.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -6px);
+            }
+        }
+        /* === END: NAVIGATION STYLES === */
+
+        /* === START: HERO SECTION === */
         .hero {
             height: 100vh;
             position: relative;
@@ -124,8 +225,9 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+        /* === END: HERO SECTION === */
 
-        /* Services Section */
+        /* === START: SERVICES SECTION === */
         .services {
             padding: 6rem 2rem;
             background: #f8f9fa;
@@ -204,8 +306,9 @@
             border-color: #007bff;
             background: rgba(0, 123, 255, 0.02);
         }
+        /* === END: SERVICES SECTION === */
 
-        /* Footer */
+        /* === START: FOOTER === */
         footer {
             background: #000;
             color: white;
@@ -239,44 +342,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Mobile Navigation */
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100vh;
-                background: white;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-                transition: left 0.3s ease;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            /* Hamburger Animation */
-            .mobile-menu-btn.active .bar:nth-child(1) {
-                transform: rotate(45deg) translate(8px, 6px);
-            }
-
-            .mobile-menu-btn.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-btn.active .bar:nth-child(3) {
-                transform: rotate(-45deg) translate(8px, -6px);
-            }
-
             .hero-title {
                 font-size: 3rem;
             }
@@ -290,29 +356,11 @@
                 gap: 2rem;
             }
         }
-
-        /* Desktop Navigation */
-        @media (min-width: 769px) {
-            .nav-links {
-                display: flex;
-                gap: 2rem;
-                margin-left: auto;
-            }
-
-            .nav-links a {
-                color: #000;
-                text-decoration: none;
-                font-size: 1rem;
-                transition: color 0.3s ease;
-            }
-
-            .nav-links a:hover {
-                color: #007bff;
-            }
-        }
+        /* === END: FOOTER === */
     </style>
 </head>
 <body>
+    <!-- === START: NAVIGATION HTML === -->
     <nav>
         <button class="mobile-menu-btn">
             <span class="bar"></span>
@@ -327,7 +375,9 @@
             <a href="#contact">Contact</a>
         </div>
     </nav>
+    <!-- === END: NAVIGATION HTML === -->
 
+    <!-- === START: HERO SECTION === -->
     <section class="hero" id="home">
         <video class="hero-video" autoplay loop muted playsinline>
             <source src="assets/Sequence 02_1.mp4" type="video/mp4">
@@ -340,7 +390,9 @@
             <a href="#contact" class="cta-button">Let's Talk</a>
         </div>
     </section>
+    <!-- === END: HERO SECTION === -->
 
+    <!-- === START: SERVICES SECTION === -->
     <section class="services" id="services">
         <div class="services-container">
             <div class="services-header">
@@ -381,7 +433,9 @@
             </div>
         </div>
     </section>
+    <!-- === END: SERVICES SECTION === -->
 
+    <!-- === START: FOOTER === -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
@@ -399,7 +453,9 @@
             </div>
         </div>
     </footer>
+    <!-- === END: FOOTER === -->
 
+    <!-- === START: SCRIPTS === -->
     <script>
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             this.classList.toggle('active');
@@ -414,5 +470,6 @@
             });
         });
     </script>
+    <!-- === END: SCRIPTS === -->
 </body>
 </html>
