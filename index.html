@@ -161,6 +161,17 @@
             .mobile-menu-btn.active .bar:nth-child(3) {
                 transform: rotate(-45deg) translate(8px, -6px);
             }
+
+            .nav-links a {
+                color: #000;
+                text-decoration: none;
+                font-size: 1.2rem;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: #007bff;
+            }
         }
         /* === END: NAVIGATION STYLES === */
 
@@ -463,6 +474,14 @@
             .stat-number {
                 font-size: 2rem;
             }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
         /* === END: ABOUT SECTION === */
 
@@ -501,14 +520,6 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -541,6 +552,4 @@
             <source src="assets/Sequence 02_1.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
-            <h1 class="hero-title">Transform Your Business with Automation</h1>
-            <p class="hero-description">
-                Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your
+            <h1
