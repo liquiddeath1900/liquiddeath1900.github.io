@@ -1,329 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Seamless Flow - Business Automation Solutions</title>
-   <style>
-       * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-       }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamless Flow - Business Automation Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-       body {
-           font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-           line-height: 1.5;
-           color: #000;
-       }
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            color: #000;
+        }
 
-       /* Navigation */
-       nav {
-           position: fixed;
-           top: 0;
-           left: 0;
-           right: 0;
-           background: white;
-           padding: 1rem 2rem;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           z-index: 1000;
-           border-bottom: 1px solid #eee;
-       }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
 
-       .company-name {
-           font-size: 1.25rem;
-           color: #000;
-           text-decoration: none;
-       }
+        .company-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-       .nav-links {
-           display: flex;
-           gap: 2rem;
-       }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
 
-       .nav-links a {
-           color: #000;
-           text-decoration: none;
-           font-size: 1rem;
-       }
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
 
-       /* Hero Section */
-       .hero {
-           height: 100vh;
-           position: relative;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           text-align: center;
-           padding-top: 60px;
-       }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 60px;
+        }
 
-       .hero-video {
-           position: absolute;
-           top: 0;
-           left: 0;
-           width: 100%;
-           height: 100%;
-           object-fit: cover;
-           z-index: -1;
-       }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
 
-       .hero-content {
-           max-width: 800px;
-           padding: 2rem;
-           color: white;
-           position: relative;
-           z-index: 1;
-           background: rgba(0, 0, 0, 0.4);
-           border-radius: 10px;
-           backdrop-filter: blur(5px);
-       }
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
 
-       .hero-title {
-           font-size: 5rem;
-           line-height: 1.1;
-           margin-bottom: 2rem;
-           font-weight: 600;
-           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-       }
+        .hero-title {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-       .hero-description {
-           font-size: 1.25rem;
-           margin-bottom: 3rem;
-           line-height: 1.5;
-           text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-       }
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
 
-       .cta-button {
-           display: inline-block;
-           background: #007bff;
-           color: white;
-           text-decoration: none;
-           padding: 1rem 2rem;
-           border-radius: 6px;
-           font-size: 1rem;
-           transition: all 0.3s ease;
-       }
+        .cta-button {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
 
-       .cta-button:hover {
-           background: #0056b3;
-           transform: translateY(-2px);
-           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-       }
+        .cta-button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
-       /* Services Section */
-       .services {
-           padding: 6rem 2rem;
-           background: #f8f9fa;
-       }
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: #f8f9fa;
+        }
 
-       .services-container {
-           max-width: 1200px;
-           margin: 0 auto;
-       }
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-       .services-header {
-           margin-bottom: 4rem;
-       }
+        .services-header {
+            margin-bottom: 4rem;
+        }
 
-       .services-header h2 {
-           font-size: 2rem;
-           margin-bottom: 1rem;
-           color: #000;
-       }
+        .services-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
 
-       .services-header p {
-           color: #666;
-           font-size: 1.1rem;
-       }
+        .services-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
 
-       .services-grid {
-           display: grid;
-           grid-template-columns: repeat(3, 1fr);
-           gap: 2rem;
-       }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
 
-       .service-card {
-           background: white;
-           padding: 2rem;
-           border-radius: 8px;
-           transition: all 0.3s ease;
-           border: 1px solid transparent;
-           cursor: pointer;
-       }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
 
-       .service-card:hover {
-           transform: translateY(-10px);
-           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-           border-color: #007bff;
-       }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #007bff;
+        }
 
-       .service-number {
-           color: #666;
-           font-size: 0.9rem;
-           margin-bottom: 1rem;
-       }
+        .service-number {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
 
-       .service-title {
-           color: #007bff;
-           font-size: 1.5rem;
-           margin-bottom: 2rem;
-           font-weight: 500;
-       }
+        .service-title {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
 
-       .service-features {
-           display: flex;
-           flex-direction: column;
-           gap: 0.75rem;
-       }
+        .service-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
 
-       .feature-item {
-           padding: 0.75rem;
-           border: 1px solid #eee;
-           border-radius: 4px;
-           font-size: 0.9rem;
-           color: #333;
-           transition: all 0.3s ease;
-       }
+        .feature-item {
+            padding: 0.75rem;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
 
-       .service-card:hover .feature-item {
-           border-color: #007bff;
-           background: rgba(0, 123, 255, 0.02);
-       }
+        .service-card:hover .feature-item {
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.02);
+        }
 
-       /* Footer */
-       footer {
-           background: #000;
-           color: white;
-           padding: 4rem 2rem;
-       }
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: 4rem 2rem;
+        }
 
-       .footer-content {
-           max-width: 1200px;
-           margin: 0 auto;
-           display: grid;
-           grid-template-columns: 2fr 1fr 1fr;
-           gap: 4rem;
-       }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+        }
 
-       .footer-brand h3 {
-           font-size: 1.25rem;
-           margin-bottom: 1rem;
-       }
+        .footer-brand h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
 
-       .footer-brand p {
-           color: #888;
-       }
+        .footer-brand p {
+            color: #888;
+        }
 
-       .footer-section h4 {
-           font-size: 1rem;
-           margin-bottom: 1rem;
-       }
+        .footer-section h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
 
-       .footer-section p {
-           color: #888;
-           margin-bottom: 0.5rem;
-       }
+        .footer-section p {
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
 
-       @media (max-width: 768px) {
-           .hero-title {
-               font-size: 3rem;
-           }
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
 
-           .services-grid {
-               grid-template-columns: 1fr;
-           }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: left 0.3s ease;
+            }
 
-           .footer-content {
-               grid-template-columns: 1fr;
-               gap: 2rem;
-           }
-       }
-   </style>
+            .nav-links.active {
+                left: 0;
+            }
+
+            /* Hamburger Animation */
+            .mobile-menu-btn.active .bar:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 6px);
+            }
+
+            .mobile-menu-btn.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -6px);
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Desktop Navigation */
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                margin-left: auto;
+            }
+
+            .nav-links a {
+                color: #000;
+                text-decoration: none;
+                font-size: 1rem;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: #007bff;
+            }
+        }
+    </style>
 </head>
 <body>
-   <nav>
-       <a href="#" class="company-name">seamlessflow</a>
-       <div class="nav-links">
-           <a href="#home">Home</a>
-           <a href="#services">Services</a>
-           <a href="#about">About Us</a>
-           <a href="#contact">Contact</a>
-       </div>
-   </nav>
+    <nav>
+        <button class="mobile-menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <a href="#" class="company-name">seamlessflow</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-   <section class="hero" id="home">
-       <video class="hero-video" autoplay loop muted playsinline>
-           <source src="assets/Sequence 02_1.mp4" type="video/mp4">
-       </video>
-       <div class="hero-content">
-           <h1 class="hero-title">Transform Your Business with Automation</h1>
-           <p class="hero-description">
-               Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your operations.
-           </p>
-           <a href="#contact" class="cta-button">Let's Talk</a>
-       </div>
-   </section>
+    <section class="hero" id="home">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="assets/Sequence 02_1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="hero-title">Transform Your Business with Automation</h1>
+            <p class="hero-description">
+                Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your operations.
+            </p>
+            <a href="#contact" class="cta-button">Let's Talk</a>
+        </div>
+    </section>
 
-   <section class="services" id="services">
-       <div class="services-container">
-           <div class="services-header">
-               <h2>OUR SERVICES</h2>
-               <p>Comprehensive automation solutions for modern businesses</p>
-           </div>
-           <div class="services-grid">
-               <div class="service-card">
-                   <div class="service-number">#1</div>
-                   <h3 class="service-title">Website Chat Bots</h3>
-                   <div class="service-features">
-                       <div class="feature-item">24/7 Customer Support</div>
-                       <div class="feature-item">Lead Generation</div>
-                       <div class="feature-item">Instant Responses</div>
-                       <div class="feature-item">Custom Integration</div>
-                   </div>
-               </div>
-               <div class="service-card">
-                   <div class="service-number">#2</div>
-                   <h3 class="service-title">Social Media Automation</h3>
-                   <div class="service-features">
-                       <div class="feature-item">Instagram Management</div>
-                       <div class="feature-item">Content Scheduling</div>
-                       <div class="feature-item">Engagement Analytics</div>
-                       <div class="feature-item">Growth Optimization</div>
-                   </div>
-               </div>
-               <div class="service-card">
-                   <div class="service-number">#3</div>
-                   <h3 class="service-title">Digital Agent Development</h3>
-                   <div class="service-features">
-                       <div class="feature-item">AI Integration</div>
-                       <div class="feature-item">Process Automation</div>
-                       <div class="feature-item">Custom Solutions</div>
-                       <div class="feature-item">24/7 Operations</div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="services-header">
+                <h2>OUR SERVICES</h2>
+                <p>Comprehensive automation solutions for modern businesses</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">#1</div>
+                    <h3 class="service-title">Website Chat Bots</h3>
+                    <div class="service-features">
+                        <div class="feature-item">24/7 Customer Support</div>
+                        <div class="feature-item">Lead Generation</div>
+                        <div class="feature-item">Instant Responses</div>
+                        <div class="feature-item">Custom Integration</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">#2</div>
+                    <h3 class="service-title">Social Media Automation</h3>
+                    <div class="service-features">
+                        <div class="feature-item">Instagram Management</div>
+                        <div class="feature-item">Content Scheduling</div>
+                        <div class="feature-item">Engagement Analytics</div>
+                        <div class="feature-item">Growth Optimization</div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">#3</div>
+                    <h3 class="service-title">Digital Agent Development</h3>
+                    <div class="service-features">
+                        <div class="feature-item">AI Integration</div>
+                        <div class="feature-item">Process Automation</div>
+                        <div class="feature-item">Custom Solutions</div>
+                        <div class="feature-item">24/7 Operations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-   <footer>
-       <div class="footer-content">
-           <div class="footer-brand">
-               <h3>seamlessflow</h3>
-               <p>Transforming businesses through intelligent automation</p>
-           </div>
-           <div class="footer-section">
-               <h4>Contact</h4>
-               <p>Email: contact@seamlessflow.ai</p>
-           </div>
-           <div class="footer-section">
-               <h4>Legal</h4>
-               <p>Privacy Policy</p>
-               <p>Terms of Service</p>
-           </div>
-       </div>
-   </footer>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>seamlessflow</h3>
+                <p>Transforming businesses through intelligent automation</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: contact@seamlessflow.ai</p>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <p>Privacy Policy</p>
+                <p>Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.mobile-menu-btn').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
