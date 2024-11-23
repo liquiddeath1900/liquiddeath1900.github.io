@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seamless Flow - Business Automation Solutions</title>
+    <title>SeamlessFlow - Enterprise Automation Solutions</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
     <style>
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -17,61 +21,13 @@
             color: #000;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid #eee;
+        /* Enhanced Navigation */
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
         }
 
-        .company-name {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #000;
-            text-decoration: none;
-            margin: 0 auto;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1001;
-        }
-
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #000;
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 60px;
-        }
-
+        /* Hero Video Background */
         .hero-video {
             position: absolute;
             top: 0;
@@ -82,418 +38,207 @@
             z-index: -1;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            color: white;
-            position: relative;
-            z-index: 1;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 10px;
+        /* Enhanced Hero Content */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
             backdrop-filter: blur(5px);
         }
 
-        .hero-title {
-            font-size: 5rem;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-description {
-            font-size: 1.25rem;
-            margin-bottom: 3rem;
-            line-height: 1.5;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
+        /* Animated Button */
         .cta-button {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 6px;
-            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
 
-        .cta-button:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
         }
 
-        /* Services Section */
-        .services {
-            padding: 6rem 2rem;
-            background: #f8f9fa;
+        .cta-button:hover::after {
+            left: 100%;
         }
 
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .services-header {
-            margin-bottom: 4rem;
-        }
-
-        .services-header h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #000;
-        }
-
-        .services-header p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            cursor: pointer;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-color: #007bff;
-        }
-
-        .service-number {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-title {
-            color: #007bff;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .service-features {
+        .modal.active {
             display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+            opacity: 1;
         }
 
-        .feature-item {
-            padding: 0.75rem;
-            border: 1px solid #eee;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: #333;
-            transition: all 0.3s ease;
+        .modal-content {
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
         }
 
-        .service-card:hover .feature-item {
-            border-color: #007bff;
-            background: rgba(0, 123, 255, 0.02);
+        .modal.active .modal-content {
+            transform: scale(1);
         }
 
-        /* About Section */
-        .about {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .about-header h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #000;
-        }
-
-        .about-header p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .about-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-        }
-
-        .about-card:hover {
-            transform: translateY(-5px);
-            border-color: #007bff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #007bff;
-            margin-bottom: 1rem;
-        }
-
-        .about-label {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .about-description {
-            color: #444;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            color: white;
-            padding: 4rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            color: #888;
-        }
-
-        .footer-section h4 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p {
-            color: #888;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Mobile Navigation */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100vh;
-                background: white;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-                transition: left 0.3s ease;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            /* Hamburger Animation */
-            .mobile-menu-btn.active .bar:nth-child(1) {
-                transform: rotate(45deg) translate(8px, 6px);
-            }
-
-            .mobile-menu-btn.active .bar:nth-child(2) {
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
                 opacity: 0;
+                transform: translateY(20px);
             }
-
-            .mobile-menu-btn.active .bar:nth-child(3) {
-                transform: rotate(-45deg) translate(8px, -6px);
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Desktop Navigation */
-        @media (min-width: 769px) {
-            .nav-links {
-                display: flex;
-                gap: 2rem;
-                margin-left: auto;
-            }
-
-            .nav-links a {
-                color: #000;
-                text-decoration: none;
-                font-size: 1rem;
-                transition: color 0.3s ease;
-            }
-
-            .nav-links a:hover {
-                color: #007bff;
-            }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease forwards;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <button class="mobile-menu-btn">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <a href="#" class="company-name">seamlessflow</a>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
+    <!-- Enhanced Navigation -->
+    <nav class="fixed w-full z-50 nav-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold">seamlessflow</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#services" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="#pricing" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pricing</a>
+                        <a href="#contact" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-btn inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Services</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Pricing</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700">Get Started</a>
+            </div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
+    <!-- Enhanced Hero Section -->
+    <section class="relative h-screen flex items-center justify-center" id="home">
         <video class="hero-video" autoplay loop muted playsinline>
             <source src="assets/Sequence 02_1.mp4" type="video/mp4">
         </video>
-        <div class="hero-content">
-            <h1 class="hero-title">Transform Your Business with Automation</h1>
-            <p class="hero-description">
-                Empower your business with intelligent automation solutions. Focus on what matters most while we streamline your operations.
+        
+        <div class="hero-gradient rounded-xl p-8 md:p-12 max-w-4xl mx-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fadeInUp">
+                Enterprise Automation Solutions
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fadeInUp" style="animation-delay: 0.2s">
+                Transform your business with AI-powered automation. Our premium solutions deliver measurable results with comprehensive digital transformation.
             </p>
-            <a href="#contact" class="cta-button">Let's Talk</a>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="services-container">
-            <div class="services-header">
-                <h2>OUR SERVICES</h2>
-                <p>Comprehensive automation solutions for modern businesses</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-number">#1</div>
-                    <h3 class="service-title">Website Chat Bots</h3>
-                    <div class="service-features">
-                        <div class="feature-item">24/7 Customer Support</div>
-                        <div class="feature-item">Lead Generation</div>
-                        <div class="feature-item">Instant Responses</div>
-                        <div class="feature-item">Custom Integration</div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">#2</div>
-                    <h3 class="service-title">Social Media Automation</h3>
-                    <div class="service-features">
-                        <div class="feature-item">Instagram Management</div>
-                        <div class="feature-item">Content Scheduling</div>
-                        <div class="feature-item">Engagement Analytics</div>
-                        <div class="feature-item">Growth Optimization</div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">#3</div>
-                    <h3 class="service-title">Digital Agent Development</h3>
-                    <div class="service-features">
-                        <div class="feature-item">AI Integration</div>
-                        <div class="feature-item">Process Automation</div>
-                        <div class="feature-item">Custom Solutions</div>
-                        <div class="feature-item">24/7 Operations</div>
-                    </div>
-                </div>
+            <div class="space-y-4 animate-fadeInUp" style="animation-delay: 0.4s">
+                <a href="#pricing" class="cta-button inline-block bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:-translate-y-1">
+                    Explore Solutions
+                </a>
+                <p class="text-gray-300 text-lg">Premium packages starting at $6,000/month</p>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-header">
-                <h2>ABOUT US</h2>
-                <p>Delivering excellence in automation since 2020</p>
+    <!-- Modal Template -->
+    <div id="pricingModal" class="modal">
+        <div class="modal-content bg-white rounded-lg max-w-4xl mx-auto my-8 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Detailed Pricing</h2>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
-            <div class="about-content">
-                <div class="about-card">
-                    <div class="about-number">500+</div>
-                    <div class="about-label">Projects Completed</div>
-                    <p class="about-description">Successfully delivered automation solutions across various industries and business sizes.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-number">98%</div>
-                    <div class="about-label">Client Satisfaction</div>
-                    <p class="about-description">Our clients trust us with their automation needs, reflected in our high satisfaction rate.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-number">24/7</div>
-                    <div class="about-label">Support Available</div>
-                    <p class="about-description">Round-the-clock assistance ensuring your automated systems run smoothly at all times.</p>
-                </div>
-            </div>
+            <!-- Modal content will be dynamically inserted here -->
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>seamlessflow</h3>
-                <p>Transforming businesses through intelligent automation</p>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>Email: contact@seamlessflow.ai</p>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <p>Privacy Policy</p>
-                <p>Terms of Service</p>
-            </div>
-        </div>
-    </footer>
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('pricingModal');
+        const modalClose = document.querySelector('.modal-close');
+
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
