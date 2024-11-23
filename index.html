@@ -114,17 +114,22 @@
         .hero-content {
             position: relative;
             z-index: 3;
+            opacity: 1 !important; /* Force opacity */
+            transform: none !important; /* Prevent transform */
+            animation: none !important; /* Disable any animations initially */
         }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.6s ease forwards;
+        /* New Animations */
+        .animate-fade-in {
+            animation: fadeInPermanent 0.8s ease forwards;
         }
 
-        @keyframes fadeIn {
-            to {
+        @keyframes fadeInPermanent {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -136,6 +141,8 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: inline-block; /* Ensure button remains visible */
+            opacity: 1 !important; /* Force opacity */
         }
 
         .btn-primary:hover {
@@ -221,14 +228,14 @@
         
         <div class="hero-content h-full flex items-center justify-center">
             <div class="text-center px-4 max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in" style="animation-delay: 0.1s;">
                     Transform Your Business with Intelligent Automation
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-200 mb-8 fade-in" style="animation-delay: 0.2s">
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in" style="animation-delay: 0.3s;">
                     Streamline your operations, enhance customer experience, and drive growth with our cutting-edge automation solutions.
                 </p>
-                <div class="space-y-4 fade-in" style="animation-delay: 0.4s">
-                    <a href="#services" class="btn-primary inline-block text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                <div class="animate-fade-in" style="animation-delay: 0.5s;">
+                    <a href="#services" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
                         Explore Solutions
                     </a>
                 </div>
@@ -249,6 +256,11 @@
             video.play().catch(function(error) {
                 console.log("Video autoplay failed:", error);
             });
+
+            // Ensure content visibility
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.opacity = '1';
+            heroContent.style.visibility = 'visible';
         });
     </script>
 </body>
