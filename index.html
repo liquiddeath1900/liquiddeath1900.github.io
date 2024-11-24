@@ -907,36 +907,99 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title">Get Started</h2>
         <p class="section-subtitle">Schedule a consultation to discuss your automation needs</p>
-
-        <form class="bg-white rounded-xl shadow-lg p-8">
+        <form 
+            class="bg-white rounded-xl shadow-lg p-8" 
+            action="https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/formResponse" 
+            method="POST"
+            target="hidden_iframe"
+            onsubmit="submitted=true;"
+        >
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                    <input type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    <input 
+                        name="entry.345227033"
+                        type="text" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                        required
+                    >
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
-                    <input type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    <input 
+                        name="entry.380523308"
+                        type="text" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                        required
+                    >
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                    <input type="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    <input 
+                        name="entry.228842138"
+                        type="email" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                        required
+                    >
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                    <input type="tel" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <input 
+                        name="entry.123451209"
+                        type="tel" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
                 </div>
                 <div class="md:col-span-2">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                    <textarea rows="4" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                    <textarea 
+                        name="entry.577177041"
+                        rows="4" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                        required
+                    ></textarea>
                 </div>
             </div>
-            <button type="submit" class="mt-6 w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+            <button 
+                type="submit" 
+                class="mt-6 w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
                 Schedule Consultation
             </button>
+            <div id="successMessage" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                Thank you! Your message has been submitted. We'll be in touch soon.
+            </div>
         </form>
     </div>
 </section>
+
+<!-- Add this right before the closing body tag -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+var submitted = false;
+window.addEventListener('load', function() {
+    const form = document.querySelector('form');
+    const successMessage = document.getElementById('successMessage');
+    
+    form.addEventListener('submit', function(e) {
+        if (submitted) {
+            e.preventDefault();
+            return;
+        }
+        
+        submitted = true;
+        setTimeout(function() {
+            successMessage.classList.remove('hidden');
+            form.reset();
+            setTimeout(function() {
+                successMessage.classList.add('hidden');
+                submitted = false;
+            }, 5000);
+        }, 1000);
+    });
+});
+</script>
 
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-12 mt-16">
