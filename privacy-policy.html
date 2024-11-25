@@ -4,45 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - SeamlessFlow</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
     <style>
-        /* Reuse your existing footer styles */
-        footer a {
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        /* Enhanced Navigation */
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            width: 24px;
+            height: 20px;
             position: relative;
-            display: inline-block;
+            cursor: pointer;
+            display: none;
         }
-        footer a:after {
-            content: '';
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+        }
+
+        .hamburger span {
+            display: block;
             position: absolute;
+            height: 2px;
             width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: -2px;
+            background: #333;
+            border-radius: 9px;
             left: 0;
-            background-color: #fff;
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
         }
-        footer a:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 9px; }
+        .hamburger span:nth-child(3) { top: 18px; }
+
+        .hamburger.open span:nth-child(1) {
+            top: 9px;
+            transform: rotate(135deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            top: 9px;
+            transform: rotate(-135deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-menu.hidden {
+            display: none;
+        }
+
+        /* Content Styles */
+        .content-section {
+            padding-top: 5rem;
         }
     </style>
 </head>
-<body class="bg-white">
-    <main class="max-w-4xl mx-auto p-6">
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold">seamlessflow</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="/#services" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="/#benefits" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Benefits</a>
+                        <a href="/#pricing" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Solutions</a>
+                        <a href="/#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="hamburger mobile-menu-btn focus:outline-none">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+                <a href="/" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Home</a>
+                <a href="/#services" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Services</a>
+                <a href="/#benefits" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Benefits</a>
+                <a href="/#pricing" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Solutions</a>
+                <a href="/#contact" class="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-section max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 class="text-3xl font-bold mb-6">Privacy Policy</h1>
-        <p class="text-sm text-gray-600 mb-6">Last Updated: November 23, 2024</p>
+        <p class="text-sm text-gray-600 mb-8">Last Updated: November 23, 2024</p>
         
-        <div class="space-y-6">
-            <section class="border-b border-gray-200 pb-6">
+        <div class="space-y-8">
+            <section>
                 <h2 class="text-xl font-semibold mb-4">1. Introduction</h2>
                 <p class="text-gray-700">
                     Welcome to SeamlessFlow.ai ("we," "our," or "us"). We are committed to protecting your privacy and handling your data with transparency and care. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website and AI-driven business automation services.
                 </p>
             </section>
 
-            <section class="border-b border-gray-200 pb-6">
+            <section>
                 <h2 class="text-xl font-semibold mb-4">2. Information We Collect</h2>
                 <div class="space-y-4">
                     <h3 class="font-semibold">2.1 Information You Provide</h3>
@@ -56,14 +164,41 @@
                         <li>Customer service interactions</li>
                         <li>Project requirements and specifications</li>
                     </ul>
+
+                    <h3 class="font-semibold mt-6">2.2 Automatically Collected Information</h3>
+                    <p class="text-gray-700">We automatically collect certain information when you visit our website or use our services:</p>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>Device information (IP address, browser type, operating system)</li>
+                        <li>Usage data (pages visited, time spent, clicks)</li>
+                        <li>Location information</li>
+                        <li>Cookies and similar tracking technologies</li>
+                        <li>Performance data and error reports</li>
+                        <li>AI interaction data and chat logs</li>
+                    </ul>
                 </div>
             </section>
 
-            <!-- Add more sections as needed -->
+            <section>
+                <h2 class="text-xl font-semibold mb-4">3. How We Use Your Information</h2>
+                <p class="text-gray-700">We use your information for the following purposes:</p>
+                <ul class="list-disc pl-6 text-gray-700">
+                    <li>Providing and maintaining our services</li>
+                    <li>Processing and fulfilling orders</li>
+                    <li>Personalizing your experience</li>
+                    <li>Improving our AI systems and algorithms</li>
+                    <li>Communicating with you about services, updates, and support</li>
+                    <li>Analyzing usage patterns and optimizing performance</li>
+                    <li>Protecting against unauthorized access and fraud</li>
+                    <li>Complying with legal obligations</li>
+                    <li>Marketing and promotional activities (with your consent)</li>
+                </ul>
+            </section>
+
+            <!-- Add remaining sections -->
         </div>
     </main>
 
-    <!-- Reuse your existing footer -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -91,12 +226,20 @@
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-400">&copy; 2024 SeamlessFlow. All rights reserved.</p>
                     <div class="flex gap-6 mt-4 md:mt-0">
-                        <a href="/privacy-policy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="/terms-of-service" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            this.classList.toggle('open');
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
