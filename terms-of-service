@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - SeamlessFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Reuse your existing footer styles */
+        footer a {
+            position: relative;
+            display: inline-block;
+        }
+        footer a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #fff;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        footer a:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <main class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">Terms of Service</h1>
+        <p class="text-sm text-gray-600 mb-6">Last Updated: November 23, 2024</p>
+        
+        <div class="space-y-6">
+            <section class="border-b border-gray-200 pb-6">
+                <h2 class="text-xl font-semibold mb-4">1. Introduction</h2>
+                <p class="text-gray-700">
+                    Welcome to SeamlessFlow.ai ("Company," "we," "our," or "us"). These Terms of Service ("Terms") govern your access to and use of our website, AI-driven business automation services, and related products (collectively, the "Services").
+                </p>
+            </section>
 
+            <section class="border-b border-gray-200 pb-6">
+                <h2 class="text-xl font-semibold mb-4">2. Acceptance of Terms</h2>
+                <p class="text-gray-700">
+                    By accessing or using our Services, you agree to be bound by these Terms. If you disagree with any part of the Terms, you may not access the Services.
+                </p>
+            </section>
+
+            <section class="border-b border-gray-200 pb-6">
+                <h2 class="text-xl font-semibold mb-4">3. Eligibility</h2>
+                <p class="text-gray-700">
+                    You must be at least 18 years old and capable of forming a binding contract to use our Services. If you are using the Services on behalf of an organization, you represent and warrant that you have authority to bind that organization to these Terms.
+                </p>
+            </section>
+
+            <section class="border-b border-gray-200 pb-6">
+                <h2 class="text-xl font-semibold mb-4">4. Account Registration</h2>
+                <div class="space-y-4">
+                    <h3 class="font-semibold">4.1 Account Creation</h3>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>You must provide accurate, current, and complete information</li>
+                        <li>You are responsible for maintaining the confidentiality of your account credentials</li>
+                        <li>You must notify us immediately of any unauthorized access</li>
+                    </ul>
+
+                    <h3 class="font-semibold mt-4">4.2 Account Security</h3>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>You are solely responsible for all activities under your account</li>
+                        <li>We reserve the right to suspend or terminate accounts for violations</li>
+                        <li>Multiple users must have individual accounts</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="border-b border-gray-200 pb-6">
+                <h2 class="text-xl font-semibold mb-4">5. Services Description</h2>
+                <div class="space-y-4">
+                    <h3 class="font-semibold">5.1 AI Business Automation Services</h3>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>Virtual business assistance and automation</li>
+                        <li>AI-driven chatbots and customer service</li>
+                        <li>Process automation and optimization</li>
+                        <li>Data analytics and insights</li>
+                        <li>Custom solution development</li>
+                    </ul>
+
+                    <h3 class="font-semibold mt-4">5.2 Service Limitations</h3>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>Services are provided "as is" and "as available"</li>
+                        <li>We may modify or discontinue features with notice</li>
+                        <li>Performance depends on various factors outside our control</li>
+                        <li>Technical support availability as specified in service agreements</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Add more sections as needed -->
+        </div>
+    </main>
+
+    <!-- Reuse your existing footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">seamlessflow</h3>
+                    <p class="text-gray-400">Transforming businesses through intelligent automation solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="/#pricing" class="text-gray-400 hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="/#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: info@seamlessflow.ai</li>
+                        <li class="text-gray-400">Address: New York, New York</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">&copy; 2024 SeamlessFlow. All rights reserved.</p>
+                    <div class="flex gap-6 mt-4 md:mt-0">
+                        <a href="/privacy-policy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="/terms-of-service" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
