@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - SeamlessFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Reuse your existing footer styles */
+        footer a {
+            position: relative;
+            display: inline-block;
+        }
+        footer a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #fff;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        footer a:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <main class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">Privacy Policy</h1>
+        <p class="text-sm text-gray-600 mb-6">Last Updated: November 23, 2024</p>
+        
+        <div class="space-y-6">
+            <section class="border-b border-gray-200 pb-6">
+                <h2 class="text-xl font-semibold mb-4">1. Introduction</h2>
+                <p class="text-gray-700">
+                    Welcome to SeamlessFlow.ai ("we," "our," or "us"). We are committed to protecting your privacy and handling your data with transparency and care. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website and AI-driven business automation services.
+                </p>
+            </section>
 
+            <section class="border-b border-gray-200 pb-6">
+                <h2 class="text-xl font-semibold mb-4">2. Information We Collect</h2>
+                <div class="space-y-4">
+                    <h3 class="font-semibold">2.1 Information You Provide</h3>
+                    <p class="text-gray-700">We collect information that you voluntarily provide when using our services, including:</p>
+                    <ul class="list-disc pl-6 text-gray-700">
+                        <li>Business and personal contact information (name, email, phone number)</li>
+                        <li>Company information and business details</li>
+                        <li>Account credentials</li>
+                        <li>Payment information</li>
+                        <li>Communication preferences</li>
+                        <li>Customer service interactions</li>
+                        <li>Project requirements and specifications</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Add more sections as needed -->
+        </div>
+    </main>
+
+    <!-- Reuse your existing footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">seamlessflow</h3>
+                    <p class="text-gray-400">Transforming businesses through intelligent automation solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="/#pricing" class="text-gray-400 hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="/#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Email: info@seamlessflow.ai</li>
+                        <li class="text-gray-400">Address: New York, New York</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">&copy; 2024 SeamlessFlow. All rights reserved.</p>
+                    <div class="flex gap-6 mt-4 md:mt-0">
+                        <a href="/privacy-policy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="/terms-of-service" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
