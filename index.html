@@ -1,90 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeamlessFlow - Business Automation Solutions</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        /* Enhanced Navigation */
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            width: 24px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #333;
+            border-radius: 9px;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 9px; }
+        .hamburger span:nth-child(3) { top: 18px; }
+
+        .hamburger.open span:nth-child(1) {
+            top: 9px;
+            transform: rotate(135deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            top: 9px;
+            transform: rotate(-135deg);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.8) 0%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            opacity: 1 !important; /* Force opacity */
+            transform: none !important; /* Prevent transform */
+            animation: none !important; /* Disable any animations initially */
+        }
+
+        /* New Animations */
+        .animate-fade-in {
+            animation: fadeInPermanent 0.8s ease forwards;
+        }
+
+        @keyframes fadeInPermanent {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced Buttons */
+        .btn-primary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-block; /* Ensure button remains visible */
+            opacity: 1 !important; /* Force opacity */
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-menu.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold">seamlessflow</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#services" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="#benefits" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Benefits</a>
+                        <a href="#pricing" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Solutions</a>
+                        <a href="#contact" class="btn-primary text-white px-4 py-2 rounded-md text-sm font-medium">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="hamburger mobile-menu-btn focus:outline-none">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Services</a>
+                <a href="#benefits" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Benefits</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Solutions</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="assets/Sequence 02_1.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content h-full flex items-center justify-center">
+            <div class="text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in" style="animation-delay: 0.1s;">
+                    Transform Your Business with Intelligent Automation
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in" style="animation-delay: 0.3s;">
+                    Streamline your operations, enhance customer experience, and drive growth with our cutting-edge automation solutions.
+                </p>
+                <div class="animate-fade-in" style="animation-delay: 0.5s;">
+                    <a href="#services" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                        Explore Solutions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            this.classList.toggle('open');
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Ensure video loads properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.hero-video');
+            video.play().catch(function(error) {
+                console.log("Video autoplay failed:", error);
+            });
+
+            // Ensure content visibility
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.opacity = '1';
+            heroContent.style.visibility = 'visible';
+        });
+    </script>
+</body>
+</html>
+   <!-- Services Section -->
 <section id="services" class="section-padding bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title">Our Services</h2>
         <p class="section-subtitle">Comprehensive automation solutions tailored to your business needs</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-           <!-- AI Chatbot Card -->
-<div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
-    <div class="p-8">
-        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-            <i class="fas fa-robot text-blue-600 text-2xl"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-4">AI Virtual Assistant</h3>
-        <ul class="space-y-3">
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                24/7 AI Brand Representative
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Voice & Chat Integration
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Custom Conversation Flows
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Advanced NLP Understanding
-            </li>
-        </ul>
-    </div>
-</div>
+            <!-- AI Chatbot Card -->
+            <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI Chatbot Development</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            24/7 Customer Support
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Natural Language Processing
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Multi-Channel Integration
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Custom AI Training
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <!-- Social Media Automation Card -->
             <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
-    <div class="p-8">
-        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-            <i class="fas fa-share-nodes text-purple-600 text-2xl"></i>
-        </div>
-        <h3 class="text-xl font-bold mb-4">Social Media Management</h3>
-        <ul class="space-y-3">
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Content Creation & Scheduling
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Community Management
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Crisis Management
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Performance Analytics
-            </li>
-        </ul>
-    </div>
-</div>
+                <div class="p-8">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-share-nodes text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Social Media Automation</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Automated Content Scheduling
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Analytics & Reporting
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Engagement Automation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Multi-Platform Management
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <!-- Business Process Automation Card -->
-<div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
-    <div class="p-8">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-            <i class="fas fa-gears text-green-600 text-2xl"></i>
+            <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-gears text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Business Process Automation</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Workflow Optimization
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Task Automation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Process Integration
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Custom Solutions
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <h3 class="text-xl font-bold mb-4">E-commerce Automation</h3>
-        <ul class="space-y-3">
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Order Processing
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Inventory Management
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Payment Integration
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                Customer Data Analysis
-            </li>
-        </ul>
     </div>
-</div>
+</section>
+
 <!-- Benefits Section -->
 <section id="benefits" class="section-padding">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -148,3 +422,680 @@
         </div>
     </div>
 </section>
+   <!-- Section 1: Pricing Cards -->
+<section id="pricing" class="section-padding">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Solutions & Pricing</h2>
+        <p class="section-subtitle">Flexible packages tailored to your business needs</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Basic Package -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-4">Basic Package</h3>
+                <p class="text-gray-600 mb-6">Perfect for small businesses starting with automation</p>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>AI Chatbot Integration</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Social Media Management</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Basic Email Automation</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Monthly Performance Reports</span>
+                    </li>
+                </ul>
+
+                <button onclick="openModal('basic-modal')" class="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors">
+                    View Details
+                </button>
+            </div>
+
+            <!-- Standard Package -->
+            <div class="bg-white rounded-xl shadow-lg p-8 transform scale-105 border-2 border-blue-500 relative">
+                <div class="absolute top-0 left-0 w-full bg-blue-500 text-white text-center py-2 rounded-t-xl">
+                    MOST POPULAR
+                </div>
+                <h3 class="text-2xl font-bold mb-4 mt-4">Standard Package</h3>
+                <p class="text-gray-600 mb-6">Ideal for growing businesses</p>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Advanced AI Chatbot</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Content Creation & Scheduling</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Inventory Management</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Bi-weekly Reports & Insights</span>
+                    </li>
+                </ul>
+
+                <button onclick="openModal('standard-modal')" class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
+                    View Details
+                </button>
+            </div>
+
+            <!-- Premium Package -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-4">Premium Package</h3>
+                <p class="text-gray-600 mb-6">Complete automation solution</p>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Full AI Brand Representative</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Advanced Voice Automation</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Custom Integration Solutions</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Weekly Strategic Insights</span>
+                    </li>
+                </ul>
+
+                <button onclick="openModal('premium-modal')" class="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section 2: Modal Components -->
+<!-- Basic Package Modal -->
+<div id="basic-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
+    <div class="modal-content bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full mx-4 relative">
+        <button onclick="closeModal('basic-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        
+        <h3 class="text-2xl font-bold mb-4">Basic Package Details</h3>
+        <div class="mb-6">
+            <p class="text-3xl font-bold text-blue-600 mb-2">$1,500 - $3,000<span class="text-base text-gray-600">/month</span></p>
+            <p class="text-gray-600">Perfect for small businesses starting with automation</p>
+        </div>
+
+        <div class="space-y-6">
+            <div>
+                <h4 class="font-semibold mb-2">Core Features:</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>AI Chatbot for Customer Service</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Basic Social Media Management</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Simple Automated Email Marketing</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Monthly Performance Reports</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-semibold mb-2">Setup & Support:</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Initial Setup and Configuration</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Basic Training Sessions</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Email Support</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <a href="#contact" onclick="closeModal('basic-modal')" class="block w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium text-center transition-colors">
+                Get Started
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Standard Package Modal -->
+<div id="standard-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
+    <div class="modal-content bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full mx-4 relative">
+        <button onclick="closeModal('standard-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        
+        <h3 class="text-2xl font-bold mb-4">Standard Package Details</h3>
+        <div class="mb-6">
+            <p class="text-3xl font-bold text-blue-600 mb-2">$3,000 - $6,000<span class="text-base text-gray-600">/month</span></p>
+            <p class="text-gray-600">Ideal for growing businesses</p>
+        </div>
+
+        <div class="space-y-6">
+            <div>
+                <h4 class="font-semibold mb-2">Core Features:</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Advanced AI Chatbot with Natural Language Processing</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>AI-Driven Content Creation for Social Media</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Automated Inventory Management</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Basic Virtual Phone Operator</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Bi-weekly Performance Reports</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-semibold mb-2">Additional Benefits:</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Priority Support</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Advanced Analytics Dashboard</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Custom Automation Workflows</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <a href="#contact" onclick="closeModal('standard-modal')" class="block w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium text-center transition-colors">
+                Get Started
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Premium Package Modal -->
+<div id="premium-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+    <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
+    <div class="modal-content bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full mx-4 relative">
+        <button onclick="closeModal('premium-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        
+        <h3 class="text-2xl font-bold mb-4">Premium Package Details</h3>
+        <div class="mb-6">
+            <p class="text-3xl font-bold text-blue-600 mb-2">$6,000 - $12,000+<span class="text-base text-gray-600">/month</span></p>
+            <p class="text-gray-600">Complete automation solution for established businesses</p>
+        </div>
+
+        <div class="space-y-6">
+            <div>
+                <h4 class="font-semibold mb-2">Advanced Features:</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Full AI-Driven Virtual Brand Representative</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Advanced AI Voice Agent for Customer Service</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Automated Project Management</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>AI-Driven Financial Reporting</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Weekly Strategic Insights</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-semibold mb-2">Premium Benefits:</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>24/7 Priority Support</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Dedicated Account Manager</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Custom Integration Development</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Continuous A/B Testing & Optimization</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <a href="#contact" onclick="closeModal('premium-modal')" class="block w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium text-center transition-colors">
+                Get Started
+            </a>
+        </div>
+    </div>
+</div>
+<!-- Section 3: Modal JavaScript -->
+<script>
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.remove('hidden');
+        // Add active class for animation
+        setTimeout(() => {
+            modal.classList.add('active');
+        }, 10);
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        // Remove active class first
+        modal.classList.remove('active');
+        // Wait for animation to complete before hiding
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                const modalId = modal.getAttribute('id');
+                closeModal(modalId);
+            }
+        });
+    });
+
+    // Close modal on escape key press
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const activeModal = document.querySelector('.modal.active');
+            if (activeModal) {
+                const modalId = activeModal.getAttribute('id');
+                closeModal(modalId);
+            }
+        }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+<style>
+    /* Section Styles */
+    .section-padding {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .section-title {
+        font-size: 2.25rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.125rem;
+        text-align: center;
+        color: #6B7280;
+        margin-bottom: 3rem;
+    }
+
+    /* Modal Animation Styles */
+    .modal {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .modal.active {
+        opacity: 1;
+    }
+
+    .modal-content {
+        transform: scale(0.95);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .modal.active .modal-content {
+        transform: scale(1);
+    }
+
+    .modal-overlay {
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Modal Responsive Styles */
+    @media (max-height: 800px) {
+        .modal-content {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+    }
+
+    /* Button Hover Effects */
+    button:hover {
+        transform: translateY(-1px);
+    }
+
+    button {
+        transition: all 0.2s ease-in-out;
+    }
+
+    /* List Item Hover Effects */
+    .hover-list li {
+        transition: transform 0.2s ease;
+    }
+
+    .hover-list li:hover {
+        transform: translateX(4px);
+    }
+
+    /* Custom Scrollbar for Modal */
+    .modal-content::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .modal-content::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* Focus States */
+    button:focus, a:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Additional Animation Classes */
+    .fade-in {
+        animation: fadeIn 0.3s ease-in;
+    }
+
+    .slide-up {
+        animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(20px); }
+        to { transform: translateY(0); }
+    }
+</style>
+<!-- Section 5: Contact and Footer -->
+
+<!-- Contact Section -->
+<section id="contact" class="section-padding">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Get Started</h2>
+        <p class="section-subtitle">Schedule a consultation to discuss your automation needs</p>
+        <form 
+            id="contactForm"
+            class="bg-white rounded-xl shadow-lg p-8" 
+            onsubmit="handleSubmit(event)"
+        >
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input 
+                        id="fullName"
+                        name="entry.345227033"
+                        type="text" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                        required
+                    >
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
+                    <input 
+                        id="businessName"
+                        name="entry.380523308"
+                        type="text" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                        required
+                    >
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input 
+                        id="email"
+                        name="entry.228842138"
+                        type="email" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                        required
+                    >
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                    <input 
+                        id="phone"
+                        name="entry.123451209"
+                        type="tel" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <textarea 
+                        id="message"
+                        name="entry.577177041"
+                        rows="4" 
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                        required
+                    ></textarea>
+                </div>
+            </div>
+            <button 
+                type="submit" 
+                class="mt-6 w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+                Schedule Consultation
+            </button>
+            <div id="successMessage" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg text-center">
+                Thank you! Your message has been submitted. We'll be in touch soon.
+            </div>
+            <div id="errorMessage" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-lg text-center">
+                There was an error submitting the form. Please try again.
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+let isSubmitting = false;
+
+function handleSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    if (isSubmitting) return;
+    isSubmitting = true;
+    
+    const form = event.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    submitButton.disabled = true;
+    submitButton.innerText = 'Submitting...';
+    
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+    
+    const formData = new FormData();
+    formData.append('entry.345227033', document.getElementById('fullName').value);
+    formData.append('entry.380523308', document.getElementById('businessName').value);
+    formData.append('entry.228842138', document.getElementById('email').value);
+    formData.append('entry.123451209', document.getElementById('phone').value);
+    formData.append('entry.577177041', document.getElementById('message').value);
+
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/formResponse', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+    })
+    .then(() => {
+        successMessage.classList.remove('hidden');
+        form.reset();
+        
+        setTimeout(() => {
+            successMessage.classList.add('hidden');
+        }, 5000);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        errorMessage.classList.remove('hidden');
+        
+        setTimeout(() => {
+            errorMessage.classList.add('hidden');
+        }, 5000);
+    })
+    .finally(() => {
+        submitButton.disabled = false;
+        submitButton.innerText = 'Schedule Consultation';
+        isSubmitting = false;
+    });
+}
+</script>
+
+<!-- Add this right before the closing body tag -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+var submitted = false;
+window.addEventListener('load', function() {
+    const form = document.querySelector('form');
+    const successMessage = document.getElementById('successMessage');
+    
+    form.addEventListener('submit', function(e) {
+        if (submitted) {
+            e.preventDefault();
+            return;
+        }
+        
+        submitted = true;
+        setTimeout(function() {
+            successMessage.classList.remove('hidden');
+            form.reset();
+            setTimeout(function() {
+                successMessage.classList.add('hidden');
+                submitted = false;
+            }, 5000);
+        }, 1000);
+    });
+});
+</script>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+                <h3 class="text-2xl font-bold mb-4">seamlessflow</h3>
+                <p class="text-gray-400">Transforming businesses through intelligent automation solutions.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                    <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Solutions</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                <ul class="space-y-2">
+                    <li class="text-gray-400">Email: info@seamlessflow.ai</li>
+                    <li class="text-gray-400">Address: New York, New York</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2024 SeamlessFlow. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
