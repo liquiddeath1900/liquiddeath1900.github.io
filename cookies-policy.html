@@ -5,16 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SeamlessFlow.ai Cookies Policy - Learn about how we use cookies to improve your experience">
     <title>Cookies Policy - SeamlessFlow.ai</title>
+    <!-- External Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
+    <style>
+        /* Add any custom styles that can't be handled by Tailwind */
+        .prose {
+            max-width: 65ch;
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700">seamlessflow</a>
+                    <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition duration-150">
+                        seamlessflow
+                    </a>
                 </div>
+                
+                <!-- Desktop Navigation -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="index.html" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Home</a>
@@ -24,195 +42,509 @@
                         <a href="index.html#contact" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">Get Started</a>
                     </div>
                 </div>
+
+                <!-- Mobile Menu Button (to be implemented) -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-500 hover:text-gray-600" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50 shadow-lg hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="text-sm text-gray-700">
-                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+    <!-- Mobile Navigation Menu (hidden by default) -->
+    <div class="hidden md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 transition duration-150">Home</a>
+            <a href="index.html#services" class="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 transition duration-150">Services</a>
+            <a href="index.html#benefits" class="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 transition duration-150">Benefits</a>
+            <a href="index.html#pricing" class="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 transition duration-150">Solutions</a>
+            <a href="index.html#contact" class="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700 transition duration-150">Get Started</a>
+        </div>
+    </div>
+</body>
+</html>
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50 shadow-lg hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-gray-700">
+            We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+            <a href="#cookie-policy" class="text-blue-600 hover:text-blue-700">Learn more</a>
+        </div>
+        <div class="flex gap-4">
+            <button onclick="manageCookies()" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition duration-150">
+                Manage Preferences
+            </button>
+            <button onclick="acceptCookies()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">
+                Accept All
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Preferences Modal -->
+<div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50" aria-labelledby="cookie-preferences" aria-modal="true">
+    <div class="min-h-screen px-4 text-center">
+        <!-- Modal position helper -->
+        <div class="inline-block h-screen align-middle"></div>
+        
+        <!-- Modal panel -->
+        <div class="inline-block w-full max-w-2xl p-6 my-8 text-left align-middle bg-white rounded-lg shadow-xl transform transition-all">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold text-gray-900" id="cookie-preferences">Cookie Preferences</h3>
+                <button onclick="closeCookieModal()" class="text-gray-400 hover:text-gray-500 transition duration-150">
+                    <span class="sr-only">Close</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
-            <div class="flex gap-4">
-                <button onclick="manageCookies()" class="text-blue-600 hover:text-blue-700 text-sm font-medium">Manage Preferences</button>
-                <button onclick="acceptCookies()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">Accept All</button>
+
+            <div class="space-y-6">
+                <!-- Essential Cookies -->
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="pr-4">
+                        <h4 class="text-lg font-semibold text-gray-900">Essential Cookies</h4>
+                        <p class="text-sm text-gray-600 mt-1">Required for basic website functionality. Cannot be disabled.</p>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" checked disabled class="h-4 w-4 text-blue-600 rounded border-gray-300">
+                    </div>
+                </div>
+
+                <!-- Analytics Cookies -->
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="pr-4">
+                        <h4 class="text-lg font-semibold text-gray-900">Analytics Cookies</h4>
+                        <p class="text-sm text-gray-600 mt-1">Help us improve our website through anonymous usage data.</p>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="analytics-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
+                    </div>
+                </div>
+
+                <!-- Functionality Cookies -->
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="pr-4">
+                        <h4 class="text-lg font-semibold text-gray-900">Functionality Cookies</h4>
+                        <p class="text-sm text-gray-600 mt-1">Remember your preferences and settings.</p>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="functionality-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
+                    </div>
+                </div>
+
+                <!-- Marketing Cookies -->
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="pr-4">
+                        <h4 class="text-lg font-semibold text-gray-900">Marketing Cookies</h4>
+                        <p class="text-sm text-gray-600 mt-1">Used for personalized advertising and content.</p>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="marketing-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-end gap-4">
+                <button onclick="closeCookieModal()" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500 transition duration-150">
+                    Cancel
+                </button>
+                <button onclick="savePreferences()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">
+                    Save Preferences
+                </button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Main content -->
-    <div class="pt-24 pb-16 px-4 mx-auto max-w-screen-xl">
-        <div class="bg-white p-8 rounded-lg shadow">
-            <div class="max-w-3xl mx-auto">
+<!-- Cookie Management Script -->
+<script>
+    const cookiePreferences = {
+        essential: true, // Always true
+        analytics: false,
+        functionality: false,
+        marketing: false
+    };
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedPreferences = localStorage.getItem('cookiePreferences');
+        if (!savedPreferences) {
+            showCookieBanner();
+        } else {
+            applyCookiePreferences(JSON.parse(savedPreferences));
+        }
+    });
+
+    function showCookieBanner() {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+    }
+
+    function acceptCookies() {
+        cookiePreferences.analytics = true;
+        cookiePreferences.functionality = true;
+        cookiePreferences.marketing = true;
+        saveCookiePreferences();
+        hideCookieBanner();
+    }
+
+    function manageCookies() {
+        hideCookieBanner();
+        const modal = document.getElementById('cookie-modal');
+        modal.classList.remove('hidden');
+        
+        // Load current preferences
+        const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
+        document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
+        document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
+        document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
+    }
+
+    function closeCookieModal() {
+        document.getElementById('cookie-modal').classList.add('hidden');
+    }
+
+    function hideCookieBanner() {
+        document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    function savePreferences() {
+        cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
+        cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
+        cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
+        
+        saveCookiePreferences();
+        closeCookieModal();
+    }
+
+    function saveCookiePreferences() {
+        localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+        applyCookiePreferences(cookiePreferences);
+    }
+
+    function applyCookiePreferences(preferences) {
+        // Analytics cookies
+        if (preferences.analytics) {
+            enableAnalytics();
+        } else {
+            disableAnalytics();
+        }
+        
+        // Functionality cookies
+        if (preferences.functionality) {
+            enableFunctionality();
+        } else {
+            disableFunctionality();
+        }
+        
+        // Marketing cookies
+        if (preferences.marketing) {
+            enableMarketing();
+        } else {
+            disableMarketing();
+        }
+    }
+
+    // Cookie type management functions
+    function enableAnalytics() {
+        // Implement your analytics initialization here
+        console.log('Analytics enabled');
+    }
+
+    function disableAnalytics() {
+        // Implement your analytics cleanup here
+        console.log('Analytics disabled');
+    }
+
+    function enableFunctionality() {
+        // Implement functionality cookies here
+        console.log('Functionality cookies enabled');
+    }
+
+    function disableFunctionality() {
+        // Remove functionality cookies
+        console.log('Functionality cookies disabled');
+    }
+
+    function enableMarketing() {
+        // Implement marketing cookies here
+        console.log('Marketing enabled');
+    }
+
+    function disableMarketing() {
+        // Remove marketing cookies
+        console.log('Marketing disabled');
+    }
+
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeCookieModal();
+        }
+    });
+</script>
+<!-- Main Content Section -->
+<div class="pt-24 pb-16 px-4 mx-auto max-w-screen-xl">
+    <div class="bg-white p-8 rounded-lg shadow">
+        <div class="max-w-3xl mx-auto">
+            <!-- Page Header -->
+            <header class="mb-12">
                 <h1 class="text-4xl font-bold mb-2">Cookies Policy</h1>
-                <p class="text-gray-600 mb-8">Last Updated: December 1, 2024</p>
+                <p class="text-gray-600">Last Updated: December 1, 2024</p>
+            </header>
 
-                <!-- Quick Navigation -->
-                <div class="bg-gray-50 p-4 rounded-lg mb-8">
-                    <h2 class="text-lg font-semibold mb-3">Quick Navigation</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <a href="#what-are-cookies" class="text-blue-600 hover:text-blue-700">What Are Cookies?</a>
-                        <a href="#types-of-cookies" class="text-blue-600 hover:text-blue-700">Types of Cookies</a>
-                        <a href="#cookie-management" class="text-blue-600 hover:text-blue-700">Cookie Management</a>
-                        <a href="#your-choices" class="text-blue-600 hover:text-blue-700">Your Choices</a>
-                    </div>
+            <!-- Quick Navigation -->
+            <nav class="bg-gray-50 p-6 rounded-lg mb-12" aria-label="Quick navigation">
+                <h2 class="text-lg font-semibold mb-4">Quick Navigation</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="#introduction" class="text-blue-600 hover:text-blue-700 transition duration-150">Introduction</a>
+                    <a href="#what-are-cookies" class="text-blue-600 hover:text-blue-700 transition duration-150">What Are Cookies?</a>
+                    <a href="#types-of-cookies" class="text-blue-600 hover:text-blue-700 transition duration-150">Types of Cookies</a>
+                    <a href="#cookie-management" class="text-blue-600 hover:text-blue-700 transition duration-150">Cookie Management</a>
+                    <a href="#your-choices" class="text-blue-600 hover:text-blue-700 transition duration-150">Your Choices</a>
+                    <a href="#contact-us" class="text-blue-600 hover:text-blue-700 transition duration-150">Contact Us</a>
                 </div>
+            </nav>
 
-                <div class="space-y-8">
-                    <section>
-                        <h2 class="text-2xl font-semibold mb-4">Introduction</h2>
-                        <div class="prose text-gray-700">
-                            <p>This Cookies Policy explains how SeamlessFlow.ai uses cookies and similar technologies to improve your experience on our website and with our AI-driven business automation services.</p>
-                        </div>
-                    </section>
+            <!-- Main Content -->
+            <div class="space-y-12">
+                <!-- Introduction Section -->
+                <section id="introduction" class="scroll-mt-24">
+                    <h2 class="text-2xl font-semibold mb-4">Introduction</h2>
+                    <div class="prose text-gray-700">
+                        <p>This Cookies Policy explains how SeamlessFlow.ai uses cookies and similar technologies to improve your experience on our website and with our AI-driven business automation services. We strive to be transparent about how we use these technologies and provide you with control over your preferences.</p>
+                    </div>
+                </section>
 
-                    <section id="what-are-cookies">
-                        <h2 class="text-2xl font-semibold mb-4">What Are Cookies?</h2>
-                        <div class="prose text-gray-700">
-                            <p>Cookies are small text files stored on your device when you visit our website. They help us:</p>
-                            <ul class="list-disc ml-6 space-y-2">
-                                <li>Make our website work efficiently</li>
-                                <li>Remember your preferences</li>
-                                <li>Improve your browsing experience</li>
-                                <li>Provide personalized content and services</li>
+                <!-- What Are Cookies Section -->
+                <section id="what-are-cookies" class="scroll-mt-24">
+                    <h2 class="text-2xl font-semibold mb-4">What Are Cookies?</h2>
+                    <div class="prose text-gray-700">
+                        <p>Cookies are small text files stored on your device when you visit our website. They serve several important functions:</p>
+                        <ul class="list-disc ml-6 space-y-2 mt-4">
+                            <li>Make our website work efficiently</li>
+                            <li>Remember your preferences and settings</li>
+                            <li>Improve your browsing experience</li>
+                            <li>Provide personalized content and services</li>
+                            <li>Help us understand how people use our site</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Types of Cookies Section -->
+                <section id="types-of-cookies" class="scroll-mt-24">
+                    <h2 class="text-2xl font-semibold mb-6">Types of Cookies We Use</h2>
+                    <div class="space-y-6">
+                        <!-- Essential Cookies Card -->
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-xl font-semibold mb-3">Essential Cookies</h3>
+                            <p class="text-gray-700 mb-4">Required for basic website functionality. These cookies cannot be disabled.</p>
+                            <ul class="list-disc ml-6 text-gray-700 space-y-2">
+                                <li>Authentication and security</li>
+                                <li>Session management</li>
+                                <li>Basic site functionality</li>
+                                <li>Cookie consent preferences</li>
                             </ul>
                         </div>
-                    </section>
 
-                    <section id="types-of-cookies">
-                        <h2 class="text-2xl font-semibold mb-4">Types of Cookies We Use</h2>
-                        
-                        <div class="space-y-6">
-                            <div class="bg-white border border-gray-200 rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-3">Essential Cookies</h3>
-                                <p class="text-gray-700 mb-3">Required for basic website functionality. Cannot be disabled.</p>
-                                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                                    <li>Authentication</li>
-                                    <li>Security measures</li>
-                                    <li>Basic functionality</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-white border border-gray-200 rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-3">Performance & Analytics</h3>
-                                <p class="text-gray-700 mb-3">Help us improve our website through anonymous usage data.</p>
-                                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                                    <li>Google Analytics</li>
-                                    <li>Usage patterns</li>
-                                    <li>Performance metrics</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-white border border-gray-200 rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-3">Functionality Cookies</h3>
-                                <p class="text-gray-700 mb-3">Remember your preferences and settings.</p>
-                                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                                    <li>Language preferences</li>
-                                    <li>Region settings</li>
-                                    <li>Customization options</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-white border border-gray-200 rounded-lg p-6">
-                                <h3 class="text-xl font-semibold mb-3">AI Service Cookies</h3>
-                                <p class="text-gray-700 mb-3">Support our AI-driven features and automation.</p>
-                                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                                    <li>Chatbot sessions</li>
-                                    <li>AI preferences</li>
-                                    <li>Workflow states</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="cookie-management">
-                        <h2 class="text-2xl font-semibold mb-4">Managing Your Cookie Preferences</h2>
-                        <div class="bg-blue-50 p-6 rounded-lg mb-6">
-                            <h3 class="text-lg font-semibold mb-3">Browser Settings</h3>
-                            <p class="text-gray-700 mb-4">You can manage cookies through your browser settings:</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-white p-4 rounded-lg">
-                                    <h4 class="font-medium mb-2">Chrome</h4>
-                                    <p class="text-sm text-gray-600">Settings → Privacy and Security → Cookies</p>
-                                </div>
-                                <div class="bg-white p-4 rounded-lg">
-                                    <h4 class="font-medium mb-2">Firefox</h4>
-                                    <p class="text-sm text-gray-600">Options → Privacy & Security → Cookies</p>
-                                </div>
-                                <div class="bg-white p-4 rounded-lg">
-                                    <h4 class="font-medium mb-2">Safari</h4>
-                                    <p class="text-sm text-gray-600">Preferences → Privacy → Cookies</p>
-                                </div>
-                                <div class="bg-white p-4 rounded-lg">
-                                    <h4 class="font-medium mb-2">Edge</h4>
-                                    <p class="text-sm text-gray-600">Settings → Cookies and Site Permissions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="your-choices">
-                        <h2 class="text-2xl font-semibold mb-4">Your Choices</h2>
-                        <div class="prose text-gray-700">
-                            <p>You have the right to:</p>
-                            <ul class="list-disc ml-6 space-y-2">
-                                <li>Accept or decline non-essential cookies</li>
-                                <li>Modify your cookie preferences at any time</li>
-                                <li>Delete cookies from your device</li>
-                                <li>Use our services with essential cookies only</li>
+                        <!-- Performance & Analytics Card -->
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-xl font-semibold mb-3">Performance & Analytics</h3>
+                            <p class="text-gray-700 mb-4">Help us understand and improve our website through anonymous usage data.</p>
+                            <ul class="list-disc ml-6 text-gray-700 space-y-2">
+                                <li>Google Analytics cookies</li>
+                                <li>Performance monitoring</li>
+                                <li>Usage patterns and trends</li>
+                                <li>Error tracking and debugging</li>
                             </ul>
                         </div>
-                    </section>
 
-                    <section class="border-t border-gray-200 pt-8">
-                        <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
-                        <p class="text-gray-700 mb-4">If you have questions about our cookie practices, please contact us:</p>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <div class="space-y-2">
-                                <p class="text-gray-700">Email: <a href="mailto:info@seamlessflow.ai" class="text-blue-600 hover:text-blue-700">info@seamlessflow.ai</a></p>
-                                <p class="text-gray-700">Address: New York, New York</p>
+                        <!-- Functionality Cookies Card -->
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-xl font-semibold mb-3">Functionality Cookies</h3>
+                            <p class="text-gray-700 mb-4">Remember your preferences and enable enhanced functionality.</p>
+                            <ul class="list-disc ml-6 text-gray-700 space-y-2">
+                                <li>Language preferences</li>
+                                <li>Region settings</li>
+                                <li>Customization options</li>
+                                <li>User interface preferences</li>
+                            </ul>
+                        </div>
+
+                        <!-- AI Service Cookies Card -->
+                        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition duration-200">
+                            <h3 class="text-xl font-semibold mb-3">AI Service Cookies</h3>
+                            <p class="text-gray-700 mb-4">Support our AI-driven features and automation services.</p>
+                            <ul class="list-disc ml-6 text-gray-700 space-y-2">
+                                <li>Chatbot session management</li>
+                                <li>AI preferences and learning</li>
+                                <li>Workflow states and automation</li>
+                                <li>Service personalization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cookie Management Section -->
+                <section id="cookie-management" class="scroll-mt-24">
+                    <h2 class="text-2xl font-semibold mb-6">Managing Your Cookie Preferences</h2>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-4">Browser Settings</h3>
+                        <p class="text-gray-700 mb-6">You can manage cookies through your browser settings. Here's how to access cookie settings in popular browsers:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium mb-2">Chrome</h4>
+                                <p class="text-sm text-gray-600">Settings → Privacy and Security → Cookies</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium mb-2">Firefox</h4>
+                                <p class="text-sm text-gray-600">Options → Privacy & Security → Cookies</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium mb-2">Safari</h4>
+                                <p class="text-sm text-gray-600">Preferences → Privacy → Cookies</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium mb-2">Edge</h4>
+                                <p class="text-sm text-gray-600">Settings → Cookies and Site Permissions</p>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </section>
+
+                <!-- Your Choices Section -->
+                <section id="your-choices" class="scroll-mt-24">
+                    <h2 class="text-2xl font-semibold mb-4">Your Choices</h2>
+                    <div class="prose text-gray-700">
+                        <p>You have several options when it comes to managing cookies:</p>
+                        <ul class="list-disc ml-6 space-y-2 mt-4">
+                            <li>Accept or decline non-essential cookies</li>
+                            <li>Modify your cookie preferences at any time</li>
+                            <li>Delete cookies from your device</li>
+                            <li>Use our services with essential cookies only</li>
+                        </ul>
+                        <p class="mt-4">Please note that blocking some types of cookies may impact your experience of our website.</p>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact-us" class="scroll-mt-24 border-t border-gray-200 pt-8">
+                    <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
+                    <p class="text-gray-700 mb-4">If you have questions about our cookie practices, please contact us:</p>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="space-y-2">
+                            <p class="text-gray-700">Email: <a href="mailto:info@seamlessflow.ai" class="text-blue-600 hover:text-blue-700 transition duration-150">info@seamlessflow.ai</a></p>
+                            <p class="text-gray-700">Address: New York, New York</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Brand Section -->
+            <div class="space-y-4">
+                <h3 class="text-2xl font-bold">seamlessflow</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Transforming businesses through intelligent automation solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-150" aria-label="LinkedIn">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-150" aria-label="Twitter">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-semibold">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition duration-150 flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition duration-150 flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Terms of Service
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cookies-policy.html" class="text-gray-400 hover:text-white transition duration-150 flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                            Cookies Policy
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-semibold">Contact</h4>
+                <ul class="space-y-2">
+                    <li class="text-gray-400 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <a href="mailto:info@seamlessflow.ai" class="hover:text-white transition duration-150">
+                            info@seamlessflow.ai
+                        </a>
+                    </li>
+                    <li class="text-gray-400 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        New York, New York
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-800 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2024 SeamlessFlow. All rights reserved.
+                </p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="text-gray-400 text-sm hover:text-white transition duration-150">
+                        Privacy Policy
+                    </a>
+                    <span class="text-gray-600">•</span>
+                    <a href="terms-of-service.html" class="text-gray-400 text-sm hover:text-white transition duration-150">
+                        Terms of Service
+                    </a>
+                    <span class="text-gray-600">•</span>
+                    <a href="cookies-policy.html" class="text-gray-400 text-sm hover:text-white transition duration-150">
+                        Cookies Policy
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">seamlessflow</h3>
-                    <p class="text-gray-400">Transforming businesses through intelligent automation solutions.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white transition duration-150">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white transition duration-150">Terms of Service</a></li>
-                        <li><a href="cookies-policy.html" class="text-gray-400 hover:text-white transition duration-150">Cookies Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2">
-                        <li class="text-gray-400">Email: <a href="mailto:info@seamlessflow.ai" class="hover:text-white transition duration-150">info@seamlessflow.ai</a></li>
-                        <li class="text-gray-400">Address: New York, New York</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm">&copy; 2024 SeamlessFlow. All rights reserved.</p>
-                    <div class="flex gap-4 mt-4 md:mt-0">
-                        <a href="privacy-policy.html" class="text-gray-400 text-sm hover:text-white transition duration-150">Privacy Policy</a>
-                        <a href="terms-of-service.html" class="text-gray-400 text-sm hover:text-white transition duration-150">Terms of Service</a>
-                        <a href="cookies-policy.html" class="text-gray-400 text-sm hover:text-white transition duration-150">Cookies Policy</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+</footer>
