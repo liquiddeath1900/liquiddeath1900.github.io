@@ -263,6 +263,49 @@
             heroContent.style.visibility = 'visible';
         });
     </script>
+    <!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50 shadow-lg hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-gray-700">
+            We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+            <a href="cookies.html" class="text-blue-600 hover:text-blue-700">Learn more</a>
+        </div>
+        <div class="flex gap-4">
+            <button onclick="manageCookies()" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition duration-150">
+                Manage Preferences
+            </button>
+            <button onclick="acceptCookies()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">
+                Accept All
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Management Script -->
+<script>
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedPreferences = localStorage.getItem('cookiePreferences');
+        if (!savedPreferences) {
+            document.getElementById('cookie-banner').classList.remove('hidden');
+        }
+    });
+
+    function acceptCookies() {
+        localStorage.setItem('cookiePreferences', JSON.stringify({
+            essential: true,
+            analytics: true,
+            functionality: true,
+            marketing: true
+        }));
+        document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    function manageCookies() {
+        // We'll implement the modal functionality next
+        console.log('Manage cookies clicked');
+    }
+</script>
 </body>
 </html>
  <!-- Services Section -->
