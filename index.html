@@ -3,179 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeamlessFlow - Business Automation Solutions</title>
-    <!-- Tailwind CSS -->
+    <title>SeamlessFlow.ai - Intelligent Business Automation</title>
+    <meta name="description" content="Transform your business with intelligent automation solutions. AI-driven chatbots, workflow automation, and digital transformation services.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    
     <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        body {
-            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.5;
-            color: #000;
-            overflow-x: hidden;
-        }
-
-        /* Enhanced Navigation */
-        .nav-blur {
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Hamburger Menu Styles */
-        .hamburger {
-            width: 24px;
-            height: 20px;
-            position: relative;
-            cursor: pointer;
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-        }
-
-        .hamburger span {
-            display: block;
-            position: absolute;
-            height: 2px;
-            width: 100%;
-            background: #333;
-            border-radius: 9px;
-            left: 0;
-            transform: rotate(0deg);
-            transition: .25s ease-in-out;
-        }
-
-        .hamburger span:nth-child(1) { top: 0; }
-        .hamburger span:nth-child(2) { top: 9px; }
-        .hamburger span:nth-child(3) { top: 18px; }
-
-        .hamburger.open span:nth-child(1) {
-            top: 9px;
-            transform: rotate(135deg);
-        }
-
-        .hamburger.open span:nth-child(2) {
-            opacity: 0;
-            left: -60px;
-        }
-
-        .hamburger.open span:nth-child(3) {
-            top: 9px;
-            transform: rotate(-135deg);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(0, 0, 0, 0.8) 0%,
-                rgba(0, 0, 0, 0.7) 100%
-            );
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            opacity: 1 !important; /* Force opacity */
-            transform: none !important; /* Prevent transform */
-            animation: none !important; /* Disable any animations initially */
-        }
-
-        /* New Animations */
-        .animate-fade-in {
-            animation: fadeInPermanent 0.8s ease forwards;
-        }
-
-        @keyframes fadeInPermanent {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Enhanced Buttons */
-        .btn-primary {
-            background: linear-gradient(45deg, #007bff, #0056b3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: inline-block; /* Ensure button remains visible */
-            opacity: 1 !important; /* Force opacity */
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
-        }
-
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .btn-primary:hover::after {
-            left: 100%;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            transition: all 0.3s ease-in-out;
-        }
-
-        .mobile-menu.hidden {
-            display: none;
+        .hero-background {
+            background: linear-gradient(to right, #1a202c, #2d3748);
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition duration-150">
+                        seamlessflow
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Home</a>
+                        <a href="#services" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Services</a>
+                        <a href="#benefits" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Benefits</a>
+                        <a href="#solutions" class="hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Solutions</a>
+                        <a href="#contact" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-500 hover:text-gray-600" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-background pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight">
+                    Transform Your Business with<br>
+                    <span class="text-blue-500">Intelligent Automation</span>
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-300">
+                    Streamline your operations, enhance customer experience, and drive growth with our cutting-edge automation solutions.
+                </p>
+                <div class="mt-10">
+                    <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-150">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50 shadow-lg hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-sm text-gray-700">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                <a href="cookies.html" class="text-blue-600 hover:text-blue-700">Learn more</a>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="manageCookies()" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition duration-150">
+                    Manage Preferences
+                </button>
+                <button onclick="acceptCookies()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">
+                    Accept All
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Preferences Modal -->
+    <div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50" aria-labelledby="cookie-preferences" aria-modal="true">
+        <div class="min-h-screen px-4 text-center">
+            <!-- Modal position helper -->
+            <div class="inline-block h-screen align-middle"></div>
+            
+            <!-- Modal panel -->
+            <div class="inline-block w-full max-w-2xl p-6 my-8 text-left align-middle bg-white rounded-lg shadow-xl transform transition-all">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-semibold text-gray-900" id="cookie-preferences">Cookie Preferences</h3>
+                    <button onclick="closeCookieModal()" class="text-gray-400 hover:text-gray-500 transition duration-150">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Essential Cookies -->
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="pr-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Essential Cookies</h4>
+                            <p class="text-sm text-gray-600 mt-1">Required for basic website functionality. Cannot be disabled.</p>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" checked disabled class="h-4 w-4 text-blue-600 rounded border-gray-300">
+                        </div>
+                    </div>
+
+                    <!-- Analytics Cookies -->
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="pr-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Analytics Cookies</h4>
+                            <p class="text-sm text-gray-600 mt-1">Help us improve our website through anonymous usage data.</p>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="analytics-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
+                        </div>
+                    </div>
+
+                    <!-- Functionality Cookies -->
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="pr-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Functionality Cookies</h4>
+                            <p class="text-sm text-gray-600 mt-1">Remember your preferences and settings.</p>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="functionality-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
+                        </div>
+                    </div>
+
+                    <!-- Marketing Cookies -->
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="pr-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Marketing Cookies</h4>
+                            <p class="text-sm text-gray-600 mt-1">Used for personalized advertising and content.</p>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="marketing-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-end gap-4">
+                    <button onclick="closeCookieModal()" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500 transition duration-150">
+                        Cancel
+                    </button>
+                    <button onclick="savePreferences()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">
+                        Save Preferences
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Management Script -->
+    <script>
+        const cookiePreferences = {
+            essential: true, // Always true
+            analytics: false,
+            functionality: false,
+            marketing: false
+        };
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedPreferences = localStorage.getItem('cookiePreferences');
+            if (!savedPreferences) {
+                showCookieBanner();
+            } else {
+                applyCookiePreferences(JSON.parse(savedPreferences));
+            }
+        });
+
+        function showCookieBanner() {
+            document.getElementById('cookie-banner').classList.remove('hidden');
+        }
+
+        function acceptCookies() {
+            cookiePreferences.analytics = true;
+            cookiePreferences.functionality = true;
+            cookiePreferences.marketing = true;
+            saveCookiePreferences();
+            hideCookieBanner();
+        }
+
+        function manageCookies() {
+            hideCookieBanner();
+            const modal = document.getElementById('cookie-modal');
+            modal.classList.remove('hidden');
+            
+            // Load current preferences
+            const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
+            document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
+            document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
+            document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
+        }
+
+        function closeCookieModal() {
+            document.getElementById('cookie-modal').classList.add('hidden');
+        }
+
+        function hideCookieBanner() {
+            document.getElementById('cookie-banner').classList.add('hidden');
+        }
+
+        function savePreferences() {
+            cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
+            cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
+            cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
+            
+            saveCookiePreferences();
+            closeCookieModal();
+        }
+
+        function saveCookiePreferences() {
+            localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+            applyCookiePreferences(cookiePreferences);
+        }
+
+        function applyCookiePreferences(preferences) {
+            // Analytics cookies
+            if (preferences.analytics) {
+                enableAnalytics();
+            } else {
+                disableAnalytics();
+            }
+            
+            // Functionality cookies
+            if (preferences.functionality) {
+                enableFunctionality();
+            } else {
+                disableFunctionality();
+            }
+            
+            // Marketing cookies
+            if (preferences.marketing) {
+                enableMarketing();
+            } else {
+                disableMarketing();
+            }
+        }
+
+        // Cookie type management functions
+        function enableAnalytics() {
+            console.log('Analytics enabled');
+        }
+
+        function disableAnalytics() {
+            console.log('Analytics disabled');
+        }
+
+        function enableFunctionality() {
+            console.log('Functionality cookies enabled');
+        }
+
+        function disableFunctionality() {
+            console.log('Functionality cookies disabled');
+        }
+
+        function enableMarketing() {
+            console.log('Marketing enabled');
+        }
+
+        function disableMarketing() {
+            console.log('Marketing disabled');
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCookieModal();
+            }
+        });
+    </script>
+</body>
+</html>
     <!-- Navigation -->
     <nav class="fixed w-full z-50 nav-blur">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
