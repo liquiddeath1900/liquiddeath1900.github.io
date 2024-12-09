@@ -957,36 +957,80 @@
         margin-bottom: 3rem;
     }
 
-    /* Modal Animation Styles */
+   /* Modal Animation Styles */
+.modal {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    align-items: flex-start; /* Changed from center to flex-start */
+    justify-content: center;
+    padding: 1rem;
+    overflow-y: auto; /* Enable scrolling on the modal itself */
+    max-height: 100vh; /* Limit height to viewport */
+}
+
+.modal.active {
+    opacity: 1;
+}
+
+.modal-content {
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+    margin: 2rem auto;
+    max-height: calc(100vh - 4rem); /* Leave some space at top and bottom */
+    overflow-y: auto; /* Enable scrolling within the content */
+    width: 100%;
+    max-width: 42rem;
+    position: relative;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-overlay {
+    transition: opacity 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Custom Scrollbar for Modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Modal Responsive Adjustments */
+@media (max-height: 800px) {
     .modal {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+        align-items: flex-start;
+        padding: 1rem;
     }
-
-    .modal.active {
-        opacity: 1;
-    }
-
+    
     .modal-content {
-        transform: scale(0.95);
-        transition: transform 0.3s ease-in-out;
+        margin: 1rem auto;
+        max-height: calc(100vh - 2rem);
     }
-
-    .modal.active .modal-content {
-        transform: scale(1);
-    }
-
-    .modal-overlay {
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    /* Modal Responsive Styles */
-    @media (max-height: 800px) {
-        .modal-content {
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-    }
+}
 
     /* Button Hover Effects */
     button:hover {
