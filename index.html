@@ -583,9 +583,9 @@
         </li>
     </ul>
 
-    <button onclick="openModal('premium-modal')" class="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors">
-        View Details
-    </button>
+    <button onclick="openModal('enterprise-modal')" class="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors">
+    View Details
+</button>
 </div>
         </div>
     </div>
@@ -763,11 +763,12 @@
         </div>
     </div>
 </div>
+
 <!-- Enterprise Package Modal -->
-<div id="premium-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
+<div id="enterprise-modal" class="modal fixed inset-0 flex items-center justify-center z-50 hidden">
     <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
     <div class="modal-content bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full mx-4 relative">
-        <button onclick="closeModal('premium-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+        <button onclick="closeModal('enterprise-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
             <i class="fas fa-times text-xl"></i>
         </button>
         
@@ -824,7 +825,7 @@
             </div>
 
             <div>
-                <h4 class="font-semibold mb-2">Premium Support & Services:</h4>
+                <h4 class="font-semibold mb-2">Enterprise Support & Services:</h4>
                 <ul class="space-y-2">
                     <li class="flex items-center">
                         <i class="fas fa-check text-green-500 mr-3"></i>
@@ -869,7 +870,7 @@
         </div>
 
         <div class="mt-8">
-            <a href="#contact" onclick="closeModal('premium-modal')" class="block w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium text-center transition-colors">
+            <a href="#contact" onclick="closeModal('enterprise-modal')" class="block w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium text-center transition-colors">
                 Get Started
             </a>
         </div>
@@ -901,15 +902,15 @@
     }
 
     // Close modal when clicking outside
-    document.addEventListener('click', function(event) {
-        const modals = document.querySelectorAll('.modal');
-        modals.forEach(modal => {
-            if (event.target === modal) {
-                const modalId = modal.getAttribute('id');
-                closeModal(modalId);
-            }
-        });
+document.addEventListener('click', function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target.classList.contains('modal')) {
+            const modalId = event.target.id;
+            closeModal(modalId);
+        }
     });
+});
 
     // Close modal on escape key press
     document.addEventListener('keydown', function(event) {
@@ -957,36 +958,53 @@
         margin-bottom: 3rem;
     }
 
-    /* Modal Animation Styles */
-    .modal {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
+ /* Modal Animation Styles */
+.modal {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+}
 
-    .modal.active {
-        opacity: 1;
-    }
+.modal.active {
+    opacity: 1;
+}
 
+.modal-content {
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    width: 100%;
+    max-width: 42rem;
+    margin: 2rem auto;
+    position: relative;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in-out;
+    z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-height: 800px) {
     .modal-content {
-        transform: scale(0.95);
-        transition: transform 0.3s ease-in-out;
+        margin: 1rem auto;
+        max-height: calc(100vh - 2rem);
     }
-
-    .modal.active .modal-content {
-        transform: scale(1);
-    }
-
-    .modal-overlay {
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    /* Modal Responsive Styles */
-    @media (max-height: 800px) {
-        .modal-content {
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-    }
+}
 
     /* Button Hover Effects */
     button:hover {
@@ -1006,24 +1024,24 @@
         transform: translateX(4px);
     }
 
-    /* Custom Scrollbar for Modal */
-    .modal-content::-webkit-scrollbar {
-        width: 8px;
-    }
+   /* Custom scrollbar */
+#enterprise-modal .modal-content::-webkit-scrollbar {
+    width: 6px;
+}
 
-    .modal-content::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 4px;
-    }
+#enterprise-modal .modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
 
-    .modal-content::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-    }
+#enterprise-modal .modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
 
-    .modal-content::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+#enterprise-modal .modal-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
     /* Focus States */
     button:focus, a:focus {
