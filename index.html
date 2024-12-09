@@ -957,36 +957,71 @@
         margin-bottom: 3rem;
     }
 
-    /* Modal Animation Styles */
-    .modal {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
+   /* Modal Animation Styles */
+.modal {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
 
-    .modal.active {
-        opacity: 1;
-    }
+.modal.active {
+    opacity: 1;
+}
 
+.modal-content {
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    position: relative;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 42rem;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-overlay {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Custom Scrollbar for Modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsive adjustments */
+@media (max-height: 800px) {
     .modal-content {
-        transform: scale(0.95);
-        transition: transform 0.3s ease-in-out;
+        margin: 1rem auto;
     }
+}
 
-    .modal.active .modal-content {
-        transform: scale(1);
+@media (max-width: 640px) {
+    .modal-content {
+        max-height: calc(100vh - 2rem);
+        margin: 1rem auto;
     }
-
-    .modal-overlay {
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    /* Modal Responsive Styles */
-    @media (max-height: 800px) {
-        .modal-content {
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-    }
+}
 
     /* Button Hover Effects */
     button:hover {
