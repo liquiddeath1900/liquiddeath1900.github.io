@@ -305,6 +305,26 @@
         // We'll implement the modal functionality next
         console.log('Manage cookies clicked');
     }
+    // Fade-in scrollbar logic
+    document.addEventListener('DOMContentLoaded', () => {
+        // Select the modal content. If you have multiple modals, you can handle them individually
+        const modalContents = document.querySelectorAll('.modal-content');
+        
+        modalContents.forEach(modalContent => {
+            let scrollingTimeout;
+            modalContent.addEventListener('scroll', () => {
+                // Add the 'scrolling' class to show the scrollbar
+                modalContent.classList.add('scrolling');
+                
+                // Clear any existing timeout and start a new one
+                clearTimeout(scrollingTimeout);
+                scrollingTimeout = setTimeout(() => {
+                    // Remove the 'scrolling' class after 500ms of no scroll activity
+                    modalContent.classList.remove('scrolling');
+                }, 500);
+            });
+        });
+    });
 </script>
 </body>
 </html>
@@ -1053,6 +1073,32 @@
         from { transform: translateY(20px); }
         to { transform: translateY(0); }
     }
+    /* Fade-in Scrollbar Styles */
+.modal-content {
+    max-height: 90vh; /* Already set, ensures modal won't exceed 90% of viewport height */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* For WebKit-based browsers (Chrome, Safari, Edge) */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: transparent;
+    transition: background 0.3s ease-in-out;
+}
+
+/* When actively scrolling, show the scrollbar thumb */
+.modal-content.scrolling::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+}
 </style>
 <!-- Section 5: Contact and Footer -->
 
