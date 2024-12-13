@@ -401,27 +401,26 @@
     }
 
     function manageCookies() {
-    document.querySelector('body').classList.add('overflow-hidden');
-    const modal = document.getElementById('cookie-modal');
-    const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
-    document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
-    document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
-    document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    hideCookieBanner();
     
-    if (window.innerWidth <= 768) {
-        document.body.style.position = 'fixed';
-        document.body.style.width = '100%';
-        document.body.style.top = `-${window.scrollY}px`;
+    setTimeout(() => {
+        const modal = document.getElementById('cookie-modal');
+        const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
+        document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
+        document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
+        document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
+        modal.classList.remove('hidden');
+        
+        if (window.innerWidth <= 768) {
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.top = `-${window.scrollY}px`;
         }
-    }
-    
+    }, 50);
+}
  function closeCookieModal() {
-    document.querySelector('body').classList.remove('overflow-hidden');
     const modal = document.getElementById('cookie-modal');
     modal.classList.add('hidden');
-    modal.classList.remove('flex');
     
     if (window.innerWidth <= 768) {
         const scrollY = document.body.style.top;
@@ -437,12 +436,12 @@
     }
 
     function savePreferences() {
-    cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
-    cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
-    cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
-    saveCookiePreferences();
-    closeCookieModal();
-    hideCookieBanner();
+        cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
+        cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
+        cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
+
+        saveCookiePreferences();
+        closeCookieModal();
     }
 
     function saveCookiePreferences() {
@@ -1280,21 +1279,30 @@
 
 #cookie-modal {
     z-index: 999999 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 @media (max-width: 768px) {
-    #cookie-modal .modal-content {
-        max-height: 85vh;
-        width: 90%;
-        margin: 1rem auto;
+    .modal-content {
+        max-height: 90vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
     }
     
-    body.overflow-hidden {
+    .modal-open {
         position: fixed;
         width: 100%;
-        height: 100%;
     }
 }
 </style>
