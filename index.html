@@ -283,13 +283,11 @@
 </div>
 
 <!-- Cookie Preferences Modal -->
-<div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50" aria-labelledby="cookie-preferences" aria-modal="true">
-    <div class="min-h-screen px-4 text-center">
-        <!-- Modal position helper -->
-        <div class="inline-block h-screen align-middle"></div>
-        
+<div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[999999]" aria-labelledby="cookie-preferences" aria-modal="true">
+    <div class="relative w-full max-w-2xl mx-4 min-h-screen flex items-center justify-center">
         <!-- Modal panel -->
-        <div class="inline-block w-full max-w-2xl p-6 my-8 text-left align-middle bg-white rounded-lg shadow-xl transform transition-all">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full">
+            <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-semibold text-gray-900" id="cookie-preferences">Cookie Preferences</h3>
                 <button onclick="closeCookieModal()" class="text-gray-400 hover:text-gray-500 transition duration-150">
@@ -300,6 +298,7 @@
                 </button>
             </div>
 
+            <!-- Cookie Options -->
             <div class="space-y-6">
                 <!-- Essential Cookies -->
                 <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
@@ -346,6 +345,7 @@
                 </div>
             </div>
 
+            <!-- Footer Buttons -->
             <div class="mt-8 flex justify-end gap-4">
                 <button onclick="closeCookieModal()" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500 transition duration-150">
                     Cancel
@@ -400,54 +400,59 @@
         hideCookieBanner();
     }
 
-    function manageCookies() {
-    hideCookieBanner();
-    
-    setTimeout(() => {
-        const modal = document.getElementById('cookie-modal');
-        const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
-        document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
-        document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
-        document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
-        modal.classList.remove('hidden');
-        
-        if (window.innerWidth <= 768) {
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
-            document.body.style.top = `-${window.scrollY}px`;
-        }
-    }, 50);
-}
- function closeCookieModal() {
+function manageCookies() {
     const modal = document.getElementById('cookie-modal');
-    modal.classList.add('hidden');
+    const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
+    
+    document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
+    document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
+    document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
+    
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
     
     if (window.innerWidth <= 768) {
-        const scrollY = document.body.style.top;
+        const scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeCookieModal() {
+    const modal = document.getElementById('cookie-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    
+    if (window.innerWidth <= 768) {
+        const scrollY = parseInt(document.body.style.top || '0') * -1;
         document.body.style.position = '';
         document.body.style.width = '';
         document.body.style.top = '';
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
     }
 }
 
-    function hideCookieBanner() {
-        document.getElementById('cookie-banner').classList.add('hidden');
-    }
+function savePreferences() {
+    cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
+    cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
+    cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
 
-    function savePreferences() {
-        cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
-        cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
-        cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
+    saveCookiePreferences();
+    closeCookieModal();
+    hideCookieBanner(); // Now we hide the banner after saving
+}
 
-        saveCookiePreferences();
-        closeCookieModal();
-    }
+function saveCookiePreferences() {
+    localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+    applyCookiePreferences(cookiePreferences);
+}
 
-    function saveCookiePreferences() {
-        localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
-        applyCookiePreferences(cookiePreferences);
-    }
+function hideCookieBanner() {
+    document.getElementById('cookie-banner').classList.add('hidden');
+}
 
     function applyCookiePreferences(preferences) {
         // Enable/disable analytics
@@ -1287,6 +1292,18 @@
 }
 
 @media (max-width: 768px) {
+    #cookie-modal .bg-white {
+        max-height: 85vh;
+        overflow-y: auto;
+        margin: 2rem;
+        width: calc(100% - 4rem);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #cookie-modal .relative {
+        padding: 0 !important;
+    }
+    
     .modal-content {
         max-height: 90vh;
         overflow-y: auto;
@@ -1304,6 +1321,16 @@
         position: fixed;
         width: 100%;
     }
+}
+
+/* Modal Animation Styles */
+.modal {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal.active {
+    opacity: 1;
 }
 </style>
 <!-- Section 5: Contact and Footer -->
