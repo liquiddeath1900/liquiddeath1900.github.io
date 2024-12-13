@@ -282,8 +282,18 @@
 </div>
 
 <!-- Cookie Preferences Modal -->
-<div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50" aria-labelledby="cookie-preferences" aria-modal="true">
-    <div class="min-h-screen px-4 text-center">
+<div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[60]" aria-labelledby="cookie-preferences" aria-modal="true">
+    <div class="min-h-screen p-4 text-center flex items-center justify-center">
+        <div class="bg-white w-full max-w-md p-6 rounded-lg shadow-xl relative">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold text-gray-900" id="cookie-preferences">Cookie Preferences</h3>
+                <button onclick="closeCookieModal()" class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">Close</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
         <!-- Modal position helper -->
         <div class="inline-block h-screen align-middle"></div>
         
@@ -399,11 +409,14 @@
         hideCookieBanner();
     }
 
-    function manageCookies() {
+   function manageCookies() {
+    console.log('manageCookies called'); // Debug line
     hideCookieBanner();
     
     setTimeout(() => {
+        console.log('Inside setTimeout'); // Debug line
         const modal = document.getElementById('cookie-modal');
+        console.log('Modal element:', modal); // Debug line
         const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
         document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
         document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
@@ -411,6 +424,7 @@
         modal.classList.remove('hidden');
         
         if (window.innerWidth <= 768) {
+            console.log('Mobile width detected', window.innerWidth); // Debug line
             document.body.style.position = 'fixed';
             document.body.style.width = '100%';
             document.body.style.top = `-${window.scrollY}px`;
@@ -1286,22 +1300,28 @@
 }
 
 @media (max-width: 768px) {
-    .modal-content {
-        max-height: 90vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        width: 90% !important;
-        margin: 0 !important;
-        padding: 1rem !important;
-    }
-    
-    .modal-open {
+    #cookie-modal {
         position: fixed;
-        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #cookie-modal:not(.hidden) {
+        display: flex;
+    }
+
+    #cookie-modal .bg-white {
+        margin: 1rem;
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+        width: calc(100% - 2rem);
     }
 }
 </style>
