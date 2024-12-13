@@ -413,16 +413,20 @@
         if (window.innerWidth <= 768) {
             document.body.style.position = 'fixed';
             document.body.style.width = '100%';
+            document.body.style.top = `-${window.scrollY}px`;
         }
     }, 50);
 }
-  function closeCookieModal() {
+ function closeCookieModal() {
     const modal = document.getElementById('cookie-modal');
     modal.classList.add('hidden');
     
     if (window.innerWidth <= 768) {
+        const scrollY = document.body.style.top;
         document.body.style.position = '';
         document.body.style.width = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
     }
 }
 
@@ -1245,9 +1249,9 @@
         from { transform: translateY(20px); }
         to { transform: translateY(0); }
     }
-    /* Fade-in Scrollbar Styles */
+/* Fade-in Scrollbar Styles */
 .modal-content {
-    max-height: 90vh; /* Already set, ensures modal won't exceed 90% of viewport height */
+    max-height: 90vh;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
@@ -1271,8 +1275,14 @@
 .modal-content.scrolling::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.3);
 }
-    #cookie-modal {
+
+#cookie-modal {
     z-index: 999999 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -1280,12 +1290,13 @@
         max-height: 90vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        margin: 0;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
     }
     
     .modal-open {
