@@ -403,14 +403,17 @@
 function manageCookies() {
     const modal = document.getElementById('cookie-modal');
     const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
-    
+
     document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
     document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
     document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
-    
+
     modal.classList.remove('hidden');
     modal.classList.add('flex');
-    
+
+    // Prevent modal from being closed automatically
+    modal.removeEventListener('click', closeCookieModal);
+
     if (window.innerWidth <= 768) {
         const scrollY = window.scrollY;
         document.body.style.position = 'fixed';
@@ -419,7 +422,7 @@ function manageCookies() {
         document.body.style.overflow = 'hidden';
     }
 }
-
+    
 function closeCookieModal() {
     const modal = document.getElementById('cookie-modal');
     modal.classList.add('hidden');
@@ -1283,22 +1286,41 @@ function hideCookieBanner() {
 }
 
 #cookie-modal {
-    z-index: 999999 !important;
-    position: fixed;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 999999; 
+    position: fixed; 
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+#cookie-modal .bg-white {
+    width: 40%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    background: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    overflow: hidden; 
+    position: relative;
+    padding: 2rem;
 }
 
 @media (max-width: 768px) {
     #cookie-modal .bg-white {
-        max-height: 85vh;
-        overflow-y: auto;
-        margin: 2rem;
-        width: calc(100% - 4rem);
-        -webkit-overflow-scrolling: touch;
+        width: calc(100% - 4rem); 
+        max-width: none; 
+        margin: 2rem auto; 
+        max-height: 85vh; 
+        overflow-y: auto; 
+        padding: 1.5rem; 
+        -webkit-overflow-scrolling: touch; 
     }
+}
 
     #cookie-modal .relative {
         padding: 0 !important;
