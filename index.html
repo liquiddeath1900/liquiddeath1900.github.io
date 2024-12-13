@@ -400,18 +400,31 @@
     }
 
     function manageCookies() {
-        hideCookieBanner();
+    hideCookieBanner();
+    
+    setTimeout(() => {
         const modal = document.getElementById('cookie-modal');
         const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
         document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
         document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
         document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
         modal.classList.remove('hidden');
+        
+        if (window.innerWidth <= 768) {
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+        }
+    }, 50);
+}
+  function closeCookieModal() {
+    const modal = document.getElementById('cookie-modal');
+    modal.classList.add('hidden');
+    
+    if (window.innerWidth <= 768) {
+        document.body.style.position = '';
+        document.body.style.width = '';
     }
-
-    function closeCookieModal() {
-        document.getElementById('cookie-modal').classList.add('hidden');
-    }
+}
 
     function hideCookieBanner() {
         document.getElementById('cookie-banner').classList.add('hidden');
@@ -1257,6 +1270,28 @@
 /* When actively scrolling, show the scrollbar thumb */
 .modal-content.scrolling::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.3);
+}
+    #cookie-modal {
+    z-index: 999999 !important;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        margin: 0;
+    }
+    
+    .modal-open {
+        position: fixed;
+        width: 100%;
+    }
 }
 </style>
 <!-- Section 5: Contact and Footer -->
