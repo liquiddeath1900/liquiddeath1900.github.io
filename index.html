@@ -368,35 +368,15 @@
         marketing: false
     };
 
-   document.addEventListener('DOMContentLoaded', () => {
-    const savedPreferences = localStorage.getItem('cookiePreferences');
-    
-    if (!savedPreferences) {
-        // No preferences saved, show the banner
-        document.getElementById('cookie-banner').classList.remove('hidden');
-        document.getElementById('cookie-modal').classList.remove('hidden');
-    } else {
-        // Apply previously saved preferences
-        applyCookiePreferences(JSON.parse(savedPreferences));
-    }
-    
-    // Ensure the modal stays until the user interacts
-    const manageButton = document.querySelector('[onclick="manageCookies()"]');
-    manageButton.addEventListener('click', () => {
-        document.getElementById('cookie-modal').classList.remove('hidden');
-    });
-
-    const acceptButton = document.querySelector('[onclick="acceptCookies()"]');
-    acceptButton.addEventListener('click', () => {
-        saveCookiePreferences({
-            essential: true,
-            analytics: true,
-            functionality: true,
-            marketing: true
-        });
-        document.getElementById('cookie-modal').classList.add('hidden');
-    });
-});
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedPreferences = localStorage.getItem('cookiePreferences');
+        if (!savedPreferences) {
+            // No preferences saved, show banner
+            document.getElementById('cookie-banner').classList.remove('hidden');
+        } else {
+            // Apply previously saved preferences
+            applyCookiePreferences(JSON.parse(savedPreferences));
+        }
 
         // Fade-in scrollbar logic
         const modalContents = document.querySelectorAll('.modal-content');
@@ -1304,25 +1284,12 @@ function hideCookieBanner() {
 }
 
 #cookie-modal {
+    z-index: 999999 !important;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Modal background */
-    z-index: 999999;
-}
-
-#cookie-modal .bg-white {
-    max-height: 90%;
-    overflow-y: auto;
-    width: 90%;
-    max-width: 600px;
-    border-radius: 8px;
-    padding: 1rem;
+    right: 0;
+    bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -1335,16 +1302,8 @@ function hideCookieBanner() {
     }
 
     #cookie-modal .relative {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999999;
-}
+        padding: 0 !important;
+    }
     
     .modal-content {
         max-height: 90vh;
