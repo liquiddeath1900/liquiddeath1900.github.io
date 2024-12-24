@@ -1293,17 +1293,17 @@ function hideCookieBanner() {
 }
 
 @media (max-width: 768px) {
-    #cookie-modal .bg-white {
-        max-height: 85vh;
-        overflow-y: auto;
-        margin: 2rem;
-        width: calc(100% - 4rem);
-        -webkit-overflow-scrolling: touch;
-    }
+   #cookie-modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
 
-    #cookie-modal .relative {
-        padding: 0 !important;
-    }
+#cookie-modal .bg-white {
+    margin: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+}
     
     .modal-content {
         max-height: 90vh;
