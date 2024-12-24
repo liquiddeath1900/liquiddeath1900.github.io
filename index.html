@@ -385,9 +385,10 @@ function manageCookies() {
     document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
     document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
     
+    // Show modal without any timeouts
     modal.classList.remove('hidden');
+    modal.classList.add('flex');
     
-    // Keep the mobile handling
     if (window.innerWidth <= 768) {
         const scrollY = window.scrollY;
         document.body.style.position = 'fixed';
@@ -416,7 +417,7 @@ function savePreferences() {
     cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
     cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
     cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
-
+    
     localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
     applyCookiePreferences(cookiePreferences);
     closeCookieModal();
