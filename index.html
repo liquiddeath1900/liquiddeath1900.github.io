@@ -285,8 +285,7 @@
 
 <!-- Cookie Preferences Modal -->
 <div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[999999]" aria-labelledby="cookie-preferences" aria-modal="true">
-    <div class="relative w-full max-w-2xl mx-auto px-4 flex items-center min-h-screen">
-        <div class="w-full bg-white rounded-lg shadow-xl p-6">
+    <div class="w-full max-w-2xl mx-4">
         <!-- Modal panel -->
         <div class="bg-white rounded-lg shadow-xl p-6 w-full">
             <!-- Header -->
@@ -398,12 +397,26 @@ function manageCookies() {
     }
 }
 
+function closeCookieModal() {
+    const modal = document.getElementById('cookie-modal');
+    modal.classList.add('hidden');
+    
+    // Keep the mobile handling
+    if (window.innerWidth <= 768) {
+        const scrollY = parseInt(document.body.style.top || '0') * -1;
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+    }
+}
+
 function savePreferences() {
     cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
     cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
     cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
 
-    // Save without any timeouts
     localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
     applyCookiePreferences(cookiePreferences);
     closeCookieModal();
@@ -415,7 +428,6 @@ function acceptCookies() {
     cookiePreferences.functionality = true;
     cookiePreferences.marketing = true;
     
-    // Save without any timeouts
     localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
     applyCookiePreferences(cookiePreferences);
     hideCookieBanner();
@@ -423,20 +435,6 @@ function acceptCookies() {
 
 function hideCookieBanner() {
     document.getElementById('cookie-banner').classList.add('hidden');
-}
-
-function closeCookieModal() {
-    const modal = document.getElementById('cookie-modal');
-    modal.classList.add('hidden');
-    
-    if (window.innerWidth <= 768) {
-        const scrollY = parseInt(document.body.style.top || '0') * -1;
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.style.top = '';
-        document.body.style.overflow = '';
-        window.scrollTo(0, scrollY);
-    }
 }
 
 function applyCookiePreferences(preferences) {
