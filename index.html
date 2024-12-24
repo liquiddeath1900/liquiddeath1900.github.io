@@ -284,7 +284,7 @@
 </div>
 
 <!-- Cookie Preferences Modal -->
-<div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[999999] flex items-center justify-center" aria-labelledby="cookie-preferences" aria-modal="true">
+<div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[999999]" aria-labelledby="cookie-preferences" aria-modal="true">
     <div class="w-full max-w-2xl mx-4">
         <!-- Modal panel -->
         <div class="bg-white rounded-lg shadow-xl p-6 w-full">
@@ -361,45 +361,21 @@
 
 <!-- Cookie Management Script -->
 <script>
-    const cookiePreferences = {
-        essential: true, // Always required
-        analytics: false,
-        functionality: false,
-        marketing: false
-    };
+const cookiePreferences = {
+    essential: true, // Always required
+    analytics: false,
+    functionality: false,
+    marketing: false
+};
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedPreferences = localStorage.getItem('cookiePreferences');
-        if (!savedPreferences) {
-            // No preferences saved, show banner
-            document.getElementById('cookie-banner').classList.remove('hidden');
-        } else {
-            // Apply previously saved preferences
-            applyCookiePreferences(JSON.parse(savedPreferences));
-        }
-
-        // Fade-in scrollbar logic
-        const modalContents = document.querySelectorAll('.modal-content');
-        modalContents.forEach(modalContent => {
-            let scrollingTimeout;
-            modalContent.addEventListener('scroll', () => {
-                modalContent.classList.add('scrolling');
-                clearTimeout(scrollingTimeout);
-                scrollingTimeout = setTimeout(() => {
-                    modalContent.classList.remove('scrolling');
-                }, 500);
-            });
-        });
-    });
-
-    function acceptCookies() {
-        // Accept all cookie types
-        cookiePreferences.analytics = true;
-        cookiePreferences.functionality = true;
-        cookiePreferences.marketing = true;
-        saveCookiePreferences();
-        hideCookieBanner();
+document.addEventListener('DOMContentLoaded', () => {
+    const savedPreferences = localStorage.getItem('cookiePreferences');
+    if (!savedPreferences) {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+    } else {
+        applyCookiePreferences(JSON.parse(savedPreferences));
     }
+});
 
 function manageCookies() {
     const modal = document.getElementById('cookie-modal');
@@ -410,8 +386,8 @@ function manageCookies() {
     document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
     
     modal.classList.remove('hidden');
-    modal.classList.add('flex');
     
+    // Keep the mobile handling
     if (window.innerWidth <= 768) {
         const scrollY = window.scrollY;
         document.body.style.position = 'fixed';
@@ -424,8 +400,8 @@ function manageCookies() {
 function closeCookieModal() {
     const modal = document.getElementById('cookie-modal');
     modal.classList.add('hidden');
-    modal.classList.remove('flex');
     
+    // Keep the mobile handling
     if (window.innerWidth <= 768) {
         const scrollY = parseInt(document.body.style.top || '0') * -1;
         document.body.style.position = '';
@@ -441,73 +417,74 @@ function savePreferences() {
     cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
     cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
 
-    saveCookiePreferences();
-    closeCookieModal();
-    hideCookieBanner(); // Now we hide the banner after saving
-}
-
-function saveCookiePreferences() {
     localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
     applyCookiePreferences(cookiePreferences);
+    closeCookieModal();
+    hideCookieBanner();
+}
+
+function acceptCookies() {
+    cookiePreferences.analytics = true;
+    cookiePreferences.functionality = true;
+    cookiePreferences.marketing = true;
+    
+    localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+    applyCookiePreferences(cookiePreferences);
+    hideCookieBanner();
 }
 
 function hideCookieBanner() {
     document.getElementById('cookie-banner').classList.add('hidden');
 }
 
-    function applyCookiePreferences(preferences) {
-        // Enable/disable analytics
-        if (preferences.analytics) {
-            enableAnalytics();
-        } else {
-            disableAnalytics();
-        }
-
-        // Enable/disable functionality
-        if (preferences.functionality) {
-            enableFunctionality();
-        } else {
-            disableFunctionality();
-        }
-
-        // Enable/disable marketing
-        if (preferences.marketing) {
-            enableMarketing();
-        } else {
-            disableMarketing();
-        }
+function applyCookiePreferences(preferences) {
+    if (preferences.analytics) {
+        enableAnalytics();
+    } else {
+        disableAnalytics();
     }
-
-    function enableAnalytics() {
-        console.log('Analytics enabled');
+    if (preferences.functionality) {
+        enableFunctionality();
+    } else {
+        disableFunctionality();
     }
-
-    function disableAnalytics() {
-        console.log('Analytics disabled');
+    if (preferences.marketing) {
+        enableMarketing();
+    } else {
+        disableMarketing();
     }
+}
 
-    function enableFunctionality() {
-        console.log('Functionality cookies enabled');
+function enableAnalytics() {
+    console.log('Analytics enabled');
+}
+
+function disableAnalytics() {
+    console.log('Analytics disabled');
+}
+
+function enableFunctionality() {
+    console.log('Functionality cookies enabled');
+}
+
+function disableFunctionality() {
+    console.log('Functionality cookies disabled');
+}
+
+function enableMarketing() {
+    console.log('Marketing enabled');
+}
+
+function disableMarketing() {
+    console.log('Marketing disabled');
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeCookieModal();
     }
-
-    function disableFunctionality() {
-        console.log('Functionality cookies disabled');
-    }
-
-    function enableMarketing() {
-        console.log('Marketing enabled');
-    }
-
-    function disableMarketing() {
-        console.log('Marketing disabled');
-    }
-
-    // Close modal on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeCookieModal();
-        }
-    });
+});
 </script>
 </body>
 </html>
@@ -1293,6 +1270,10 @@ function hideCookieBanner() {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+}
+
+#cookie-modal.hidden {
+    display: none !important;
 }
 
 @media (max-width: 768px) {
