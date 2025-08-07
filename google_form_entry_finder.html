@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Form Entry ID Finder</title>
+</head>
+<body>
+    <h2>Instructions to Find Google Form Entry IDs:</h2>
+    
+    <ol>
+        <li>Go to your Google Form: <a href="https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/viewform" target="_blank">Your Form</a></li>
+        <li>Right-click anywhere on the form and select "Inspect" or "View Source"</li>
+        <li>Press Ctrl+F (or Cmd+F on Mac) and search for "entry."</li>
+        <li>Look for patterns like: <code>entry.123456789</code></li>
+    </ol>
+    
+    <h3>What to look for in the HTML:</h3>
+    <p>You'll find something like this:</p>
+    <code>
+    &lt;input name="entry.123456789" type="text"&gt;<br>
+    &lt;input name="entry.987654321" type="email"&gt;<br>
+    &lt;input name="entry.555666777" type="tel"&gt;<br>
+    </code>
+    
+    <h3>Fields to match:</h3>
+    <ul>
+        <li><strong>Full Name</strong> → entry.XXXXXXX</li>
+        <li><strong>Business Name</strong> → entry.XXXXXXX</li>
+        <li><strong>Email</strong> → entry.XXXXXXX</li>
+        <li><strong>Phone</strong> → entry.XXXXXXX</li>
+        <li><strong>Service Type (dropdown)</strong> → entry.XXXXXXX</li>
+        <li><strong>Message/Challenge</strong> → entry.XXXXXXX</li>
+    </ul>
+    
+    <h3>Quick Alternative Method:</h3>
+    <ol>
+        <li>Open your Google Form</li>
+        <li>Add <code>?usp=pp_url</code> to the end of your form URL</li>
+        <li>This will show you prefillable link options with entry IDs</li>
+    </ol>
+    
+    <p><strong>Try this link:</strong> 
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/viewform?usp=pp_url" target="_blank">
+    Your Form with Pre-fill Options
+    </a></p>
+    
+    <p>Once you find the entry IDs, replace them in the contact form!</p>
+</body>
+</html>
