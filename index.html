@@ -220,7 +220,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <a href="#home" class="text-2xl font-bold text-blue-600">SeamlessFlow.ai</a>
+                    <a href="#home" class="flex items-center text-2xl font-bold text-blue-600">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai Logo" class="h-8 mr-3">
+                        SeamlessFlow.ai
+                    </a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -228,13 +231,35 @@
                         <a href="#services" class="text-gray-900 hover:text-blue-600 px-3 py-2">Services</a>
                         <a href="#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Results</a>
                         <a href="#pricing" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="#faq" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
                         <a href="#contact" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
-                        <span class="phone-number ml-4">(347) 749-8958</span>
                     </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-900 hover:text-blue-600" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+        <div class="px-4 py-2 space-y-2">
+            <a href="#home" class="block text-gray-900 hover:text-blue-600 py-2">Home</a>
+            <a href="#services" class="block text-gray-900 hover:text-blue-600 py-2">Services</a>
+            <a href="#results" class="block text-gray-900 hover:text-blue-600 py-2">Results</a>
+            <a href="#pricing" class="block text-gray-900 hover:text-blue-600 py-2">Pricing</a>
+            <a href="#faq" class="block text-gray-900 hover:text-blue-600 py-2">FAQ</a>
+            <a href="#contact" class="block text-gray-900 hover:text-blue-600 py-2">Contact</a>
+            <div class="py-2">
+                <a href="tel:+13477498958" class="bg-blue-600 text-white px-4 py-2 rounded-lg inline-block">
+                    <i class="fas fa-phone mr-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section - UPDATED -->
     <section class="hero-section" id="home">
@@ -259,10 +284,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style="animation-delay: 0.6s;">
-                    <a href="#seo-analysis" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                    <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
                         <i class="fas fa-chart-line mr-2"></i>Get Free SEO Analysis
                     </a>
-                    <a href="#automation" class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold">
+                    <a href="#contact" class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold">
                         <i class="fas fa-robot mr-2"></i>Automate My Business
                     </a>
                 </div>
@@ -278,9 +303,9 @@
     <!-- Lead Magnet Section -->
     <section class="bg-blue-600 text-white py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-lg">📋 Download Your FREE Local SEO Checklist for Service Businesses</p>
-            <a href="#checklist-download" class="btn-primary bg-white text-blue-600 hover:bg-gray-100 mt-2">
-                Download Free Checklist
+            <p class="text-lg">📞 Ready to dominate your local market? Call us now!</p>
+            <a href="tel:+13477498958" class="btn-primary bg-white text-blue-600 hover:bg-gray-100 mt-2">
+                <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
             </a>
         </div>
     </section>
@@ -346,7 +371,7 @@
                             </ul>
                         </div>
                         
-                        <a href="#seo-analysis" class="btn-primary w-full text-center py-3">
+                        <a href="#contact" class="btn-primary w-full text-center py-3">
                             Get Your Free SEO Analysis
                         </a>
                     </div>
@@ -743,7 +768,7 @@
     </section>
 
     <!-- FAQ Section - ADDED -->
-    <section class="section-padding bg-gray-50">
+    <section id="faq" class="section-padding bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="section-title">Frequently Asked Questions</h2>
             <p class="section-subtitle">Everything you need to know about our services</p>
@@ -894,32 +919,32 @@
                         🔥 FREE SEO Analysis - Limited Time Only!
                     </div>
                     
-                    <form id="contactForm" class="space-y-6">
+                    <form id="contactForm" class="space-y-6" action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST" target="hidden_iframe">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                                <input id="fullName" name="fullName" type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <input id="fullName" name="entry.YOUR_ENTRY_ID" type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Business Name *</label>
-                                <input id="businessName" name="businessName" type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <input id="businessName" name="entry.YOUR_ENTRY_ID2" type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
                             </div>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                                <input id="email" name="email" type="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <input id="email" name="entry.YOUR_ENTRY_ID3" type="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
-                                <input id="phone" name="phone" type="tel" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <input id="phone" name="entry.YOUR_ENTRY_ID4" type="tel" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
                             </div>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">What service do you provide?</label>
-                            <select id="serviceType" name="serviceType" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <select id="serviceType" name="entry.YOUR_ENTRY_ID5" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 <option value="">Select your industry</option>
                                 <option value="locksmith">Locksmith</option>
                                 <option value="hvac">HVAC</option>
@@ -933,7 +958,7 @@
                         
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">What's your biggest challenge?</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Not enough customers? Low online visibility? Manual processes taking too much time?"></textarea>
+                            <textarea id="message" name="entry.YOUR_ENTRY_ID6" rows="4" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Not enough customers? Low online visibility? Manual processes taking too much time?"></textarea>
                         </div>
                         
                         <button type="submit" class="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg">
@@ -995,13 +1020,13 @@
                         </button>
                     </div>
                     
-                    <!-- Free Checklist Download -->
-                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
-                        <h4 class="font-bold text-lg mb-2">📋 FREE Download</h4>
-                        <p class="text-gray-700 mb-4">Local SEO Checklist for Service Businesses</p>
-                        <button class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600 transition-colors">
-                            Download Checklist
-                        </button>
+                    <!-- Quick Call Section -->
+                    <div class="bg-green-50 border-l-4 border-green-400 p-6 rounded-lg">
+                        <h4 class="font-bold text-lg mb-2">📞 Quick Call</h4>
+                        <p class="text-gray-700 mb-4">Prefer to talk? Call us directly</p>
+                        <a href="tel:+13477498958" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors inline-block">
+                            <i class="fas fa-phone mr-2"></i>Call Now
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1015,8 +1040,7 @@
                 <div>
                     <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
                     <p class="text-gray-300 mb-4">Helping service businesses dominate their local markets through proven SEO and intelligent automation.</p>
-                    <div class="text-xl font-bold text-blue-400">(347) 749-8958</div>
-                </div>
+                                    </div>
                 
                 <div>
                     <h4 class="font-bold mb-4">Services</h4>
@@ -1066,40 +1090,31 @@
             </div>
             
             <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-300">
-                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="/privacy" class="hover:text-white">Privacy Policy</a> | <a href="/terms" class="hover:text-white">Terms of Service</a></p>
+                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
             </div>
         </div>
     </footer>
+
+    <!-- Hidden iframe for Google Forms -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
     <!-- JavaScript -->
     <script>
         // Form submission handling
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                fullName: document.getElementById('fullName').value,
-                businessName: document.getElementById('businessName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                serviceType: document.getElementById('serviceType').value,
-                message: document.getElementById('message').value
-            };
-            
             // Show loading state
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual form handling)
+            // Allow form to submit to Google Forms
             setTimeout(() => {
-                // Show success message
+                // Show success message after form submission
                 document.getElementById('successMessage').classList.remove('hidden');
-                e.target.style.display = 'none';
+                document.getElementById('contactForm').style.display = 'none';
                 
-                // Track conversion (replace with actual analytics)
+                // Track conversion
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'form_submit', {
                         'event_category': 'engagement',
@@ -1111,8 +1126,11 @@
 
         // Calendar booking function
         function openCalendarBooking() {
-            // Replace with actual calendar booking widget (Calendly, Acuity, etc.)
-            alert('Calendar booking widget would open here. Please call (347) 749-8958 to schedule.');
+            // Scroll to contact form
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
 
         // Smooth scrolling for navigation links
@@ -1141,15 +1159,26 @@
             });
         });
 
-        // Exit intent popup (basic implementation)
-        let exitIntentShown = false;
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !exitIntentShown) {
-                exitIntentShown = true;
-                if (confirm('Wait! Before you leave, would you like to download our FREE Local SEO Checklist?')) {
-                    // Redirect to checklist download
-                    window.location.href = '#checklist-download';
-                }
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            
+            if (!mobileMenu.contains(e.target) && !mobileButton.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
             }
         });
     </script>
