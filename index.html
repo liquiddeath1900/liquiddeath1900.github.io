@@ -1175,7 +1175,7 @@
             if (target) {
                 const nav = document.querySelector('nav');
                 const navHeight = nav ? nav.offsetHeight : 64; // h-16 = 64px
-                const extraPadding = 80; // More padding so section title is fully visible
+                const extraPadding = 20; // Better padding for section positioning
                 const targetPosition = target.offsetTop - navHeight - extraPadding;
                 
                 window.scrollTo({
@@ -1210,8 +1210,6 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburger = this;
             
-            // Clear any existing classes first
-            mobileMenu.classList.remove('hidden');
             
             if (mobileMenu.classList.contains('show')) {
                 // Close menu
