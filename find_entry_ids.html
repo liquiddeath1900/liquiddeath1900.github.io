@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Form Entry ID Extractor</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .method { background: #f5f5f5; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .instructions { background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 10px 0; }
+        code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; }
+        .highlight { background: #ffeb3b; padding: 2px 5px; }
+        button { background: #4285f4; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+        .result { background: #e8f5e8; padding: 10px; margin: 10px 0; border-radius: 4px; border-left: 4px solid #4caf50; }
+        textarea { width: 100%; height: 150px; font-family: monospace; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Google Form Entry ID Finder</h1>
+    
+    <div class="instructions">
+        <h3>📋 What We Need to Find:</h3>
+        <p>We need to find the <code>entry.XXXXXXX</code> IDs for each field in your Google Form so the contact form on your website can submit data correctly.</p>
+    </div>
+
+    <div class="method">
+        <h3>🎯 Method 1: Inspect Form Source Code</h3>
+        <ol>
+            <li><strong>Open your form:</strong> 
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/viewform" target="_blank">Click here to open your Google Form</a>
+            </li>
+            <li><strong>View source code:</strong> Right-click anywhere → "View Page Source" (or Ctrl+U / Cmd+U)</li>
+            <li><strong>Search for entries:</strong> Press Ctrl+F (or Cmd+F) and search for: <code class="highlight">entry.</code></li>
+            <li><strong>Look for patterns like:</strong></li>
+        </ol>
+        
+        <div class="result">
+            <strong>You should find lines like this:</strong><br>
+            <code>["entry.123456789",null,0]</code> - Full Name field<br>
+            <code>["entry.987654321",null,0]</code> - Business Name field<br>
+            <code>["entry.555666777",null,0]</code> - Email field<br>
+            <code>["entry.444333222",null,0]</code> - Phone field<br>
+            <code>["entry.111999888",null,0]</code> - Service Type field<br>
+            <code>["entry.777222333",null,0]</code> - Message/Challenge field
+        </div>
+    </div>
+
+    <div class="method">
+        <h3>🚀 Method 2: Network Tab Inspection</h3>
+        <ol>
+            <li><strong>Open your form:</strong> 
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/viewform" target="_blank">Your Google Form</a>
+            </li>
+            <li><strong>Open Developer Tools:</strong> F12 or right-click → "Inspect"</li>
+            <li><strong>Go to Network tab</strong></li>
+            <li><strong>Fill out the form with test data</strong></li>
+            <li><strong>Click Submit</strong></li>
+            <li><strong>Look for formResponse request</strong> - click on it</li>
+            <li><strong>Check Form Data section</strong> - you'll see all entry IDs with their values</li>
+        </ol>
+    </div>
+
+    <div class="method">
+        <h3>🔧 Method 3: Embed Code Analysis</h3>
+        <p>Since you provided an embed code, let me extract what I can from it:</p>
+        
+        <textarea readonly>
+Your embed code from Google:
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/viewform?embedded=true" width="640" height="947" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </textarea>
+
+        <p><strong>Form ID extracted:</strong> <code class="highlight">1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ</code></p>
+    </div>
+
+    <div class="method">
+        <h3>🎯 Method 4: Test Form with Monitoring</h3>
+        <p>Fill out this test form while monitoring network traffic:</p>
+        
+        <div class="instructions">
+            <p><strong>Instructions:</strong></p>
+            <ol>
+                <li>Open Developer Tools (F12)</li>
+                <li>Go to Network tab</li>
+                <li>Fill out the form below</li>
+                <li>Click submit</li>
+                <li>Look for the "formResponse" request</li>
+                <li>Check the request payload to see entry IDs</li>
+            </ol>
+        </div>
+
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/formResponse" 
+              method="POST" target="hidden_iframe" style="background: white; padding: 20px; border-radius: 8px;">
+              
+            <label>Full Name:</label><br>
+            <input name="entry.UNKNOWN1" type="text" placeholder="John Doe" required style="width: 100%; padding: 8px; margin: 5px 0;"><br>
+            
+            <label>Business Name:</label><br>
+            <input name="entry.UNKNOWN2" type="text" placeholder="ABC Locksmith" required style="width: 100%; padding: 8px; margin: 5px 0;"><br>
+            
+            <label>Email:</label><br>
+            <input name="entry.UNKNOWN3" type="email" placeholder="john@example.com" required style="width: 100%; padding: 8px; margin: 5px 0;"><br>
+            
+            <label>Phone:</label><br>
+            <input name="entry.UNKNOWN4" type="tel" placeholder="(555) 123-4567" required style="width: 100%; padding: 8px; margin: 5px 0;"><br>
+            
+            <label>Service Type:</label><br>
+            <select name="entry.UNKNOWN5" style="width: 100%; padding: 8px; margin: 5px 0;">
+                <option value="">Select your industry</option>
+                <option value="locksmith">Locksmith</option>
+                <option value="hvac">HVAC</option>
+                <option value="garage-door">Garage Door Repair</option>
+                <option value="pet-grooming">Pet Grooming</option>
+                <option value="auto-detailing">Auto Detailing</option>
+                <option value="cleaning">Cleaning Services</option>
+                <option value="other">Other Service Business</option>
+            </select><br>
+            
+            <label>Biggest Challenge:</label><br>
+            <textarea name="entry.UNKNOWN6" rows="3" style="width: 100%; padding: 8px; margin: 5px 0;"
+                     placeholder="Not enough customers? Low online visibility? Manual processes taking too much time?"></textarea><br>
+            
+            <button type="submit">Submit Test Form</button>
+        </form>
+        
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+    </div>
+
+    <div class="result">
+        <h3>🎯 What to Do Once You Find the Entry IDs:</h3>
+        <ol>
+            <li>Write down each entry ID with its corresponding field</li>
+            <li>Replace the placeholder IDs in your website's contact form</li>
+            <li>Test the form to make sure submissions work</li>
+        </ol>
+        
+        <p><strong>Example:</strong> If you find <code>entry.123456789</code> for the name field, replace <code>entry.YOUR_ENTRY_ID</code> with <code>entry.123456789</code> in your contact form.</p>
+    </div>
+
+    <div class="method">
+        <h3>📞 Alternative: Direct Method</h3>
+        <p>If the above methods are too technical, I can help you set up the form differently:</p>
+        <ul>
+            <li><strong>Option 1:</strong> Use a simple mailto: link for contacts</li>
+            <li><strong>Option 2:</strong> Use a PHP contact form that emails you directly</li>
+            <li><strong>Option 3:</strong> Use a service like Formspree or Netlify Forms</li>
+        </ul>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            setTimeout(() => {
+                alert('Test form submitted! Check your Developer Tools Network tab to see the entry IDs used in the request.');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
