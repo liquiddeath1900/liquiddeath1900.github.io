@@ -1169,19 +1169,27 @@
             });
         }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Smooth scrolling function (shared by desktop and mobile)
+        function smoothScrollToSection(targetHref) {
+            const target = document.querySelector(targetHref);
+            if (target) {
+                const nav = document.querySelector('nav');
+                const navHeight = nav ? nav.offsetHeight : 64; // h-16 = 64px
+                const extraPadding = 20; // Extra space so section title is visible
+                const targetPosition = target.offsetTop - navHeight - extraPadding;
+                
+                window.scrollTo({
+                    top: Math.max(0, targetPosition), // Don't scroll to negative position
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Desktop navigation smooth scrolling (exclude mobile menu links)
+        document.querySelectorAll('nav a[href^="#"]:not(#mobile-menu a)').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    const targetPosition = target.offsetTop - navHeight - 20;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+                smoothScrollToSection(this.getAttribute('href'));
             });
         });
 
@@ -1211,27 +1219,21 @@
             }
         });
 
-        // Close mobile menu when clicking on links + proper scroll
+        // Mobile menu link clicks - close menu and scroll
         document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Close mobile menu
+                // Close mobile menu first
                 const mobileMenu = document.getElementById('mobile-menu');
                 const hamburger = document.getElementById('mobile-menu-button');
                 mobileMenu.classList.remove('show');
                 hamburger.classList.remove('active');
                 
-                // Scroll to section (mobile)
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const navHeight = 70; // Mobile nav height
-                    const targetPosition = target.offsetTop - navHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+                // Wait a moment for menu to close, then scroll
+                setTimeout(() => {
+                    smoothScrollToSection(this.getAttribute('href'));
+                }, 100);
             });
         });
 
