@@ -8,6 +8,57 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        /* Mobile Menu - Simple and Working */
+        #mobile-menu {
+            display: none;
+        }
+        
+        #mobile-menu.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 4px 0;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -29,24 +80,36 @@
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button class="text-gray-900 hover:text-blue-600" id="mobile-menu-button">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </button>
                 </div>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="px-4 py-2 space-y-2">
-                <a href="index.html#services" class="block text-gray-900 hover:text-blue-600 py-2">Services</a>
-                <a href="index.html#results" class="block text-gray-900 hover:text-blue-600 py-2">Results</a>
-                <a href="index.html#pricing" class="block text-gray-900 hover:text-blue-600 py-2">Pricing</a>
-                <a href="index.html#faq" class="block text-gray-900 hover:text-blue-600 py-2">FAQ</a>
-                <a href="index.html#contact" class="block text-gray-900 hover:text-blue-600 py-2">Contact</a>
-                <div class="py-2">
-                    <a href="tel:+13477498958" class="bg-blue-600 text-white px-4 py-2 rounded-lg inline-block">
-                        <i class="fas fa-phone mr-2"></i>Call Now
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl border-t border-gray-100">
+            <div class="px-6 py-4 space-y-1">
+                <a href="index.html#services" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                    <i class="fas fa-cog mr-3 text-blue-500"></i>Services
+                </a>
+                <a href="index.html#results" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                    <i class="fas fa-chart-line mr-3 text-green-500"></i>Results
+                </a>
+                <a href="index.html#pricing" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                    <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                </a>
+                <a href="index.html#faq" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                    <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                </a>
+                <a href="index.html#contact" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                    <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
+                </a>
+                <div class="pt-4 border-t border-gray-100 mt-4">
+                    <a href="tel:+13477498958" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                        <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
                     </a>
                 </div>
             </div>
@@ -299,13 +362,39 @@
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            const hamburger = this;
+            
+            if (mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                hamburger.classList.remove('active');
+            } else {
+                mobileMenu.classList.add('show');
+                hamburger.classList.add('active');
+            }
         });
 
         // Close mobile menu when clicking on links
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
+            link.addEventListener('click', function(e) {
+                document.getElementById('mobile-menu').classList.remove('show');
+                document.getElementById('mobile-menu-button').classList.remove('active');
+                
+                // Handle smooth scrolling for anchor links
+                if (this.href.includes('#')) {
+                    e.preventDefault();
+                    const targetId = this.href.split('#')[1];
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed nav
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // If target not on current page, navigate normally
+                        window.location.href = this.href;
+                    }
+                }
             });
         });
 
@@ -315,8 +404,27 @@
             const mobileButton = document.getElementById('mobile-menu-button');
             
             if (!mobileMenu.contains(e.target) && !mobileButton.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
             }
+        });
+
+        // Smooth scrolling for desktop navigation
+        document.querySelectorAll('nav a[href*="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href.includes('#') && this.href.split('#')[0] === window.location.href.split('#')[0]) {
+                    e.preventDefault();
+                    const targetId = this.href.split('#')[1];
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
         });
     </script>
 </body>
