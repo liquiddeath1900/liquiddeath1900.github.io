@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Local SEO Services & Business Automation | SeamlessFlow.ai</title>
     <meta name="description" content="Help service businesses get found online and automate operations. Local SEO services starting at $400/month. Get more customers, save time, grow faster.">
     <meta name="keywords" content="local SEO services, business automation, Google Business Profile optimization, service business marketing, SEO for locksmiths, HVAC business automation">
@@ -1098,28 +1101,24 @@
 
     <!-- JavaScript -->
     <script>
-        // Form submission handling
+        // Form submission handling - Let form submit naturally to Google Forms
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            // Show loading state
+            // Show loading state briefly
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
             submitBtn.disabled = true;
             
-            // Allow form to submit to Google Forms
-            setTimeout(() => {
-                // Show success message after form submission
-                document.getElementById('successMessage').classList.remove('hidden');
-                document.getElementById('contactForm').style.display = 'none';
-                
-                // Track conversion
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        'event_category': 'engagement',
-                        'event_label': 'seo_analysis_request'
-                    });
-                }
-            }, 2000);
+            // Track conversion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    'event_category': 'engagement',
+                    'event_label': 'seo_analysis_request'
+                });
+            }
+            
+            // Form will submit naturally to Google Forms
+            // Success message will be handled by Google Forms redirect
         });
 
         // Calendar booking function
