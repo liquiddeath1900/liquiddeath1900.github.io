@@ -1175,7 +1175,7 @@
             if (target) {
                 const nav = document.querySelector('nav');
                 const navHeight = nav ? nav.offsetHeight : 64; // h-16 = 64px
-                const extraPadding = 20; // Extra space so section title is visible
+                const extraPadding = 40; // More padding so section title is fully visible
                 const targetPosition = target.offsetTop - navHeight - extraPadding;
                 
                 window.scrollTo({
@@ -1205,15 +1205,27 @@
             });
         });
 
-        // Mobile menu toggle - Simple and Working
+        // Mobile menu toggle - Fixed state management
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburger = this;
             
+            // Clear any existing classes first
+            mobileMenu.classList.remove('hidden');
+            
             if (mobileMenu.classList.contains('show')) {
+                // Close menu
                 mobileMenu.classList.remove('show');
                 hamburger.classList.remove('active');
+                // Add small delay before hiding to allow animation
+                setTimeout(() => {
+                    if (!mobileMenu.classList.contains('show')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }, 300);
             } else {
+                // Open menu
+                mobileMenu.classList.remove('hidden');
                 mobileMenu.classList.add('show');
                 hamburger.classList.add('active');
             }
@@ -1224,16 +1236,21 @@
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Close mobile menu first
+                // Close mobile menu properly
                 const mobileMenu = document.getElementById('mobile-menu');
                 const hamburger = document.getElementById('mobile-menu-button');
+                
+                // Remove show class and active state
                 mobileMenu.classList.remove('show');
                 hamburger.classList.remove('active');
                 
-                // Wait a moment for menu to close, then scroll
+                // Add hidden class after animation completes
                 setTimeout(() => {
-                    smoothScrollToSection(this.getAttribute('href'));
-                }, 100);
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+                
+                // Scroll to section immediately
+                smoothScrollToSection(this.getAttribute('href'));
             });
         });
 
@@ -1245,6 +1262,11 @@
             if (!mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
                 mobileMenu.classList.remove('show');
                 mobileButton.classList.remove('active');
+                setTimeout(() => {
+                    if (!mobileMenu.classList.contains('show')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }, 300);
             }
         });
     </script>
