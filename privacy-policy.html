@@ -9,6 +9,83 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        /* Mobile Menu Animations */
+        #mobile-menu {
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            max-height: 400px;
+        }
+        
+        #mobile-menu.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            max-height: 0;
+        }
+        
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 4px 0;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        /* Mobile Menu Items Animation */
+        #mobile-menu a {
+            transform: translateX(-20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            transition-delay: 0.1s;
+        }
+        
+        #mobile-menu.show a {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        #mobile-menu a:nth-child(1) { transition-delay: 0.1s; }
+        #mobile-menu a:nth-child(2) { transition-delay: 0.2s; }
+        #mobile-menu a:nth-child(3) { transition-delay: 0.3s; }
+        #mobile-menu a:nth-child(4) { transition-delay: 0.4s; }
+        #mobile-menu a:nth-child(5) { transition-delay: 0.5s; }
+        #mobile-menu a:nth-child(6) { transition-delay: 0.6s; }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
