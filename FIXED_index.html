@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Local SEO Services & Business Automation | SeamlessFlow.ai</title>
+    <meta name="description" content="Help service businesses get found online and automate operations. Local SEO services starting at $400/month. Get more customers, save time, grow faster.">
+    <meta name="keywords" content="local SEO services, business automation, Google Business Profile optimization, service business marketing, SEO for locksmiths, HVAC business automation">
+    <meta property="og:title" content="Local SEO Services & Business Automation | SeamlessFlow.ai">
+    <meta property="og:description" content="Help service businesses get found online and automate operations. Local SEO services starting at $400/month.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.seamlessflow.ai/">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema Markup for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "SeamlessFlow.ai",
+      "description": "Local SEO services and business automation for service businesses",
+      "url": "https://www.seamlessflow.ai",
+      "telephone": "+1-347-749-8958",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.7128",
+          "longitude": "-74.0060"
+        },
+        "geoRadius": "50000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "SEO and Automation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Starter Package",
+              "description": "Google Business Profile optimization and basic website SEO"
+            },
+            "price": "400",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "400",
+              "priceCurrency": "USD",
+              "unitText": "MONTH"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: #2563eb;
+        }
+        
+        /* Mobile Menu - Fixed positioning */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+        
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hamburger Animation - Improved */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 4px 0;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        
+        .service-card, .benefit-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover, .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .phone-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        
+        .urgency-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: #059669;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            .hero-section p {
+                font-size: 1.125rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#services" class="text-gray-900 hover:text-blue-600 px-3 py-2">Services</a>
+                        <a href="#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Results</a>
+                        <a href="pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="faq.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
+                        <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+                <div class="px-6 py-4 space-y-1">
+                    <a href="#services" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-cog mr-3 text-blue-500"></i>Services
+                    </a>
+                    <a href="#results" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-chart-line mr-3 text-green-500"></i>Results
+                    </a>
+                    <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                    </a>
+                    <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    </a>
+                    <a href="contact.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4">
+                        <a href="tel:+13477498958" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - UPDATED -->
+    <section class="hero-section" id="home">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="https://www.seamlessflow.ai/assets/Sequence%2002m.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content h-full flex items-center justify-center">
+            <div class="text-center px-4 max-w-6xl mx-auto">
+                
+                <h1 class="text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-4 sm:mb-6 animate-fade-in leading-tight" style="animation-delay: 0.2s;">
+                    Stop Losing Customers to Competitors Online
+                </h1>
+                
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-200 mb-6 sm:mb-8 animate-fade-in max-w-4xl mx-auto leading-relaxed px-2" style="animation-delay: 0.4s;">
+                    We help service businesses get found by more customers and automate their operations - so you can get back to what matters: running your business and enjoying life
+                </p>
+                
+                <div class="text-center animate-fade-in" style="animation-delay: 0.6s;">
+                    <a href="contact.html" class="btn-primary text-white px-6 sm:px-10 py-4 sm:py-5 rounded-lg text-lg sm:text-xl font-bold inline-block transform hover:scale-105 transition-all">
+                        <i class="fas fa-chart-line mr-2 sm:mr-3"></i>Get Your FREE SEO Analysis
+                    </a>
+                </div>
+                
+                <div class="trust-badge animate-fade-in justify-center" style="animation-delay: 0.8s;">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Over 50+ Service Businesses Transformed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section - RESTRUCTURED -->
+    <section id="services" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Lead generation through Local SEO and operational efficiency through automation</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- LOCAL SEO SERVICES - FIRST PRIORITY -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-blue-500">
+                    <div class="bg-blue-500 text-white p-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold">Local SEO & Online Visibility</h3>
+                            <div class="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-sm font-bold">
+                                MOST POPULAR
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-search-location text-blue-600 text-2xl"></i>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-xl font-semibold text-blue-600 mb-3">🚀 Triple Your Phone Calls</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span>Get found by customers searching for your services</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span>Dominate your local market online</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span>Google Business Profile optimization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span>Website optimization for search engines</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span>Local search ranking improvement</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                                    <span>Phone call tracking and analytics</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                            <h5 class="font-bold mb-2">Pricing:</h5>
+                            <ul class="text-sm space-y-1">
+                                <li>• SEO Starter: <strong>$400/month</strong></li>
+                                <li>• SEO Professional: <strong>$600/month</strong></li>
+                                <li>• SEO + Automation Combo: <strong>$1,200/month</strong></li>
+                            </ul>
+                        </div>
+                        
+                        <a href="contact.html" class="btn-primary w-full text-center py-3">
+                            Get Your Free SEO Analysis
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AUTOMATION SERVICES - SECOND PRIORITY -->
+                <div class="space-y-8">
+                    <!-- AI & Automation Card -->
+                    <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-8">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                                <i class="fas fa-robot text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">AI & Automation</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Intelligent Virtual Assistants
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Automated Customer Support
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Process & Workflow Automation
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    AI-Powered Decision Support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Business Solutions Card -->
+                    <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="p-8">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                                <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Business Solutions</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Marketing Automation
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Sales Process Automation
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Advanced Analytics & Reporting
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Custom Integration Solutions
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title">Industries We Serve</h2>
+            <p class="section-subtitle">Specialized SEO and automation solutions for service businesses</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-key text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-semibold">Locksmiths</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-thermometer-half text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-semibold">HVAC</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-door-open text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-semibold">Garage Door</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-cut text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-semibold">Pet Grooming</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-car text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-semibold">Auto Detailing</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-broom text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-semibold">Cleaning</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section - ADDED -->
+    <section id="results" class="section-padding bg-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title">Proven Results</h2>
+            <p class="section-subtitle">Real results from real service businesses</p>
+            
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-4">Success Story</h3>
+                        <div class="space-y-4">
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-yellow-300">5 → 50+</div>
+                                <div class="text-sm">Monthly Phone Calls</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-yellow-300">400%</div>
+                                <div class="text-sm">Increase in Calls</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-yellow-300">$15K+</div>
+                                <div class="text-sm">Additional Monthly Revenue</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-2/3 p-8">
+                        <h4 class="text-xl font-bold mb-4">How We Helped a Service Business Go From Invisible to Unstoppable</h4>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h5 class="font-semibold text-red-600 mb-2">The Challenge:</h5>
+                                <p class="text-gray-700">Local service business getting only 5-10 calls per month, losing customers to competitors with better online visibility.</p>
+                            </div>
+                            
+                            <div>
+                                <h5 class="font-semibold text-blue-600 mb-2">Our Solution:</h5>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                    <li>Optimized Google Business Profile</li>
+                                    <li>Improved local search rankings</li>
+                                    <li>Automated lead capture and follow-up</li>
+                                    <li>Professional website optimization</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h5 class="font-semibold text-green-600 mb-2">The Results:</h5>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                    <li>🚀 400% increase in phone calls (5 to 50+ per month)</li>
+                                    <li>📈 Tripled website traffic in 90 days</li>
+                                    <li>💰 $15,000+ additional monthly revenue</li>
+                                    <li>⏰ 20+ hours saved weekly through automation</li>
+                                </ul>
+                            </div>
+                            
+                            <blockquote class="border-l-4 border-blue-500 pl-4 italic text-gray-600 bg-gray-50 p-4">
+                                "We went from struggling to find customers to having more qualified leads than we can handle. SeamlessFlow didn't just improve our online presence - they transformed our entire business."
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local SEO Pricing Section - ADDED -->
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title">Why Choose SeamlessFlow.ai</h2>
+            <p class="section-subtitle">Experience the power of intelligent automation and proven SEO results</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- SEO Excellence Card -->
+                <div class="benefit-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Proven SEO Results</h3>
+                    <p class="text-gray-600">Our local SEO strategies have generated over $500K in additional revenue for service businesses in the past year alone.</p>
+                </div>
+
+                <!-- Cost Efficiency Card -->
+                <div class="benefit-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-piggy-bank text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Cost Efficiency</h3>
+                    <p class="text-gray-600">Reduce operational costs while increasing productivity through intelligent automation and better lead quality</p>
+                </div>
+
+                <!-- 24/7 Operations Card -->
+                <div class="benefit-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-clock text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">24/7 Lead Generation</h3>
+                    <p class="text-gray-600">Your optimized online presence works around the clock, ensuring continuous lead generation even when you sleep</p>
+                </div>
+
+                <!-- Scalable Solutions Card -->
+                <div class="benefit-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-expand text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Scalable Solutions</h3>
+                    <p class="text-gray-600">Solutions that grow with your business, from startup to market leader in your area</p>
+                </div>
+
+                <!-- Local Market Domination -->
+                <div class="benefit-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Local Market Domination</h3>
+                    <p class="text-gray-600">We help you become the go-to choice in your area by outranking competitors and capturing more market share</p>
+                </div>
+
+                <!-- Expert Support Card -->
+                <div class="benefit-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-headset text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Expert Support</h3>
+                    <p class="text-gray-600">NYC-based team with deep experience in both digital marketing and business automation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding bg-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Real feedback from real businesses</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Before SeamlessFlow, we got maybe 5-10 calls per month. Now we're getting 50+ qualified leads monthly. Our revenue has tripled!"</p>
+                    <div class="font-semibold">Mike Chen</div>
+                    <div class="text-sm text-gray-500">Brooklyn Locksmith Services</div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The automation saves us 15+ hours per week. We can focus on actual work instead of chasing leads and paperwork."</p>
+                    <div class="font-semibold">Sarah Rodriguez</div>
+                    <div class="text-sm text-gray-500">Elite HVAC Solutions</div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Finally ranking #1 on Google for our main keywords. The phone doesn't stop ringing and we're booked weeks out!"</p>
+                    <div class="font-semibold">James Thompson</div>
+                    <div class="text-sm text-gray-500">Thompson Garage Doors</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
+                    <p class="text-gray-300 mb-4">Helping service businesses dominate their local markets through proven SEO and intelligent automation.</p>
+                                    </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#services" class="hover:text-white">Local SEO</a></li>
+                        <li><a href="#services" class="hover:text-white">Google Business Profile</a></li>
+                        <li><a href="#services" class="hover:text-white">Business Automation</a></li>
+                        <li><a href="#services" class="hover:text-white">Lead Generation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Locksmiths</li>
+                        <li>HVAC Contractors</li>
+                        <li>Garage Door Repair</li>
+                        <li>Pet Grooming</li>
+                        <li>Auto Detailing</li>
+                        <li>Cleaning Services</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>(347) 749-8958</li>
+                        <li>hello@seamlessflow.ai</li>
+                        <li>New York City, NY</li>
+                    </ul>
+                    
+                    <div class="mt-6">
+                        <h5 class="font-bold mb-2">Follow Us</h5>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-300">
+                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden iframe for Google Forms -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    <!-- JavaScript -->
+    <script>
+        // Form submission handling - Let form submit naturally to Google Forms
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // Show loading state briefly
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+                    submitBtn.disabled = true;
+                }
+                
+                // Track conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_submit', {
+                        'event_category': 'engagement',
+                        'event_label': 'seo_analysis_request'
+                    });
+                }
+                
+                // Form will submit naturally to Google Forms
+                // Success message will be handled by Google Forms redirect
+            });
+        }
+
+        // Calendar booking function
+        function openCalendarBooking() {
+            // Redirect to contact page since contact form is now on separate page
+            window.location.href = 'contact.html';
+        }
+
+        // Smooth scrolling function (shared by desktop and mobile)
+        function smoothScrollToSection(targetHref) {
+            const target = document.querySelector(targetHref);
+            if (target) {
+                const nav = document.querySelector('nav');
+                const navHeight = nav ? nav.offsetHeight : 64; // h-16 = 64px
+                const extraPadding = 20; // Better padding for section positioning
+                const targetPosition = target.offsetTop - navHeight - extraPadding;
+                
+                window.scrollTo({
+                    top: Math.max(0, targetPosition), // Don't scroll to negative position
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Desktop navigation smooth scrolling (exclude mobile menu links)
+        document.querySelectorAll('nav a[href^="#"]:not(#mobile-menu a)').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                smoothScrollToSection(this.getAttribute('href'));
+            });
+        });
+
+        // Track phone number clicks
+        document.querySelectorAll('a[href^="tel:"], .phone-number').forEach(element => {
+            element.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'phone_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'phone_number'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle - Fixed for new CSS
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+                
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    // Close menu
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                } else if (mobileMenu) {
+                    // Open menu
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
+
+        // Mobile menu link clicks - close menu and scroll
+        document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu properly
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                
+                // Remove show class and active state
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                
+                // Scroll to section immediately
+                smoothScrollToSection(this.getAttribute('href'));
+            });
+        });
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+            }
+        });
+    </script>
+    
+    <!-- Google Analytics 4 (Replace GA_MEASUREMENT_ID with actual ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        // Track page view
+        gtag('event', 'page_view', {
+            'page_title': document.title,
+            'page_location': window.location.href
+        });
+    </script>
+    
+    <!-- Google Search Console verification (Replace with actual verification code) -->
+    <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_CODE">
+    
+    <!-- Bing Webmaster Tools verification (Replace with actual verification code) -->
+    <meta name="msvalidate.01" content="BING_VERIFICATION_CODE">
+</body>
+</html>
