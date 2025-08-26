@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Local SEO Services & Business Automation | SeamlessFlow.ai</title>
+    <meta name="description" content="Help service businesses get found online and automate operations. Local SEO services starting at $400/month. Get more customers, save time, grow faster.">
+    <meta name="keywords" content="local SEO services, business automation, Google Business Profile optimization, service business marketing, SEO for locksmiths, HVAC business automation">
+    <meta property="og:title" content="Local SEO Services & Business Automation | SeamlessFlow.ai">
+    <meta property="og:description" content="Help service businesses get found online and automate operations. Local SEO services starting at $400/month.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.seamlessflow.ai/">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema Markup for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "SeamlessFlow.ai",
+      "description": "Local SEO services and business automation for service businesses",
+      "url": "https://www.seamlessflow.ai",
+      "telephone": "+1-347-749-8958",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.7128",
+          "longitude": "-74.0060"
+        },
+        "geoRadius": "50000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "SEO and Automation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Starter Package",
+              "description": "Google Business Profile optimization and basic website SEO"
+            },
+            "price": "400",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "400",
+              "priceCurrency": "USD",
+              "unitText": "MONTH"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: #2563eb;
+        }
+        
+        /* Mobile Menu - Fixed positioning */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+        
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hamburger Animation - Improved */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 4px 0;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        
+        .service-card, .benefit-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover, .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .phone-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        
+        .urgency-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: #059669;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            .hero-section p {
+                font-size: 1.125rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html#services" class="text-gray-900 hover:text-blue-600 px-3 py-2">Services</a>
+                        <a href="index.html#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Results</a>
+                        <a href="pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="faq.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
+                        <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+                <div class="px-6 py-4 space-y-1">
+                    <a href="index.html#services" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-cog mr-3 text-blue-500"></i>Services
+                    </a>
+                    <a href="index.html#results" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-chart-line mr-3 text-green-500"></i>Results
+                    </a>
+                    <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                    </a>
+                    <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    </a>
+                    <a href="contact.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4">
+                        <a href="tel:+13477498958" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="pricing" class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title">Local SEO Services</h2>
+            <p class="section-subtitle">Choose the package that fits your business needs</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- SEO Starter Package -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-4">SEO Starter</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-6">$400<span class="text-lg text-gray-500">/month</span></div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Google Business Profile optimization</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Basic website SEO optimization</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Monthly performance reports</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Phone call tracking setup</span>
+                        </li>
+                    </ul>
+
+                    <a href="contact.html" class="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors text-center block">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- SEO Professional Package -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform scale-105 border-2 border-blue-500 relative">
+                    <div class="absolute top-0 left-0 w-full bg-blue-500 text-white text-center py-2 rounded-t-xl">
+                        RECOMMENDED
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 mt-4">SEO Professional</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-6">$600<span class="text-lg text-gray-500">/month</span></div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Everything in Starter</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Advanced local keyword targeting</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Competitive analysis</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Local directory optimization</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Bi-weekly strategy calls</span>
+                        </li>
+                    </ul>
+
+                    <a href="contact.html" class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors text-center block">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- SEO + Automation Package -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-4">SEO + Automation</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-6">$1,200<span class="text-lg text-gray-500">/month</span></div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Complete SEO package</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Basic automation workflows</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Integrated lead capture system</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Weekly performance reviews</span>
+                        </li>
+                    </ul>
+
+                    <a href="contact.html" class="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors text-center block">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+
+            <!-- Original Automation Pricing -->
+            <h3 class="text-2xl font-bold text-center mb-8">Automation Solutions</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Foundation Package -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-4">Foundation Package</h3>
+                    <p class="text-gray-600 mb-6">Perfect for small businesses starting their automation journey</p>
+                    <div class="mb-6">
+                        <p class="text-xl font-bold text-gray-800">Setup Fee:</p>
+                        <p class="text-3xl font-bold text-blue-600">$3,500 - $5,500</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-xl font-bold text-gray-800">Monthly Fee:</p>
+                        <p class="text-2xl font-bold text-blue-600">$1,500</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Web Presence Solutions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>AI Chatbot (Single Flow)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>5 Core Automation Workflows</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Basic Analytics Setup</span>
+                        </li>
+                    </ul>
+
+                    <button class="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors">
+                        View Details
+                    </button>
+                </div>
+
+                <!-- Growth Package -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transform scale-105 border-2 border-blue-500 relative">
+                    <div class="absolute top-0 left-0 w-full bg-blue-500 text-white text-center py-2 rounded-t-xl">
+                        MOST POPULAR
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 mt-4">Growth Package</h3>
+                    <p class="text-gray-600 mb-6">Ideal for growing businesses seeking comprehensive automation</p>
+                    <div class="mb-6">
+                        <p class="text-xl font-bold text-gray-800">Setup Fee:</p>
+                        <p class="text-3xl font-bold text-blue-600">$6,000 - $9,000</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-xl font-bold text-gray-800">Monthly Fee:</p>
+                        <p class="text-2xl font-bold text-blue-600">$3,000</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Advanced Web Solutions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Multi-Flow AI Chatbot</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>15 Custom Workflows</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Advanced Analytics & Reporting</span>
+                        </li>
+                    </ul>
+
+                    <button class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
+                        View Details
+                    </button>
+                </div>
+
+                <!-- Enterprise Package -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-4">Enterprise Package</h3>
+                    <p class="text-gray-600 mb-6">Complete automation solution for established businesses</p>
+                    <div class="mb-6">
+                        <p class="text-xl font-bold text-gray-800">Setup Fee:</p>
+                        <p class="text-3xl font-bold text-blue-600">$10,000 - $20,000</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-xl font-bold text-gray-800">Monthly Fee:</p>
+                        <p class="text-2xl font-bold text-blue-600">Starting at $6,000</p>
+                        <p class="text-sm text-gray-600 mt-2">Custom pricing based on requirements</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Enterprise-Grade Platform</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Custom AI Solutions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Unlimited Workflows</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>24/7 Dedicated Support</span>
+                        </li>
+                    </ul>
+
+                    <button class="w-full py-3 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors">
+                        View Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
+                    <p class="text-gray-300 mb-4">Helping service businesses dominate their local markets through proven SEO and intelligent automation.</p>
+                                    </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="index.html#services" class="hover:text-white">Local SEO</a></li>
+                        <li><a href="index.html#services" class="hover:text-white">Google Business Profile</a></li>
+                        <li><a href="index.html#services" class="hover:text-white">Business Automation</a></li>
+                        <li><a href="index.html#services" class="hover:text-white">Lead Generation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Locksmiths</li>
+                        <li>HVAC Contractors</li>
+                        <li>Garage Door Repair</li>
+                        <li>Pet Grooming</li>
+                        <li>Auto Detailing</li>
+                        <li>Cleaning Services</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>(347) 749-8958</li>
+                        <li>hello@seamlessflow.ai</li>
+                        <li>New York City, NY</li>
+                    </ul>
+                    
+                    <div class="mt-6">
+                        <h5 class="font-bold mb-2">Follow Us</h5>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-300">
+                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle - Fixed state management
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+                
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    // Close menu
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                    // Add small delay before hiding to allow animation
+                    setTimeout(() => {
+                        if (!mobileMenu.classList.contains('show')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }, 300);
+                } else if (mobileMenu) {
+                    // Open menu
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+                setTimeout(() => {
+                    if (!mobileMenu.classList.contains('show')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }, 300);
+            }
+        });
+    </script>
+</body></html>
