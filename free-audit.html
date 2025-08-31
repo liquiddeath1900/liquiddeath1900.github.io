@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Google Ranking Audit - SeamlessFlow.ai</title>
+    <meta name="description" content="Get your free Google ranking report in 24 hours. Find out exactly why your competitors are outranking you and how to fix it.">
+    <meta name="keywords" content="free SEO audit, Google ranking check, local SEO analysis, business ranking report">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .trust-badge {
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+        }
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+        
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 4px 0;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        .submit-btn {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Local SEO</a>
+                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Marketing Automation</a>
+                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Website Development</a>
+                            </div>
+                        </div>
+                        <a href="pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="index.html#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Case Studies</a>
+                        <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+                <div class="px-6 py-4 space-y-1">
+                    <a href="local-seo.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Local SEO
+                    </a>
+                    <a href="marketing-automation.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-robot mr-3 text-purple-500"></i>Marketing Automation
+                    </a>
+                    <a href="website-development.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-laptop-code mr-3 text-green-500"></i>Website Development
+                    </a>
+                    <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                    </a>
+                    <a href="index.html#results" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-chart-line mr-3 text-green-500"></i>Case Studies
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
+                        <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-search mr-2"></i>Get Free Audit
+                        </a>
+                        <a href="tel:+13477498958" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Form -->
+    <section class="hero-section pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Benefits -->
+                <div class="text-white">
+                    <div class="trust-badge">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        FREE 24-Hour Ranking Report
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Discover Why Your Competitors Outrank You
+                    </h1>
+                    
+                    <p class="text-xl mb-8 opacity-90">
+                        Get a detailed analysis of your Google rankings vs competitors, plus a custom action plan to get to #1 in your market.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="benefit-item">
+                            <i class="fas fa-search text-yellow-300 text-2xl mr-4"></i>
+                            <div>
+                                <div class="font-bold">Current Google Rankings</div>
+                                <div class="text-sm opacity-90">See exactly where you rank for key local searches</div>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-users text-yellow-300 text-2xl mr-4"></i>
+                            <div>
+                                <div class="font-bold">Competitor Analysis</div>
+                                <div class="text-sm opacity-90">Find out what your top competitors are doing right</div>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-map-marked-alt text-yellow-300 text-2xl mr-4"></i>
+                            <div>
+                                <div class="font-bold">Local SEO Opportunities</div>
+                                <div class="text-sm opacity-90">Identify quick wins to improve your visibility</div>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-chart-line text-yellow-300 text-2xl mr-4"></i>
+                            <div>
+                                <div class="font-bold">Custom Action Plan</div>
+                                <div class="text-sm opacity-90">90-day roadmap to dominate your local market</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="flex items-center mb-3">
+                            <div class="flex text-yellow-300">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="italic mb-3">"The free audit showed me exactly why I was stuck on page 3. Within 60 days of implementing their recommendations, I'm now #1 for my main keywords!"</p>
+                        <div class="font-semibold">Sarah M., HVAC Contractor</div>
+                    </div>
+                </div>
+                
+                <!-- Right Side - Form -->
+                <div class="form-container p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-2">
+                            Get Your Free Ranking Report
+                        </h2>
+                        <p class="text-gray-600">
+                            Takes 2 minutes to complete • Results in 24 hours
+                        </p>
+                    </div>
+                    
+                    <form id="auditForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdmBN3EvSZjZHqRJXy-FAKE-FORM-ID/formResponse" method="POST" target="hidden_iframe" class="space-y-6">
+                        <div>
+                            <label for="business_name" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-building mr-2"></i>Business Name *
+                            </label>
+                            <input type="text" id="business_name" name="entry.123456789" required class="form-input" placeholder="Your Business Name">
+                        </div>
+                        
+                        <div>
+                            <label for="website" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-globe mr-2"></i>Website URL *
+                            </label>
+                            <input type="url" id="website" name="entry.987654321" required class="form-input" placeholder="https://yourwebsite.com">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-phone mr-2"></i>Phone Number *
+                            </label>
+                            <input type="tel" id="phone" name="entry.456789123" required class="form-input" placeholder="(555) 123-4567">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-envelope mr-2"></i>Email Address *
+                            </label>
+                            <input type="email" id="email" name="entry.789123456" required class="form-input" placeholder="your@email.com">
+                        </div>
+                        
+                        <div>
+                            <label for="city" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Primary Service Area
+                            </label>
+                            <input type="text" id="city" name="entry.321654987" class="form-input" placeholder="City, State (e.g. Brooklyn, NY)">
+                        </div>
+                        
+                        <div>
+                            <label for="industry" class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-briefcase mr-2"></i>Type of Business
+                            </label>
+                            <select id="industry" name="entry.654321789" class="form-input">
+                                <option value="">Select your industry</option>
+                                <option value="locksmith">Locksmith</option>
+                                <option value="hvac">HVAC Contractor</option>
+                                <option value="garage-door">Garage Door Repair</option>
+                                <option value="plumbing">Plumbing</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="auto-detailing">Auto Detailing</option>
+                                <option value="cleaning">Cleaning Services</option>
+                                <option value="pest-control">Pest Control</option>
+                                <option value="landscaping">Landscaping</option>
+                                <option value="roofing">Roofing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-search mr-3"></i>Get My Free Ranking Report
+                        </button>
+                        
+                        <div class="text-center text-sm text-gray-500 mt-4">
+                            <i class="fas fa-lock mr-1"></i>
+                            Your information is secure and will never be shared
+                        </div>
+                    </form>
+                    
+                    <!-- Trust Signals -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600">
+                            <div>
+                                <i class="fas fa-shield-alt text-green-600 mb-2 block"></i>
+                                <div class="font-semibold">100% Free</div>
+                                <div>No hidden costs</div>
+                            </div>
+                            <div>
+                                <i class="fas fa-clock text-blue-600 mb-2 block"></i>
+                                <div class="font-semibold">24-Hour Delivery</div>
+                                <div>Fast turnaround</div>
+                            </div>
+                            <div>
+                                <i class="fas fa-users text-purple-600 mb-2 block"></i>
+                                <div class="font-semibold">50+ Businesses</div>
+                                <div>Successfully helped</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Receive -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    What's Included in Your Free Audit
+                </h2>
+                <p class="text-xl text-gray-600">
+                    A comprehensive analysis worth $500 - completely free
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Google Maps Ranking Analysis</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Current Google Maps position
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Local pack visibility analysis
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Review score comparison
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Google Business Profile audit
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Competitor Intelligence</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Top 5 competitors identified
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Their ranking strategies
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Content gap analysis
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Opportunity identification
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Keyword Performance</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Current keyword rankings
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            High-value keyword opportunities
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Search volume analysis
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Local search trends
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Website Technical Audit</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Mobile optimization score
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Page speed analysis
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Technical SEO issues
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Conversion optimization tips
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-star text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Online Reputation Review</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Review quantity vs competitors
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Review quality analysis
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Response rate evaluation
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Reputation improvement plan
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-route text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">90-Day Action Plan</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Priority tasks breakdown
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Timeline for implementation
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Expected results timeline
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Investment recommendations
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">Is this really free?</h3>
+                    <p class="text-gray-600">Yes, completely free! We provide this audit to show you the value we can deliver. There are no hidden costs or obligations.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">How long does it take to receive my audit?</h3>
+                    <p class="text-gray-600">Most audits are completed within 24 hours. Complex websites may take up to 48 hours for a thorough analysis.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">What if I don't have a website?</h3>
+                    <p class="text-gray-600">No problem! We can still audit your Google Business Profile and online presence, plus provide recommendations for getting started.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">Will you share my information?</h3>
+                    <p class="text-gray-600">Never. Your business information is completely confidential and will only be used to create your custom audit report.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold mb-3">What happens after I receive the audit?</h3>
+                    <p class="text-gray-600">We'll schedule a brief call to walk through your results and answer any questions. There's no pressure to work with us - the audit is yours to keep regardless.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                Ready to Discover Your Ranking Opportunities?
+            </h2>
+            <p class="text-xl mb-8">
+                Join 50+ local businesses who've used our free audit to dominate their market.
+            </p>
+            <a href="#auditForm" class="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
+                <i class="fas fa-arrow-up mr-2"></i>Get Your Free Audit Above
+            </a>
+            <div class="mt-6 space-y-2">
+                <p class="text-blue-200 flex items-center justify-center">
+                    <i class="fas fa-shield-alt mr-2"></i>100% Free • No Strings Attached
+                </p>
+                <p class="text-blue-200">
+                    Or call us directly: <a href="tel:+13477498958" class="text-yellow-300 font-bold">(347) 749-8958</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
+                <p class="text-gray-300 mb-4">Local SEO Specialists • Serving NYC, Albany, Pittsburgh & Richmond</p>
+                <div class="space-y-2">
+                    <p class="text-gray-300">(347) 749-8958 | hello@seamlessflow.ai</p>
+                    <p class="text-sm text-gray-400">100% US-Based Team | Free Ranking Audits | 90-Day Money Back Guarantee</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-400">
+                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden iframe for form submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    <script>
+        // Form submission handling
+        document.getElementById('auditForm').addEventListener('submit', function(e) {
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Submitting...';
+            submitBtn.disabled = true;
+            
+            // Form will submit to Google Forms
+            setTimeout(function() {
+                // Show success message
+                document.querySelector('.form-container').innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fas fa-check-circle text-green-500 text-6xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Thank You!</h3>
+                        <p class="text-gray-600 mb-6">Your free ranking audit request has been submitted successfully.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                            <p class="text-blue-800 font-semibold">What happens next:</p>
+                            <ul class="text-blue-700 text-sm mt-2 space-y-1 text-left">
+                                <li>✓ We'll analyze your business within 24 hours</li>
+                                <li>✓ You'll receive a detailed ranking report via email</li>
+                                <li>✓ We'll schedule a brief call to review your results</li>
+                            </ul>
+                        </div>
+                        <a href="tel:+13477498958" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold inline-block">
+                            <i class="fas fa-phone mr-2"></i>Or Call Us: (347) 749-8958
+                        </a>
+                    </div>
+                `;
+            }, 2000);
+        });
+
+        // Smooth scroll to form
+        document.querySelectorAll('a[href="#auditForm"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector('#auditForm').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+                
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    // Close menu
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                } else if (mobileMenu) {
+                    // Open menu
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking on mobile menu links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

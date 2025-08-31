@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local SEO Services - Dominate Google Maps | SeamlessFlow.ai</title>
+    <meta name="description" content="Get your business #1 on Google Maps in 90 days. Proven local SEO strategies that drive real customers to your door. Serving NYC, Albany, Pittsburgh, Richmond.">
+    <meta name="keywords" content="local SEO services, Google Maps ranking, local business SEO, Google Business Profile optimization">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px 0;
+        }
+        .case-study-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+        
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 4px 0;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="local-seo.html" class="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50">Local SEO</a>
+                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Marketing Automation</a>
+                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Website Development</a>
+                            </div>
+                        </div>
+                        <a href="pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="faq.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
+                        <a href="index.html#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Case Studies</a>
+                        <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+                <div class="px-6 py-4 space-y-1">
+                    <a href="local-seo.html" class="block text-blue-600 bg-blue-50 py-3 px-4 rounded-lg font-semibold transition-colors">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Local SEO
+                    </a>
+                    <a href="marketing-automation.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-robot mr-3 text-purple-500"></i>Marketing Automation
+                    </a>
+                    <a href="website-development.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-laptop-code mr-3 text-green-500"></i>Website Development
+                    </a>
+                    <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                    </a>
+                    <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    </a>
+                    <a href="index.html#results" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-chart-line mr-3 text-green-500"></i>Case Studies
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
+                        <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-search mr-2"></i>Get Free Audit
+                        </a>
+                        <a href="tel:+13477498958" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Dominate Google Maps in Your Area
+            </h1>
+            <p class="text-xl md:text-2xl mb-4">
+                90-Day Ranking Guarantee for Local Businesses
+            </p>
+            <p class="text-lg mb-8 max-w-3xl mx-auto">
+                75% of customers choose from Google's top 3 results. Stop losing customers to competitors and become the #1 choice in your market.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center sm:items-center">
+                <a href="free-audit.html" class="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
+                    <i class="fas fa-search mr-2"></i>Get Free Ranking Audit
+                </a>
+                <a href="tel:+13477498958" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold inline-block transition-all">
+                    <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center stat-card p-6 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">400%</div>
+                    <div class="text-lg">Average Increase in Calls</div>
+                </div>
+                <div class="text-center stat-card p-6 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">90</div>
+                    <div class="text-lg">Days to #1 Rankings</div>
+                </div>
+                <div class="text-center stat-card p-6 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div class="text-lg">Businesses Transformed</div>
+                </div>
+                <div class="text-center stat-card p-6 rounded-xl">
+                    <div class="text-4xl font-bold mb-2">$500K+</div>
+                    <div class="text-lg">Revenue Generated</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CashForBottles Case Study -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Case Study: CashForBottles
+                </h2>
+                <p class="text-xl text-gray-600">
+                    How we helped a local service business go from invisible to unstoppable
+                </p>
+            </div>
+            
+            <div class="case-study-card bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <!-- Before/After Stats -->
+                    <div class="md:w-1/3 bg-gradient-to-br from-red-500 to-red-700 p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-6 text-center">Before vs After</h3>
+                        <div class="space-y-6">
+                            <div class="text-center border-b border-red-300 pb-4">
+                                <div class="text-sm text-red-100">Monthly Phone Calls</div>
+                                <div class="text-3xl font-bold">5 → 50+</div>
+                            </div>
+                            <div class="text-center border-b border-red-300 pb-4">
+                                <div class="text-sm text-red-100">Google Maps Ranking</div>
+                                <div class="text-3xl font-bold">Page 3 → #1</div>
+                            </div>
+                            <div class="text-center border-b border-red-300 pb-4">
+                                <div class="text-sm text-red-100">Monthly Revenue</div>
+                                <div class="text-3xl font-bold">+$15K</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm text-red-100">Time to Results</div>
+                                <div class="text-3xl font-bold">45 Days</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study Details -->
+                    <div class="md:w-2/3 p-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-bold text-red-600 mb-3 flex items-center">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                                    The Challenge
+                                </h4>
+                                <p class="text-gray-700">
+                                    CashForBottles was a bottle return service struggling with online visibility. Despite providing excellent service, they were getting only 5-10 calls per month and losing customers to competitors with better online presence.
+                                </p>
+                                <ul class="mt-3 list-disc list-inside text-gray-600 text-sm">
+                                    <li>Ranking on page 3 of Google search results</li>
+                                    <li>Incomplete Google Business Profile</li>
+                                    <li>No online reviews or testimonials</li>
+                                    <li>Website wasn't mobile-optimized</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-600 mb-3 flex items-center">
+                                    <i class="fas fa-cogs mr-2"></i>
+                                    Our 90-Day Process
+                                </h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div class="bg-blue-50 p-4 rounded-lg">
+                                        <div class="font-semibold text-blue-800">Days 1-30</div>
+                                        <ul class="text-sm text-blue-700 mt-2 space-y-1">
+                                            <li>• Google Business Profile optimization</li>
+                                            <li>• Citation building (50+ directories)</li>
+                                            <li>• Website mobile optimization</li>
+                                            <li>• Review generation campaign</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded-lg">
+                                        <div class="font-semibold text-green-800">Days 31-60</div>
+                                        <ul class="text-sm text-green-700 mt-2 space-y-1">
+                                            <li>• Local content creation</li>
+                                            <li>• Social media optimization</li>
+                                            <li>• Google Ads campaign setup</li>
+                                            <li>• Competitor analysis</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-purple-50 p-4 rounded-lg">
+                                        <div class="font-semibold text-purple-800">Days 61-90</div>
+                                        <ul class="text-sm text-purple-700 mt-2 space-y-1">
+                                            <li>• Advanced link building</li>
+                                            <li>• Local PR outreach</li>
+                                            <li>• Automation setup</li>
+                                            <li>• Performance optimization</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-bold text-green-600 mb-3 flex items-center">
+                                    <i class="fas fa-trophy mr-2"></i>
+                                    Results Delivered
+                                </h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <ul class="space-y-2 text-gray-700">
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                                400% increase in phone calls
+                                            </li>
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                                #1 ranking for main keywords
+                                            </li>
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                                50+ positive Google reviews
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <ul class="space-y-2 text-gray-700">
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                                $15,000+ additional monthly revenue
+                                            </li>
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                                300% increase in website traffic
+                                            </li>
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                                20+ hours saved weekly
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <blockquote class="border-l-4 border-green-500 pl-4 italic text-gray-600 bg-gray-50 p-4">
+                                "Working with SeamlessFlow transformed our business completely. We went from struggling to find customers to being booked solid weeks in advance. The phone rings constantly now, and we've had to hire additional staff to handle the volume!"
+                                <footer class="text-sm text-gray-500 mt-2">— Mike Johnson, Owner of CashForBottles</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="py-20 bg-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">
+                Cities We Serve
+            </h2>
+            <p class="text-xl text-gray-600 mb-12">
+                Proven results with businesses across major metropolitan areas
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-city text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">New York City</h3>
+                    <p class="text-gray-600">Manhattan, Brooklyn, Queens, Bronx, Staten Island</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-building text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Albany</h3>
+                    <p class="text-gray-600">Capital Region & surrounding areas</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-industry text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Pittsburgh</h3>
+                    <p class="text-gray-600">Steel City & surrounding counties</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-landmark text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Richmond</h3>
+                    <p class="text-gray-600">Virginia capital region</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 90-Day Process -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Our 90-Day Ranking Process
+                </h2>
+                <p class="text-xl text-gray-600">
+                    A proven system that gets results for local businesses
+                </p>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Month 1 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-l-8 border-blue-500">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Month 1: Foundation Building</h3>
+                            <p class="text-gray-600">Establish your digital presence and credibility</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-blue-600">Google Business Profile</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Complete profile optimization</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Professional photos and videos</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Service area setup</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Posts and updates schedule</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-blue-600">Website & Technical</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Mobile optimization</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Page speed optimization</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Local keyword research</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Schema markup setup</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 2 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-l-8 border-green-500">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">2</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Month 2: Authority Building</h3>
+                            <p class="text-gray-600">Build trust signals and local relevance</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-green-600">Citation Building</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>100+ directory submissions</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>NAP consistency cleanup</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Industry-specific directories</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Local chamber listings</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-green-600">Review Generation</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Review request automation</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Review response management</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Reputation monitoring</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Review display optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Month 3 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-l-8 border-purple-500">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">3</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Month 3: Domination</h3>
+                            <p class="text-gray-600">Scale and optimize for maximum visibility</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-purple-600">Content & Links</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Local blog content creation</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Local backlink building</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Community partnerships</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Local PR outreach</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-purple-600">Advanced Optimization</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Conversion optimization</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Call tracking setup</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Analytics and reporting</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Ongoing optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                Ready to Dominate Your Local Market?
+            </h2>
+            <p class="text-xl mb-8">
+                Join 50+ businesses that have transformed their online presence and revenue with our proven local SEO system.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
+                <a href="free-audit.html" class="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
+                    <i class="fas fa-search mr-2"></i>Get Your Free Ranking Audit
+                </a>
+                <a href="tel:+13477498958" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold inline-block transition-all">
+                    <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                </a>
+            </div>
+            <p class="mt-6 text-blue-200">
+                <i class="fas fa-shield-alt mr-2"></i>90-Day Money Back Guarantee
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
+                <p class="text-gray-300 mb-4">Local SEO Specialists serving NYC, Albany, Pittsburgh & Richmond</p>
+                <div class="space-y-2">
+                    <p class="text-gray-300">(347) 749-8958 | hello@seamlessflow.ai</p>
+                    <p class="text-sm text-gray-400">100% US-Based Team | No Contracts Required | 90-Day Money Back Guarantee</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-400">
+                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+                
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    // Close menu
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                } else if (mobileMenu) {
+                    // Open menu
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking on mobile menu links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
