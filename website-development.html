@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Development - Convert Visitors to Customers | SeamlessFlow.ai</title>
+    <meta name="description" content="Professional website development for local businesses. Mobile-first design that converts visitors into customers. Optimized for local SEO and lead generation.">
+    <meta name="keywords" content="website development, local business websites, mobile-first design, lead generation websites, SEO-optimized websites">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px 0;
+        }
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .before-after-card {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border-radius: 20px;
+        }
+        
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+        
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 4px 0;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Local SEO</a>
+                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Marketing Automation</a>
+                                <a href="website-development.html" class="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50">Website Development</a>
+                            </div>
+                        </div>
+                        <a href="pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="faq.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
+                        <a href="index.html#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Case Studies</a>
+                        <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+                <div class="px-6 py-4 space-y-1">
+                    <a href="local-seo.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Local SEO
+                    </a>
+                    <a href="marketing-automation.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-robot mr-3 text-purple-500"></i>Marketing Automation
+                    </a>
+                    <a href="website-development.html" class="block text-blue-600 bg-blue-50 py-3 px-4 rounded-lg font-semibold transition-colors">
+                        <i class="fas fa-laptop-code mr-3 text-green-500"></i>Website Development
+                    </a>
+                    <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                    </a>
+                    <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    </a>
+                    <a href="index.html#results" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-chart-line mr-3 text-green-500"></i>Case Studies
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
+                        <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-search mr-2"></i>Get Free Audit
+                        </a>
+                        <a href="tel:+13477498958" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Websites That Actually Convert
+            </h1>
+            <p class="text-xl md:text-2xl mb-4">
+                Mobile-First Design That Turns Visitors Into Customers
+            </p>
+            <p class="text-lg mb-8 max-w-3xl mx-auto">
+                Your website should be your best salesperson. We build conversion-focused websites optimized for local SEO and lead generation.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center sm:items-center">
+                <a href="free-audit.html" class="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
+                    <i class="fas fa-search mr-2"></i>Get Free Website Audit
+                </a>
+                <a href="tel:+13477498958" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold inline-block transition-all">
+                    <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Features -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Why Your Website Isn't Converting
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Most local business websites make these critical mistakes
+                </p>
+            </div>
+            
+            <div class="before-after-card p-8 mb-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Before -->
+                    <div class="bg-red-50 p-6 rounded-xl">
+                        <h3 class="text-2xl font-bold text-red-800 mb-6 text-center">❌ Most Local Websites</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start text-red-700">
+                                <i class="fas fa-times-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Not Mobile-Optimized</div>
+                                    <div class="text-sm">60% of visitors leave immediately on mobile</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start text-red-700">
+                                <i class="fas fa-times-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Slow Loading Speed</div>
+                                    <div class="text-sm">Lost customers after 3 seconds</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start text-red-700">
+                                <i class="fas fa-times-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Weak Call-to-Actions</div>
+                                    <div class="text-sm">Visitors don't know what to do next</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start text-red-700">
+                                <i class="fas fa-times-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">No SEO Optimization</div>
+                                    <div class="text-sm">Invisible to search engines</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start text-red-700">
+                                <i class="fas fa-times-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Generic Design</div>
+                                    <div class="text-sm">Looks like every other business</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- After -->
+                    <div class="bg-green-50 p-6 rounded-xl">
+                        <h3 class="text-2xl font-bold text-green-800 mb-6 text-center">✅ Our Websites</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start text-green-700">
+                                <i class="fas fa-check-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Mobile-First Design</div>
+                                    <div class="text-sm">Perfect on every device</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start text-green-700">
+                                <i class="fas fa-check-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Lightning Fast</div>
+                                    <div class="text-sm">Loads in under 2 seconds</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start text-green-700">
+                                <i class="fas fa-check-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Conversion-Optimized</div>
+                                    <div class="text-sm">Every element drives action</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start text-green-700">
+                                <i class="fas fa-check-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">SEO-Ready</div>
+                                    <div class="text-sm">Built to rank on Google</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start text-green-700">
+                                <i class="fas fa-check-circle text-xl mr-3 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Custom Brand Design</div>
+                                    <div class="text-sm">Stand out from competitors</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-600 text-white p-6 rounded-xl text-center mt-8">
+                    <h4 class="text-2xl font-bold mb-4">Result: 3x Higher Conversion Rate</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-300">65%</div>
+                            <div>More Form Submissions</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-300">40%</div>
+                            <div>More Phone Calls</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-300">80%</div>
+                            <div>Mobile Engagement Increase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Features -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    What Makes Our Websites Different
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Every feature designed to generate more leads and customers
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Mobile-First -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Mobile-First Design</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Perfect on all screen sizes
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Touch-friendly navigation
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Fast mobile loading
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Google mobile-friendly
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Lead Generation -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-user-plus text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Lead Generation Focus</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Strategic call-to-action placement
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Contact forms that convert
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Click-to-call buttons
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Trust signals & testimonials
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- SEO Optimized -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">SEO-Optimized</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Local keyword optimization
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Schema markup included
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Google-friendly structure
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Fast loading speeds
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Professional Design -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Professional Design</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Custom branding & colors
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Professional photography
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Modern, clean layouts
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Industry-specific templates
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Easy Management -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-cog text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Easy to Manage</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Simple content updates
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            No technical skills needed
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Built-in analytics
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Ongoing support included
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Security & Reliability -->
+                <div class="feature-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Secure & Reliable</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            SSL certificates included
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            Daily backups
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            99.9% uptime guarantee
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            GDPR compliant
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Development Process -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Our Website Development Process
+                </h2>
+                <p class="text-xl text-gray-600">
+                    From concept to conversion-optimized website in 30 days
+                </p>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Week 1 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-l-8 border-blue-500">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Week 1: Strategy & Design</h3>
+                            <p class="text-gray-600">Foundation and visual direction</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-blue-600">Research & Planning</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Competitor analysis</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Target audience research</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Keyword strategy</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Site architecture planning</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-blue-600">Design & Branding</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Custom design mockups</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Brand color scheme</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Professional photography plan</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Content strategy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-l-8 border-green-500">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">2</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Week 2: Development & Content</h3>
+                            <p class="text-gray-600">Building and optimizing your website</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-green-600">Technical Development</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Responsive coding</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Speed optimization</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>SEO implementation</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Contact form integration</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-green-600">Content Creation</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Professional copywriting</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Local keyword optimization</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Service page creation</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Call-to-action optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-l-8 border-purple-500">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">3</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Week 3: Testing & Integration</h3>
+                            <p class="text-gray-600">Quality assurance and system connections</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-purple-600">Quality Testing</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Cross-browser testing</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Mobile device testing</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Speed testing & optimization</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>SEO audit</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-purple-600">System Integration</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Google Analytics setup</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Google Business Profile connection</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Lead tracking implementation</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>CRM integration (if applicable)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 4 -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-l-8 border-yellow-500">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-yellow-500 text-black w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">4</div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Week 4: Launch & Optimization</h3>
+                            <p class="text-gray-600">Go live and start converting visitors</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 text-yellow-600">Website Launch</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Domain setup & SSL</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Search engine submission</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Performance monitoring</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Backup systems activated</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 text-yellow-600">Training & Support</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Content management training</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Analytics walkthrough</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Ongoing support setup</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Performance optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Website Development Pricing
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Professional websites that pay for themselves
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Starter -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-2">Website Starter</h3>
+                        <div class="text-4xl font-bold text-blue-600 mb-2">$2,997</div>
+                        <div class="text-gray-600">one-time + $97/month hosting</div>
+                        <p class="text-sm text-gray-500 mt-2">Perfect for new businesses</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>5-page responsive website</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Mobile-optimized design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Basic SEO setup</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Contact forms</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Google Analytics</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>30-day support</li>
+                    </ul>
+                    <a href="free-audit.html" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-semibold text-center block transition-colors">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Professional -->
+                <div class="bg-blue-600 text-white rounded-2xl shadow-lg p-8 transform scale-105">
+                    <div class="text-center mb-8">
+                        <div class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">
+                            MOST POPULAR
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Website Professional</h3>
+                        <div class="text-4xl font-bold mb-2">$4,997</div>
+                        <div class="text-blue-100">one-time + $147/month hosting</div>
+                        <p class="text-sm text-blue-200 mt-2">Perfect for established businesses</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 mr-3"></i>10-page responsive website</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 mr-3"></i>Custom branding & design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 mr-3"></i>Advanced SEO optimization</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 mr-3"></i>Lead generation forms</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 mr-3"></i>Professional photography</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 mr-3"></i>Social media integration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 mr-3"></i>90-day support</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 mr-3"></i>Monthly performance reports</li>
+                    </ul>
+                    <a href="free-audit.html" class="w-full bg-yellow-400 hover:bg-yellow-300 text-black py-3 px-6 rounded-lg font-semibold text-center block transition-colors">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-2">Website Enterprise</h3>
+                        <div class="text-4xl font-bold text-blue-600 mb-2">$7,997+</div>
+                        <div class="text-gray-600">one-time + $247/month hosting</div>
+                        <p class="text-sm text-gray-500 mt-2">For businesses ready to dominate</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Unlimited pages</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Custom functionality</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>E-commerce integration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Advanced automation</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Multi-location support</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Custom integrations</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Priority support</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Monthly optimization</li>
+                    </ul>
+                    <a href="contact.html" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-semibold text-center block transition-colors">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    Modern Technology Stack
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Built with the latest technologies for speed and reliability
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fab fa-html5 text-4xl text-orange-600 mb-4"></i>
+                    <h4 class="font-semibold">HTML5</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fab fa-css3-alt text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-semibold">CSS3</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fab fa-js-square text-4xl text-yellow-600 mb-4"></i>
+                    <h4 class="font-semibold">JavaScript</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fab fa-wordpress text-4xl text-blue-800 mb-4"></i>
+                    <h4 class="font-semibold">WordPress</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fab fa-google text-4xl text-red-600 mb-4"></i>
+                    <h4 class="font-semibold">Analytics</h4>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <i class="fas fa-shield-alt text-4xl text-green-600 mb-4"></i>
+                    <h4 class="font-semibold">Security</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                Ready for a Website That Converts?
+            </h2>
+            <p class="text-xl mb-8">
+                Stop losing customers to competitors with better websites. Get a conversion-optimized site that works as hard as you do.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
+                <a href="free-audit.html" class="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
+                    <i class="fas fa-search mr-2"></i>Get Free Website Audit
+                </a>
+                <a href="tel:+13477498958" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold inline-block transition-all">
+                    <i class="fas fa-phone mr-2"></i>Call (347) 749-8958
+                </a>
+            </div>
+            <p class="mt-6 text-blue-200">
+                <i class="fas fa-shield-alt mr-2"></i>30-Day Money Back Guarantee
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
+                <p class="text-gray-300 mb-4">Website Development + Local SEO + Marketing Automation</p>
+                <div class="space-y-2">
+                    <p class="text-gray-300">(347) 749-8958 | hello@seamlessflow.ai</p>
+                    <p class="text-sm text-gray-400">100% US-Based Team | No Contracts Required | 30-Day Money Back Guarantee</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-400">
+                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+                
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    // Close menu
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                } else if (mobileMenu) {
+                    // Open menu
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking on mobile menu links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
