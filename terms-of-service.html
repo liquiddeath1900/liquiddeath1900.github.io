@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PERFORMANCE OPTIMIZATIONS -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <title>Terms of Service - SeamlessFlow.ai</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -72,7 +77,16 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html#services" class="text-gray-900 hover:text-blue-600 px-3 py-2">Services</a>
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Local SEO</a>
+                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Marketing Automation</a>
+                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Website Development</a>
+                            </div>
+                        </div>
                         <a href="index.html#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Results</a>
                         <a href="index.html#pricing" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
                         <a href="index.html#faq" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>

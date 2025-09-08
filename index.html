@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PERFORMANCE OPTIMIZATIONS -->\n    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" as="video" href="https://www.seamlessflow.ai/assets/Sequence%2002m.mp4" type="video/mp4">
+    
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -64,7 +70,11 @@
     }
     </script>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <!-- Load Tailwind CSS immediately (site depends on it) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .hero-video {
@@ -75,6 +85,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -2;
+            aspect-ratio: 16/9;
         }
         
         .hero-overlay {
@@ -303,6 +314,7 @@
                             </div>
                         </div>
                         <a href="pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="faq.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
                         <a href="#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Case Studies</a>
                         <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
                     </div>
@@ -330,8 +342,14 @@
                     <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                         <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
                     </a>
+                    <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    </a>
                     <a href="#results" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                         <i class="fas fa-chart-line mr-3 text-green-500"></i>Case Studies
+                    </a>
+                    <a href="contact.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
                     </a>
                     <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
                         <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
@@ -348,7 +366,11 @@
 
     <!-- Hero Section - UPDATED -->
     <section class="hero-section" id="home">
-        <video class="hero-video" autoplay loop muted playsinline>
+        <video class="hero-video" 
+               poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23000' width='1920' height='1080'/%3E%3C/svg%3E"
+               autoplay loop muted playsinline
+               preload="metadata"
+               width="1920" height="1080">
             <source src="https://www.seamlessflow.ai/assets/Sequence%2002m.mp4" type="video/mp4">
         </video>
         
@@ -397,9 +419,9 @@
                 <!-- LOCAL SEO SERVICES - FIRST PRIORITY -->
                 <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-blue-500">
                     <div class="bg-blue-500 text-white p-4">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-2xl font-bold">Local SEO & Online Visibility</h3>
-                            <div class="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-sm font-bold">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-0">Local SEO & Online Visibility</h3>
+                            <div class="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-sm font-bold self-start sm:self-auto">
                                 MOST POPULAR
                             </div>
                         </div>
@@ -883,7 +905,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
                 <div>
                     <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
                     <p class="text-gray-300 mb-4">Serving NYC, Albany, Pittsburgh, Richmond</p>
