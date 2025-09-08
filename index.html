@@ -8,9 +8,20 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Priority preloads for LCP optimization -->
     <link rel="preload" as="video" href="assets/Sequence%2002m.mp4" type="video/mp4">
+    <link rel="preload" as="image" href="assets/Sequence%2002m.mp4#t=0.1">
     <link rel="preload" as="image" href="assets/website%20homelogo.png">
+    
+    <!-- Font preload for layout shift prevention -->
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical font files to prevent FOIT/FOUT -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -79,7 +90,15 @@
     
     <!-- Load Tailwind CSS immediately (site depends on it) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- CRITICAL CSS - Inline for fastest render -->
     <style>
+        /* Critical styles for above-the-fold content */
+        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 50; }
+        .hero-section { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; aspect-ratio: 16/9; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: -1; }
+        /* End critical CSS */
         .hero-video {
             position: absolute;
             top: 0;
@@ -301,7 +320,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <a href="#home" class="flex items-center">
-                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10" loading="eager" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
                     </a>
                 </div>
                 <div class="hidden md:block">
