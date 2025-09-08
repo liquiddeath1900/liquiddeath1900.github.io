@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queens Local SEO Services | Queens Business Marketing | $497/mo</title>
+    <meta name="description" content="Queens SEO services. Serving Astoria, Flushing, Forest Hills, Long Island City. NYC-based team serving Queens businesses.">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-section { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); padding: 120px 0 80px 0; }
+        .case-study-card { transition: transform 0.3s, box-shadow 0.3s; }
+        .case-study-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        #mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 50; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: all 0.3s ease-out; }
+        #mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
+        .hamburger { cursor: pointer; width: 24px; height: 24px; display: flex; flex-direction: column; justify-content: space-around; padding: 4px 0; }
+        .hamburger span { display: block; height: 3px; width: 100%; background: #374151; border-radius: 2px; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(20px); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+    </style>
+</head>
+<body>
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10" loading="eager" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"></a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Queens SEO Services<br><span class="text-black">#1 on Google</span></h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Get your Queens business #1 on Google. NYC-based team serving Astoria, Flushing, Forest Hills, Long Island City and all Queens neighborhoods</p>
+                <a href="tel:+13477498146" class="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">Call (347) 749-8146</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-yellow-500 text-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Dominate Queens Search?</h2>
+            <p class="text-xl mb-8">Get more Queens customers with proven local SEO strategies</p>
+            <a href="contact.html" class="bg-black text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">Start My Queens SEO Campaign</a>
+        </div>
+    </section>
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) { mobileMenuButton.addEventListener('click', function() { const mobileMenu = document.getElementById('mobile-menu'); const hamburger = this; if (mobileMenu && mobileMenu.classList.contains('show')) { mobileMenu.classList.remove('show'); hamburger.classList.remove('active'); } else if (mobileMenu) { mobileMenu.classList.add('show'); hamburger.classList.add('active'); } }); }
+    </script>
+</body>
+</html>
