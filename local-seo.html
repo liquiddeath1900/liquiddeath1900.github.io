@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PERFORMANCE OPTIMIZATIONS -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
     <title>Local SEO Services - Dominate Google Maps | SeamlessFlow.ai</title>
     <meta name="description" content="Get your business #1 on Google Maps in 30 days. Proven local SEO strategies that drive real customers to your door. Serving NYC, Albany, Pittsburgh, Richmond.">
     <meta name="keywords" content="local SEO services, Google Maps ranking, local business SEO, Google Business Profile optimization">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <!-- Load Tailwind CSS immediately (site depends on it) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .hero-section {
