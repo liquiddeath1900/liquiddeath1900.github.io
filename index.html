@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- PERFORMANCE OPTIMIZATIONS -->\n    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <!-- PERFORMANCE OPTIMIZATIONS -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preload" as="video" href="https://www.seamlessflow.ai/assets/Sequence%2002m.mp4" type="video/mp4">
+    <link rel="preload" as="video" href="assets/Sequence%2002m.mp4" type="video/mp4">
+    <link rel="preload" as="image" href="assets/website%20homelogo.png">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -367,11 +370,11 @@
     <!-- Hero Section - UPDATED -->
     <section class="hero-section" id="home">
         <video class="hero-video" 
-               poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23000' width='1920' height='1080'/%3E%3C/svg%3E"
+               poster="assets/Sequence%2002m.mp4#t=0.1"
                autoplay loop muted playsinline
                preload="metadata"
                width="1920" height="1080">
-            <source src="https://www.seamlessflow.ai/assets/Sequence%2002m.mp4" type="video/mp4">
+            <source src="assets/Sequence%2002m.mp4" type="video/mp4">
         </video>
         
         <div class="hero-overlay"></div>
@@ -1119,7 +1122,7 @@
     </script>
     
     <!-- Google Analytics 4 (Replace GA_MEASUREMENT_ID with actual ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
