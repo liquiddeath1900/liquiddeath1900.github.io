@@ -416,7 +416,7 @@
                             <span><i class="fas fa-cogs mr-3 text-green-500"></i>Services</span>
                             <i class="fas fa-chevron-right transition-transform duration-200"></i>
                         </button>
-                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
                             <a href="local-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
                                 <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Local SEO (Primary)
                             </a>
@@ -435,7 +435,7 @@
                             <span><i class="fas fa-industry mr-3 text-purple-500"></i>Industries</span>
                             <i class="fas fa-chevron-right transition-transform duration-200"></i>
                         </button>
-                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
                             <a href="hvac-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
                                 <i class="fas fa-thermometer-half mr-3 text-red-500"></i>HVAC SEO
                             </a>
@@ -460,14 +460,14 @@
                             <span><i class="fas fa-map-marked-alt mr-3 text-red-500"></i>Locations</span>
                             <i class="fas fa-chevron-right transition-transform duration-200"></i>
                         </button>
-                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
                             <!-- New York State -->
                             <div class="mobile-dropdown">
                                 <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
                                     <span><i class="fas fa-apple-alt mr-3 text-green-600"></i>New York</span>
                                     <i class="fas fa-chevron-right transition-transform duration-200"></i>
                                 </button>
-                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
                                     <a href="manhattan-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Manhattan</a>
                                     <a href="brooklyn-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Brooklyn</a>
                                     <a href="queens-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Queens</a>
@@ -483,7 +483,7 @@
                                     <span><i class="fas fa-liberty-bell mr-3 text-blue-600"></i>Pennsylvania</span>
                                     <i class="fas fa-chevron-right transition-transform duration-200"></i>
                                 </button>
-                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
                                     <a href="pittsburgh-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Pittsburgh</a>
                                     <a href="philadelphia-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Philadelphia</a>
                                 </div>
@@ -494,7 +494,7 @@
                                     <span><i class="fas fa-monument mr-3 text-gray-600"></i>Virginia</span>
                                     <i class="fas fa-chevron-right transition-transform duration-200"></i>
                                 </button>
-                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
                                     <a href="richmond-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Richmond</a>
                                     <a href="norfolk-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Norfolk</a>
                                 </div>
@@ -1280,34 +1280,59 @@
             }
         });
 
-        // Mobile dropdown functionality
+        // Mobile dropdown toggle functionality
         document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                const dropdown = this.parentElement;
-                const content = dropdown.querySelector('.mobile-dropdown-content');
-                const arrow = this.querySelector('i.fa-chevron-right');
-                
-                // Close other dropdowns
-                document.querySelectorAll('.mobile-dropdown').forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        const otherContent = otherDropdown.querySelector('.mobile-dropdown-content');
-                        const otherArrow = otherDropdown.querySelector('.fa-chevron-right');
-                        otherContent.style.maxHeight = '0';
-                        otherArrow.style.transform = 'rotate(0deg)';
-                    }
-                });
-                
-                // Toggle current dropdown
-                if (content.style.maxHeight === '0px' || !content.style.maxHeight) {
-                    // Open dropdown
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    arrow.style.transform = 'rotate(90deg)';
+                e.stopPropagation();
+
+                const dropdown = this.closest('.mobile-dropdown');
+                const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
+                const icon = this.querySelector('.fa-chevron-right');
+
+                // Toggle this dropdown
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+
+                    // Close all nested dropdowns
+                    content.querySelectorAll('.mobile-dropdown-content').forEach(nested => {
+                        nested.style.maxHeight = '0px';
+                    });
+                    content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => {
+                        nestedIcon.style.transform = 'rotate(0deg)';
+                    });
                 } else {
-                    // Close dropdown
-                    content.style.maxHeight = '0';
-                    arrow.style.transform = 'rotate(0deg)';
+                    // Calculate total height including nested content
+                    const calculateHeight = (element) => {
+                        let totalHeight = 0;
+                        Array.from(element.children).forEach(child => {
+                            totalHeight += child.offsetHeight;
+                            const nestedContent = child.querySelector('.mobile-dropdown-content');
+                            if (nestedContent && nestedContent.style.maxHeight && nestedContent.style.maxHeight !== '0px') {
+                                totalHeight += parseInt(nestedContent.style.maxHeight);
+                            }
+                        });
+                        return totalHeight;
+                    };
+
+                    content.style.maxHeight = calculateHeight(content) + 500 + 'px'; // Extra space for nested dropdowns
+                    if (icon) icon.style.transform = 'rotate(90deg)';
+
+                    // Update parent dropdown heights when nested dropdowns open
+                    const updateParentHeights = () => {
+                        let parent = dropdown.closest('.mobile-dropdown-content');
+                        while (parent) {
+                            const parentDropdown = parent.closest('.mobile-dropdown');
+                            if (parentDropdown) {
+                                parent.style.maxHeight = calculateHeight(parent) + 500 + 'px';
+                                parent = parentDropdown.closest('.mobile-dropdown-content');
+                            } else {
+                                break;
+                            }
+                        }
+                    };
+                    updateParentHeights();
                 }
             });
         });
