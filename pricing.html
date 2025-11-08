@@ -186,40 +186,47 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Hamburger Animation - Improved */
+                /* Hamburger Animation - Improved */
         .hamburger {
             cursor: pointer;
-            width: 24px;
+            width: 28px;
             height: 24px;
             position: relative;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            padding: 4px 0;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
         }
-        
+
         .hamburger span {
             display: block;
             height: 3px;
             width: 100%;
             background: #374151;
-            border-radius: 2px;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            transform-origin: center;
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            position: relative;
         }
-        
+
+        .hamburger.active {
+            gap: 0;
+        }
+
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
+            transform: rotate(45deg);
+            position: absolute;
         }
-        
+
         .hamburger.active span:nth-child(2) {
             opacity: 0;
-            transform: translateX(20px);
+            transform: scaleX(0);
         }
-        
+
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
+            transform: rotate(-45deg);
+            position: absolute;
         }
         
         
@@ -312,7 +319,7 @@
                                 <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Marketing Automation</a>
                             </div>
                         </div>
-                        <div class="relative group">
+                                                <div class="relative group">
                             <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
                                 Industries <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
@@ -321,7 +328,10 @@
                                 <a href="plumber-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Plumber SEO</a>
                                 <a href="electrician-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Electrician SEO</a>
                                 <a href="roofing-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Roofing SEO</a>
+                                <a href="garage-door-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Garage Door SEO</a>
                                 <a href="cleaning-service-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Cleaning Service SEO</a>
+                                <a href="pet-grooming-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pet Grooming SEO</a>
+                                <a href="auto-detailing-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Auto Detailing SEO</a>
                             </div>
                         </div>
                         <div class="relative group">
@@ -406,7 +416,7 @@
                         </div>
                     </div>
 
-                    <!-- Industries Collapsible -->
+                                        <!-- Industries Collapsible -->
                     <div class="mobile-dropdown">
                         <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
                             <span><i class="fas fa-industry mr-3 text-purple-500"></i>Industries</span>
@@ -425,12 +435,21 @@
                             <a href="roofing-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
                                 <i class="fas fa-home mr-3 text-brown-500"></i>Roofing SEO
                             </a>
+                            <a href="garage-door-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-door-open mr-3 text-gray-500"></i>Garage Door SEO
+                            </a>
                             <a href="cleaning-service-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
                                 <i class="fas fa-broom mr-3 text-green-500"></i>Cleaning Service SEO
                             </a>
+                            <a href="pet-grooming-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-cut mr-3 text-purple-500"></i>Pet Grooming SEO
+                            </a>
+                            <a href="auto-detailing-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-car mr-3 text-blue-600"></i>Auto Detailing SEO
+                            </a>
                         </div>
                     </div>
-
+                    
                     <!-- Locations Collapsible -->
                     <div class="mobile-dropdown">
                         <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
@@ -781,63 +800,103 @@
             </div>
         </div>
     </section>
+        <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
                 <div>
                     <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
-                    <p class="text-gray-300 mb-4">Helping service businesses dominate their local markets through proven SEO and intelligent automation.</p>
-                                    </div>
-                
+                    <p class="text-gray-300 mb-4">Starting at $497/month - No contracts</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <span>Money-back guarantee</span>
+                        </div>
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-handshake mr-2"></i>
+                            <span>No contracts</span>
+                        </div>
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>(347) 749-8146</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="free-audit.html" class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-lg font-bold text-sm inline-block transition-colors">
+                            <i class="fas fa-search mr-2"></i>Free Ranking Check
+                        </a>
+                    </div>
+                </div>
+
                 <div>
                     <h4 class="font-bold mb-4">Services</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="index.html#services" class="hover:text-white">Local SEO</a></li>
-                        <li><a href="index.html#services" class="hover:text-white">Google Business Profile</a></li>
-                        <li><a href="index.html#services" class="hover:text-white">Business Automation</a></li>
-                        <li><a href="index.html#services" class="hover:text-white">Lead Generation</a></li>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="local-seo.html" class="hover:text-white">Local SEO</a></li>
+                        <li><a href="google-my-business-optimization.html" class="hover:text-white">GMB Optimization</a></li>
+                        <li><a href="seo-vs-paid-ads.html" class="hover:text-white">SEO vs Google Ads</a></li>
+                        <li><a href="website-development.html" class="hover:text-white">Website Development</a></li>
+                        <li><a href="marketing-automation.html" class="hover:text-white">Marketing Automation</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="font-bold mb-4">Industries</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>Locksmiths</li>
-                        <li>HVAC Contractors</li>
-                        <li>Garage Door Repair</li>
-                        <li>Pet Grooming</li>
-                        <li>Auto Detailing</li>
-                        <li>Cleaning Services</li>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="blog/hvac-seo-budget.html" class="hover:text-white">HVAC SEO Budget Guide</a></li>
+                        <li><a href="blog/plumber-gmb-mistakes.html" class="hover:text-white">Plumber GMB Mistakes</a></li>
+                        <li><a href="blog/electrician-local-seo.html" class="hover:text-white">Electrician SEO Tips</a></li>
+                        <li><a href="blog/roofing-seo-guide.html" class="hover:text-white">Roofing SEO Guide</a></li>
+                        <li><a href="blog/cleaning-service-seo.html" class="hover:text-white">Cleaning Service SEO</a></li>
+                        <li><a href="blog/pet-grooming-seo-tips.html" class="hover:text-white">Pet Grooming SEO</a></li>
+                        <li><a href="blog/auto-detailing-seo.html" class="hover:text-white">Auto Detailing SEO</a></li>
+                        <li><a href="blog/garage-door-seo-guide.html" class="hover:text-white">Garage Door SEO</a></li>
+                        <li><a href="blog/497-seo-service.html" class="hover:text-white">$497 SEO Service</a></li>
+                        <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="font-bold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>(347) 749-8146</li>
-                        <li>hello@seamlessflow.ai</li>
-                        <li>New York City, NY</li>
+                    <h4 class="font-bold mb-4">Service Areas</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><strong>NYC:</strong> Manhattan, Brooklyn, Queens, Bronx</li>
+                        <li><strong>NY:</strong> Albany, Syracuse, Rochester</li>
+                        <li><strong>PA:</strong> Pittsburgh, Philadelphia</li>
+                        <li><strong>VA:</strong> Richmond, Norfolk</li>
                     </ul>
-                    
-                    <div class="mt-6">
-                        <h5 class="font-bold mb-2">Follow Us</h5>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-gray-300 hover:text-white">
-                                <i class="fab fa-linkedin text-xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-300 hover:text-white">
-                                <i class="fab fa-twitter text-xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-300 hover:text-white">
-                                <i class="fab fa-facebook text-xl"></i>
-                            </a>
-                        </div>
+                    <div class="mt-4 space-y-2">
+                        <a href="tel:+13477498146" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span class="font-bold">(347) 749-8146</span>
+                        </a>
+                        <a href="mailto:hello@seamlessflow.ai" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span class="text-sm">hello@seamlessflow.ai</span>
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-300">
-                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <div class="text-center text-gray-300 mb-4">
+                    <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
+                        <span class="flex items-center">
+                            <i class="fas fa-users mr-2 text-blue-400"></i>
+                            50+ Businesses Helped
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-chart-line mr-2 text-green-400"></i>
+                            400% Average Call Increase
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-yellow-400"></i>
+                            90-Day Results Guarantee
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center text-gray-400 text-sm">
+                    <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+                </div>
             </div>
         </div>
     </footer>
