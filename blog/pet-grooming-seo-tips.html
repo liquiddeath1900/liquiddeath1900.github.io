@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+
+    <title>Pet Grooming SEO: How to Get Booked 3 Weeks Out | SeamlessFlow.ai</title>
+    <meta name="description" content="Tired of slow weeks? Here's how pet groomers actually fill their calendar with SEO - no Rover fees required.">
+    <meta name="keywords" content="pet grooming SEO, dog grooming marketing, mobile pet grooming leads, cat grooming SEO">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #be185d 0%, #831843 100%);
+            padding: 120px 0 80px 0;
+        }
+
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+
+        #mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
+
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 4px 0;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+        .blog-content { max-width: 800px; margin: 0 auto; }
+        .blog-content h2 { font-size: 2rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #1f2937; }
+        .blog-content h3 { font-size: 1.5rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #374151; }
+        .blog-content p { margin-bottom: 1.25rem; line-height: 1.8; color: #4b5563; }
+        .blog-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .blog-content li { margin-bottom: 0.75rem; line-height: 1.7; color: #4b5563; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="../index.html#home" class="flex items-center">
+                        <img src="../assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10" loading="eager" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="../local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Local SEO (Primary)</a>
+                                <a href="../website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Website Development</a>
+                                <a href="../marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Marketing Automation</a>
+                            </div>
+                        </div>
+                                                <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Industries <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="../hvac-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">HVAC SEO</a>
+                                <a href="../plumber-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Plumber SEO</a>
+                                <a href="../electrician-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Electrician SEO</a>
+                                <a href="../roofing-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Roofing SEO</a>
+                                <a href="../garage-door-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Garage Door SEO</a>
+                                <a href="../cleaning-service-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Cleaning Service SEO</a>
+                                <a href="../pet-grooming-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pet Grooming SEO</a>
+                                <a href="../auto-detailing-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Auto Detailing SEO</a>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Locations <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <!-- New York Nested -->
+                                <div class="relative group/ny">
+                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                        New York <i class="fas fa-chevron-right text-xs"></i>
+                                    </button>
+                                    <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/ny:opacity-100 group-hover/ny:visible transition-all duration-200 z-50">
+                                        <a href="../manhattan-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Manhattan</a>
+                                        <a href="../brooklyn-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Brooklyn</a>
+                                        <a href="../queens-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Queens</a>
+                                        <a href="../bronx-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Bronx</a>
+                                        <a href="../albany-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Albany</a>
+                                        <a href="../syracuse-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Syracuse</a>
+                                        <a href="../rochester-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Rochester</a>
+                                    </div>
+                                </div>
+                                <!-- Pennsylvania Nested -->
+                                <div class="relative group/pa">
+                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                        Pennsylvania <i class="fas fa-chevron-right text-xs"></i>
+                                    </button>
+                                    <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/pa:opacity-100 group-hover/pa:visible transition-all duration-200 z-50">
+                                        <a href="../pittsburgh-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pittsburgh</a>
+                                        <a href="../philadelphia-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Philadelphia</a>
+                                    </div>
+                                </div>
+                                <!-- Virginia Nested -->
+                                <div class="relative group/va">
+                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                        Virginia <i class="fas fa-chevron-right text-xs"></i>
+                                    </button>
+                                    <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/va:opacity-100 group-hover/va:visible transition-all duration-200 z-50">
+                                        <a href="../richmond-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Richmond</a>
+                                        <a href="../norfolk-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Norfolk</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="../faq.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
+                        <a href="../index.html#results" class="text-gray-900 hover:text-blue-600 px-3 py-2">Case Studies</a>
+                        <a href="../contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+                <div class="px-6 py-4 space-y-1">
+                    <a href="../index.html#home" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-home mr-3 text-blue-500"></i>Home
+                    </a>
+
+                    <!-- Services Collapsible -->
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                            <span><i class="fas fa-cogs mr-3 text-green-500"></i>Services</span>
+                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                        </button>
+                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                            <a href="../local-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Local SEO (Primary)
+                            </a>
+                            <a href="../website-development.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-laptop-code mr-3 text-green-500"></i>Website Development
+                            </a>
+                            <a href="../marketing-automation.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-robot mr-3 text-purple-500"></i>Marketing Automation
+                            </a>
+                        </div>
+                    </div>
+
+                                        <!-- Industries Collapsible -->
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                            <span><i class="fas fa-industry mr-3 text-purple-500"></i>Industries</span>
+                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                        </button>
+                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                            <a href="../hvac-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-thermometer-half mr-3 text-red-500"></i>HVAC SEO
+                            </a>
+                            <a href="../plumber-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-wrench mr-3 text-blue-500"></i>Plumber SEO
+                            </a>
+                            <a href="../electrician-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-bolt mr-3 text-yellow-500"></i>Electrician SEO
+                            </a>
+                            <a href="../roofing-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-home mr-3 text-brown-500"></i>Roofing SEO
+                            </a>
+                            <a href="../garage-door-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-door-open mr-3 text-gray-500"></i>Garage Door SEO
+                            </a>
+                            <a href="../cleaning-service-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-broom mr-3 text-green-500"></i>Cleaning Service SEO
+                            </a>
+                            <a href="../pet-grooming-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-cut mr-3 text-purple-500"></i>Pet Grooming SEO
+                            </a>
+                            <a href="../auto-detailing-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-car mr-3 text-blue-600"></i>Auto Detailing SEO
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Locations Collapsible -->
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                            <span><i class="fas fa-map-marked-alt mr-3 text-red-500"></i>Locations</span>
+                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                        </button>
+                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                            <!-- New York State -->
+                            <div class="mobile-dropdown">
+                                <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
+                                    <span><i class="fas fa-apple-alt mr-3 text-green-600"></i>New York</span>
+                                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                                </button>
+                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                                    <a href="../manhattan-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Manhattan</a>
+                                    <a href="../brooklyn-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Brooklyn</a>
+                                    <a href="../queens-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Queens</a>
+                                    <a href="../bronx-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Bronx</a>
+                                    <a href="../albany-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Albany</a>
+                                    <a href="../syracuse-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Syracuse</a>
+                                    <a href="../rochester-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Rochester</a>
+                                </div>
+                            </div>
+                            <!-- Pennsylvania -->
+                            <div class="mobile-dropdown">
+                                <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
+                                    <span><i class="fas fa-liberty-bell mr-3 text-blue-600"></i>Pennsylvania</span>
+                                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                                </button>
+                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                                    <a href="../pittsburgh-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Pittsburgh</a>
+                                    <a href="../philadelphia-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Philadelphia</a>
+                                </div>
+                            </div>
+                            <!-- Virginia -->
+                            <div class="mobile-dropdown">
+                                <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
+                                    <span><i class="fas fa-monument mr-3 text-gray-600"></i>Virginia</span>
+                                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                                </button>
+                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                                    <a href="../richmond-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Richmond</a>
+                                    <a href="../norfolk-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Norfolk</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="../pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                    </a>
+                    <a href="../faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    </a>
+                    <a href="../index.html#results" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-chart-line mr-3 text-green-500"></i>Case Studies
+                    </a>
+                    <a href="../contact.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
+                        <a href="../free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-search mr-2"></i>Get Free Audit
+                        </a>
+                        <a href="tel:+13477498146" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Why Pet Groomers Are Still Relying on Rover (And How to Stop)</h1>
+            <p class="text-xl mb-8">You're paying 15-20% per booking to Rover and Wag. Meanwhile, your competitors are booked 3 weeks out from Google. Here's what they know that you don't.</p>
+            <div class="text-sm opacity-90">Written for pet groomers tired of lead generation fees</div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="blog-content">
+                <h2>The Pet Grooming Business Model Problem</h2>
+                <p>Let's be honest about what's happening:</p>
+                <ul>
+                    <li>You get most clients from Rover or Wag</li>
+                    <li>You pay 15-20% per booking</li>
+                    <li>Client books through the app = they're Rover's customer, not yours</li>
+                    <li>Slow week? You drop your prices to get bookings</li>
+                    <li>Busy week? Rover still takes their cut</li>
+                </ul>
+
+                <p>This isn't a business. This is a job with extra steps.</p>
+
+                <p>Meanwhile, the groomer down the street is booked 3 weeks out. No Rover. No Wag. Just a Google Business Profile that ranks #1 when people search "dog grooming near me."</p>
+
+                <h2>The Math on Rover Dependency</h2>
+                <p>Let's say you're doing 20 grooms per week at $65 average:</p>
+                <ul>
+                    <li>Weekly revenue: $1,300</li>
+                    <li>Rover takes 15% = $195/week</li>
+                    <li>That's $780/month going to a platform you don't control</li>
+                </ul>
+
+                <p>What if you redirected that $780 into SEO that brings you direct clients? Clients who book through your phone or website. Clients who become regulars because they found YOU, not a marketplace.</p>
+
+                <h2>What Actually Works for Pet Grooming SEO</h2>
+
+                <h3>1. Google Business Profile is Your Best Friend</h3>
+                <p>This is where 90% of your clients will find you. If your GBP isn't optimized, you're invisible.</p>
+
+                <p><strong>What to do right now:</strong></p>
+                <ul>
+                    <li>Add every service category: dog grooming, cat grooming, pet grooming, mobile pet grooming</li>
+                    <li>Post before/after photos every week (Google LOVES this content)</li>
+                    <li>Turn on messaging so people can text you directly from Google</li>
+                    <li>Set up service areas if you're mobile (target 5-10 neighborhoods)</li>
+                </ul>
+
+                <h3>2. Get Reviews from EVERY Happy Client</h3>
+                <p>Pet owners don't trust groomers with 12 reviews. They need to see 50+ reviews with real photos of dogs and cats.</p>
+
+                <p><strong>Review generation system:</strong></p>
+                <ul>
+                    <li>After every groom, text client: "Here's Buddy's photo! Mind leaving us a quick review?" + link</li>
+                    <li>Use a tool like Podium or Birdeye to automate this (costs $50-100/mo, worth it)</li>
+                    <li>Reply to every review - Google ranks businesses that engage</li>
+                </ul>
+
+                <p>Get to 50 reviews in 3 months. Your bookings will double.</p>
+
+                <h3>3. Stop Paying for Leads, Start Ranking for Free</h3>
+                <p>Every time someone Googles "dog grooming [your city]" you should be in the top 3. That's free traffic. No Rover fee. No lead cost.</p>
+
+                <p><strong>How to rank:</strong></p>
+                <ul>
+                    <li>Create a simple website with your services and pricing</li>
+                    <li>Add pages for each service: dog grooming, cat grooming, mobile grooming, puppy's first groom</li>
+                    <li>Include your city and neighborhoods on every page</li>
+                    <li>Link your GBP to your website</li>
+                </ul>
+
+                <p>You don't need a fancy site. You need one that loads fast and clearly says what you do and where you do it.</p>
+
+                <h2>Mobile Grooming? Even More Reason to Do SEO</h2>
+                <p>If you're mobile, you're serving 5-15 neighborhoods. Each one is a chance to rank.</p>
+
+                <p><strong>Service area SEO strategy:</strong></p>
+                <ul>
+                    <li>List every neighborhood you serve on your website</li>
+                    <li>Create a "Mobile Pet Grooming in [Neighborhood]" page for your top 3 areas</li>
+                    <li>Update your GBP service area to include all neighborhoods</li>
+                    <li>Post photos: "Just groomed this goldendoodle in [Neighborhood]!"</li>
+                </ul>
+
+                <p>Mobile groomers who do this get calls from people who specifically searched for grooming in their area. These are high-intent clients who book same-week.</p>
+
+                <h2>The Booking System That Converts</h2>
+                <p>You rank #1 on Google. Great. Now what? If your booking system sucks, you'll lose them.</p>
+
+                <p><strong>What works:</strong></p>
+                <ul>
+                    <li>Click-to-call button that works on mobile (90% of searches happen on phones)</li>
+                    <li>Online booking through Square, Schedulicity, or Vagaro</li>
+                    <li>Show your pricing clearly - people hate "call for pricing"</li>
+                    <li>Package deals: Basic Groom ($55), Full Groom + Nails ($75), Spa Package ($95)</li>
+                </ul>
+
+                <p>Make it dead simple to book. The easier it is, the more you convert.</p>
+
+                <h2>What You'll See in 90 Days</h2>
+                <p>If you do this right, here's the timeline:</p>
+
+                <p><strong>Month 1:</strong> GBP optimized, started posting weekly, got 10-15 new reviews</p>
+                <p><strong>Month 2:</strong> Ranking #3-5 for "dog grooming [city]", getting 5-10 calls per week from Google</p>
+                <p><strong>Month 3:</strong> Ranking #1-2, booked 2-3 weeks out, cutting back on Rover because you don't need it anymore</p>
+
+                <p>By month 6? You're that groomer who's always booked. Clients wait for you. You raise your prices. Rover becomes a backup for slow weeks, not your main income source.</p>
+
+                <h2>The Bottom Line</h2>
+                <p>Rover and Wag are great for getting started. But if you've been grooming for more than a year and you're still paying 15-20% per booking, you're leaving money on the table.</p>
+
+                <p>Build your own client base. Rank on Google. Fill your calendar with direct bookings. Keep 100% of your revenue.</p>
+
+                <p>Or keep paying Rover. Your call.</p>
+
+                <div class="bg-pink-50 border-l-4 border-pink-700 p-6 my-8">
+                    <h3 class="text-xl font-bold mb-3 text-pink-900">Want This Done For You?</h3>
+                    <p class="mb-4">We optimize GBPs, build grooming websites, and run review generation for pet groomers. $497/month, no contracts.</p>
+                    <a href="../free-audit.html" class="bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold inline-block hover:bg-yellow-400 transition-colors">Get Free SEO Audit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
+                    <p class="text-gray-300 mb-4">Starting at $497/month - No contracts</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <span>Money-back guarantee</span>
+                        </div>
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-handshake mr-2"></i>
+                            <span>No contracts</span>
+                        </div>
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>(347) 749-8146</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="../free-audit.html" class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-lg font-bold text-sm inline-block transition-colors">
+                            <i class="fas fa-search mr-2"></i>Free Ranking Check
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="../local-seo.html" class="hover:text-white">Local SEO</a></li>
+                        <li><a href="../google-my-business-optimization.html" class="hover:text-white">GMB Optimization</a></li>
+                        <li><a href="../seo-vs-paid-ads.html" class="hover:text-white">SEO vs Google Ads</a></li>
+                        <li><a href="../website-development.html" class="hover:text-white">Website Development</a></li>
+                        <li><a href="../marketing-automation.html" class="hover:text-white">Marketing Automation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="../blog/hvac-seo-budget.html" class="hover:text-white">HVAC SEO Budget Guide</a></li>
+                        <li><a href="../blog/plumber-gmb-mistakes.html" class="hover:text-white">Plumber GMB Mistakes</a></li>
+                        <li><a href="../blog/electrician-local-seo.html" class="hover:text-white">Electrician SEO Tips</a></li>
+                        <li><a href="../blog/roofing-seo-guide.html" class="hover:text-white">Roofing SEO Guide</a></li>
+                        <li><a href="../blog/cleaning-service-seo.html" class="hover:text-white">Cleaning Service SEO</a></li>
+                        <li><a href="../blog/pet-grooming-seo-tips.html" class="hover:text-white">Pet Grooming SEO</a></li>
+                        <li><a href="../blog/auto-detailing-seo.html" class="hover:text-white">Auto Detailing SEO</a></li>
+                        <li><a href="../blog/garage-door-seo-guide.html" class="hover:text-white">Garage Door SEO</a></li>
+                        <li><a href="../blog/497-seo-service.html" class="hover:text-white">$497 SEO Service</a></li>
+                        <li><a href="../pricing.html" class="hover:text-white">Pricing</a></li>
+                        <li><a href="../faq.html" class="hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Service Areas</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><strong>NYC:</strong> Manhattan, Brooklyn, Queens, Bronx</li>
+                        <li><strong>NY:</strong> Albany, Syracuse, Rochester</li>
+                        <li><strong>PA:</strong> Pittsburgh, Philadelphia</li>
+                        <li><strong>VA:</strong> Richmond, Norfolk</li>
+                    </ul>
+                    <div class="mt-4 space-y-2">
+                        <a href="tel:+13477498146" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span class="font-bold">(347) 749-8146</span>
+                        </a>
+                        <a href="mailto:hello@seamlessflow.ai" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span class="text-sm">hello@seamlessflow.ai</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <div class="text-center text-gray-300 mb-4">
+                    <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
+                        <span class="flex items-center">
+                            <i class="fas fa-users mr-2 text-blue-400"></i>
+                            50+ Businesses Helped
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-chart-line mr-2 text-green-400"></i>
+                            400% Average Call Increase
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-yellow-400"></i>
+                            90-Day Results Guarantee
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center text-gray-400 text-sm">
+                    <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="../privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="../terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
