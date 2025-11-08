@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block Google Search Console verification file (not useful for crawlers)
+Disallow: /googlef24fe0a0e8ba99b6.html
+
+# Sitemap
+Sitemap: https://seamlessflow.ai/sitemap.xml
