@@ -13,6 +13,7 @@
     <!-- Priority preloads for LCP optimization -->
     <link rel="preload" as="video" href="assets/Sequence%2002m.mp4" type="video/mp4">
     <link rel="preload" as="image" href="assets/Sequence%2002m.mp4#t=0.1">
+    <link rel="preload" as="image" href="assets/website-homelogo.webp" type="image/webp">
     <link rel="preload" as="image" href="assets/website%20homelogo.png">
     
     <!-- Font preload for layout shift prevention -->
@@ -273,7 +274,10 @@
             <div class="flex justify-center md:justify-between items-center h-16">
                 <div class="flex items-center">
                     <a href="#home" class="flex items-center">
-                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10" loading="eager" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                        <picture>
+                            <source srcset="assets/website-homelogo.webp" type="image/webp">
+                            <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10" loading="eager" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                        </picture>
                     </a>
                 </div>
                 <div class="hidden md:block">
