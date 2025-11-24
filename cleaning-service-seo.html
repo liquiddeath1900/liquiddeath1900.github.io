@@ -27,11 +27,12 @@
         .case-study-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
         #mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 50; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: all 0.3s ease-out; }
         #mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
-        .hamburger { cursor: pointer; width: 24px; height: 24px; display: flex; flex-direction: column; justify-content: space-around; padding: 4px 0; }
-        .hamburger span { display: block; height: 3px; width: 100%; background: #374151; border-radius: 2px; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(20px); }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        .hamburger { cursor: pointer; width: 28px; height: 24px; position: relative; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
+        .hamburger span { display: block; height: 3px; width: 100%; background: #374151; border-radius: 3px; transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); position: relative; }
+        .hamburger.active { gap: 0; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg); position: absolute; }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg); position: absolute; }
     </style>
 
     <script type="application/ld+json">
@@ -56,10 +57,63 @@
       "unitText": "MONTH"
     }
   },
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  }
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Queens",
+      "addressRegion": "NY"
+    },
+    {
+      "@type": "City",
+      "name": "Manhattan",
+      "addressRegion": "NY"
+    },
+    {
+      "@type": "City",
+      "name": "Brooklyn",
+      "addressRegion": "NY"
+    },
+    {
+      "@type": "City",
+      "name": "Bronx",
+      "addressRegion": "NY"
+    },
+    {
+      "@type": "City",
+      "name": "Albany",
+      "addressRegion": "NY"
+    },
+    {
+      "@type": "City",
+      "name": "Syracuse",
+      "addressRegion": "NY"
+    },
+    {
+      "@type": "City",
+      "name": "Rochester",
+      "addressRegion": "NY"
+    },
+    {
+      "@type": "City",
+      "name": "Philadelphia",
+      "addressRegion": "PA"
+    },
+    {
+      "@type": "City",
+      "name": "Pittsburgh",
+      "addressRegion": "PA"
+    },
+    {
+      "@type": "City",
+      "name": "Richmond",
+      "addressRegion": "VA"
+    },
+    {
+      "@type": "City",
+      "name": "Norfolk",
+      "addressRegion": "VA"
+    }
+  ]
 }
     </script>
 </head>
@@ -249,17 +303,16 @@
                     </span>
                 </div>
                 <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    Get Your Cleaning Service<br>
-                    <span class="text-yellow-300">#1 on Google</span>
+                    Cleaning Service SEO | Get Your Cleaning Business #1 on Google
                 </h1>
                 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-                    Expert cleaning service SEO that drives more bookings for house cleaning, office cleaning, and commercial cleaning services
+                    Expert cleaning service SEO for NYC, Philadelphia, and surrounding areas. Drive more bookings for house cleaning, office cleaning, and commercial cleaning services
                 </p>
                 <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
                     <a href="tel:+13477498146" class="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all transform hover:scale-105">
                         <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
                     </a>
-                    <a href="contact.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">
+                    <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">
                         Get Free Cleaning Service SEO Audit
                     </a>
                 </div>
@@ -270,7 +323,7 @@
     <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Cleaning Services Choose SeamlessFlow.ai</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Cleaning Services Choose Us</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">We understand recurring bookings, trust factors, and how customers search for cleaning services</p>
             </div>
             
@@ -296,6 +349,114 @@
         </div>
     </section>
 
+    <!-- Location Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Serving Cleaning Companies Throughout NYC & Beyond</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Local cleaning service SEO expertise across New York City, Pennsylvania, and Virginia
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- NYC Markets -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-lg">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-900">New York City</h3>
+                    <p class="text-gray-700 mb-4">
+                        Dominate the competitive NYC cleaning market with targeted local SEO for each borough.
+                    </p>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="queens-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Queens Cleaning Service SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manhattan-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Manhattan Cleaning Service SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="brooklyn-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Brooklyn Cleaning Service SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="bronx-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Bronx Cleaning Service SEO
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Upstate NY Markets -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg shadow-lg">
+                    <div class="text-green-600 text-3xl mb-4">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-900">Upstate New York</h3>
+                    <p class="text-gray-700 mb-4">
+                        Capture recurring cleaning customers in Albany, Syracuse, and Rochester markets.
+                    </p>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="albany-seo.html" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Albany Cleaning Service SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="syracuse-seo.html" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Syracuse Cleaning Service SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="rochester-seo.html" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Rochester Cleaning Service SEO
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PA & VA Markets -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg shadow-lg">
+                    <div class="text-purple-600 text-3xl mb-4">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-900">Pennsylvania & Virginia</h3>
+                    <p class="text-gray-700 mb-4">
+                        Expand your cleaning business in Philadelphia, Pittsburgh, Richmond, and Norfolk.
+                    </p>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="philadelphia-seo.html" class="text-purple-600 hover:text-purple-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Philadelphia Cleaning Service SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pittsburgh-seo.html" class="text-purple-600 hover:text-purple-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Pittsburgh Cleaning Service SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="richmond-seo.html" class="text-purple-600 hover:text-purple-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Richmond Cleaning Service SEO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="norfolk-seo.html" class="text-purple-600 hover:text-purple-800 font-semibold flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Norfolk Cleaning Service SEO
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="py-20 bg-green-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Clean Up the Competition?</h2>
@@ -304,7 +465,7 @@
                 <a href="tel:+13477498146" class="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all transform hover:scale-105">
                     <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
                 </a>
-                <a href="contact.html" class="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">
+                <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">
                     Start My Cleaning Service SEO Campaign
                 </a>
             </div>
