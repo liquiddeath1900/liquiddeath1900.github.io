@@ -22,9 +22,13 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .hero-section { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); padding: 120px 0 80px 0; }
+        .hero-section { background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%); padding: 120px 0 80px 0; }
         .case-study-card { transition: transform 0.3s, box-shadow 0.3s; }
         .case-study-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .nap-block { background: #fff; border-left: 4px solid #b91c1c; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .timeline-item { position: relative; padding-left: 3rem; }
+        .timeline-item::before { content: ''; position: absolute; left: 0; top: 0.5rem; width: 1rem; height: 1rem; background: #dc2626; border-radius: 50%; border: 3px solid #fee2e2; }
+        .timeline-item::after { content: ''; position: absolute; left: 0.45rem; top: 1.5rem; bottom: -1.5rem; width: 2px; background: #fecaca; }
         #mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 50; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: all 0.3s ease-out; }
         #mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
         .hamburger { cursor: pointer; width: 24px; height: 24px; display: flex; flex-direction: column; justify-content: space-around; padding: 4px 0; }
@@ -286,18 +290,214 @@
     <section class="hero-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Richmond SEO Services<br><span class="text-yellow-300">RVA Leader</span></h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Get your Richmond business #1 on Google. NYC-based team serving RVA and Central Virginia businesses</p>
-                <a href="tel:+13477498146" class="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">Call (347) 749-8146</a>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Richmond SEO Expert | Virginia State Capital Marketing</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Richmond and Central Virginia SEO services serving Downtown, Fan District, Scott's Addition, Carytown, Church Hill, and all of Metro Richmond</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-white text-red-800 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all hover:bg-gray-100">Get My Free Richmond SEO Audit</a>
+                    <a href="tel:+13477498146" class="bg-red-900 hover:bg-red-950 text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all border-2 border-white">Call (347) 749-8146</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-purple-600 text-white">
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-900">Richmond SEO Services for Virginia's State Capital</h2>
+
+            <div class="nap-block">
+                <div itemscope itemtype="http://schema.org/LocalBusiness">
+                    <p class="text-lg font-bold text-gray-900 mb-2">
+                        <span itemprop="name">SeamlessFlow.ai</span>
+                    </p>
+                    <p class="text-gray-700">
+                        <span itemprop="description">Local SEO & Marketing Automation for Richmond Service Businesses</span><br>
+                        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            Serving <span itemprop="addressLocality">Richmond</span>, <span itemprop="addressRegion">VA</span> and Central Virginia
+                        </span><br>
+                        Phone: <a href="tel:+13477498146" itemprop="telephone" class="text-blue-600 hover:text-blue-800 font-semibold">(347) 749-8146</a><br>
+                        Email: <span itemprop="email">info@seamlessflow.ai</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="prose max-w-none mb-12">
+                <p class="text-lg text-gray-700 mb-6">
+                    Looking for a Richmond SEO company that understands Virginia's capital city and its unique market dynamics? SeamlessFlow.ai delivers comprehensive Richmond SEO services designed to get your business ranking #1 on Google for high-value local searches. Whether you're targeting state government employees in Downtown Richmond, creative professionals in Scott's Addition, affluent homeowners in the Fan District, or families in Short Pump suburbs, our Richmond SEO expertise connects you with customers actively searching for your services across Metro Richmond and Central Virginia.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    Richmond is Virginia's state capital with 230,000+ residents in the city and 1.3 million in the metro area. As a government hub, Richmond's economy centers on state government (Virginia General Assembly, state agencies employing 50,000+), healthcare (VCU Health System), finance (Capital One headquarters), law (major firms serving government clients), and higher education (VCU, University of Richmond). Our Richmond SEO strategies help service businesses capture this diverse market through targeted local search optimization, neighborhood-specific content, and Google Business Profile management tailored to Richmond's mix of government workers, corporate professionals, university communities, and historic neighborhoods.
+                </p>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Who We Help with Richmond SEO</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+                <a href="hvac-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-red-700">
+                    <i class="fas fa-thermometer-half text-4xl text-red-700 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">HVAC SEO</h4>
+                </a>
+                <a href="plumber-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-blue-600">
+                    <i class="fas fa-wrench text-4xl text-blue-600 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">Plumber SEO</h4>
+                </a>
+                <a href="electrician-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-yellow-500">
+                    <i class="fas fa-bolt text-4xl text-yellow-500 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">Electrician SEO</h4>
+                </a>
+                <a href="roofing-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-gray-700">
+                    <i class="fas fa-home text-4xl text-gray-700 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">Roofing SEO</h4>
+                </a>
+                <a href="cleaning-service-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-green-600">
+                    <i class="fas fa-broom text-4xl text-green-600 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">Cleaning SEO</h4>
+                </a>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Why Choose SeamlessFlow for Richmond SEO?</h3>
+
+            <div class="max-w-4xl mx-auto mb-12 space-y-8">
+                <div class="timeline-item bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 flex items-center">
+                        <i class="fas fa-landmark text-red-600 mr-3 text-2xl"></i>
+                        State Capital Government Market Expertise
+                    </h4>
+                    <p class="text-gray-700">
+                        Richmond's identity as Virginia's state capital creates unique service business opportunities. 50,000+ state government employees work in Downtown Richmond (General Assembly, state agencies, courts), creating demand for both residential services (homeowners throughout Metro Richmond) and commercial contracts (office buildings, government facilities maintenance). We optimize for keywords like "Richmond government contractor HVAC", "state building maintenance Richmond", and "Capitol area services" that capture this lucrative government-adjacent market segment most Richmond SEO agencies completely ignore.
+                    </p>
+                </div>
+
+                <div class="timeline-item bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 flex items-center">
+                        <i class="fas fa-palette text-red-600 mr-3 text-2xl"></i>
+                        Neighborhood Diversity Drives Targeting
+                    </h4>
+                    <p class="text-gray-700">
+                        Richmond's neighborhoods have dramatically different demographics and search behavior - Fan District's historic charm attracts young professionals and artists, Scott's Addition's brewery scene draws millennials to converted warehouses, Church Hill's restoration projects appeal to homebuyers, Short Pump suburbs house families, and West End offers luxury estates. Your Richmond SEO must target neighborhood-specific keywords: "Fan District HVAC" captures historic home specialists, "Scott's Addition commercial plumbing" targets brewery/restaurant clients, "Short Pump family services" reaches suburban homeowners. Generic "Richmond SEO" fails to capture these distinct micro-markets.
+                    </p>
+                </div>
+
+                <div class="timeline-item bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 flex items-center">
+                        <i class="fas fa-chart-line text-red-600 mr-3 text-2xl"></i>
+                        Proven Richmond Results
+                    </h4>
+                    <p class="text-gray-700">
+                        Our Richmond SEO clients average 295% increase in organic search traffic within 6 months and 168% growth in qualified leads from Google. We've helped Richmond HVAC companies dominate "emergency AC repair Richmond" during humid Virginia summers, plumbers rank #1 for "plumber near me" in Fan District and Carytown, electricians capture VCU campus property management contracts, and cleaning companies own "office cleaning Richmond" for Downtown state office buildings. Real rankings, real customers, real revenue growth for Richmond businesses.
+                    </p>
+                </div>
+
+                <div class="timeline-item bg-red-50 p-6 rounded-lg border-l-4 border-red-600" style="position: relative;">
+                    <h4 class="font-bold text-xl mb-3 text-gray-900 flex items-center">
+                        <i class="fas fa-university text-red-600 mr-3 text-2xl"></i>
+                        VCU & University Market Dominance
+                    </h4>
+                    <p class="text-gray-700">
+                        Virginia Commonwealth University (VCU) enrolls 30,000+ students and operates a massive medical center (VCU Health employs 20,000+), while University of Richmond adds 4,000+ students. This creates enormous opportunities - student housing property management needs maintenance contracts, university facilities require specialized services, healthcare buildings need 24/7 HVAC/electrical support, and student renters search for affordable services. We optimize for both "Richmond commercial HVAC" (university contracts) and "cheap plumber Richmond" (student market) to capture all segments of this lucrative institutional ecosystem.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Richmond Neighborhoods & Areas We Serve</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Downtown Richmond</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Fan District</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Scott's Addition</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Carytown</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Church Hill</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Short Pump</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Museum District</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">West End</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Shockoe Bottom</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Oregon Hill</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Henrico County</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">All Metro Richmond</span>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">What Makes Richmond SEO Different?</h3>
+            <div class="bg-white p-8 rounded-lg shadow-md mb-12 border-l-4 border-red-700">
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-red-100 text-red-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold text-lg">1</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg mb-1">Government Workforce Creates Stable Demand</p>
+                            <p class="text-gray-700">
+                                Richmond's 50,000+ state government employees provide stable, recession-resistant customer base with predictable income, benefits, and job security. State workers are homeowners throughout Metro Richmond (Fan District, Church Hill, Short Pump, Henrico suburbs) requiring consistent HVAC, plumbing, electrical, and home services. Marketing to government employees requires understanding their search patterns - they work Downtown but live throughout metro area, value reliability and professionalism, often need services during weekday lunch breaks or after 5pm. Your Richmond SEO must target both workplace locations ("Downtown Richmond HVAC") and residential neighborhoods where government workers live.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-red-100 text-red-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold text-lg">2</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg mb-1">Historic Architecture Requires Specialized Expertise</p>
+                            <p class="text-gray-700">
+                                Richmond's historic neighborhoods (Fan District Victorian homes from 1890s-1920s, Church Hill Federal-era properties, Museum District mansions) require specialized service expertise that commands premium pricing. Older homes need HVAC retrofitting for modern comfort, electrical panel upgrades for contemporary demands, plumbing repairs for aging cast iron pipes, and careful restoration work. SEO content targeting "historic home HVAC Richmond", "Victorian home electrical upgrades", or "Fan District restoration contractors" attracts high-value customers willing to pay 20-30% premiums for expertise in older properties. This specialized positioning differentiates you from generic competitors who only handle new construction.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-red-100 text-red-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold text-lg">3</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg mb-1">Humid Summers Drive HVAC Emergency Demand</p>
+                            <p class="text-gray-700">
+                                Richmond's humid subtropical climate means brutal summers (90°F+ with 70%+ humidity creating 100°F+ heat index) that drive massive AC emergency demand June-August. "Emergency AC repair Richmond", "AC not cooling Richmond", and "24 hour HVAC Richmond" searches spike 300%+ during summer heatwaves. Service businesses optimized for emergency keywords during peak season can generate 40-50% of annual revenue in 3 summer months. Your Richmond SEO strategy must prioritize seasonal emergency keywords, Google Business Profile optimization for "open now" searches, and mobile-optimized landing pages for desperate customers searching from overheated homes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-red-100 text-red-800 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold text-lg">4</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg mb-1">Neighborhood Gentrification Creates High-Value Opportunities</p>
+                            <p class="text-gray-700">
+                                Richmond neighborhoods like Scott's Addition (former industrial, now breweries/apartments), Church Hill (historic restoration boom), and Manchester (emerging arts district) are rapidly gentrifying. Young professionals and affluent buyers are purchasing older properties and investing heavily in renovations - new HVAC systems, electrical upgrades, kitchen/bath plumbing, roof replacements. These renovation projects represent $10,000-$50,000+ opportunities. Optimizing for "Scott's Addition renovation contractors", "Church Hill home improvement", or "Richmond historic restoration" captures these high-ticket projects that generic residential SEO misses entirely.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-r from-red-700 to-red-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Dominate Richmond Search?</h2>
-            <p class="text-xl mb-8">Get more Richmond and Central Virginia customers with proven local SEO strategies</p>
-            <a href="contact.html" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">Start My Richmond SEO Campaign</a>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Dominate Richmond Search Results?</h2>
+            <p class="text-xl mb-8">Get more Virginia capital customers with proven local SEO strategies designed for Richmond's unique market</p>
+            <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-white text-red-800 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all hover:bg-gray-100">Start My Richmond SEO Campaign</a>
         </div>
     </section>
     <script>
