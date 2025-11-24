@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeamlessFlow Contract Generator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+        .card { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px; margin-bottom: 24px; }
+        h1 { color: #2563eb; font-size: 32px; margin-bottom: 8px; }
+        h2 { color: #1f2937; font-size: 24px; margin-bottom: 16px; }
+        h3 { color: #2563eb; font-size: 18px; margin-bottom: 12px; }
+        .header-info { color: #6b7280; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+        input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #2563eb; }
+        textarea { resize: vertical; font-family: inherit; }
+        .service-option { display: flex; align-items: center; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; margin-bottom: 8px; cursor: pointer; transition: background 0.2s; }
+        .service-option:hover { background: #f9fafb; }
+        .service-option input[type="checkbox"] { width: 20px; height: 20px; margin-right: 12px; cursor: pointer; }
+        .service-option .flex-1 { flex: 1; }
+        .service-option .price { font-weight: 600; color: #2563eb; }
+        .price.one-time { color: #059669; }
+        .custom-price-input { margin-left: 32px; margin-top: 8px; max-width: 250px; }
+        .pricing-summary { background: #dbeafe; border: 2px solid #93c5fd; }
+        .pricing-row { display: flex; justify-content: space-between; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .pricing-total { font-size: 20px; border-top: 2px solid: #60a5fa; padding-top: 12px; margin-top: 12px; color: #1d4ed8; }
+        .btn { padding: 12px 24px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-primary { background: #2563eb; color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-success { background: #059669; color: white; }
+        .btn-success:hover { background: #047857; }
+        .btn-secondary { background: #d1d5db; color: #374151; }
+        .btn-secondary:hover { background: #9ca3af; }
+        .btn-group { display: flex; gap: 16px; margin-bottom: 24px; }
+        .btn-group .btn { flex: 1; }
+        .hidden { display: none; }
+
+        /* Print styles */
+        @media print {
+            body { background: white; }
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            .contract-document { font-size: 11pt; font-family: 'Times New Roman', serif; }
+            .page-break { page-break-before: always; }
+            h1 { font-size: 24pt; }
+            h2 { font-size: 16pt; margin-top: 12pt; }
+        }
+
+        /* Contract Document Styles */
+        .contract-document { max-width: 800px; margin: 0 auto; line-height: 1.6; }
+        .contract-document h1 { text-align: center; margin-bottom: 8px; }
+        .contract-document h2 { border-bottom: 2px solid #000; padding-bottom: 8px; margin-top: 24px; }
+        .contract-document ul { margin-left: 24px; margin-top: 8px; }
+        .contract-document li { margin-bottom: 4px; }
+        .signature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+        .signature-block { margin-bottom: 24px; }
+        .signature-line { border-bottom: 2px solid #000; padding-bottom: 24px; margin-bottom: 8px; margin-top: 24px; }
+    </style>
+</head>
+<body>
+    <div class="container no-print">
+        <!-- Header -->
+        <div class="card">
+            <h1>SeamlessFlow.ai</h1>
+            <p class="header-info">Contract Generator</p>
+            <p class="header-info">info@seamlessflow.ai | (347) 634-6547</p>
+        </div>
+
+        <!-- Client Information -->
+        <div class="card">
+            <h2>Client Information</h2>
+            <div class="grid">
+                <input type="text" id="companyName" placeholder="Company Name *">
+                <input type="text" id="contactName" placeholder="Contact Name *">
+                <input type="text" id="title" placeholder="Title *">
+                <input type="email" id="email" placeholder="Email *">
+                <input type="tel" id="phone" placeholder="Phone *">
+                <input type="text" id="address" placeholder="Address">
+                <input type="text" id="city" placeholder="City">
+                <input type="text" id="state" placeholder="State">
+                <input type="text" id="zip" placeholder="ZIP Code">
+                <select id="industry">
+                    <option value="">Select Industry *</option>
+                    <option value="HVAC">HVAC</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Roofing">Roofing</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Remodeling">Remodeling/General Contractor</option>
+                    <option value="Cleaning">Cleaning Services</option>
+                    <option value="Auto Detailing">Auto Detailing</option>
+                    <option value="Pet Grooming">Pet Grooming</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="text" id="industryOther" placeholder="Specify Industry" class="hidden">
+            </div>
+        </div>
+
+        <!-- Service Selection -->
+        <div class="card">
+            <h2>Service Selection</h2>
+
+            <h3>Local SEO Services</h3>
+            <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">Select ONE SEO tier (mutually exclusive)</p>
+            <div class="service-option">
+                <input type="checkbox" id="seoStarter" data-group="seo">
+                <span class="flex-1">SEO Starter - Local visibility foundation</span>
+                <span class="price">$497/month</span>
+            </div>
+            <div class="service-option">
+                <input type="checkbox" id="seoMarketLeader" data-group="seo">
+                <span class="flex-1">Market Leader - Competitive dominance</span>
+                <span class="price">$997/month</span>
+            </div>
+            <div class="service-option">
+                <input type="checkbox" id="seoCityDomination" data-group="seo">
+                <span class="flex-1">City Domination - Full market control</span>
+                <span class="price">$1,497/month</span>
+            </div>
+            <div class="service-option">
+                <input type="checkbox" id="seoRegional" data-group="seo">
+                <span class="flex-1">Regional Dominance - Multi-city coverage</span>
+                <span class="price">Custom Pricing</span>
+            </div>
+            <input type="number" id="seoRegionalPrice" placeholder="Enter monthly price" class="custom-price-input hidden">
+
+            <h3 style="margin-top: 24px;">Web Design & Automation</h3>
+            <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">Select any combination</p>
+            <div class="service-option">
+                <input type="checkbox" id="websiteDev">
+                <span class="flex-1">Professional Website Development</span>
+                <span class="price one-time">$2,500 one-time</span>
+            </div>
+            <input type="number" id="websiteDevPrice" placeholder="Adjust price if needed" class="custom-price-input hidden" value="2500">
+            <div class="service-option">
+                <input type="checkbox" id="marketingAutomation">
+                <span class="flex-1">Marketing Automation Platform</span>
+                <span class="price">$1,500/month</span>
+            </div>
+            <div class="service-option">
+                <input type="checkbox" id="businessAutomation">
+                <span class="flex-1">Business Operations Automation</span>
+                <span class="price">Custom Pricing</span>
+            </div>
+            <input type="number" id="businessAutomationPrice" placeholder="Enter monthly price" class="custom-price-input hidden">
+
+            <h3 style="margin-top: 24px;">Advanced Automation Packages</h3>
+            <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">Select ONE package (mutually exclusive)</p>
+            <div class="service-option">
+                <input type="checkbox" id="foundationPackage" data-group="automation">
+                <span class="flex-1">Foundation Package - Essential automation suite</span>
+                <span class="price">$1,500/mo + setup</span>
+            </div>
+            <input type="number" id="foundationSetupFee" placeholder="Setup fee (default $4,500)" class="custom-price-input hidden" value="4500">
+            <div class="service-option">
+                <input type="checkbox" id="growthPackage" data-group="automation">
+                <span class="flex-1">Growth Package - Advanced automation & AI</span>
+                <span class="price">$3,000/mo + setup</span>
+            </div>
+            <input type="number" id="growthSetupFee" placeholder="Setup fee (default $7,500)" class="custom-price-input hidden" value="7500">
+            <div class="service-option">
+                <input type="checkbox" id="enterprisePackage" data-group="automation">
+                <span class="flex-1">Enterprise Package - Full automation transformation</span>
+                <span class="price">Custom monthly + $15,000 setup</span>
+            </div>
+            <div id="enterprisePricing" class="hidden" style="margin-left: 32px; margin-top: 8px;">
+                <input type="number" id="enterpriseMonthlyFee" placeholder="Enter monthly fee" style="margin-bottom: 8px;" value="6000">
+                <input type="number" id="enterpriseSetupFee" placeholder="Setup fee (default $15,000)" value="15000">
+            </div>
+        </div>
+
+        <!-- Territory (conditional) -->
+        <div class="card hidden" id="territorySection">
+            <h2>Territory Information</h2>
+            <p style="color: #6b7280; margin-bottom: 16px;">Define your exclusive service territory for SEO protection</p>
+            <div class="grid">
+                <input type="text" id="primaryCity" placeholder="Primary City *">
+                <input type="text" id="territoryState" placeholder="State *">
+                <input type="text" id="zipCodes" placeholder="ZIP Codes (comma-separated)" style="grid-column: 1 / -1;">
+                <input type="text" id="boroughsDistricts" placeholder="Boroughs/Districts (if applicable)" style="grid-column: 1 / -1;">
+            </div>
+        </div>
+
+        <!-- Contract Terms -->
+        <div class="card">
+            <h2>Contract Terms</h2>
+            <div class="grid">
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-weight: 500;">Start Date *</label>
+                    <input type="date" id="startDate">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-weight: 500;">Contract Type *</label>
+                    <select id="contractType">
+                        <option value="month-to-month">Month-to-Month</option>
+                        <option value="3-months">3-Month Agreement</option>
+                        <option value="6-months">6-Month Agreement</option>
+                        <option value="12-months">12-Month Agreement</option>
+                    </select>
+                </div>
+                <div id="endDateField" class="hidden">
+                    <label style="display: block; margin-bottom: 4px; font-weight: 500;">End Date (auto-calculated)</label>
+                    <input type="date" id="endDate" readonly style="background: #f3f4f6;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-weight: 500;">Payment Due Day *</label>
+                    <select id="paymentDueDay">
+                        <option value="1st">1st of the month</option>
+                        <option value="15th">15th of the month</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Terms -->
+        <div class="card">
+            <h2>Special Terms & Conditions</h2>
+            <textarea id="specialTerms" rows="4" placeholder="Add any special terms, discounts, or custom conditions..."></textarea>
+        </div>
+
+        <!-- Pricing Summary -->
+        <div class="card pricing-summary">
+            <h2>Pricing Summary</h2>
+            <div class="pricing-row">
+                <span>Monthly Recurring:</span>
+                <span id="monthlyTotal" style="color: #2563eb;">$0.00</span>
+            </div>
+            <div class="pricing-row">
+                <span>One-Time Setup/Fees:</span>
+                <span id="oneTimeTotal" style="color: #2563eb;">$0.00</span>
+            </div>
+            <div class="pricing-row pricing-total">
+                <span>FIRST PAYMENT DUE:</span>
+                <span id="firstPayment" style="color: #1d4ed8;">$0.00</span>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="togglePreview()">
+                <span id="previewBtnText">Preview Contract</span>
+            </button>
+            <button class="btn btn-success" onclick="window.print()">Print / Save as PDF</button>
+            <button class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
+        </div>
+
+        <!-- Preview Section -->
+        <div id="previewSection" class="card hidden">
+            <h2 style="text-align: center; margin-bottom: 24px;">CONTRACT PREVIEW</h2>
+            <div id="contractPreview"></div>
+        </div>
+    </div>
+
+    <!-- Print View -->
+    <div class="print-only hidden" id="contractPrint"></div>
+
+    <script>
+        // State management
+        let formData = {
+            clientInfo: {},
+            services: {},
+            territory: {},
+            contractTerms: {},
+            specialTerms: ''
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFromLocalStorage();
+            setupEventListeners();
+            calculatePricing();
+        });
+
+        function setupEventListeners() {
+            // Client info
+            ['companyName', 'contactName', 'title', 'email', 'phone', 'address', 'city', 'state', 'zip'].forEach(id => {
+                document.getElementById(id).addEventListener('input', saveToLocalStorage);
+            });
+
+            // Industry change
+            document.getElementById('industry').addEventListener('change', function(e) {
+                document.getElementById('industryOther').classList.toggle('hidden', e.target.value !== 'Other');
+                saveToLocalStorage();
+            });
+
+            // Service checkboxes - mutually exclusive groups
+            document.querySelectorAll('input[type="checkbox"][data-group]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        const group = this.dataset.group;
+                        document.querySelectorAll(`input[type="checkbox"][data-group="${group}"]`).forEach(cb => {
+                            if (cb !== this) cb.checked = false;
+                        });
+                    }
+                    handleServiceChange(this.id);
+                });
+            });
+
+            // Service checkboxes - regular
+            document.querySelectorAll('input[type="checkbox"]:not([data-group])').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    handleServiceChange(this.id);
+                });
+            });
+
+            // Price inputs
+            ['seoRegionalPrice', 'websiteDevPrice', 'businessAutomationPrice', 'foundationSetupFee',
+             'growthSetupFee', 'enterpriseMonthlyFee', 'enterpriseSetupFee'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', () => { calculatePricing(); saveToLocalStorage(); });
+            });
+
+            // Contract terms
+            document.getElementById('startDate').addEventListener('change', function() {
+                calculateEndDate();
+                saveToLocalStorage();
+            });
+            document.getElementById('contractType').addEventListener('change', function() {
+                calculateEndDate();
+                document.getElementById('endDateField').classList.toggle('hidden', this.value === 'month-to-month');
+                saveToLocalStorage();
+            });
+            document.getElementById('paymentDueDay').addEventListener('change', saveToLocalStorage);
+
+            // Territory
+            ['primaryCity', 'territoryState', 'zipCodes', 'boroughsDistricts'].forEach(id => {
+                document.getElementById(id).addEventListener('input', saveToLocalStorage);
+            });
+
+            // Special terms
+            document.getElementById('specialTerms').addEventListener('input', saveToLocalStorage);
+        }
+
+        function handleServiceChange(serviceId) {
+            const checkbox = document.getElementById(serviceId);
+
+            // Show/hide custom price inputs
+            const priceInputMap = {
+                'seoRegional': 'seoRegionalPrice',
+                'websiteDev': 'websiteDevPrice',
+                'businessAutomation': 'businessAutomationPrice',
+                'foundationPackage': 'foundationSetupFee',
+                'growthPackage': 'growthSetupFee',
+                'enterprisePackage': 'enterprisePricing'
+            };
+
+            if (priceInputMap[serviceId]) {
+                const inputId = priceInputMap[serviceId];
+                const inputEl = document.getElementById(inputId);
+                if (inputEl) {
+                    inputEl.classList.toggle('hidden', !checkbox.checked);
+                }
+            }
+
+            // Show/hide territory section
+            updateTerritoryVisibility();
+
+            calculatePricing();
+            saveToLocalStorage();
+        }
+
+        function updateTerritoryVisibility() {
+            const isSEOSelected = document.getElementById('seoStarter').checked ||
+                                  document.getElementById('seoMarketLeader').checked ||
+                                  document.getElementById('seoCityDomination').checked ||
+                                  document.getElementById('seoRegional').checked;
+
+            document.getElementById('territorySection').classList.toggle('hidden', !isSEOSelected);
+        }
+
+        function calculateEndDate() {
+            const startDate = document.getElementById('startDate').value;
+            const contractType = document.getElementById('contractType').value;
+
+            if (!startDate || contractType === 'month-to-month') return;
+
+            const start = new Date(startDate);
+            const months = parseInt(contractType.split('-')[0]);
+            start.setMonth(start.getMonth() + months);
+
+            document.getElementById('endDate').value = start.toISOString().split('T')[0];
+        }
+
+        function calculatePricing() {
+            let monthly = 0;
+            let oneTime = 0;
+
+            // SEO services
+            if (document.getElementById('seoStarter').checked) monthly += 497;
+            if (document.getElementById('seoMarketLeader').checked) monthly += 997;
+            if (document.getElementById('seoCityDomination').checked) monthly += 1497;
+            if (document.getElementById('seoRegional').checked) {
+                monthly += parseFloat(document.getElementById('seoRegionalPrice').value) || 0;
+            }
+
+            // Web Design & Automation
+            if (document.getElementById('websiteDev').checked) {
+                oneTime += parseFloat(document.getElementById('websiteDevPrice').value) || 2500;
+            }
+            if (document.getElementById('marketingAutomation').checked) monthly += 1500;
+            if (document.getElementById('businessAutomation').checked) {
+                monthly += parseFloat(document.getElementById('businessAutomationPrice').value) || 0;
+            }
+
+            // Advanced Packages
+            if (document.getElementById('foundationPackage').checked) {
+                monthly += 1500;
+                oneTime += parseFloat(document.getElementById('foundationSetupFee').value) || 4500;
+            }
+            if (document.getElementById('growthPackage').checked) {
+                monthly += 3000;
+                oneTime += parseFloat(document.getElementById('growthSetupFee').value) || 7500;
+            }
+            if (document.getElementById('enterprisePackage').checked) {
+                monthly += parseFloat(document.getElementById('enterpriseMonthlyFee').value) || 6000;
+                oneTime += parseFloat(document.getElementById('enterpriseSetupFee').value) || 15000;
+            }
+
+            const firstPayment = monthly + oneTime;
+
+            document.getElementById('monthlyTotal').textContent = '$' + monthly.toFixed(2);
+            document.getElementById('oneTimeTotal').textContent = '$' + oneTime.toFixed(2);
+            document.getElementById('firstPayment').textContent = '$' + firstPayment.toFixed(2);
+
+            return { monthly, oneTime, firstPayment };
+        }
+
+        function saveToLocalStorage() {
+            const data = {
+                companyName: document.getElementById('companyName').value,
+                contactName: document.getElementById('contactName').value,
+                title: document.getElementById('title').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                zip: document.getElementById('zip').value,
+                industry: document.getElementById('industry').value,
+                industryOther: document.getElementById('industryOther').value,
+                services: {
+                    seoStarter: document.getElementById('seoStarter').checked,
+                    seoMarketLeader: document.getElementById('seoMarketLeader').checked,
+                    seoCityDomination: document.getElementById('seoCityDomination').checked,
+                    seoRegional: document.getElementById('seoRegional').checked,
+                    seoRegionalPrice: document.getElementById('seoRegionalPrice').value,
+                    websiteDev: document.getElementById('websiteDev').checked,
+                    websiteDevPrice: document.getElementById('websiteDevPrice').value,
+                    marketingAutomation: document.getElementById('marketingAutomation').checked,
+                    businessAutomation: document.getElementById('businessAutomation').checked,
+                    businessAutomationPrice: document.getElementById('businessAutomationPrice').value,
+                    foundationPackage: document.getElementById('foundationPackage').checked,
+                    foundationSetupFee: document.getElementById('foundationSetupFee').value,
+                    growthPackage: document.getElementById('growthPackage').checked,
+                    growthSetupFee: document.getElementById('growthSetupFee').value,
+                    enterprisePackage: document.getElementById('enterprisePackage').checked,
+                    enterpriseMonthlyFee: document.getElementById('enterpriseMonthlyFee').value,
+                    enterpriseSetupFee: document.getElementById('enterpriseSetupFee').value
+                },
+                territory: {
+                    primaryCity: document.getElementById('primaryCity').value,
+                    state: document.getElementById('territoryState').value,
+                    zipCodes: document.getElementById('zipCodes').value,
+                    boroughsDistricts: document.getElementById('boroughsDistricts').value
+                },
+                contractTerms: {
+                    startDate: document.getElementById('startDate').value,
+                    contractType: document.getElementById('contractType').value,
+                    endDate: document.getElementById('endDate').value,
+                    paymentDueDay: document.getElementById('paymentDueDay').value
+                },
+                specialTerms: document.getElementById('specialTerms').value
+            };
+            localStorage.setItem('contractDraft', JSON.stringify(data));
+        }
+
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('contractDraft');
+            if (!saved) return;
+
+            try {
+                const data = JSON.parse(saved);
+
+                // Load client info
+                if (data.companyName) document.getElementById('companyName').value = data.companyName;
+                if (data.contactName) document.getElementById('contactName').value = data.contactName;
+                if (data.title) document.getElementById('title').value = data.title;
+                if (data.email) document.getElementById('email').value = data.email;
+                if (data.phone) document.getElementById('phone').value = data.phone;
+                if (data.address) document.getElementById('address').value = data.address;
+                if (data.city) document.getElementById('city').value = data.city;
+                if (data.state) document.getElementById('state').value = data.state;
+                if (data.zip) document.getElementById('zip').value = data.zip;
+                if (data.industry) {
+                    document.getElementById('industry').value = data.industry;
+                    document.getElementById('industryOther').classList.toggle('hidden', data.industry !== 'Other');
+                }
+                if (data.industryOther) document.getElementById('industryOther').value = data.industryOther;
+
+                // Load services
+                if (data.services) {
+                    Object.keys(data.services).forEach(key => {
+                        const el = document.getElementById(key);
+                        if (el) {
+                            if (el.type === 'checkbox') {
+                                el.checked = data.services[key];
+                            } else {
+                                el.value = data.services[key];
+                            }
+                        }
+                    });
+                }
+
+                // Load territory
+                if (data.territory) {
+                    if (data.territory.primaryCity) document.getElementById('primaryCity').value = data.territory.primaryCity;
+                    if (data.territory.state) document.getElementById('territoryState').value = data.territory.state;
+                    if (data.territory.zipCodes) document.getElementById('zipCodes').value = data.territory.zipCodes;
+                    if (data.territory.boroughsDistricts) document.getElementById('boroughsDistricts').value = data.territory.boroughsDistricts;
+                }
+
+                // Load contract terms
+                if (data.contractTerms) {
+                    if (data.contractTerms.startDate) document.getElementById('startDate').value = data.contractTerms.startDate;
+                    if (data.contractTerms.contractType) document.getElementById('contractType').value = data.contractTerms.contractType;
+                    if (data.contractTerms.endDate) document.getElementById('endDate').value = data.contractTerms.endDate;
+                    if (data.contractTerms.paymentDueDay) document.getElementById('paymentDueDay').value = data.contractTerms.paymentDueDay;
+                }
+
+                // Load special terms
+                if (data.specialTerms) document.getElementById('specialTerms').value = data.specialTerms;
+
+                updateTerritoryVisibility();
+                calculateEndDate();
+                calculatePricing();
+            } catch (e) {
+                console.error('Failed to load draft:', e);
+            }
+        }
+
+        function clearForm() {
+            if (!confirm('Are you sure you want to clear all form data?')) return;
+
+            document.querySelectorAll('input, select, textarea').forEach(el => {
+                if (el.type === 'checkbox') el.checked = false;
+                else el.value = '';
+            });
+
+            // Reset defaults
+            document.getElementById('websiteDevPrice').value = '2500';
+            document.getElementById('foundationSetupFee').value = '4500';
+            document.getElementById('growthSetupFee').value = '7500';
+            document.getElementById('enterpriseMonthlyFee').value = '6000';
+            document.getElementById('enterpriseSetupFee').value = '15000';
+            document.getElementById('contractType').value = 'month-to-month';
+            document.getElementById('paymentDueDay').value = '1st';
+            document.getElementById('industry').value = '';
+
+            localStorage.removeItem('contractDraft');
+            updateTerritoryVisibility();
+            calculatePricing();
+        }
+
+        function togglePreview() {
+            const preview = document.getElementById('previewSection');
+            const btnText = document.getElementById('previewBtnText');
+
+            if (preview.classList.contains('hidden')) {
+                generateContract();
+                preview.classList.remove('hidden');
+                btnText.textContent = 'Hide Preview';
+            } else {
+                preview.classList.add('hidden');
+                btnText.textContent = 'Preview Contract';
+            }
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '___________';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function generateContract() {
+            const pricing = calculatePricing();
+            const html = buildContractHTML(pricing);
+            document.getElementById('contractPreview').innerHTML = html;
+            document.getElementById('contractPrint').innerHTML = html;
+        }
+
+        function buildContractHTML(pricing) {
+            const isSEOSelected = document.getElementById('seoStarter').checked ||
+                                  document.getElementById('seoMarketLeader').checked ||
+                                  document.getElementById('seoCityDomination').checked ||
+                                  document.getElementById('seoRegional').checked;
+
+            return `
+                <div class="contract-document">
+                    <h1>DIGITAL MARKETING & AUTOMATION SERVICES AGREEMENT</h1>
+                    <p style="text-align: center; font-weight: 600; margin-bottom: 8px;">SeamlessFlow.ai</p>
+                    <p style="text-align: center; color: #6b7280; margin-bottom: 32px;">info@seamlessflow.ai | (347) 634-6547</p>
+
+                    <p style="margin-bottom: 16px;"><strong>Effective Date:</strong> ${formatDate(document.getElementById('startDate').value)}</p>
+                    <p style="margin-bottom: 8px;">This Digital Marketing & Automation Services Agreement ("Agreement") is entered into by and between:</p>
+
+                    <div style="margin-left: 24px; margin-bottom: 16px;">
+                        <p><strong>SERVICE PROVIDER:</strong> SeamlessFlow.ai</p>
+                        <p style="margin-left: 16px;">Email: info@seamlessflow.ai</p>
+                        <p style="margin-left: 16px;">Phone: (347) 634-6547</p>
+                    </div>
+
+                    <div style="margin-left: 24px; margin-bottom: 32px;">
+                        <p><strong>CLIENT:</strong> ${document.getElementById('companyName').value || '___________________________'}</p>
+                        <p style="margin-left: 16px;">Contact: ${document.getElementById('contactName').value || '___________________________'}, ${document.getElementById('title').value || '_______________'}</p>
+                        <p style="margin-left: 16px;">Email: ${document.getElementById('email').value || '___________________________'}</p>
+                        <p style="margin-left: 16px;">Phone: ${document.getElementById('phone').value || '___________________________'}</p>
+                        <p style="margin-left: 16px;">Address: ${document.getElementById('address').value || '___________________________'}</p>
+                        ${document.getElementById('city').value ? `<p style="margin-left: 16px;">${document.getElementById('city').value}, ${document.getElementById('state').value} ${document.getElementById('zip').value}</p>` : ''}
+                        <p style="margin-left: 16px;">Industry: ${document.getElementById('industry').value === 'Other' ? document.getElementById('industryOther').value : (document.getElementById('industry').value || '_______________')}</p>
+                    </div>
+
+                    ${generateServicesSection()}
+                    ${isSEOSelected ? generateTerritorySection() : ''}
+                    ${generatePricingSection(pricing, isSEOSelected)}
+                    ${generateContractTermsSection(isSEOSelected)}
+                    ${generateLegalSections(isSEOSelected)}
+                    ${generateSignatureSection()}
+                </div>
+            `;
+        }
+
+        function generateServicesSection() {
+            let html = '<div class="page-break"><h2>1. SERVICES AND DELIVERABLES</h2><p style="margin-bottom: 16px;">The Service Provider agrees to provide the following services to the Client:</p>';
+
+            // SEO Services
+            const seoServices = [];
+            if (document.getElementById('seoStarter').checked) seoServices.push('SEO Starter ($497/month)');
+            if (document.getElementById('seoMarketLeader').checked) seoServices.push('Market Leader ($997/month)');
+            if (document.getElementById('seoCityDomination').checked) seoServices.push('City Domination ($1,497/month)');
+            if (document.getElementById('seoRegional').checked) {
+                const price = document.getElementById('seoRegionalPrice').value || '0';
+                seoServices.push(`Regional Dominance ($${price}/month)`);
+            }
+
+            if (seoServices.length > 0) {
+                html += '<h3 style="margin-top: 16px;">Local SEO Services:</h3><ul>';
+                seoServices.forEach(service => html += `<li><strong>${service}</strong></li>`);
+                html += '</ul>';
+            }
+
+            // Web & Automation
+            const webServices = [];
+            if (document.getElementById('websiteDev').checked) {
+                const price = document.getElementById('websiteDevPrice').value || '2500';
+                webServices.push(`Professional Website Development ($${price} one-time)`);
+            }
+            if (document.getElementById('marketingAutomation').checked) webServices.push('Marketing Automation Platform ($1,500/month)');
+            if (document.getElementById('businessAutomation').checked) {
+                const price = document.getElementById('businessAutomationPrice').value || '0';
+                webServices.push(`Business Operations Automation ($${price}/month)`);
+            }
+
+            if (webServices.length > 0) {
+                html += '<h3 style="margin-top: 16px;">Web Design & Automation:</h3><ul>';
+                webServices.forEach(service => html += `<li><strong>${service}</strong></li>`);
+                html += '</ul>';
+            }
+
+            // Advanced Packages
+            const advancedServices = [];
+            if (document.getElementById('foundationPackage').checked) {
+                const setup = document.getElementById('foundationSetupFee').value || '4500';
+                advancedServices.push(`Foundation Package ($1,500/month + $${setup} setup)`);
+            }
+            if (document.getElementById('growthPackage').checked) {
+                const setup = document.getElementById('growthSetupFee').value || '7500';
+                advancedServices.push(`Growth Package ($3,000/month + $${setup} setup)`);
+            }
+            if (document.getElementById('enterprisePackage').checked) {
+                const monthly = document.getElementById('enterpriseMonthlyFee').value || '6000';
+                const setup = document.getElementById('enterpriseSetupFee').value || '15000';
+                advancedServices.push(`Enterprise Package ($${monthly}/month + $${setup} setup)`);
+            }
+
+            if (advancedServices.length > 0) {
+                html += '<h3 style="margin-top: 16px;">Advanced Automation Packages:</h3><ul>';
+                advancedServices.forEach(service => html += `<li><strong>${service}</strong></li>`);
+                html += '</ul>';
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function generateTerritorySection() {
+            return `
+                <div class="page-break">
+                    <h2>2. TERRITORY PROTECTION</h2>
+                    <p style="margin-bottom: 12px;">For SEO services, the Service Provider grants the Client exclusive territory protection within the following defined area:</p>
+                    <div style="margin-left: 24px; margin-bottom: 16px;">
+                        <p><strong>Primary City:</strong> ${document.getElementById('primaryCity').value || '___________________________'}</p>
+                        <p><strong>State:</strong> ${document.getElementById('territoryState').value || '___________________________'}</p>
+                        <p><strong>ZIP Codes:</strong> ${document.getElementById('zipCodes').value || '___________________________'}</p>
+                        ${document.getElementById('boroughsDistricts').value ? `<p><strong>Boroughs/Districts:</strong> ${document.getElementById('boroughsDistricts').value}</p>` : ''}
+                    </div>
+                    <p style="margin-bottom: 8px;">The Service Provider agrees that during the term of this Agreement:</p>
+                    <ul>
+                        <li>No direct competitors in the Client's industry will be accepted within the protected territory</li>
+                        <li>Territory protection begins upon contract signing and first payment</li>
+                        <li>Territory exclusivity is maintained as long as the agreement remains in good standing</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function generatePricingSection(pricing, isSEO) {
+            const sectionNum = isSEO ? '3' : '2';
+            const paymentDay = document.getElementById('paymentDueDay').value;
+
+            return `
+                <div class="page-break">
+                    <h2>${sectionNum}. PRICING AND PAYMENT TERMS</h2>
+                    <div style="margin-bottom: 16px;">
+                        <p style="margin-bottom: 8px;"><strong>Service Pricing:</strong></p>
+                        <div style="margin-left: 24px;">
+                            <p>Monthly Recurring Services: <strong>$${pricing.monthly.toFixed(2)}</strong></p>
+                            <p>One-Time Setup/Development Fees: <strong>$${pricing.oneTime.toFixed(2)}</strong></p>
+                            <p style="font-size: 18px; font-weight: bold; margin-top: 12px;">FIRST PAYMENT DUE: <strong style="color: #2563eb;">$${pricing.firstPayment.toFixed(2)}</strong></p>
+                            <p style="color: #6b7280; margin-top: 4px;">Subsequent Monthly Payments: $${pricing.monthly.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <p style="margin-bottom: 8px;"><strong>Payment Terms:</strong></p>
+                    <ul>
+                        <li>First payment (monthly service + setup fees) is due upon contract signing</li>
+                        <li>Subsequent payments are due on the ${paymentDay} of each month</li>
+                        <li>Payments can be made via ACH transfer, credit card, or check</li>
+                        <li>A $50 fee will be applied to payments received more than 5 days past the due date</li>
+                        <li>Services may be suspended if payment is more than 15 days overdue</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function generateContractTermsSection(isSEO) {
+            const sectionNum = isSEO ? '4' : '3';
+            const contractType = document.getElementById('contractType').value;
+            const endDate = document.getElementById('endDate').value;
+
+            let termText = '';
+            if (contractType === 'month-to-month') {
+                termText = '<ul><li>This agreement continues on a month-to-month basis until terminated by either party</li><li>Either party may terminate with 30 days written notice</li></ul>';
+            } else {
+                const months = contractType.split('-')[0];
+                termText = `<p><strong>End Date:</strong> ${formatDate(endDate)}</p><ul><li>This agreement is for a fixed term of ${months} months</li><li>Agreement automatically renews unless 30 days notice is provided</li></ul>`;
+            }
+
+            return `
+                <div class="page-break">
+                    <h2>${sectionNum}. CONTRACT TERM</h2>
+                    <p><strong>Term:</strong> ${contractType === 'month-to-month' ? 'Month-to-Month' : contractType.split('-')[0] + '-Month Agreement'}</p>
+                    ${termText}
+                </div>
+            `;
+        }
+
+        function generateLegalSections(isSEO) {
+            const baseNum = isSEO ? 5 : 4;
+            const specialTerms = document.getElementById('specialTerms').value;
+
+            return `
+                <div class="page-break">
+                    <h2>${baseNum}. TERMINATION</h2>
+                    <ul>
+                        <li>For month-to-month agreements: 30 days written notice with no penalty</li>
+                        <li>For fixed-term agreements: 30 days notice required</li>
+                        <li>Setup fees and one-time charges are non-refundable</li>
+                    </ul>
+                </div>
+                ${specialTerms ? `<div class="page-break"><h2>${baseNum + 1}. SPECIAL TERMS</h2><p style="white-space: pre-wrap;">${specialTerms}</p></div>` : ''}
+                <div class="page-break">
+                    <h2>${specialTerms ? baseNum + 2 : baseNum + 1}. GENERAL PROVISIONS</h2>
+                    <ul>
+                        <li><strong>Entire Agreement:</strong> This agreement constitutes the entire understanding between the parties</li>
+                        <li><strong>Amendments:</strong> Any changes must be made in writing and signed by both parties</li>
+                        <li><strong>Governing Law:</strong> This agreement shall be governed by the laws of the State of New York</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function generateSignatureSection() {
+            const companyName = document.getElementById('companyName').value || '___________________________';
+
+            return `
+                <div class="page-break" style="margin-top: 48px;">
+                    <h2>AGREEMENT SIGNATURE</h2>
+                    <p style="margin-bottom: 32px;">By signing below, both parties acknowledge that they have read, understood, and agree to be bound by all terms and conditions of this Agreement.</p>
+
+                    <div class="signature-grid">
+                        <div class="signature-block">
+                            <p style="font-weight: bold; margin-bottom: 24px;">SERVICE PROVIDER:</p>
+                            <p style="margin-bottom: 8px;">SeamlessFlow.ai</p>
+                            <div class="signature-line"></div>
+                            <p style="font-size: 12px;">Authorized Signature</p>
+                            <div class="signature-line"></div>
+                            <p style="font-size: 12px;">Printed Name and Title</p>
+                            <div class="signature-line"></div>
+                            <p style="font-size: 12px;">Date</p>
+                        </div>
+
+                        <div class="signature-block">
+                            <p style="font-weight: bold; margin-bottom: 24px;">CLIENT:</p>
+                            <p style="margin-bottom: 8px;">${companyName}</p>
+                            <div class="signature-line"></div>
+                            <p style="font-size: 12px;">Authorized Signature</p>
+                            <div class="signature-line"></div>
+                            <p style="font-size: 12px;">Printed Name and Title</p>
+                            <div class="signature-line"></div>
+                            <p style="font-size: 12px;">Date</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 48px; text-align: center; color: #6b7280; font-size: 14px;">
+                        <p>Please sign and return this agreement to: info@seamlessflow.ai</p>
+                        <p>Questions? Contact us at (347) 634-6547</p>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
