@@ -22,9 +22,11 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .hero-section { background: linear-gradient(135deg, #059669 0%, #047857 100%); padding: 120px 0 80px 0; }
+        .hero-section { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); padding: 120px 0 80px 0; }
         .case-study-card { transition: transform 0.3s, box-shadow 0.3s; }
         .case-study-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .nap-block { background: #fff; border-left: 4px solid #dc2626; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .liberty-stripe { background: linear-gradient(to right, #fff 0%, #fee2e2 50%, #fff 100%); border: 1px solid #fca5a5; }
         #mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 50; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: all 0.3s ease-out; }
         #mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
         .hamburger { cursor: pointer; width: 24px; height: 24px; display: flex; flex-direction: column; justify-content: space-around; padding: 4px 0; }
@@ -286,18 +288,230 @@
     <section class="hero-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Philadelphia SEO Services<br><span class="text-yellow-300">City of Brotherly Love</span></h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Get your Philadelphia business #1 on Google. NYC-based team serving Center City, South Philly, and Greater Philadelphia</p>
-                <a href="tel:+13477498146" class="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">Call (347) 749-8146</a>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Philadelphia SEO Expert | Dominate Philly Search Results</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Philadelphia and Greater Philly SEO services serving Center City, University City, Fishtown, South Philly, Manayunk, and all of Philadelphia County</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-white text-red-700 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all hover:bg-gray-100">Get My Free Philadelphia SEO Audit</a>
+                    <a href="tel:+13477498146" class="bg-red-800 hover:bg-red-900 text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all border-2 border-white">Call (347) 749-8146</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-green-600 text-white">
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-8 text-center text-gray-900">Philadelphia SEO Services That Actually Deliver Results</h2>
+
+            <div class="nap-block">
+                <div itemscope itemtype="http://schema.org/LocalBusiness">
+                    <p class="text-lg font-bold text-gray-900 mb-2">
+                        <span itemprop="name">SeamlessFlow.ai</span>
+                    </p>
+                    <p class="text-gray-700">
+                        <span itemprop="description">Local SEO & Marketing Automation for Philadelphia Service Businesses</span><br>
+                        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            Serving <span itemprop="addressLocality">Philadelphia</span>, <span itemprop="addressRegion">PA</span> and Greater Philadelphia Area
+                        </span><br>
+                        Phone: <a href="tel:+13477498146" itemprop="telephone" class="text-blue-600 hover:text-blue-800 font-semibold">(347) 749-8146</a><br>
+                        Email: <span itemprop="email">info@seamlessflow.ai</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="prose max-w-none mb-12">
+                <p class="text-lg text-gray-700 mb-6">
+                    Looking for a Philadelphia SEO company that understands the unique challenges of marketing in the City of Brotherly Love? SeamlessFlow.ai delivers comprehensive Philadelphia SEO services designed to get your business ranking #1 on Google for high-value local searches. Whether you're targeting Center City professionals, University City students, Fishtown's creative community, or South Philly's residential neighborhoods, our Philadelphia SEO expertise gets you found by customers actively searching for your services.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    Philadelphia is the sixth-largest city in America with 1.6 million residents and a diverse economy spanning healthcare (University of Pennsylvania Health System, Jefferson Health), education (Penn, Drexel, Temple), technology (Comcast headquarters), financial services, and tourism. Our Philadelphia SEO strategies are tailored to help service businesses capture this massive market through targeted local search optimization, Google Business Profile management, and content marketing that speaks to Philadelphia's unique neighborhoods and business culture.
+                </p>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Who We Help with Philadelphia SEO</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+                <a href="hvac-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-red-600">
+                    <i class="fas fa-thermometer-half text-4xl text-red-600 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">HVAC SEO</h4>
+                </a>
+                <a href="plumber-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-blue-600">
+                    <i class="fas fa-wrench text-4xl text-blue-600 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">Plumber SEO</h4>
+                </a>
+                <a href="electrician-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-yellow-500">
+                    <i class="fas fa-bolt text-4xl text-yellow-500 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">Electrician SEO</h4>
+                </a>
+                <a href="roofing-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-gray-700">
+                    <i class="fas fa-home text-4xl text-gray-700 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">Roofing SEO</h4>
+                </a>
+                <a href="cleaning-service-seo.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all text-center border-t-4 border-green-600">
+                    <i class="fas fa-broom text-4xl text-green-600 mb-3"></i>
+                    <h4 class="font-bold text-gray-900">Cleaning SEO</h4>
+                </a>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Why Choose SeamlessFlow for Philadelphia SEO?</h3>
+
+            <div class="space-y-6 mb-12">
+                <div class="liberty-stripe p-6 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="bg-red-600 text-white rounded-lg px-4 py-2 mr-4 flex-shrink-0">
+                            <i class="fas fa-landmark text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-gray-900">Historic Market Understanding</h4>
+                            <p class="text-gray-700">
+                                Philadelphia's neighborhoods have distinct characteristics - from Old City's historic tourism to Fishtown's young professionals, Northern Liberties' nightlife to Rittenhouse's luxury market. We optimize your SEO strategy for the specific Philadelphia neighborhoods where your ideal customers live and search. Understanding Center City business districts, University City student populations, and suburban Philadelphia homeowner markets allows us to target high-intent searchers precisely.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="liberty-stripe p-6 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="bg-red-600 text-white rounded-lg px-4 py-2 mr-4 flex-shrink-0">
+                            <i class="fas fa-building text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-gray-900">Diverse Economy Expertise</h4>
+                            <p class="text-gray-700">
+                                Philadelphia's economy spans healthcare (massive university hospitals), education (Penn, Drexel, Temple combined 80,000+ students), technology (Comcast Tower), financial services (Vanguard headquarters), and manufacturing legacy. Your Philadelphia SEO needs to speak to corporate professionals in Center City, healthcare workers near hospitals, students in University City, creative professionals in Fishtown, and homeowners throughout Philadelphia County. We create content and optimization strategies for each distinct market segment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="liberty-stripe p-6 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="bg-red-600 text-white rounded-lg px-4 py-2 mr-4 flex-shrink-0">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-gray-900">Proven Philadelphia Results</h4>
+                            <p class="text-gray-700">
+                                Our Philadelphia SEO clients average 287% increase in organic search traffic within 6 months and 156% growth in qualified leads from Google. We've helped Philadelphia HVAC companies dominate "emergency AC repair Philadelphia" searches, plumbers rank #1 for "plumber near me" in South Philly, electricians capture University City property manager searches, and cleaning companies own "office cleaning Philadelphia" results. Real rankings, real traffic, real revenue growth for Philadelphia businesses.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="liberty-stripe p-6 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="bg-red-600 text-white rounded-lg px-4 py-2 mr-4 flex-shrink-0">
+                            <i class="fas fa-home-lg-alt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-gray-900">Historic Properties & Modern Buildings</h4>
+                            <p class="text-gray-700">
+                                Philadelphia presents unique service opportunities - from historic row homes in Society Hill requiring specialized HVAC/electrical work to modern Comcast Center commercial properties, university campus buildings needing maintenance contracts, to new construction in rapidly developing Navy Yard. We position your business for both residential and commercial opportunities across Philadelphia's diverse building stock, from centuries-old properties to cutting-edge developments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Philadelphia Neighborhoods & Areas We Serve</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Center City</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">University City</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Fishtown</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">South Philadelphia</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Manayunk</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Old City</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Northern Liberties</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Rittenhouse Square</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Chestnut Hill</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Society Hill</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">Graduate Hospital</span>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                    <span class="font-semibold text-gray-900 text-sm">All Philadelphia County</span>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">What Makes Philadelphia SEO Different?</h3>
+            <div class="bg-white p-8 rounded-lg shadow-md mb-12 border-l-4 border-red-600">
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-red-100 text-red-700 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold text-lg">1</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg mb-1">Major Market Competition Requires Expertise</p>
+                            <p class="text-gray-700">
+                                Philadelphia is the 6th largest US city with 1.6 million people and intense local search competition. Standing out requires sophisticated SEO strategies - advanced Google Business Profile optimization, hyper-local content targeting specific neighborhoods (not just "Philadelphia SEO" but "Fishtown HVAC" or "University City plumber"), review generation systems, and technical SEO that outperforms established competitors. Generic SEO tactics fail in Philadelphia's competitive landscape.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-red-100 text-red-700 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold text-lg">2</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg mb-1">Neighborhood Identity Drives Search Behavior</p>
+                            <p class="text-gray-700">
+                                Philadelphians search by neighborhood, not just city - "South Philly plumber", "Fishtown electrician", "Manayunk HVAC". Each neighborhood has distinct demographics (Rittenhouse luxury vs Port Richmond working-class), property types (Old City historic vs Navy Yard new construction), and search patterns. Your Philadelphia SEO must target neighborhood-specific keywords and create content that resonates with each community's unique culture and service needs.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-red-100 text-red-700 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold text-lg">3</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg mb-1">University & Healthcare Institutional Opportunities</p>
+                            <p class="text-gray-700">
+                                Philadelphia's massive institutional sector - Penn, Drexel, Temple (80,000+ students), UPenn Health, Jefferson, plus countless hospitals - creates enormous B2B service opportunities. Property management companies managing student housing, healthcare facilities needing maintenance contracts, university buildings requiring specialized services. Optimizing for commercial keywords like "Philadelphia commercial HVAC" or "institutional maintenance Philadelphia" captures this lucrative market segment traditional residential SEO misses.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-red-100 text-red-700 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0 font-bold text-lg">4</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg mb-1">Historic Properties Require Specialized Messaging</p>
+                            <p class="text-gray-700">
+                                Philadelphia has America's largest concentration of historic row homes and 18th/19th century buildings requiring specialized service expertise. SEO content highlighting "historic home HVAC Philadelphia", "old home electrical upgrades", or "row home plumbing specialists" attracts high-value customers dealing with unique challenges that command premium pricing. Positioning your business as expert in both modern and historic properties differentiates you from generic competitors.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-red-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Dominate Philadelphia Search?</h2>
-            <p class="text-xl mb-8">Get more Philadelphia customers with proven local SEO strategies</p>
-            <a href="contact.html" class="bg-white text-green-600 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">Start My Philadelphia SEO Campaign</a>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Dominate Philadelphia Search Results?</h2>
+            <p class="text-xl mb-8">Get more Philadelphia customers with proven local SEO strategies designed for Philly's competitive market</p>
+            <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-white text-red-700 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all hover:bg-gray-100">Start My Philadelphia SEO Campaign</a>
         </div>
     </section>
     <script>
