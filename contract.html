@@ -42,43 +42,137 @@
         }
         .btn-pdf:hover { background: #b91c1c; }
         .hidden { display: none; }
-        .logo { max-width: 250px; height: auto; margin-bottom: 16px; }
+        .logo { max-width: 300px; height: auto; }
         .header-flex { display: flex; align-items: center; gap: 24px; }
         .header-text { flex: 1; }
 
         /* Print styles */
         @media print {
-            body { background: white; }
+            @page {
+                margin: 0.5in;
+                size: letter;
+            }
+            html {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
             .no-print { display: none !important; }
             .print-only { display: block !important; }
-            .contract-document { font-size: 11pt; font-family: 'Times New Roman', serif; }
+            .contract-document {
+                font-size: 11pt;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                color: #374151;
+                line-height: 1.4;
+                max-width: 100%;
+            }
             .page-break { page-break-before: always; }
-            h1 { font-size: 24pt; }
-            h2 { font-size: 16pt; margin-top: 12pt; }
+            .signature-section { page-break-before: always; }
+            .avoid-break { page-break-inside: avoid; }
         }
 
         /* Contract Document Styles */
-        .contract-document { max-width: 800px; margin: 0 auto; line-height: 1.6; }
-        .contract-document h1 { text-align: center; margin-bottom: 8px; }
-        .contract-document h2 { border-bottom: 2px solid #000; padding-bottom: 8px; margin-top: 24px; }
-        .contract-document ul { margin-left: 24px; margin-top: 8px; }
-        .contract-document li { margin-bottom: 4px; }
-        .signature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
-        .signature-block { margin-bottom: 24px; }
-        .signature-line { border-bottom: 2px solid #000; padding-bottom: 24px; margin-bottom: 8px; margin-top: 24px; }
+        .contract-document {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+            color: #374151;
+        }
+        .contract-document .logo-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .contract-document .logo-header img {
+            max-width: 250px;
+            height: auto;
+        }
+        .contract-document h1 {
+            text-align: center;
+            font-size: 20pt;
+            color: #1F2937;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .contract-document h2 {
+            font-size: 14pt;
+            color: #1F2937;
+            font-weight: 700;
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 6px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .contract-document h3 {
+            font-size: 12pt;
+            color: #1F2937;
+            font-weight: 600;
+            margin-top: 12px;
+            margin-bottom: 6px;
+        }
+        .contract-document p {
+            margin-bottom: 8px;
+            text-align: left;
+            line-height: 1.4;
+        }
+        .contract-document ul {
+            margin-left: 24px;
+            margin-top: 6px;
+            margin-bottom: 8px;
+        }
+        .contract-document li {
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        .contract-document .section {
+            margin-bottom: 16px;
+            padding-bottom: 0;
+            page-break-inside: auto;
+        }
+        .contract-document .section + .section {
+            margin-top: 0;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .signature-block {
+            margin-bottom: 16px;
+        }
+        .signature-line {
+            border-bottom: 1px solid #000;
+            padding-bottom: 24px;
+            margin-bottom: 6px;
+            margin-top: 24px;
+        }
+        .footer-text {
+            text-align: center;
+            color: #6B7280;
+            font-size: 10pt;
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #E5E7EB;
+        }
     </style>
 </head>
 <body>
     <div class="container no-print">
         <!-- Header -->
         <div class="card">
-            <div class="header-flex">
+            <div style="text-align: center;">
                 <img src="assets/website homelogo.png" alt="SeamlessFlow.ai Logo" class="logo">
-                <div class="header-text">
-                    <h1>SeamlessFlow.ai</h1>
-                    <p class="header-info">Contract Generator</p>
-                    <p class="header-info">info@seamlessflow.ai | (347) 634-6547</p>
-                </div>
+                <p class="header-info" style="margin-top: 12px;">Contract Generator</p>
             </div>
         </div>
 
@@ -250,8 +344,19 @@
             </div>
         </div>
 
-        <!-- Generate PDF Button -->
+        <!-- PDF Generation Instructions -->
+        <div style="background: #FEF3C7; border: 1px solid #F59E0B; padding: 12px; border-radius: 6px; margin-bottom: 16px;">
+            <p style="margin: 0; font-size: 14px; font-weight: 600; color: #92400E;">📄 For best PDF results:</p>
+            <ul style="margin: 8px 0 0 20px; font-size: 13px; color: #78350F;">
+                <li>Select "Save as PDF" as your printer</li>
+                <li>UNCHECK "Headers and footers" option</li>
+                <li>Set margins to "Default"</li>
+            </ul>
+        </div>
+
+        <!-- Action Buttons -->
         <button class="btn-pdf" onclick="generatePDF()">GENERATE PDF</button>
+        <button class="btn-pdf" onclick="clearForm()" style="background: #6b7280; margin-top: 12px;">CLEAR FORM - START NEW CONTRACT</button>
     </div>
 
     <!-- Print View -->
@@ -269,7 +374,8 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            loadFromLocalStorage();
+            // Don't auto-load - start fresh each time
+            // loadFromLocalStorage();
             setupEventListeners();
             calculatePricing();
         });
@@ -542,8 +648,7 @@
         }
 
         function clearForm() {
-            if (!confirm('Are you sure you want to clear all form data?')) return;
-
+            // Clear all form fields
             document.querySelectorAll('input, select, textarea').forEach(el => {
                 if (el.type === 'checkbox') el.checked = false;
                 else el.value = '';
@@ -565,6 +670,11 @@
         }
 
         function generatePDF() {
+            // Set dynamic filename based on company name
+            const companyName = document.getElementById('companyName').value || 'Client';
+            const today = new Date().toISOString().split('T')[0];
+            document.title = `SeamlessFlow_Agreement_${companyName.replace(/\s+/g, '_')}_${today}`;
+
             generateContract();
             window.print();
         }
@@ -587,101 +697,230 @@
                                   document.getElementById('seoCityDomination').checked ||
                                   document.getElementById('seoRegional').checked;
 
+            const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
             return `
                 <div class="contract-document">
-                    <div style="text-align: center; margin-bottom: 24px;">
-                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai Logo" style="max-width: 200px; height: auto; margin-bottom: 16px;">
-                    </div>
-                    <h1>DIGITAL MARKETING & AUTOMATION SERVICES AGREEMENT</h1>
-                    <p style="text-align: center; font-weight: 600; margin-bottom: 8px;">SeamlessFlow.ai</p>
-                    <p style="text-align: center; color: #6b7280; margin-bottom: 32px;">info@seamlessflow.ai | (347) 634-6547</p>
-
-                    <p style="margin-bottom: 16px;"><strong>Effective Date:</strong> ${formatDate(document.getElementById('startDate').value)}</p>
-                    <p style="margin-bottom: 8px;">This Digital Marketing & Automation Services Agreement ("Agreement") is entered into by and between:</p>
-
-                    <div style="margin-left: 24px; margin-bottom: 16px;">
-                        <p><strong>SERVICE PROVIDER:</strong> SeamlessFlow.ai</p>
-                        <p style="margin-left: 16px;">Email: info@seamlessflow.ai</p>
-                        <p style="margin-left: 16px;">Phone: (347) 634-6547</p>
+                    <div class="logo-header">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai">
                     </div>
 
-                    <div style="margin-left: 24px; margin-bottom: 32px;">
-                        <p><strong>CLIENT:</strong> ${document.getElementById('companyName').value || '___________________________'}</p>
-                        <p style="margin-left: 16px;">Contact: ${document.getElementById('contactName').value || '___________________________'}, ${document.getElementById('title').value || '_______________'}</p>
-                        <p style="margin-left: 16px;">Email: ${document.getElementById('email').value || '___________________________'}</p>
-                        <p style="margin-left: 16px;">Phone: ${document.getElementById('phone').value || '___________________________'}</p>
-                        <p style="margin-left: 16px;">Address: ${document.getElementById('address').value || '___________________________'}</p>
-                        ${document.getElementById('city').value ? `<p style="margin-left: 16px;">${document.getElementById('city').value}, ${document.getElementById('state').value} ${document.getElementById('zip').value}</p>` : ''}
-                        <p style="margin-left: 16px;">Industry: ${document.getElementById('industry').value === 'Other' ? document.getElementById('industryOther').value : (document.getElementById('industry').value || '_______________')}</p>
+                    <h1>SERVICE AGREEMENT</h1>
+
+                    <p><strong>Effective Date:</strong> ${formatDate(document.getElementById('startDate').value)}</p>
+                    <p style="margin-bottom: 24px;">This Service Agreement ("Agreement") is entered into between:</p>
+
+                    <div class="two-column avoid-break">
+                        <div>
+                            <p><strong>SERVICE PROVIDER</strong></p>
+                            <p>SeamlessFlow.ai</p>
+                            <p>info@seamlessflow.ai</p>
+                            <p>(347) 749-8146</p>
+                        </div>
+                        <div>
+                            <p><strong>CLIENT</strong></p>
+                            <p>${document.getElementById('companyName').value || '___________________________'}</p>
+                            <p>${document.getElementById('contactName').value || '___________________________'}, ${document.getElementById('title').value || '_______________'}</p>
+                            <p>${document.getElementById('email').value || '___________________________'}</p>
+                            <p>${document.getElementById('phone').value || '___________________________'}</p>
+                            ${document.getElementById('address').value ? `<p>${document.getElementById('address').value}</p>` : ''}
+                            ${document.getElementById('city').value ? `<p>${document.getElementById('city').value}, ${document.getElementById('state').value} ${document.getElementById('zip').value}</p>` : ''}
+                            <p>Industry: ${document.getElementById('industry').value === 'Other' ? document.getElementById('industryOther').value : (document.getElementById('industry').value || '_______________')}</p>
+                        </div>
                     </div>
 
                     ${generateServicesSection()}
                     ${isSEOSelected ? generateTerritorySection() : ''}
                     ${generatePricingSection(pricing, isSEOSelected)}
+                    ${isSEOSelected ? generateScopeAndLimitations(isSEOSelected) : ''}
+                    ${generateClientResponsibilities(isSEOSelected)}
                     ${generateContractTermsSection(isSEOSelected)}
                     ${generateLegalSections(isSEOSelected)}
                     ${generateSignatureSection()}
+
+                    <div class="footer-text">
+                        <p>Generated on ${today}</p>
+                        <p style="margin-top: 4px;">Questions? Contact us at info@seamlessflow.ai or (347) 749-8146</p>
+                    </div>
                 </div>
             `;
         }
 
         function generateServicesSection() {
-            let html = '<div class="page-break"><h2>1. SERVICES AND DELIVERABLES</h2><p style="margin-bottom: 16px;">The Service Provider agrees to provide the following services to the Client:</p>';
+            let html = '<div class="section"><h2>1. SERVICES AND DELIVERABLES</h2>';
 
-            // SEO Services
-            const seoServices = [];
-            if (document.getElementById('seoStarter').checked) seoServices.push('SEO Starter ($497/month)');
-            if (document.getElementById('seoMarketLeader').checked) seoServices.push('Market Leader ($997/month)');
-            if (document.getElementById('seoCityDomination').checked) seoServices.push('City Domination ($1,497/month)');
+            // SEO Services with detailed deliverables
+            if (document.getElementById('seoStarter').checked) {
+                html += `
+                    <h3>SEO Starter Package ($497/month)</h3>
+                    <ul>
+                        <li>Google Business Profile optimization and monthly management</li>
+                        <li>Basic citation building (20 high-quality directories)</li>
+                        <li>Monthly GBP posts (4 posts per month)</li>
+                        <li>Basic on-page SEO audit and recommendations</li>
+                        <li>Monthly ranking report and analytics review</li>
+                        <li>Email support (24-hour response time)</li>
+                        <li>Review monitoring and response support</li>
+                    </ul>
+                `;
+            }
+
+            if (document.getElementById('seoMarketLeader').checked) {
+                html += `
+                    <h3>Market Leader Package ($997/month)</h3>
+                    <ul>
+                        <li>Everything in SEO Starter, plus:</li>
+                        <li>Advanced on-page SEO (up to 25 pages optimized)</li>
+                        <li>Content creation (2 SEO-optimized blog posts/month, 500-750 words each)</li>
+                        <li>Local link building (5 quality backlinks per month)</li>
+                        <li>Competitor analysis and strategy adjustments</li>
+                        <li>Monthly video SEO optimization</li>
+                        <li>Schema markup implementation and maintenance</li>
+                        <li>Social media profile optimization</li>
+                        <li>Priority email support (12-hour response time)</li>
+                    </ul>
+                `;
+            }
+
+            if (document.getElementById('seoCityDomination').checked) {
+                html += `
+                    <h3>City Domination Package ($1,497/month)</h3>
+                    <ul>
+                        <li>Everything in Market Leader, plus:</li>
+                        <li>Comprehensive on-page SEO (unlimited pages)</li>
+                        <li>Premium content creation (4 blog posts/month, 1,000+ words each)</li>
+                        <li>Advanced link building (10+ quality backlinks per month)</li>
+                        <li>Dedicated account manager with direct line</li>
+                        <li>Weekly progress updates and strategy calls</li>
+                        <li>Social media integration and monthly posting</li>
+                        <li>Advanced local schema and structured data</li>
+                        <li>Custom landing page creation and optimization</li>
+                        <li>Reputation management and review generation campaigns</li>
+                        <li>Priority phone and email support (4-hour response time)</li>
+                    </ul>
+                `;
+            }
+
             if (document.getElementById('seoRegional').checked) {
                 const price = document.getElementById('seoRegionalPrice').value || '0';
-                seoServices.push(`Regional Dominance ($${price}/month)`);
+                html += `
+                    <h3>Regional Dominance Package ($${price}/month)</h3>
+                    <ul>
+                        <li>Everything in City Domination, plus:</li>
+                        <li>Multi-location SEO strategy and implementation</li>
+                        <li>Separate Google Business Profiles for each location</li>
+                        <li>Location-specific landing pages and content</li>
+                        <li>Regional link building and outreach campaigns</li>
+                        <li>Multi-city content strategy and execution</li>
+                        <li>Custom reporting dashboard with real-time analytics</li>
+                        <li>Bi-weekly strategy calls and quarterly planning sessions</li>
+                        <li>Priority 24/7 support</li>
+                    </ul>
+                `;
             }
 
-            if (seoServices.length > 0) {
-                html += '<h3 style="margin-top: 16px;">Local SEO Services:</h3><ul>';
-                seoServices.forEach(service => html += `<li><strong>${service}</strong></li>`);
-                html += '</ul>';
-            }
-
-            // Web & Automation
-            const webServices = [];
+            // Web & Automation Services
             if (document.getElementById('websiteDev').checked) {
                 const price = document.getElementById('websiteDevPrice').value || '2500';
-                webServices.push(`Professional Website Development ($${price} one-time)`);
+                html += `
+                    <h3>Professional Website Development ($${price} one-time)</h3>
+                    <ul>
+                        <li>Custom responsive website design (mobile-optimized)</li>
+                        <li>SEO-friendly site structure and code</li>
+                        <li>Contact forms and lead capture integration</li>
+                        <li>SSL certificate and security setup</li>
+                        <li>Content management system (CMS) integration</li>
+                        <li>Up to 10 pages of content</li>
+                        <li>Basic on-page SEO optimization</li>
+                        <li>Google Analytics and Search Console setup</li>
+                        <li>30 days of post-launch support</li>
+                    </ul>
+                `;
             }
-            if (document.getElementById('marketingAutomation').checked) webServices.push('Marketing Automation Platform ($1,500/month)');
+
+            if (document.getElementById('marketingAutomation').checked) {
+                html += `
+                    <h3>Marketing Automation Platform ($1,500/month)</h3>
+                    <ul>
+                        <li>Email marketing automation setup and management</li>
+                        <li>CRM integration and data synchronization</li>
+                        <li>Lead nurturing workflows and drip campaigns</li>
+                        <li>Automated follow-up sequences</li>
+                        <li>Customer segmentation and targeting</li>
+                        <li>Performance tracking and analytics reporting</li>
+                        <li>A/B testing and optimization</li>
+                        <li>Monthly campaign strategy and planning</li>
+                    </ul>
+                `;
+            }
+
             if (document.getElementById('businessAutomation').checked) {
                 const price = document.getElementById('businessAutomationPrice').value || '0';
-                webServices.push(`Business Operations Automation ($${price}/month)`);
+                html += `
+                    <h3>Business Operations Automation ($${price}/month)</h3>
+                    <ul>
+                        <li>Custom workflow automation design and implementation</li>
+                        <li>Integration with existing business tools and software</li>
+                        <li>Process optimization and efficiency improvements</li>
+                        <li>Automated reporting and data collection</li>
+                        <li>Staff training on automation tools and systems</li>
+                        <li>Ongoing support and workflow adjustments</li>
+                        <li>Monthly performance review and optimization</li>
+                    </ul>
+                `;
             }
 
-            if (webServices.length > 0) {
-                html += '<h3 style="margin-top: 16px;">Web Design & Automation:</h3><ul>';
-                webServices.forEach(service => html += `<li><strong>${service}</strong></li>`);
-                html += '</ul>';
-            }
-
-            // Advanced Packages
-            const advancedServices = [];
+            // Advanced Automation Packages
             if (document.getElementById('foundationPackage').checked) {
                 const setup = document.getElementById('foundationSetupFee').value || '4500';
-                advancedServices.push(`Foundation Package ($1,500/month + $${setup} setup)`);
+                html += `
+                    <h3>Foundation Package ($1,500/month + $${setup} setup)</h3>
+                    <ul>
+                        <li>Core business automation infrastructure setup</li>
+                        <li>Email and SMS automation campaigns</li>
+                        <li>Basic AI chatbot implementation</li>
+                        <li>CRM setup and integration</li>
+                        <li>Workflow documentation and training materials</li>
+                        <li>Monthly optimization and support</li>
+                        <li>2 hours of consulting per month</li>
+                    </ul>
+                `;
             }
+
             if (document.getElementById('growthPackage').checked) {
                 const setup = document.getElementById('growthSetupFee').value || '7500';
-                advancedServices.push(`Growth Package ($3,000/month + $${setup} setup)`);
+                html += `
+                    <h3>Growth Package ($3,000/month + $${setup} setup)</h3>
+                    <ul>
+                        <li>Everything in Foundation Package, plus:</li>
+                        <li>Advanced AI integration (GPT-powered tools and workflows)</li>
+                        <li>Multi-channel automation (email, SMS, social media)</li>
+                        <li>Custom API integrations and webhooks</li>
+                        <li>Advanced analytics and reporting dashboards</li>
+                        <li>Dedicated automation specialist</li>
+                        <li>Bi-weekly strategy and optimization calls</li>
+                        <li>5 hours of consulting per month</li>
+                    </ul>
+                `;
             }
+
             if (document.getElementById('enterprisePackage').checked) {
                 const monthly = document.getElementById('enterpriseMonthlyFee').value || '6000';
                 const setup = document.getElementById('enterpriseSetupFee').value || '15000';
-                advancedServices.push(`Enterprise Package ($${monthly}/month + $${setup} setup)`);
-            }
-
-            if (advancedServices.length > 0) {
-                html += '<h3 style="margin-top: 16px;">Advanced Automation Packages:</h3><ul>';
-                advancedServices.forEach(service => html += `<li><strong>${service}</strong></li>`);
-                html += '</ul>';
+                html += `
+                    <h3>Enterprise Package ($${monthly}/month + $${setup} setup)</h3>
+                    <ul>
+                        <li>Everything in Growth Package, plus:</li>
+                        <li>Enterprise-grade automation architecture</li>
+                        <li>Custom AI model training and deployment</li>
+                        <li>Full-scale digital transformation consulting</li>
+                        <li>Unlimited workflow and integration development</li>
+                        <li>24/7 priority support with dedicated team</li>
+                        <li>White-glove onboarding and implementation</li>
+                        <li>Quarterly business review and strategic planning</li>
+                        <li>Unlimited consulting hours</li>
+                    </ul>
+                `;
             }
 
             html += '</div>';
@@ -689,21 +928,54 @@
         }
 
         function generateTerritorySection() {
+            // Determine exclusivity level based on tier
+            let exclusivityLevel = '';
+            if (document.getElementById('seoStarter').checked) {
+                exclusivityLevel = 'ZIP Code Separation (Non-Exclusive)';
+            } else if (document.getElementById('seoMarketLeader').checked) {
+                exclusivityLevel = 'Borough/District Limited Exclusivity (2-4 clients per industry)';
+            } else if (document.getElementById('seoCityDomination').checked) {
+                exclusivityLevel = 'Full City/Metro Exclusivity (ONE client per industry per city)';
+            } else if (document.getElementById('seoRegional').checked) {
+                exclusivityLevel = 'Regional Exclusivity (ONE client per industry per region)';
+            }
+
+            const isCityDomination = document.getElementById('seoCityDomination').checked || document.getElementById('seoRegional').checked;
+
             return `
-                <div class="page-break">
-                    <h2>2. TERRITORY PROTECTION</h2>
-                    <p style="margin-bottom: 12px;">For SEO services, the Service Provider grants the Client exclusive territory protection within the following defined area:</p>
-                    <div style="margin-left: 24px; margin-bottom: 16px;">
-                        <p><strong>Primary City:</strong> ${document.getElementById('primaryCity').value || '___________________________'}</p>
-                        <p><strong>State:</strong> ${document.getElementById('territoryState').value || '___________________________'}</p>
-                        <p><strong>ZIP Codes:</strong> ${document.getElementById('zipCodes').value || '___________________________'}</p>
-                        ${document.getElementById('boroughsDistricts').value ? `<p><strong>Boroughs/Districts:</strong> ${document.getElementById('boroughsDistricts').value}</p>` : ''}
-                    </div>
-                    <p style="margin-bottom: 8px;">The Service Provider agrees that during the term of this Agreement:</p>
+                <div class="page-break section">
+                    <h2>2. TERRITORY PROTECTION POLICY</h2>
+
+                    <h3>2.1 Protected Territory</h3>
+                    <p><strong>Primary City:</strong> ${document.getElementById('primaryCity').value || '___________________________'}</p>
+                    <p><strong>State:</strong> ${document.getElementById('territoryState').value || '___________________________'}</p>
+                    <p><strong>ZIP Codes:</strong> ${document.getElementById('zipCodes').value || '___________________________'}</p>
+                    ${document.getElementById('boroughsDistricts').value ? `<p><strong>Boroughs/Districts:</strong> ${document.getElementById('boroughsDistricts').value}</p>` : ''}
+
+                    <h3>2.2 Exclusivity Level</h3>
+                    <p><strong>${exclusivityLevel}</strong></p>
+
+                    ${isCityDomination ? `
+                        <h3>2.3 First Right of Refusal (City Domination & Regional Only)</h3>
+                        <p>If a prospective client offers a higher rate for Client's protected territory, Service Provider will notify Client in writing and provide 7 business days to match or exceed the offer to maintain exclusivity. If Client declines to match the offer, territory boundaries may be adjusted or exclusivity may end after 30 days written notice.</p>
+                    ` : ''}
+
+                    <h3>${isCityDomination ? '2.4' : '2.3'} Territory Modification and Expansion</h3>
                     <ul>
-                        <li>No direct competitors in the Client's industry will be accepted within the protected territory</li>
-                        <li>Territory protection begins upon contract signing and first payment</li>
+                        <li>Additional territories may be added at additional cost and may require a higher service tier</li>
+                        <li>Territory boundaries may be adjusted by mutual written agreement</li>
+                        <li>Client may request expansion into adjacent territories at prevailing rates</li>
+                    </ul>
+
+                    <h3>${isCityDomination ? '2.5' : '2.4'} Industry Limitation</h3>
+                    <p>Exclusivity applies only to Client's specific industry (${document.getElementById('industry').value === 'Other' ? document.getElementById('industryOther').value : document.getElementById('industry').value}). Service Provider may accept clients in different industries within the same territory without restriction.</p>
+
+                    <h3>${isCityDomination ? '2.6' : '2.5'} Protection Terms</h3>
+                    <ul>
+                        <li>Territory protection begins upon contract signing and receipt of first payment</li>
                         <li>Territory exclusivity is maintained as long as the agreement remains in good standing</li>
+                        <li>If Client cancels services, territory protection ends 30 days after final payment</li>
+                        <li>Territory protection applies only to new clients acquired after this agreement date</li>
                     </ul>
                 </div>
             `;
@@ -714,71 +986,202 @@
             const paymentDay = document.getElementById('paymentDueDay').value;
 
             return `
-                <div class="page-break">
+                <div class="page-break section">
                     <h2>${sectionNum}. PRICING AND PAYMENT TERMS</h2>
-                    <div style="margin-bottom: 16px;">
-                        <p style="margin-bottom: 8px;"><strong>Service Pricing:</strong></p>
-                        <div style="margin-left: 24px;">
-                            <p>Monthly Recurring Services: <strong>$${pricing.monthly.toFixed(2)}</strong></p>
-                            <p>One-Time Setup/Development Fees: <strong>$${pricing.oneTime.toFixed(2)}</strong></p>
-                            <p style="font-size: 18px; font-weight: bold; margin-top: 12px;">FIRST PAYMENT DUE: <strong style="color: #2563eb;">$${pricing.firstPayment.toFixed(2)}</strong></p>
-                            <p style="color: #6b7280; margin-top: 4px;">Subsequent Monthly Payments: $${pricing.monthly.toFixed(2)}</p>
-                        </div>
-                    </div>
-                    <p style="margin-bottom: 8px;"><strong>Payment Terms:</strong></p>
+
+                    <h3>${sectionNum}.1 Service Pricing</h3>
+                    <p>Monthly Recurring Services: <strong>$${pricing.monthly.toFixed(2)}</strong></p>
+                    <p>One-Time Setup/Development Fees: <strong>$${pricing.oneTime.toFixed(2)}</strong></p>
+                    <p style="font-size: 13pt; font-weight: bold; margin-top: 12px; color: #2563eb;">FIRST PAYMENT DUE: $${pricing.firstPayment.toFixed(2)}</p>
+                    <p style="color: #6B7280; margin-top: 4px;">Subsequent Monthly Payments: $${pricing.monthly.toFixed(2)}</p>
+
+                    <h3>${sectionNum}.2 Payment Terms</h3>
                     <ul>
-                        <li>First payment (monthly service + setup fees) is due upon contract signing</li>
+                        <li>First payment ${pricing.oneTime > 0 ? '(monthly service + setup fees) ' : ''}is due upon contract signing</li>
                         <li>Subsequent payments are due on the ${paymentDay} of each month</li>
-                        <li>Payments can be made via ACH transfer, credit card, or check</li>
-                        <li>A $50 fee will be applied to payments received more than 5 days past the due date</li>
+                        <li>Payments can be made via Zelle, PayPal, or Apple Pay</li>
+                        <li>A $50 late fee will be applied to payments received more than 5 days past the due date</li>
                         <li>Services may be suspended if payment is more than 15 days overdue</li>
+                        <li>All fees are non-refundable once work has commenced</li>
                     </ul>
+
+                    <h3>${sectionNum}.3 Performance Guarantee</h3>
+                    <p>Service Provider guarantees measurable progress within the first 60 days of service, provided:</p>
+                    <ul>
+                        <li>Client provides timely access to all required accounts and information</li>
+                        <li>Client responds to requests within specified timeframes</li>
+                        <li>Client does not violate search engine guidelines</li>
+                        <li>Client maintains active business operations</li>
+                    </ul>
+
+                    <p style="margin-top: 8px;">Measurable progress includes but is not limited to:</p>
+                    <ul>
+                        <li>Improvement in Google Business Profile metrics (views, calls, direction requests)</li>
+                        <li>Increase in local search visibility</li>
+                        <li>Growth in citation presence across directories</li>
+                        <li>Improvement in on-page SEO factors</li>
+                    </ul>
+
+                    <p style="margin-top: 8px;">If NO measurable progress is demonstrated after 60 days AND Service Provider has fulfilled all deliverables, Client may request a performance review. Upon mutual agreement that progress has not occurred due to Service Provider's failure to deliver, Client may be eligible for:</p>
+                    <ul>
+                        <li>50% refund of the most recent month's payment, OR</li>
+                        <li>One additional month of service at no charge</li>
+                    </ul>
+
+                    <p style="margin-top: 8px;">This guarantee is void if:</p>
+                    <ul>
+                        <li>Client fails to provide required access or information</li>
+                        <li>Client engages in practices that violate search engine guidelines</li>
+                        <li>Client hires competing SEO services during the agreement period</li>
+                        <li>Progress is negatively impacted by third-party factors (algorithm updates, competitor actions, etc.)</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function generateScopeAndLimitations(isSEO) {
+            const sectionNum = isSEO ? '4' : '3';
+            return `
+                <div class="section">
+                    <h2>${sectionNum}. SERVICE SCOPE AND LIMITATIONS</h2>
+
+                    <h3>${sectionNum}.1 SEO Results and Timeline</h3>
+                    <ul>
+                        <li>SeamlessFlow.ai does not guarantee specific search engine rankings or traffic volumes</li>
+                        <li>Rankings are determined by third-party algorithms (Google, Bing, etc.) outside our control</li>
+                        <li>Results from SEO services typically take 3-6 months to materialize</li>
+                        <li>Client acknowledges this timeline and agrees not to terminate solely due to lack of immediate results within the first 90 days</li>
+                    </ul>
+
+                    <h3>${sectionNum}.2 Service Provider Limitations</h3>
+                    <ul>
+                        <li>Service Provider is not liable for ranking changes due to algorithm updates</li>
+                        <li>Service Provider is not responsible for competitor actions or market conditions</li>
+                        <li>Service Provider is not liable for changes to Client's website not made by Service Provider</li>
+                        <li>Service Provider cannot guarantee specific lead volume or conversion rates</li>
+                        <li>Service Provider is not responsible for third-party platform changes or outages</li>
+                    </ul>
+
+                    <h3>${sectionNum}.3 Performance Reporting</h3>
+                    <ul>
+                        <li>Monthly performance reports will be provided via email</li>
+                        <li>Reports include key metrics: website traffic, rankings, leads, and conversion data</li>
+                        <li>Strategy calls are available per tier specifications</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function generateClientResponsibilities(isSEO) {
+            const sectionNum = isSEO ? '5' : '4';
+            return `
+                <div class="section">
+                    <h2>${sectionNum}. CLIENT RESPONSIBILITIES</h2>
+
+                    <p>Client agrees to:</p>
+                    <ul>
+                        <li>Provide access to Google Business Profile within 5 business days of request</li>
+                        <li>Respond to information requests within 5 business days</li>
+                        <li>Not engage in practices that violate Google's or other search engine guidelines</li>
+                        <li>Notify Service Provider of any changes to business name, address, phone, or service areas</li>
+                        <li>Maintain ownership and control of their Google Business Profile</li>
+                        <li>Not hire competing SEO services for the same protected territory during this agreement</li>
+                        <li>Provide timely access to website, hosting, and necessary business accounts</li>
+                        <li>Review and approve deliverables within 7 business days of submission</li>
+                        <li>Maintain active business operations and comply with all applicable laws</li>
+                        <li>Provide feedback and communicate concerns promptly</li>
+                    </ul>
+
+                    <h3>${sectionNum}.1 Client Content and Information</h3>
+                    <p>Client is responsible for the accuracy of all information provided, including business details, service descriptions, and marketing content. Service Provider will not be held liable for errors in Client-provided information.</p>
                 </div>
             `;
         }
 
         function generateContractTermsSection(isSEO) {
-            const sectionNum = isSEO ? '4' : '3';
+            const sectionNum = isSEO ? '6' : '5';
             const contractType = document.getElementById('contractType').value;
             const endDate = document.getElementById('endDate').value;
 
             let termText = '';
             if (contractType === 'month-to-month') {
-                termText = '<ul><li>This agreement continues on a month-to-month basis until terminated by either party</li><li>Either party may terminate with 30 days written notice</li></ul>';
+                termText = '<li>This agreement continues on a month-to-month basis until terminated by either party</li><li>Either party may terminate with 30 days written notice</li><li>No early termination penalty applies</li>';
             } else {
                 const months = contractType.split('-')[0];
-                termText = `<p><strong>End Date:</strong> ${formatDate(endDate)}</p><ul><li>This agreement is for a fixed term of ${months} months</li><li>Agreement automatically renews unless 30 days notice is provided</li></ul>`;
+                termText = `<li>This agreement is for a fixed term of ${months} months ending ${formatDate(endDate)}</li><li>Agreement automatically renews for the same term unless either party provides 30 days written notice before expiration</li><li>Early termination requires 30 days notice and payment of 50% of remaining months</li>`;
             }
 
             return `
-                <div class="page-break">
-                    <h2>${sectionNum}. CONTRACT TERM</h2>
-                    <p><strong>Term:</strong> ${contractType === 'month-to-month' ? 'Month-to-Month' : contractType.split('-')[0] + '-Month Agreement'}</p>
-                    ${termText}
+                <div class="section">
+                    <h2>${sectionNum}. CONTRACT TERM AND TERMINATION</h2>
+
+                    <h3>${sectionNum}.1 Term</h3>
+                    <p><strong>${contractType === 'month-to-month' ? 'Month-to-Month Agreement' : contractType.split('-')[0] + '-Month Agreement'}</strong></p>
+                    <ul>${termText}</ul>
+
+                    <h3>${sectionNum}.2 Termination by Client</h3>
+                    <ul>
+                        <li>Client may terminate with 30 days written notice</li>
+                        <li>All setup fees and one-time charges are non-refundable</li>
+                        <li>For fixed-term agreements: 50% of remaining monthly fees must be paid upon early termination</li>
+                        <li>Territory protection ends 30 days after final payment</li>
+                    </ul>
+
+                    <h3>${sectionNum}.3 Termination by Service Provider</h3>
+                    <ul>
+                        <li>Service Provider may terminate immediately if payment is more than 30 days overdue</li>
+                        <li>Service Provider may terminate with 30 days notice if Client fails to meet responsibilities outlined in this agreement</li>
+                        <li>Upon termination, Client will receive all completed work and final reports</li>
+                    </ul>
                 </div>
             `;
         }
 
         function generateLegalSections(isSEO) {
-            const baseNum = isSEO ? 5 : 4;
+            const baseNum = isSEO ? 7 : 6;
             const specialTerms = document.getElementById('specialTerms').value;
 
             return `
-                <div class="page-break">
-                    <h2>${baseNum}. TERMINATION</h2>
+                ${specialTerms ? `<div class="section"><h2>${baseNum}. SPECIAL TERMS AND CONDITIONS</h2><p style="white-space: pre-wrap;">${specialTerms}</p></div>` : ''}
+
+                <div class="section">
+                    <h2>${specialTerms ? baseNum + 1 : baseNum}. INTELLECTUAL PROPERTY</h2>
                     <ul>
-                        <li>For month-to-month agreements: 30 days written notice with no penalty</li>
-                        <li>For fixed-term agreements: 30 days notice required</li>
-                        <li>Setup fees and one-time charges are non-refundable</li>
+                        <li>Upon full payment, Client owns all custom-developed content, graphics, and creative materials</li>
+                        <li>Service Provider retains ownership of proprietary tools, software, methodologies, and templates</li>
+                        <li>Service Provider may use Client's logo and business name in portfolio and marketing materials unless Client objects in writing</li>
+                        <li>Third-party software licenses (e.g., plugins, themes) remain property of their respective owners</li>
                     </ul>
                 </div>
-                ${specialTerms ? `<div class="page-break"><h2>${baseNum + 1}. SPECIAL TERMS</h2><p style="white-space: pre-wrap;">${specialTerms}</p></div>` : ''}
-                <div class="page-break">
-                    <h2>${specialTerms ? baseNum + 2 : baseNum + 1}. GENERAL PROVISIONS</h2>
+
+                <div class="section">
+                    <h2>${specialTerms ? baseNum + 2 : baseNum + 1}. CONFIDENTIALITY</h2>
                     <ul>
-                        <li><strong>Entire Agreement:</strong> This agreement constitutes the entire understanding between the parties</li>
-                        <li><strong>Amendments:</strong> Any changes must be made in writing and signed by both parties</li>
+                        <li>Both parties agree to keep confidential information private and not disclose it to third parties</li>
+                        <li>Confidential information includes business strategies, customer data, pricing, and proprietary methods</li>
+                        <li>This obligation survives termination of this agreement</li>
+                    </ul>
+                </div>
+
+                <div class="page-break section">
+                    <h2>${specialTerms ? baseNum + 3 : baseNum + 2}. LIMITATION OF LIABILITY</h2>
+                    <ul>
+                        <li>Service Provider's total liability under this agreement shall not exceed the total amount paid by Client in the preceding 3 months</li>
+                        <li>Service Provider is not liable for indirect, incidental, or consequential damages</li>
+                        <li>Service Provider is not responsible for changes to search engine algorithms, social media policies, or third-party platform terms</li>
+                        <li>Client acknowledges that digital marketing results cannot be guaranteed and may vary based on numerous factors beyond Service Provider's control</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>${specialTerms ? baseNum + 4 : baseNum + 3}. GENERAL PROVISIONS</h2>
+                    <ul>
+                        <li><strong>Entire Agreement:</strong> This agreement constitutes the entire understanding between the parties and supersedes all prior discussions and agreements</li>
+                        <li><strong>Amendments:</strong> Any changes to this agreement must be made in writing and signed by both parties</li>
                         <li><strong>Governing Law:</strong> This agreement shall be governed by the laws of the State of New York</li>
+                        <li><strong>Severability:</strong> If any provision is found unenforceable, the remaining provisions remain in full effect</li>
+                        <li><strong>Assignment:</strong> Neither party may assign this agreement without written consent from the other party</li>
+                        <li><strong>Force Majeure:</strong> Neither party shall be liable for delays or failures in performance due to circumstances beyond their reasonable control</li>
                     </ul>
                 </div>
             `;
@@ -816,10 +1219,7 @@
                         </div>
                     </div>
 
-                    <div style="margin-top: 48px; text-align: center; color: #6b7280; font-size: 14px;">
-                        <p>Please sign and return this agreement to: info@seamlessflow.ai</p>
-                        <p>Questions? Contact us at (347) 634-6547</p>
-                    </div>
+                    <p style="margin-top: 48px; text-align: center; color: #6B7280; font-size: 10pt;">Please sign and return this agreement to: info@seamlessflow.ai | (347) 749-8146</p>
                 </div>
             `;
         }
