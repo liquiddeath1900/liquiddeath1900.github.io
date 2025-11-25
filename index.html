@@ -47,6 +47,13 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.seamlessflow.ai/">
 
+    <!-- Redirect /index.html to root for SEO consolidation -->
+    <script>
+        if (window.location.pathname === '/index.html') {
+            window.location.replace(window.location.origin + '/');
+        }
+    </script>
+
     <!-- Schema Markup for LocalBusiness -->
     <script type="application/ld+json">
     {
