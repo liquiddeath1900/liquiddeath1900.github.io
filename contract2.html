@@ -3,65 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rochester SEO Services | Western NY Marketing | $497/mo</title>
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Rochester SEO Services | Western NY Marketing | $497/mo">
-    <meta property="og:description" content="Rochester NY SEO services. Serving Monroe County and Greater Rochester area. NYC-based team serving Rochester.">
+    
+    <!-- PERFORMANCE OPTIMIZATIONS -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Local SEO Services & Business Automation | SeamlessFlow.ai</title>
+    <meta name="description" content="Help service businesses get found online and automate operations. Local SEO services starting at $497/month. Get more customers, save time, grow faster.">
+    <meta name="keywords" content="local SEO services, business automation, Google Business Profile optimization, service business marketing, SEO for locksmiths, HVAC business automation">
+    <meta property="og:title" content="Local SEO Services & Business Automation | SeamlessFlow.ai">
+    <meta property="og:description" content="Help service businesses get found online and automate operations. Local SEO services starting at $497/month.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seamlessflow.ai/rochester-seo.html">
-    <meta property="og:image" content="https://seamlessflow.ai/assets/website homelogo.png">
-
-    <!-- Twitter Card Meta Tags -->
+    <meta property="og:url" content="https://www.seamlessflow.ai/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Rochester SEO Services | Western NY Marketing | $497/mo">
-    <meta name="twitter:description" content="Rochester NY SEO services. Serving Monroe County and Greater Rochester area. NYC-based team serving Rochester.">
-    <meta name="twitter:image" content="https://seamlessflow.ai/assets/website homelogo.png">
-
-    <meta name="description" content="Rochester NY SEO services. Serving Monroe County and Greater Rochester area. NYC-based team serving Rochester.">
-    <meta name="keywords" content="Rochester SEO, Western NY SEO, Rochester marketing, upstate NY SEO">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Schema Markup for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "SeamlessFlow.ai",
+      "description": "Local SEO services and business automation for service businesses",
+      "url": "https://www.seamlessflow.ai",
+      "telephone": "+1-347-749-8146",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.7128",
+          "longitude": "-74.0060"
+        },
+        "geoRadius": "50000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "SEO and Automation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Starter Package",
+              "description": "Google Business Profile optimization and basic website SEO"
+            },
+            "price": "400",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "400",
+              "priceCurrency": "USD",
+              "unitText": "MONTH"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .hero-section { background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); padding: 120px 0 80px 0; }
-        .nap-block { background: #fff; border-left: 4px solid #2563eb; padding: 1.5rem; margin: 2rem 0; }
-        .tech-box { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #60a5fa; }
-        .case-study-card { transition: transform 0.3s, box-shadow 0.3s; }
-        .case-study-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        #mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); z-index: 50; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: all 0.3s ease-out; }
-        #mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
-        .hamburger { cursor: pointer; width: 28px; height: 24px; position: relative; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
-        .hamburger span { display: block; height: 3px; width: 100%; background: #374151; border-radius: 3px; transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); position: relative; }
-        .hamburger.active { gap: 0; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg); position: absolute; }
-        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg); position: absolute; }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: #2563eb;
+        }
+        
+        /* Mobile Menu - Fixed positioning */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+        
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+                /* Hamburger Animation - Improved */
+        .hamburger {
+            cursor: pointer;
+            width: 28px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            position: relative;
+        }
+
+        .hamburger.active {
+            gap: 0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            position: absolute;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            position: absolute;
+        }
+        
+        
+        .service-card, .benefit-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover, .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .phone-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        
+        .urgency-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: #059669;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            .hero-section p {
+                font-size: 1.125rem !important;
+            }
+        }
     </style>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "SeamlessFlow.ai - Rochester SEO Services",
-  "description": "Local SEO services for Rochester businesses",
-  "url": "https://seamlessflow.ai/rochester-seo.html",
-  "telephone": "+1-347-749-8146",
-  "areaServed": {
-    "@type": "City",
-    "name": "Rochester",
-    "containedInPlace": {
-      "@type": "State",
-      "name": "New York"
-    }
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Rochester",
-    "addressRegion": "NY",
-    "addressCountry": "US"
-  }
-}
-</script>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
@@ -286,341 +518,136 @@
         </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Rochester SEO Expert | Get Your Business #1 on Google</h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Rochester and Western NY SEO services serving Park Avenue, East Avenue, Corn Hill, NOTA, and Monroe County</p>
-                <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
-                    <a href="tel:+13477498146" class="bg-white hover:bg-gray-100 text-blue-700 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">
-                        <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
-                    </a>
-                    <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all">
-                        Get Free Rochester SEO Audit
-                    </a>
+    <section id="contact" class="section-padding">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold text-center mb-4">Contact SeamlessFlow.ai - Local SEO Experts</h1>
+            <h2 class="section-title">Ready to Dominate Your Local Market?</h2>
+            <p class="section-subtitle">Get your free SEO analysis and discover how many customers you're losing to competitors</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information - MOVED FIRST -->
+                <div class="space-y-8">
+                    <div class="bg-blue-600 text-white p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-4">🚀 Ready to Get Started?</h3>
+                        <p class="text-lg mb-6">Call us now for immediate assistance</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-2xl mr-4"></i>
+                                <div>
+                                    <a href="tel:+13477498146" class="font-bold text-2xl hover:text-yellow-300 transition-colors">(347) 749-8146</a>
+                                    <div class="text-blue-200">Monday - Friday, 9 AM - 6 PM EST</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-2xl mr-4"></i>
+                                <div>
+                                    <div class="font-bold">info@seamlessflow.ai</div>
+                                    <div class="text-blue-200">We respond within 2 hours</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-2xl mr-4"></i>
+                                <div>
+                                    <div class="font-bold">New York City</div>
+                                    <div class="text-blue-200">Serving businesses nationwide</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form - MOVED SECOND -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="urgency-badge mb-4">
+                        🔥 FREE SEO Analysis - Limited Time Only!
+                    </div>
+                    
+                    <form id="contactForm" class="space-y-6" action="https://docs.google.com/forms/d/e/1FAIpQLScY-HN56LmhX33E0m7BuMDMDGgFucGSFuiZWxW7bB9dEKZsIQ/formResponse" method="POST" target="hidden_iframe">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                <input id="fullName" name="entry.345227033" type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Business Name *</label>
+                                <input id="businessName" name="entry.380523308" type="text" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                                <input id="email" name="entry.1065046570" type="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                <input id="phone" name="entry.1166974658" type="tel" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Business Type *</label>
+                            <select id="businessType" name="entry.839337160" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                <option value="">Select your business type</option>
+                                <option value="Locksmith">Locksmith</option>
+                                <option value="HVAC">HVAC</option>
+                                <option value="Garage Door Repair">Garage Door Repair</option>
+                                <option value="Pet Grooming">Pet Grooming</option>
+                                <option value="Auto Detailing">Auto Detailing</option>
+                                <option value="Cleaning Services">Cleaning Services</option>
+                                <option value="Electrician">Electrician</option>
+                                <option value="Plumber">Plumber</option>
+                                <option value="Roofing">Roofing</option>
+                                <option value="Landscaping">Landscaping</option>
+                                <option value="Other Service Business">Other Service Business</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Current Monthly Phone Calls</label>
+                            <select id="monthlyLeads" name="entry.1045781291" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="">How many calls do you get per month?</option>
+                                <option value="0-10 calls">0-10 calls (Need more customers!)</option>
+                                <option value="11-25 calls">11-25 calls</option>
+                                <option value="26-50 calls">26-50 calls</option>
+                                <option value="51-100 calls">51-100 calls</option>
+                                <option value="100+ calls">100+ calls</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Biggest Challenge</label>
+                            <textarea id="challenge" name="entry.2005620554" rows="4" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="What's your biggest challenge with getting more customers? (Optional)"></textarea>
+                        </div>
+
+                        <div class="flex items-start">
+                            <input id="newsletter" name="entry.1835384049" type="checkbox" class="mt-1" value="Yes">
+                            <label for="newsletter" class="ml-2 text-sm text-gray-600">
+                                Yes, I'd like to receive helpful SEO and marketing tips (You can unsubscribe anytime)
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-lg font-bold text-lg hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all shadow-lg">
+                            🚀 Get My FREE SEO Analysis Now
+                        </button>
+
+                        <div class="trust-badge justify-center">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>100% Free Analysis - No Obligations</span>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Rochester Local Authority Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Rochester Local SEO Experts - From Kodak to Innovation Corridor</h2>
-
-                <div class="prose prose-lg max-w-none">
-                    <p class="text-xl text-gray-700 mb-6">
-                        Looking for a <strong>Rochester SEO</strong> agency that understands Western New York's transformation from industrial legacy to tech innovation? <strong>SeamlessFlow.ai brings NYC-level expertise to Rochester</strong>, with deep knowledge of what makes Monroe County businesses succeed in the digital economy. As a specialized <strong>Western NY SEO</strong> provider, we know how to position your service business for Rochester's evolving market.
-                    </p>
-
-                    <div class="nap-block">
-                        <div itemscope itemtype="http://schema.org/LocalBusiness">
-                            <p class="text-lg font-bold text-gray-900 mb-2">
-                                <span itemprop="name">SeamlessFlow.ai</span>
-                            </p>
-                            <p class="text-gray-700">
-                                <span itemprop="description">Local SEO & Marketing Automation for Rochester Service Businesses</span><br>
-                                <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                    Serving <span itemprop="addressLocality">Rochester</span>, <span itemprop="addressRegion">NY</span> and Western NY
-                                </span><br>
-                                Phone: <a href="tel:+13477498146" itemprop="telephone" class="text-blue-600 hover:text-blue-800 font-semibold">(347) 749-8146</a><br>
-                                Email: <span itemprop="email">info@seamlessflow.ai</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <h3 class="text-2xl font-bold mb-4 mt-8">Who We Help in Rochester</h3>
-                    <p class="text-gray-700 mb-4">
-                        As a <strong>Rochester marketing</strong> agency specializing in local SEO, we help Western NY service businesses dominate search across Rochester's historic and emerging neighborhoods. Our <strong>Rochester SEO services</strong> are designed for:
-                    </p>
-
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-thermometer-half text-red-500 mt-1 mr-3"></i>
-                            <span><a href="hvac-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold">HVAC companies in Park Avenue and East Avenue</a> serving historic homes and new construction</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-wrench text-blue-500 mt-1 mr-3"></i>
-                            <span><a href="plumber-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold">Plumbers serving Corn Hill and South Wedge</a> handling century-old plumbing systems</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-bolt text-yellow-500 mt-1 mr-3"></i>
-                            <span><a href="electrician-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold">Electricians throughout Monroe County</a> upgrading Rochester's infrastructure</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-home text-gray-700 mt-1 mr-3"></i>
-                            <span><a href="roofing-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold">Roofers from NOTA to Brighton</a> preserving historic architecture</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-broom text-green-500 mt-1 mr-3"></i>
-                            <span><a href="cleaning-service-seo.html" class="text-blue-600 hover:text-blue-800 font-semibold">Cleaning services across Rochester</a> serving RIT/U of R student housing and tech offices</span>
-                        </li>
-                    </ul>
-
-                    <h3 class="text-2xl font-bold mb-4 mt-8">Why Rochester Businesses Choose Us</h3>
-                    <p class="text-gray-700 mb-4">
-                        As a <strong>Western NY SEO</strong> specialist, we bring unique advantages to your Rochester online marketing:
-                    </p>
-
-                    <!-- UNIQUE LAYOUT: Three-column grid (different from Albany's 2x2 and Syracuse's stack) -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div class="tech-box p-6 rounded-lg">
-                            <div class="text-blue-600 text-3xl mb-3">
-                                <i class="fas fa-microchip"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Tech Hub Expertise</h4>
-                            <p class="text-gray-700 text-sm">
-                                We understand Rochester's transformation from Kodak to tech innovation. Target RIT grads, optics companies, and tech startups with precision SEO.
-                            </p>
-                        </div>
-
-                        <div class="tech-box p-6 rounded-lg">
-                            <div class="text-blue-600 text-3xl mb-3">
-                                <i class="fas fa-camera"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Legacy Market Knowledge</h4>
-                            <p class="text-gray-700 text-sm">
-                                Former Kodak employees own Rochester homes needing services. Our <strong>Rochester SEO</strong> captures this established, loyal customer base.
-                            </p>
-                        </div>
-
-                        <div class="tech-box p-6 rounded-lg">
-                            <div class="text-blue-600 text-3xl mb-3">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">University Market</h4>
-                            <p class="text-gray-700 text-sm">
-                                RIT and U of R create student housing demand. We optimize for "Rochester student rental services" and university-area searches.
-                            </p>
-                        </div>
-
-                        <div class="tech-box p-6 rounded-lg">
-                            <div class="text-blue-600 text-3xl mb-3">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Proven Results</h4>
-                            <p class="text-gray-700 text-sm">
-                                30-day results or 100% refund. No contracts - just proven <strong>Rochester marketing</strong> performance month after month.
-                            </p>
-                        </div>
-
-                        <div class="tech-box p-6 rounded-lg">
-                            <div class="text-blue-600 text-3xl mb-3">
-                                <i class="fas fa-home"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Historic Properties</h4>
-                            <p class="text-gray-700 text-sm">
-                                Park Ave mansions, Corn Hill brownstones need specialized contractors. We rank you for "historic Rochester [service]" searches.
-                            </p>
-                        </div>
-
-                        <div class="tech-box p-6 rounded-lg">
-                            <div class="text-blue-600 text-3xl mb-3">
-                                <i class="fas fa-dollar-sign"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Western NY Pricing</h4>
-                            <p class="text-gray-700 text-sm">
-                                Starting at $497/month with transparent pricing. Big-city expertise designed for Rochester budgets.
-                            </p>
-                        </div>
-                    </div>
-
-                    <h3 class="text-2xl font-bold mb-4 mt-8">Rochester Neighborhoods We Serve</h3>
-                    <p class="text-gray-700 mb-4">
-                        Our <strong>Western NY SEO</strong> services cover every major Rochester neighborhood and district:
-                    </p>
-
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">Park Avenue</span>
-                        </div>
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">East Avenue</span>
-                        </div>
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">Corn Hill</span>
-                        </div>
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">NOTA</span>
-                        </div>
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">South Wedge</span>
-                        </div>
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">Brighton</span>
-                        </div>
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">Irondequoit</span>
-                        </div>
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">Henrietta</span>
-                        </div>
-                        <div class="flex items-center bg-blue-50 p-2 rounded">
-                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
-                            <span class="font-semibold text-sm">All Monroe County</span>
-                        </div>
-                    </div>
-
-                    <h3 class="text-2xl font-bold mb-4 mt-8">What Makes Rochester SEO Different?</h3>
-                    <p class="text-gray-700 mb-4">
-                        <strong>Rochester transformed from "Kodak City" to innovation hub</strong> - this creates unique SEO opportunities:
-                    </p>
-
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-laptop-code text-blue-600 mt-1 mr-3"></i>
-                            <span><strong>Tech Startup Growth:</strong> RIT graduates launch imaging/optics companies needing office services - our <strong>Rochester SEO</strong> targets this growing B2B market</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-industry text-gray-600 mt-1 mr-3"></i>
-                            <span><strong>Legacy Industry Base:</strong> Former Kodak/Xerox employees own established homes requiring maintenance - we optimize for this stable demographic</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-university text-purple-600 mt-1 mr-3"></i>
-                            <span><strong>University Workforce:</strong> RIT, U of R, Nazareth create educated, high-income market - our <strong>Western NY SEO</strong> captures professor/researcher searches</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-landmark text-orange-500 mt-1 mr-3"></i>
-                            <span><strong>Historic Architecture:</strong> Park Ave mansions, East End estates need specialized contractors - we rank for "historic Rochester renovation" keywords</span>
-                        </li>
-                    </ul>
-
-                    <h3 class="text-2xl font-bold mb-4 mt-8">Get Started with Rochester's SEO Specialists</h3>
-                    <p class="text-gray-700 mb-6">
-                        Ready to dominate Western New York search? As the <strong>Rochester marketing</strong> agency service businesses trust, we deliver results in 30 days or refund 100%. No contracts. No gimmicks. Just proven <strong>Rochester SEO</strong> strategies that work in the innovation economy.
-                    </p>
-
-                    <div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
-                        <p class="text-lg font-semibold text-gray-900 mb-2">
-                            <i class="fas fa-phone text-blue-600 mr-2"></i>
-                            Call Us Today: (347) 749-8146
-                        </p>
-                        <p class="text-gray-700">
-                            Speak with a <strong>Rochester SEO expert</strong>. Free consultation, honest assessment, Western NY pricing.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-blue-600 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Dominate Western NY Search?</h2>
-            <p class="text-xl mb-8">Get more Rochester and Western NY customers with proven local SEO strategies</p>
-            <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold text-lg inline-block transition-all hover:bg-gray-100">Start My Rochester SEO Campaign</a>
-        </div>
-    </section>
-    <script>
-        // Mobile menu toggle functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburger = this;
-
-                if (mobileMenu && mobileMenu.classList.contains('show')) {
-                    // Close menu
-                    mobileMenu.classList.remove('show');
-                    hamburger.classList.remove('active');
-                } else if (mobileMenu) {
-                    // Open menu
-                    mobileMenu.classList.add('show');
-                    hamburger.classList.add('active');
-                }
-            });
-        }
-
-        // Mobile dropdown toggle functionality
-        document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const dropdown = this.closest('.mobile-dropdown');
-                const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
-                const icon = this.querySelector('.fa-chevron-right');
-
-                // Toggle this dropdown
-                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                    content.style.maxHeight = '0px';
-                    if (icon) icon.style.transform = 'rotate(0deg)';
-
-                    // Close all nested dropdowns
-                    content.querySelectorAll('.mobile-dropdown-content').forEach(nested => {
-                        nested.style.maxHeight = '0px';
-                    });
-                    content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => {
-                        nestedIcon.style.transform = 'rotate(0deg)';
-                    });
-                } else {
-                    // Calculate total height including nested content
-                    const calculateHeight = (element) => {
-                        let totalHeight = 0;
-                        Array.from(element.children).forEach(child => {
-                            totalHeight += child.offsetHeight;
-                            const nestedContent = child.querySelector('.mobile-dropdown-content');
-                            if (nestedContent && nestedContent.style.maxHeight && nestedContent.style.maxHeight !== '0px') {
-                                totalHeight += parseInt(nestedContent.style.maxHeight);
-                            }
-                        });
-                        return totalHeight;
-                    };
-
-                    content.style.maxHeight = calculateHeight(content) + 500 + 'px'; // Extra space for nested dropdowns
-                    if (icon) icon.style.transform = 'rotate(90deg)';
-
-                    // Update parent dropdown heights when nested dropdowns open
-                    const updateParentHeights = () => {
-                        let parent = dropdown.closest('.mobile-dropdown-content');
-                        while (parent) {
-                            const parentDropdown = parent.closest('.mobile-dropdown');
-                            if (parentDropdown) {
-                                parent.style.maxHeight = calculateHeight(parent) + 500 + 'px';
-                                parent = parentDropdown.closest('.mobile-dropdown-content');
-                            } else {
-                                break;
-                            }
-                        }
-                    };
-                    updateParentHeights();
-                }
-            });
-        });
-
-        // Hide mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileButton = document.getElementById('mobile-menu-button');
-
-            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
-                mobileMenu.classList.remove('show');
-                mobileButton.classList.remove('active');
-            }
-        });
-
-        // Close menu when clicking on mobile menu links (but not dropdown buttons)
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburger = document.getElementById('mobile-menu-button');
-
-                if (mobileMenu) mobileMenu.classList.remove('show');
-                if (hamburger) hamburger.classList.remove('active');
-            });
-        });
-    </script>
+    <!-- Hidden iframe for Google Forms -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='thank-you.html';}"></iframe>
 
     <!-- Footer -->
+        <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
@@ -720,5 +747,131 @@
             </div>
         </div>
     </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        var submitted=false;
+
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                submitted=true;
+
+                // Show loading state
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting Your Request...';
+                    submitBtn.disabled = true;
+                }
+
+                // Track conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_submit', {
+                        'event_category': 'engagement',
+                        'event_label': 'seo_analysis_request'
+                    });
+                }
+            });
+        }
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    // Close menu
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                } else if (mobileMenu) {
+                    // Open menu
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
+
+        // Mobile dropdown toggle functionality
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const dropdown = this.closest('.mobile-dropdown');
+                const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
+                const icon = this.querySelector('.fa-chevron-right');
+
+                // Toggle this dropdown
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+
+                    // Close all nested dropdowns
+                    content.querySelectorAll('.mobile-dropdown-content').forEach(nested => {
+                        nested.style.maxHeight = '0px';
+                    });
+                    content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => {
+                        nestedIcon.style.transform = 'rotate(0deg)';
+                    });
+                } else {
+                    // Calculate total height including nested content
+                    const calculateHeight = (element) => {
+                        let totalHeight = 0;
+                        Array.from(element.children).forEach(child => {
+                            totalHeight += child.offsetHeight;
+                            const nestedContent = child.querySelector('.mobile-dropdown-content');
+                            if (nestedContent && nestedContent.style.maxHeight && nestedContent.style.maxHeight !== '0px') {
+                                totalHeight += parseInt(nestedContent.style.maxHeight);
+                            }
+                        });
+                        return totalHeight;
+                    };
+
+                    content.style.maxHeight = calculateHeight(content) + 500 + 'px'; // Extra space for nested dropdowns
+                    if (icon) icon.style.transform = 'rotate(90deg)';
+
+                    // Update parent dropdown heights when nested dropdowns open
+                    const updateParentHeights = () => {
+                        let parent = dropdown.closest('.mobile-dropdown-content');
+                        while (parent) {
+                            const parentDropdown = parent.closest('.mobile-dropdown');
+                            if (parentDropdown) {
+                                parent.style.maxHeight = calculateHeight(parent) + 500 + 'px';
+                                parent = parentDropdown.closest('.mobile-dropdown-content');
+                            } else {
+                                break;
+                            }
+                        }
+                    };
+                    updateParentHeights();
+                }
+            });
+        });
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking on mobile menu links (but not dropdown buttons)
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
