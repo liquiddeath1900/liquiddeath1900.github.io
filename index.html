@@ -16,7 +16,6 @@
 
     <!-- PERFORMANCE OPTIMIZATIONS -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
@@ -107,8 +106,8 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     
-    <!-- Load Tailwind CSS immediately (site depends on it) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Tailwind CSS locally (self-hosted for performance) -->
+    <script src="assets/tailwind.min.js"></script>
     
     <!-- CRITICAL CSS - Inline for fastest render -->
     <style>
@@ -543,7 +542,7 @@
                 </p>
                 
                 <p class="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 animate-fade-in max-w-3xl mx-auto px-2" style="animation-delay: 0.5s;">
-                    No contracts. Real results. Money-back guarantee.
+                    Real results. Money-back guarantee. Cancel anytime.
                 </p>
                 
                 <div class="text-center animate-fade-in space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center sm:items-center" style="animation-delay: 0.6s;">
