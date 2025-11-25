@@ -16,6 +16,7 @@
 
     <!-- PERFORMANCE OPTIMIZATIONS -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
@@ -106,8 +107,8 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     
-    <!-- Load Tailwind CSS locally (self-hosted for performance) -->
-    <script src="assets/tailwind.min.js"></script>
+    <!-- Load Tailwind CSS immediately (site depends on it) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- CRITICAL CSS - Inline for fastest render -->
     <style>
