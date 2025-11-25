@@ -17,12 +17,11 @@
     <!-- PERFORMANCE OPTIMIZATIONS -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
     <!-- Priority preloads for LCP optimization -->
-    <link rel="preload" as="video" href="assets/Sequence%2002m.mp4" type="video/mp4" fetchpriority="high">
-    <link rel="preload" as="image" href="assets/website-homelogo.webp" type="image/webp">
+    <link rel="preload" as="image" href="assets/website-homelogo.webp" type="image/webp" fetchpriority="high">
     <link rel="preload" as="image" href="assets/website%20homelogo.png">
     
     <!-- Font preload for layout shift prevention -->
@@ -285,7 +284,14 @@
                     <a href="#home" class="flex items-center">
                         <picture>
                             <source srcset="assets/website-homelogo.webp" type="image/webp">
-                            <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10" loading="eager" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                            <img src="assets/website homelogo.png"
+                                 alt="SeamlessFlow.ai"
+                                 class="h-8 sm:h-10"
+                                 width="350"
+                                 height="40"
+                                 fetchpriority="high"
+                                 decoding="async"
+                                 style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
                         </picture>
                     </a>
                 </div>
@@ -442,7 +448,7 @@
                             <!-- New York State -->
                             <div class="mobile-dropdown">
                                 <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
-                                    <span><i class="fas fa-apple-alt mr-3 text-green-600"></i>New York</span>
+                                    <span><i class="fas fa-apple-alt mr-3 text-green-700"></i>New York</span>
                                     <i class="fas fa-chevron-right transition-transform duration-200"></i>
                                 </button>
                                 <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
@@ -508,11 +514,11 @@
     <!-- Hero Section - UPDATED -->
     <section class="hero-section" id="home">
         <video class="hero-video"
-               poster="assets/Sequence%2002m.mp4#t=0.1"
+               id="hero-video"
+               preload="none"
                autoplay loop muted playsinline
-               preload="auto"
                width="1920" height="1080">
-            <source src="assets/Sequence%2002m.mp4" type="video/mp4">
+            <source data-src="assets/sequence-02m.mp4" type="video/mp4">
         </video>
         
         <div class="hero-overlay"></div>
@@ -651,7 +657,7 @@
                     <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
                         <div class="p-8">
                             <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                                <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                                <i class="fas fa-chart-line text-green-700 text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-bold mb-4">Business Solutions</h3>
                             <ul class="space-y-3">
@@ -688,35 +694,35 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <i class="fas fa-thermometer-half text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="font-semibold">HVAC</h4>
+                    <h3 class="font-semibold">HVAC</h3>
                 </div>
                 <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <i class="fas fa-wrench text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="font-semibold">Plumber</h4>
+                    <h3 class="font-semibold">Plumber</h3>
                 </div>
                 <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <i class="fas fa-bolt text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="font-semibold">Electrician</h4>
+                    <h3 class="font-semibold">Electrician</h3>
                 </div>
                 <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <i class="fas fa-home text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="font-semibold">Roofing</h4>
+                    <h3 class="font-semibold">Roofing</h3>
                 </div>
                 <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <i class="fas fa-door-open text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="font-semibold">Garage Door</h4>
+                    <h3 class="font-semibold">Garage Door</h3>
                 </div>
                 <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <i class="fas fa-broom text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="font-semibold">Cleaning</h4>
+                    <h3 class="font-semibold">Cleaning</h3>
                 </div>
                 <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <i class="fas fa-cut text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="font-semibold">Pet Grooming</h4>
+                    <h3 class="font-semibold">Pet Grooming</h3>
                 </div>
                 <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                     <i class="fas fa-car text-4xl text-blue-600 mb-4"></i>
-                    <h4 class="font-semibold">Auto Detailing</h4>
+                    <h3 class="font-semibold">Auto Detailing</h3>
                 </div>
             </div>
         </div>
@@ -768,7 +774,7 @@
                             </div>
                             
                             <div>
-                                <h5 class="font-semibold text-green-600 mb-2">The Results:</h5>
+                                <h5 class="font-semibold text-green-700 mb-2">The Results:</h5>
                                 <ul class="list-disc list-inside text-gray-700 space-y-1">
                                     <li>🚀 400% increase in phone calls (5 to 50+ per month)</li>
                                     <li>📈 Tripled website traffic in 90 days</li>
@@ -833,7 +839,7 @@
                 <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-500">
                     <div class="text-center mb-4">
                         <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-green-600">2</span>
+                            <span class="text-2xl font-bold text-green-700">2</span>
                         </div>
                         <h3 class="text-xl font-bold">Week 2: Foundation</h3>
                         <p class="text-sm text-gray-500">Rankings start improving</p>
@@ -926,7 +932,7 @@
                             If you don't see measurable improvements in your Google rankings, website traffic, or phone calls within 30 days, we'll give you your money back. No questions asked.
                         </p>
                         <div class="mt-4 flex flex-wrap gap-4 justify-center md:justify-start">
-                            <span class="flex items-center text-green-600 font-semibold">
+                            <span class="flex items-center text-green-700 font-semibold">
                                 <i class="fas fa-shield-alt mr-2"></i>
                                 Money-back guarantee
                             </span>
@@ -969,7 +975,7 @@
                 <!-- Cost Efficiency Card -->
                 <div class="benefit-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
                     <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-piggy-bank text-green-600"></i>
+                        <i class="fas fa-piggy-bank text-green-700"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Cost Efficiency</h3>
                     <p class="text-gray-600">Reduce operational costs while increasing productivity through intelligent automation and better lead quality</p>
@@ -1328,8 +1334,23 @@
                 }
             });
         });
+
+        // Lazy load hero video after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            if (video) {
+                const source = video.querySelector('source[data-src]');
+                if (source) {
+                    // Load video after a short delay to prioritize other content
+                    setTimeout(() => {
+                        source.src = source.dataset.src;
+                        video.load();
+                    }, 100);
+                }
+            }
+        });
     </script>
-    
+
     <!-- Google Analytics 4 -->
     <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-B68C3RNBVD"></script>
     <script>
