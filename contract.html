@@ -27,16 +27,24 @@
         .pricing-summary { background: #dbeafe; border: 2px solid #93c5fd; }
         .pricing-row { display: flex; justify-content: space-between; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
         .pricing-total { font-size: 20px; border-top: 2px solid: #60a5fa; padding-top: 12px; margin-top: 12px; color: #1d4ed8; }
-        .btn { padding: 12px 24px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-        .btn-primary { background: #2563eb; color: white; }
-        .btn-primary:hover { background: #1d4ed8; }
-        .btn-success { background: #059669; color: white; }
-        .btn-success:hover { background: #047857; }
-        .btn-secondary { background: #d1d5db; color: #374151; }
-        .btn-secondary:hover { background: #9ca3af; }
-        .btn-group { display: flex; gap: 16px; margin-bottom: 24px; }
-        .btn-group .btn { flex: 1; }
+        .btn-pdf {
+            width: 100%;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            background: #dc2626;
+            color: white;
+            transition: all 0.2s;
+            margin-bottom: 24px;
+        }
+        .btn-pdf:hover { background: #b91c1c; }
         .hidden { display: none; }
+        .logo { max-width: 250px; height: auto; margin-bottom: 16px; }
+        .header-flex { display: flex; align-items: center; gap: 24px; }
+        .header-text { flex: 1; }
 
         /* Print styles */
         @media print {
@@ -64,9 +72,14 @@
     <div class="container no-print">
         <!-- Header -->
         <div class="card">
-            <h1>SeamlessFlow.ai</h1>
-            <p class="header-info">Contract Generator</p>
-            <p class="header-info">info@seamlessflow.ai | (347) 634-6547</p>
+            <div class="header-flex">
+                <img src="assets/website homelogo.png" alt="SeamlessFlow.ai Logo" class="logo">
+                <div class="header-text">
+                    <h1>SeamlessFlow.ai</h1>
+                    <p class="header-info">Contract Generator</p>
+                    <p class="header-info">info@seamlessflow.ai | (347) 634-6547</p>
+                </div>
+            </div>
         </div>
 
         <!-- Client Information -->
@@ -237,20 +250,8 @@
             </div>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="btn-group">
-            <button class="btn btn-primary" onclick="togglePreview()">
-                <span id="previewBtnText">Preview Contract</span>
-            </button>
-            <button class="btn btn-success" onclick="window.print()">Print / Save as PDF</button>
-            <button class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
-        </div>
-
-        <!-- Preview Section -->
-        <div id="previewSection" class="card hidden">
-            <h2 style="text-align: center; margin-bottom: 24px;">CONTRACT PREVIEW</h2>
-            <div id="contractPreview"></div>
-        </div>
+        <!-- Generate PDF Button -->
+        <button class="btn-pdf" onclick="generatePDF()">GENERATE PDF</button>
     </div>
 
     <!-- Print View -->
@@ -563,18 +564,9 @@
             calculatePricing();
         }
 
-        function togglePreview() {
-            const preview = document.getElementById('previewSection');
-            const btnText = document.getElementById('previewBtnText');
-
-            if (preview.classList.contains('hidden')) {
-                generateContract();
-                preview.classList.remove('hidden');
-                btnText.textContent = 'Hide Preview';
-            } else {
-                preview.classList.add('hidden');
-                btnText.textContent = 'Preview Contract';
-            }
+        function generatePDF() {
+            generateContract();
+            window.print();
         }
 
         function formatDate(dateStr) {
@@ -586,7 +578,6 @@
         function generateContract() {
             const pricing = calculatePricing();
             const html = buildContractHTML(pricing);
-            document.getElementById('contractPreview').innerHTML = html;
             document.getElementById('contractPrint').innerHTML = html;
         }
 
@@ -598,6 +589,9 @@
 
             return `
                 <div class="contract-document">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai Logo" style="max-width: 200px; height: auto; margin-bottom: 16px;">
+                    </div>
                     <h1>DIGITAL MARKETING & AUTOMATION SERVICES AGREEMENT</h1>
                     <p style="text-align: center; font-weight: 600; margin-bottom: 8px;">SeamlessFlow.ai</p>
                     <p style="text-align: center; color: #6b7280; margin-bottom: 32px;">info@seamlessflow.ai | (347) 634-6547</p>
