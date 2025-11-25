@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon Setup -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#007bff">
+
+    <title>Richmond SEO Services | Local SEO Richmond VA</title>
+    <meta name="description" content="Richmond SEO services for Virginia capital businesses. Southern hospitality meets digital marketing. Call (347) 634-6547">
+    <meta name="keywords" content="richmond seo services, local seo richmond va, seo richmond, richmond digital marketing">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Richmond SEO Services | Local SEO Richmond VA">
+    <meta property="og:description" content="Richmond SEO services for Virginia capital businesses. Southern hospitality meets digital marketing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.seamlessflow.ai/richmond-seo.html">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.seamlessflow.ai/richmond-seo.html">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "SeamlessFlow.ai - Richmond SEO Services",
+      "description": "Local SEO services for Richmond businesses",
+      "url": "https://www.seamlessflow.ai/richmond-seo.html",
+      "telephone": "+1-347-634-6547",
+      "email": "info@seamlessflow.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Richmond",
+        "addressRegion": "VA",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Richmond",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Richmond",
+          "addressRegion": "VA"
+        }
+      },
+      "priceRange": "$497-$1497"
+    }
+    </script>
+
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* Navigation styles */
+        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 50; }
+
+        /* Hero gradient - Red for Virginia */
+        .hero-gradient {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Button styles */
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover { background-color: #1d4ed8; }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: white;
+            color: #2563eb;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer;
+            width: 28px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #374151;
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            position: relative;
+        }
+
+        .hamburger.active {
+            gap: 0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            position: absolute;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            position: absolute;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+    </style>
+</head>
+<body class="pt-16">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
+                <div class="flex items-center">
+                    <a href="https://www.seamlessflow.ai" class="flex items-center">
+                        <img src="https://www.seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="https://www.seamlessflow.ai/local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Local SEO (Primary)</a>
+                                <a href="https://www.seamlessflow.ai/website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Website Development</a>
+                                <a href="https://www.seamlessflow.ai/marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Marketing Automation</a>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Industries <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="https://www.seamlessflow.ai/hvac-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">HVAC SEO</a>
+                                <a href="https://www.seamlessflow.ai/plumber-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Plumber SEO</a>
+                                <a href="https://www.seamlessflow.ai/electrician-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Electrician SEO</a>
+                                <a href="https://www.seamlessflow.ai/roofing-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Roofing SEO</a>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Locations <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <div class="relative group/va">
+                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                        Virginia <i class="fas fa-chevron-right text-xs"></i>
+                                    </button>
+                                    <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/va:opacity-100 group-hover/va:visible transition-all duration-200 z-50">
+                                        <a href="https://www.seamlessflow.ai/richmond-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Richmond</a>
+                                        <a href="https://www.seamlessflow.ai/norfolk-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Norfolk</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://www.seamlessflow.ai/pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Pricing</a>
+                        <a href="https://www.seamlessflow.ai/contact.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden absolute right-4">
+                    <button class="hamburger" id="mobile-menu-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100">
+                <div class="px-6 py-4 space-y-1">
+                    <a href="https://www.seamlessflow.ai" class="block text-gray-800 hover:text-blue-600 py-2 px-4">Home</a>
+                    <a href="https://www.seamlessflow.ai/pricing.html" class="block text-gray-800 hover:text-blue-600 py-2 px-4">Pricing</a>
+                    <a href="https://www.seamlessflow.ai/contact.html" class="block text-gray-800 hover:text-blue-600 py-2 px-4">Contact</a>
+                    <div class="pt-4 border-t border-gray-100 mt-4">
+                        <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-yellow-500 text-black px-6 py-3 rounded-lg block text-center font-bold">Get Free Audit</a>
+                        <a href="tel:+13476346547" class="bg-blue-600 text-white px-6 py-3 rounded-lg block text-center font-semibold mt-2">Call (347) 634-6547</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient">
+        <div class="hero-content container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Richmond SEO Services | Virginia Capital Local SEO</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Southern hospitality meets digital excellence - dominate Richmond's growing market with proven local SEO
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:+13476346547" class="btn-primary text-lg px-8 py-4">
+                    <i class="fas fa-phone mr-2"></i>Call (347) 634-6547
+                </a>
+                <a href="https://www.seamlessflow.ai/free-audit.html" class="btn-secondary text-lg px-8 py-4">
+                    <i class="fas fa-search mr-2"></i>Get Free Audit
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAP Block -->
+    <section class="bg-blue-50 py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl mb-2"></i>
+                        <h3 class="font-bold">Serving Richmond</h3>
+                        <p class="text-gray-600">All Neighborhoods</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone text-blue-600 text-2xl mb-2"></i>
+                        <h3 class="font-bold">Call Us</h3>
+                        <a href="tel:+13476346547" class="text-blue-600 font-semibold">(347) 634-6547</a>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope text-blue-600 text-2xl mb-2"></i>
+                        <h3 class="font-bold">Email Us</h3>
+                        <a href="mailto:info@seamlessflow.ai" class="text-blue-600 font-semibold">info@seamlessflow.ai</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section-padding">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6">Richmond SEO: Capturing Virginia's Capital Market</h2>
+
+                <p class="text-lg mb-6">
+                    Richmond, Virginia's state capital, represents a unique blend of historic charm and modern growth. As the city continues expanding beyond its traditional boundaries into Short Pump and beyond, local businesses face increasing competition for customer attention. Whether you're serving the historic Fan District, growing Glen Allen suburbs, or thriving Short Pump commercial corridor, your potential customers are searching online first.
+                </p>
+
+                <p class="text-lg mb-6">
+                    Our Richmond SEO services help Virginia capital businesses compete effectively in the digital marketplace. From established downtown businesses to growing suburban service providers, we understand Richmond's distinct market dynamics and how to leverage them for maximum visibility and customer acquisition.
+                </p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8">Why Richmond Businesses Need Local SEO</h3>
+
+                <p class="text-lg mb-6">
+                    Richmond's rapid suburban growth creates both opportunities and challenges. Customers in Short Pump search differently than residents in Church Hill. The government employees downtown have different service needs than families in Midlothian. Your Richmond SEO strategy must account for these neighborhood distinctions to capture qualified local leads.
+                </p>
+
+                <p class="text-lg mb-6">
+                    The competition for local customers intensifies every year. National chains establish presence in Richmond's growing markets while established local businesses fight to maintain visibility. The difference between thriving and struggling often comes down to who shows up first when potential customers search online. That's where strategic local SEO becomes essential.
+                </p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8">Our Richmond SEO Process</h3>
+
+                <p class="text-lg mb-4">
+                    We begin with comprehensive market analysis specific to Richmond's competitive landscape. Understanding your competition, identifying untapped opportunities, and mapping the customer journey for your specific services. Then we implement proven SEO strategies tailored to Richmond's market:
+                </p>
+
+                <ul class="list-disc list-inside text-lg mb-6 space-y-2 ml-4">
+                    <li>Google Business Profile optimization for Richmond-specific searches</li>
+                    <li>Neighborhood-targeted keyword strategies</li>
+                    <li>Richmond business directory citations and listings</li>
+                    <li>Review generation from verified Richmond customers</li>
+                    <li>Website optimization for local search intent</li>
+                    <li>Technical SEO implementation to outrank competitors</li>
+                </ul>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8">Industries We Serve in Richmond</h3>
+
+                <p class="text-lg mb-6">
+                    Richmond's diverse economy supports businesses across multiple service sectors. We help HVAC contractors navigate Richmond's humid summers and cold winters, plumbers dealing with the area's aging infrastructure and new construction, electricians serving both historic homes and modern developments, roofers protecting against Richmond's weather patterns, and cleaning services maintaining the capital city's commercial and residential properties.
+                </p>
+
+                <p class="text-lg mb-6">
+                    Our Richmond clients also include healthcare providers serving the medical district, legal practices near the courts, real estate professionals capitalizing on Richmond's growth, and automotive services throughout the metro area. Each industry requires tailored SEO approaches that align with how Richmond customers actually search for services.
+                </p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8">Richmond Market Expertise</h3>
+
+                <p class="text-lg mb-6">
+                    Understanding Richmond means understanding its neighborhoods and their distinct characteristics. The historic Fan District attracts young professionals seeking character homes. Short Pump represents Richmond's booming suburban growth with affluent families. The Museum District combines culture with residential life. Downtown serves government workers and urban residents. Each area requires different SEO strategies to capture local customers effectively.
+                </p>
+
+                <p class="text-lg mb-6">
+                    We optimize for Richmond-specific search patterns, accounting for how residents describe locations, the influence of Virginia Commonwealth University on local search behavior, seasonal patterns driven by tourism and government cycles, and the unique way Richmonders navigate their growing city. This local knowledge directly translates to better search rankings and more qualified leads.
+                </p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8">Results You Can Measure</h3>
+
+                <p class="text-lg mb-6">
+                    Our Richmond clients typically see tangible improvements within the first 30 days. Higher visibility on Google Maps for Richmond searches, increased website traffic from local customers, more phone calls from qualified prospects, and improved online reputation through genuine customer reviews. We provide transparent monthly reporting showing exactly how your SEO investment generates return.
+                </p>
+
+                <p class="text-lg mb-6">
+                    Most importantly, you'll see what matters most to your bottom line: more customers finding your business when they search for services in Richmond. Not just website visitors, but actual phone calls and customer inquiries from people ready to hire you. That's the true measure of SEO success.
+                </p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8">Ready to Dominate Richmond SEO?</h3>
+
+                <p class="text-lg mb-6">
+                    Richmond's market continues growing, but so does competition for local customers. The businesses that invest in professional SEO today capture market share while competitors fall behind in search rankings. Every day you delay, potential customers find your competitors first on Google Maps and local searches.
+                </p>
+
+                <p class="text-lg mb-6">
+                    Call (347) 634-6547 today for a free Richmond SEO audit. We'll show you exactly where your business ranks currently, what your top competitors are doing online, and precisely how we'll get you to dominate Richmond's local search results. No pressure, no obligations - just straightforward analysis and actionable recommendations for capturing more Richmond customers online.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Richmond Businesses Choose Us -->
+    <section class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Richmond Businesses Choose Us</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-landmark text-red-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Virginia Capital Expertise</h3>
+                    <p class="text-gray-600">Deep understanding of Richmond neighborhoods, government market, and rapid suburban growth</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-trophy text-green-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Proven Results</h3>
+                    <p class="text-gray-600">Track record of getting Richmond businesses to #1 on Google Maps</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-shield-alt text-purple-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Risk-Free Service</h3>
+                    <p class="text-gray-600">Month-to-month contracts with money-back guarantee if you don't see results</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Industries -->
+    <section class="section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Richmond Service Industries We Dominate</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="text-center p-4 bg-white rounded-lg shadow-md">
+                    <i class="fas fa-thermometer-half text-4xl text-red-600 mb-3"></i>
+                    <h4 class="font-semibold">HVAC</h4>
+                </div>
+                <div class="text-center p-4 bg-white rounded-lg shadow-md">
+                    <i class="fas fa-wrench text-4xl text-red-600 mb-3"></i>
+                    <h4 class="font-semibold">Plumbing</h4>
+                </div>
+                <div class="text-center p-4 bg-white rounded-lg shadow-md">
+                    <i class="fas fa-bolt text-4xl text-red-600 mb-3"></i>
+                    <h4 class="font-semibold">Electrical</h4>
+                </div>
+                <div class="text-center p-4 bg-white rounded-lg shadow-md">
+                    <i class="fas fa-home text-4xl text-red-600 mb-3"></i>
+                    <h4 class="font-semibold">Roofing</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-padding bg-gradient-to-r from-red-600 to-red-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Own Richmond's Local Search Results?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Get a free SEO audit and see exactly how we'll get you to #1 on Google Maps
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+13476346547" class="bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition">
+                    <i class="fas fa-phone mr-2"></i>Call (347) 634-6547
+                </a>
+                <a href="https://www.seamlessflow.ai/free-audit.html" class="bg-yellow-500 text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-400 transition">
+                    <i class="fas fa-search mr-2"></i>Get Free Audit
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
+                    <p class="text-gray-300 mb-4">Starting at $497/month - No contracts</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <span>Money-back guarantee</span>
+                        </div>
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>(347) 634-6547</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="https://www.seamlessflow.ai/local-seo.html" class="hover:text-white">Local SEO</a></li>
+                        <li><a href="https://www.seamlessflow.ai/website-development.html" class="hover:text-white">Website Development</a></li>
+                        <li><a href="https://www.seamlessflow.ai/marketing-automation.html" class="hover:text-white">Marketing Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="https://www.seamlessflow.ai/pricing.html" class="hover:text-white">Pricing</a></li>
+                        <li><a href="https://www.seamlessflow.ai/faq.html" class="hover:text-white">FAQ</a></li>
+                        <li><a href="https://www.seamlessflow.ai/contact.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Service Areas</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><strong>PA:</strong> Pittsburgh, Philadelphia</li>
+                        <li><strong>VA:</strong> Richmond, Norfolk</li>
+                    </ul>
+                    <div class="mt-4 space-y-2">
+                        <a href="tel:+13476346547" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span class="font-bold">(347) 634-6547</span>
+                        </a>
+                        <a href="mailto:info@seamlessflow.ai" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span class="text-sm">info@seamlessflow.ai</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 SeamlessFlow.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+
+                if (mobileMenu.classList.contains('show')) {
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                } else {
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
