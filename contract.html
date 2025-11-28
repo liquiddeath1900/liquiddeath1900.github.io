@@ -102,38 +102,38 @@
             color: #1F2937;
             font-weight: 700;
             border-bottom: 1px solid #E5E7EB;
-            padding-bottom: 6px;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            padding-bottom: 8px;
+            margin-top: 28px;
+            margin-bottom: 14px;
         }
         .contract-document h3 {
             font-size: 12pt;
             color: #1F2937;
             font-weight: 600;
-            margin-top: 12px;
-            margin-bottom: 6px;
+            margin-top: 18px;
+            margin-bottom: 8px;
         }
         .contract-document p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-align: left;
-            line-height: 1.4;
+            line-height: 1.5;
         }
         .contract-document ul {
             margin-left: 24px;
-            margin-top: 6px;
-            margin-bottom: 8px;
+            margin-top: 8px;
+            margin-bottom: 12px;
         }
         .contract-document li {
-            margin-bottom: 4px;
-            line-height: 1.4;
+            margin-bottom: 6px;
+            line-height: 1.5;
         }
         .contract-document .section {
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             padding-bottom: 0;
             page-break-inside: auto;
         }
         .contract-document .section + .section {
-            margin-top: 0;
+            margin-top: 8px;
         }
         .two-column {
             display: grid;
@@ -228,10 +228,9 @@
             </div>
             <div class="service-option">
                 <input type="checkbox" id="seoRegional" data-group="seo">
-                <span class="flex-1">Regional Dominance - Multi-city coverage</span>
-                <span class="price">Custom Pricing</span>
+                <span class="flex-1">Regional Domination - Multi-city expansion</span>
+                <span class="price">$3,500/month</span>
             </div>
-            <input type="number" id="seoRegionalPrice" placeholder="Enter monthly price" class="custom-price-input hidden">
 
             <h3 style="margin-top: 24px;">Web Design & Automation</h3>
             <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">Select any combination</p>
@@ -413,7 +412,7 @@
             });
 
             // Price inputs
-            ['seoRegionalPrice', 'websiteDevPrice', 'businessAutomationPrice', 'foundationSetupFee',
+            ['websiteDevPrice', 'businessAutomationPrice', 'foundationSetupFee',
              'growthSetupFee', 'enterpriseMonthlyFee', 'enterpriseSetupFee'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.addEventListener('input', () => { calculatePricing(); saveToLocalStorage(); });
@@ -445,7 +444,6 @@
 
             // Show/hide custom price inputs
             const priceInputMap = {
-                'seoRegional': 'seoRegionalPrice',
                 'websiteDev': 'websiteDevPrice',
                 'businessAutomation': 'businessAutomationPrice',
                 'foundationPackage': 'foundationSetupFee',
@@ -498,9 +496,7 @@
             if (document.getElementById('seoStarter').checked) monthly += 497;
             if (document.getElementById('seoMarketLeader').checked) monthly += 997;
             if (document.getElementById('seoCityDomination').checked) monthly += 1497;
-            if (document.getElementById('seoRegional').checked) {
-                monthly += parseFloat(document.getElementById('seoRegionalPrice').value) || 0;
-            }
+            if (document.getElementById('seoRegional').checked) monthly += 3500;
 
             // Web Design & Automation
             if (document.getElementById('websiteDev').checked) {
@@ -552,7 +548,6 @@
                     seoMarketLeader: document.getElementById('seoMarketLeader').checked,
                     seoCityDomination: document.getElementById('seoCityDomination').checked,
                     seoRegional: document.getElementById('seoRegional').checked,
-                    seoRegionalPrice: document.getElementById('seoRegionalPrice').value,
                     websiteDev: document.getElementById('websiteDev').checked,
                     websiteDevPrice: document.getElementById('websiteDevPrice').value,
                     marketingAutomation: document.getElementById('marketingAutomation').checked,
@@ -754,13 +749,15 @@
                 html += `
                     <h3>SEO Starter Package ($497/month)</h3>
                     <ul>
-                        <li>Google Business Profile optimization and monthly management</li>
-                        <li>Basic citation building (20 high-quality directories)</li>
-                        <li>Monthly GBP posts (4 posts per month)</li>
-                        <li>Basic on-page SEO audit and recommendations</li>
-                        <li>Monthly ranking report and analytics review</li>
-                        <li>Email support (24-hour response time)</li>
-                        <li>Review monitoring and response support</li>
+                        <li>Google Business Profile full optimization</li>
+                        <li>On-page SEO fixes (titles, meta descriptions, H1s on top 5 pages)</li>
+                        <li>Local keyword research (10-20 keywords)</li>
+                        <li>10-15 directory listings (Yelp, Bing Places, Apple Maps, Facebook, YellowPages, BBB, Nextdoor)</li>
+                        <li>NAP consistency audit (Name, Address, Phone check across the web)</li>
+                        <li>Google Search Console + Analytics setup</li>
+                        <li>Competitor snapshot</li>
+                        <li>Monthly ranking + traffic report</li>
+                        <li>Email support (24-48 hour response)</li>
                     </ul>
                 `;
             }
@@ -769,15 +766,16 @@
                 html += `
                     <h3>Market Leader Package ($997/month)</h3>
                     <ul>
-                        <li>Everything in SEO Starter, plus:</li>
-                        <li>Advanced on-page SEO (up to 25 pages optimized)</li>
-                        <li>Content creation (2 SEO-optimized blog posts/month, 500-750 words each)</li>
-                        <li>Local link building (5 quality backlinks per month)</li>
-                        <li>Competitor analysis and strategy adjustments</li>
-                        <li>Monthly video SEO optimization</li>
-                        <li>Schema markup implementation and maintenance</li>
-                        <li>Social media profile optimization</li>
-                        <li>Priority email support (12-hour response time)</li>
+                        <li>Everything in Starter, plus:</li>
+                        <li>25-30 directory listings (core + industry-specific + data aggregators)</li>
+                        <li>NAP cleanup (fixing inconsistencies found during audit)</li>
+                        <li>1-2 location or service pages per month</li>
+                        <li>2-4 Google Business Profile posts per month</li>
+                        <li>Review generation system + request templates</li>
+                        <li>Competitor monitoring (ongoing)</li>
+                        <li>Bi-weekly check-ins (email or call)</li>
+                        <li>Detailed monthly report</li>
+                        <li>Territory protection (borough/ZIP-level exclusivity — we won't work with your direct competitors)</li>
                     </ul>
                 `;
             }
@@ -787,34 +785,35 @@
                     <h3>City Domination Package ($1,497/month)</h3>
                     <ul>
                         <li>Everything in Market Leader, plus:</li>
-                        <li>Comprehensive on-page SEO (unlimited pages)</li>
-                        <li>Premium content creation (4 blog posts/month, 1,000+ words each)</li>
-                        <li>Advanced link building (10+ quality backlinks per month)</li>
-                        <li>Dedicated account manager with direct line</li>
-                        <li>Weekly progress updates and strategy calls</li>
-                        <li>Social media integration and monthly posting</li>
-                        <li>Advanced local schema and structured data</li>
-                        <li>Custom landing page creation and optimization</li>
-                        <li>Reputation management and review generation campaigns</li>
-                        <li>Priority phone and email support (4-hour response time)</li>
+                        <li>40-50+ directory listings (all tiers including niche industry directories)</li>
+                        <li>2-4 location or service pages per month</li>
+                        <li>1 blog post or local content piece per month</li>
+                        <li>4-8 Google Business Profile posts per month</li>
+                        <li>Basic link building (1-2 local backlinks per month)</li>
+                        <li>Full technical SEO audit + fixes (site speed, schema markup, indexing issues)</li>
+                        <li>Geo-grid rank tracking (Local Falcon-style reports showing your rankings across the city)</li>
+                        <li>Monthly strategy call (30-45 min)</li>
+                        <li>Full city exclusivity (we will not work with competitors in your market)</li>
                     </ul>
                 `;
             }
 
             if (document.getElementById('seoRegional').checked) {
-                const price = document.getElementById('seoRegionalPrice').value || '0';
                 html += `
-                    <h3>Regional Dominance Package ($${price}/month)</h3>
+                    <h3>Regional Domination Package ($3,500/month)</h3>
                     <ul>
-                        <li>Everything in City Domination, plus:</li>
-                        <li>Multi-location SEO strategy and implementation</li>
-                        <li>Separate Google Business Profiles for each location</li>
-                        <li>Location-specific landing pages and content</li>
-                        <li>Regional link building and outreach campaigns</li>
-                        <li>Multi-city content strategy and execution</li>
-                        <li>Custom reporting dashboard with real-time analytics</li>
-                        <li>Bi-weekly strategy calls and quarterly planning sessions</li>
-                        <li>Priority 24/7 support</li>
+                        <li>Everything in City Domination (scaled across markets)</li>
+                        <li>Multi-city keyword research (for each target market)</li>
+                        <li>5-10 city landing pages (built during Month 1-2 setup)</li>
+                        <li>4-6 new location pages per month (ongoing)</li>
+                        <li>2-4 blog posts per month</li>
+                        <li>GBP setup and management for multiple locations</li>
+                        <li>Regional backlink building (2-4 links per month including local publications)</li>
+                        <li>PR support (press releases, local media outreach)</li>
+                        <li>App Store Optimization — Google Play & Apple App Store (if applicable)</li>
+                        <li>Weekly or bi-weekly strategy calls</li>
+                        <li>Custom analytics dashboard</li>
+                        <li>Full regional exclusivity</li>
                     </ul>
                 `;
             }
@@ -931,19 +930,19 @@
             // Determine exclusivity level based on tier
             let exclusivityLevel = '';
             if (document.getElementById('seoStarter').checked) {
-                exclusivityLevel = 'ZIP Code Separation (Non-Exclusive)';
+                exclusivityLevel = 'No Territory Exclusivity (Starter tier)';
             } else if (document.getElementById('seoMarketLeader').checked) {
-                exclusivityLevel = 'Borough/District Limited Exclusivity (2-4 clients per industry)';
+                exclusivityLevel = 'Borough/ZIP-Level Exclusivity (we won\'t work with your direct competitors in this territory)';
             } else if (document.getElementById('seoCityDomination').checked) {
-                exclusivityLevel = 'Full City/Metro Exclusivity (ONE client per industry per city)';
+                exclusivityLevel = 'Full City Exclusivity (ONE client per industry per city)';
             } else if (document.getElementById('seoRegional').checked) {
-                exclusivityLevel = 'Regional Exclusivity (ONE client per industry per region)';
+                exclusivityLevel = 'Full Regional Exclusivity (ONE client per industry across all target markets)';
             }
 
             const isCityDomination = document.getElementById('seoCityDomination').checked || document.getElementById('seoRegional').checked;
 
             return `
-                <div class="page-break section">
+                <div class="section">
                     <h2>2. TERRITORY PROTECTION POLICY</h2>
 
                     <h3>2.1 Protected Territory</h3>
@@ -986,7 +985,7 @@
             const paymentDay = document.getElementById('paymentDueDay').value;
 
             return `
-                <div class="page-break section">
+                <div class="section">
                     <h2>${sectionNum}. PRICING AND PAYMENT TERMS</h2>
 
                     <h3>${sectionNum}.1 Service Pricing</h3>
@@ -1163,7 +1162,7 @@
                     </ul>
                 </div>
 
-                <div class="page-break section">
+                <div class="section">
                     <h2>${specialTerms ? baseNum + 3 : baseNum + 2}. LIMITATION OF LIABILITY</h2>
                     <ul>
                         <li>Service Provider's total liability under this agreement shall not exceed the total amount paid by Client in the preceding 3 months</li>
