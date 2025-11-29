@@ -690,7 +690,7 @@
             // Set dynamic filename based on company name
             const companyName = document.getElementById('companyName').value || 'Client';
             const today = new Date().toISOString().split('T')[0];
-            document.title = `SeamlessFlow_Agreement_${companyName.replace(/\s+/g, '_')}_${today}`;
+            document.title = `${companyName.replace(/\s+/g, '_')}_Contract_SeamlessFlow_${today}`;
 
             generateContract();
             window.print();
