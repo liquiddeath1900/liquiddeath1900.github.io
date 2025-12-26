@@ -494,6 +494,11 @@
                     
                     <!-- SEO Audit Form - Posts to n8n webhook -->
                     <form id="seo-audit-form" class="space-y-4">
+                        <!-- Honeypot field - hidden from humans, bots fill it -->
+                        <div style="position: absolute; left: -9999px;" aria-hidden="true">
+                            <input type="text" name="website_address" id="website_address" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div>
                             <label for="business_name" class="block text-sm font-medium text-gray-700 mb-1">Business Name *</label>
                             <input type="text" id="business_name" name="business_name" required
@@ -502,8 +507,10 @@
 
                         <div>
                             <label for="website_url" class="block text-sm font-medium text-gray-700 mb-1">Website URL *</label>
-                            <input type="url" id="website_url" name="website_url" required
-                                class="form-input" placeholder="e.g., www.joesplumbing.com">
+                            <input type="text" id="website_url" name="website_url" required
+                                class="form-input" placeholder="e.g., joesplumbing.com"
+                                pattern="^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/.*)?$"
+                                title="Enter your website (e.g., joesplumbing.com)">
                         </div>
 
                         <div>
@@ -939,9 +946,28 @@
         const submitBtn = document.getElementById('submit-btn');
         const successMessage = document.getElementById('success-message');
         const errorMessage = document.getElementById('error-message');
+        const formLoadTime = Date.now(); // Track when form loaded
 
         auditForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+
+            // SPAM CHECK 1: Honeypot field (bots fill hidden fields)
+            const honeypot = document.getElementById('website_address').value;
+            if (honeypot) {
+                // Bot detected - silently fail
+                auditForm.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                return;
+            }
+
+            // SPAM CHECK 2: Time-based (form filled too fast = bot)
+            const timeSinceLoad = Date.now() - formLoadTime;
+            if (timeSinceLoad < 3000) { // Less than 3 seconds
+                // Too fast - silently fail
+                auditForm.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                return;
+            }
 
             // Disable button and show loading
             submitBtn.disabled = true;
