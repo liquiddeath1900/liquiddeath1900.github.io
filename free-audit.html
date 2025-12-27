@@ -55,6 +55,9 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- reCAPTCHA v3 - Invisible spam protection -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ldy9zcsAAAAADTaI11WFgifaZUOf5BWctEs-4Jv"></script>
+
     <style>
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -974,7 +977,16 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Analyzing Your Site...';
             errorMessage.classList.add('hidden');
 
-            // Collect form data (include honeypot for server-side verification)
+            // Get reCAPTCHA v3 token first
+            let recaptchaToken = '';
+            try {
+                recaptchaToken = await grecaptcha.execute('6Ldy9zcsAAAAADTaI11WFgifaZUOf5BWctEs-4Jv', {action: 'submit_audit'});
+            } catch (recaptchaError) {
+                console.error('reCAPTCHA error:', recaptchaError);
+                // Continue without token - server will handle
+            }
+
+            // Collect form data (include honeypot + reCAPTCHA for server-side verification)
             const formData = {
                 business_name: document.getElementById('business_name').value,
                 website_url: document.getElementById('website_url').value,
@@ -982,7 +994,8 @@
                 phone: document.getElementById('phone').value || 'Not provided',
                 service_area: document.getElementById('service_area').value,
                 business_type: document.getElementById('business_type').value,
-                website_address: document.getElementById('website_address').value // Honeypot for server check
+                website_address: document.getElementById('website_address').value, // Honeypot
+                recaptcha_token: recaptchaToken // reCAPTCHA v3 token
             };
 
             // Ensure website has https://
