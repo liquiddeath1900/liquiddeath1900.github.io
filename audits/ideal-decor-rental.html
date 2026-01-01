@@ -11,417 +11,94 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
     <style>
-        @page {
-            size: letter;
-            margin: 0.75in;
-        }
+        @page { size: letter; margin: 0.5in 0.6in; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11pt; line-height: 1.4; color: #222; background: white; }
+        :root { --brand-primary: #D5A861; --brand-secondary: #8B6914; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 11pt;
-            line-height: 1.5;
-            color: #222;
-            background: white;
-        }
-
-        /* Only cover page forces a break after */
-        .cover {
-            page-break-after: always;
-        }
-
-        /* BRAND THEMING - Ideal Decor Gold */
-        :root {
-            --brand-primary: #D5A861;
-            --brand-secondary: #8B6914;
-        }
-
-        /* COVER PAGE */
-        .cover {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            padding: 60px;
-            background: linear-gradient(135deg, #8B6914 0%, #D5A861 100%);
-            color: white;
-        }
-
-        .cover .cover-logo {
-            width: 240px;
-            margin-bottom: 30px;
-        }
-
-        .cover h1 {
-            font-size: 42pt;
-            font-weight: 800;
-            letter-spacing: -2px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .cover .tagline {
-            font-size: 14pt;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 30px;
-        }
-
-        .cover .meta {
-            font-size: 11pt;
-            color: rgba(255,255,255,0.5);
-            margin-top: 20px;
-        }
-
-        .cover .scores {
-            display: flex;
-            gap: 20px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .cover .score-item {
-            text-align: center;
-        }
-
-        .cover .score-num {
-            font-size: 36pt;
-            font-weight: 700;
-        }
-
-        .cover .score-label {
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255,255,255,0.6);
-        }
-
+        /* COVER */
+        .cover { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; padding: 60px; background: linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-primary) 100%); color: white; page-break-after: always; }
+        .cover .cover-logo { width: 240px; margin-bottom: 30px; }
+        .cover h1 { font-size: 42pt; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; text-transform: uppercase; }
+        .cover .tagline { font-size: 14pt; color: rgba(255,255,255,0.7); margin-bottom: 30px; }
+        .cover .meta { font-size: 11pt; color: rgba(255,255,255,0.5); margin-top: 20px; }
+        .cover .scores { display: flex; gap: 20px; margin-top: 25px; flex-wrap: wrap; justify-content: center; }
+        .cover .score-item { text-align: center; }
+        .cover .score-num { font-size: 36pt; font-weight: 700; }
+        .cover .score-label { font-size: 9pt; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
         .red { color: #e53935; }
         .yellow { color: #f9a825; }
         .green { color: #43a047; }
 
-        /* CONTENT PAGES */
-        .content {
-            padding: 15px 0;
-        }
-
-        h2 {
-            font-size: 14pt;
-            font-weight: 700;
-            margin-bottom: 10px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #222;
-        }
-
-        h3 {
-            font-size: 11pt;
-            font-weight: 700;
-            margin: 12px 0 6px 0;
-            color: #444;
-        }
-
-        p {
-            margin-bottom: 6px;
-        }
-
-        ul {
-            margin: 5px 0 8px 20px;
-        }
-
-        li {
-            margin: 5px 0;
-        }
+        /* CONTENT */
+        .content { padding: 15px 0; }
+        h2 { font-size: 14pt; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #222; }
+        h3 { font-size: 11pt; font-weight: 700; margin: 12px 0 6px 0; color: #444; }
+        p { margin-bottom: 6px; }
+        ul { margin: 5px 0 8px 20px; }
+        li { margin: 5px 0; }
 
         /* TABLES */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 8px 0 12px 0;
-            font-size: 9pt;
-        }
-
-        th {
-            background: #D5A861;
-            color: white;
-            padding: 6px 8px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        td {
-            padding: 5px 8px;
-            border-bottom: 1px solid #ddd;
-            vertical-align: top;
-        }
-
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-
+        table { width: 100%; border-collapse: collapse; margin: 8px 0 12px 0; font-size: 9pt; page-break-inside: auto; }
+        th { background: var(--brand-primary); color: white; padding: 6px 8px; text-align: left; font-weight: 600; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5px; }
+        td { padding: 5px 8px; border-bottom: 1px solid #ddd; vertical-align: top; }
+        tr { page-break-inside: avoid; }
+        tr:nth-child(even) { background: #f9f9f9; }
         .good { color: #43a047; font-weight: 600; }
         .bad { color: #e53935; font-weight: 600; }
         .warn { color: #f9a825; font-weight: 600; }
 
-        /* ISSUE BOXES */
-        .issue {
-            background: #fff5f5;
-            border: 1px solid #ffcdd2;
-            border-left: 4px solid #e53935;
-            padding: 10px 12px;
-            margin: 8px 0;
-            border-radius: 4px;
-        }
+        /* BOXES */
+        .issue { background: #fff5f5; border: 1px solid #ffcdd2; border-left: 4px solid #e53935; padding: 10px 12px; margin: 8px 0; border-radius: 4px; }
+        .issue h4 { font-size: 10pt; font-weight: 700; color: #c62828; margin-bottom: 8px; }
+        .issue p { margin: 5px 0; font-size: 10pt; }
+        .issue code { display: block; background: #263238; color: #80cbc4; padding: 6px 10px; margin: 6px 0; border-radius: 4px; font-family: 'SF Mono', Consolas, monospace; font-size: 8pt; overflow-wrap: break-word; }
+        .issue .fix { background: #e8f5e9; border-left: 3px solid #43a047; padding: 5px 10px; margin-top: 6px; font-size: 9pt; }
+        .warning { background: #fff8e1; border: 1px solid #ffe082; border-left: 4px solid #f9a825; padding: 10px 12px; margin: 8px 0; border-radius: 4px; }
+        .warning h4 { font-size: 10pt; font-weight: 700; color: #f57c00; margin-bottom: 8px; }
+        .warning p { margin: 5px 0; font-size: 10pt; }
+        .warning .fix { background: #e8f5e9; border-left: 3px solid #43a047; padding: 5px 10px; margin-top: 6px; font-size: 9pt; }
+        .strength { background: #e8f5e9; border: 1px solid #c8e6c9; border-left: 4px solid #43a047; padding: 10px 12px; margin: 8px 0; border-radius: 4px; }
+        .strength h4 { font-size: 10pt; font-weight: 700; color: #2e7d32; margin-bottom: 5px; }
 
-        .issue h4 {
-            font-size: 10pt;
-            font-weight: 700;
-            color: #c62828;
-            margin-bottom: 8px;
-        }
-
-        .issue p {
-            margin: 5px 0;
-            font-size: 10pt;
-        }
-
-        .issue code {
-            display: block;
-            background: #263238;
-            color: #80cbc4;
-            padding: 6px 10px;
-            margin: 6px 0;
-            border-radius: 4px;
-            font-family: 'SF Mono', Consolas, monospace;
-            font-size: 8pt;
-            overflow-wrap: break-word;
-        }
-
-        .issue .fix {
-            background: #e8f5e9;
-            border-left: 3px solid #43a047;
-            padding: 5px 10px;
-            margin-top: 6px;
-            font-size: 9pt;
-        }
-
-        /* STRENGTH BOXES */
-        .strength {
-            background: #e8f5e9;
-            border: 1px solid #c8e6c9;
-            border-left: 4px solid #43a047;
-            padding: 10px 12px;
-            margin: 8px 0;
-            border-radius: 4px;
-        }
-
-        .strength h4 {
-            font-size: 10pt;
-            font-weight: 700;
-            color: #2e7d32;
-            margin-bottom: 5px;
-        }
-
-        /* CRITICAL ALERT */
-        .critical-alert {
-            background: #e53935;
-            color: white;
-            padding: 12px;
-            border-radius: 4px;
-            margin: 10px 0;
-            text-align: center;
-        }
-
-        .critical-alert h4 {
-            font-size: 11pt;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .critical-alert p {
-            margin: 0;
-            font-size: 9pt;
-        }
-
-        /* PRIORITY TAGS */
-        .tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 3px;
-            font-size: 8pt;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
+        /* TAGS & CHECKLIST */
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 3px; font-size: 8pt; font-weight: 700; text-transform: uppercase; }
         .tag-high { background: #e53935; color: white; }
         .tag-med { background: #f9a825; color: #222; }
         .tag-low { background: #43a047; color: white; }
+        .checklist { list-style: none; margin: 8px 0; }
+        .checklist li { padding: 4px 0; padding-left: 24px; position: relative; border-bottom: 1px solid #eee; font-size: 9pt; }
+        .checklist li:before { content: ""; position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border: 2px solid #999; border-radius: 3px; }
 
-        /* CHECKLIST */
-        .checklist {
-            list-style: none;
-            margin: 8px 0;
-        }
+        /* SUMMARY & LAYOUT */
+        .summary { background: var(--brand-primary); color: white; padding: 15px 20px; margin: 15px 0; border-radius: 6px; }
+        .summary h3 { color: white; margin-top: 0; margin-bottom: 15px; font-size: 14pt; }
+        .summary li { margin: 4px 0; font-size: 9pt; }
+        .two-col { display: flex; gap: 20px; }
+        .two-col > div { flex: 1; }
+        .footer { margin-top: 20px; padding-top: 15px; border-top: 2px solid #eee; text-align: center; }
+        .footer-logo { width: 180px; margin-bottom: 10px; }
+        .footer p { font-size: 9pt; color: #666; margin: 3px 0; }
 
-        .checklist li {
-            padding: 4px 0;
-            padding-left: 24px;
-            position: relative;
-            border-bottom: 1px solid #eee;
-            font-size: 9pt;
-        }
-
-        .checklist li:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 16px;
-            height: 16px;
-            border: 2px solid #999;
-            border-radius: 3px;
-        }
-
-        /* SUMMARY BOX */
-        .summary {
-            background: #D5A861;
-            color: white;
-            padding: 15px 20px;
-            margin: 15px 0;
-            border-radius: 6px;
-        }
-
-        .summary h3 {
-            color: white;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 14pt;
-        }
-
-        .summary ol {
-            margin-left: 20px;
-        }
-
-        .summary li {
-            margin: 4px 0;
-            font-size: 9pt;
-        }
-
-        /* TWO COLUMNS */
-        .two-col {
-            display: flex;
-            gap: 20px;
-        }
-
-        .two-col > div {
-            flex: 1;
-        }
-
-        /* PDF PAGE BREAK CONTROLS */
-        table {
-            page-break-inside: auto;
-            break-inside: auto;
-        }
-
-        tr {
-            page-break-inside: avoid;
-            break-inside: avoid;
-        }
-
-        .issue, .strength {
-            page-break-inside: avoid;
-            break-inside: avoid;
-        }
-
-        h2, h3 {
-            page-break-after: avoid;
-            break-after: avoid;
-        }
-
-        .two-col {
-            page-break-inside: auto;
-            break-inside: auto;
-        }
-
-        /* SECTION-SPECIFIC PAGE BREAKS */
-        .executive-summary {
-            padding: 15px 0;
-        }
-
-        .critical-issues {
-            padding: 15px 0;
-            page-break-before: always;
-        }
-
-        .on-page-seo {
-            padding: 15px 0;
-            page-break-before: always;
-        }
-
-        .site-structure {
-            padding: 15px 0;
-            page-break-before: always;
-        }
-
-        .technical-seo {
-            padding: 15px 0;
-            page-break-before: always;
-        }
-
-        .local-seo {
-            padding: 15px 0;
-            page-break-before: always;
-        }
-
-        .action-plan {
-            padding: 15px 0;
-            page-break-before: always;
-        }
-
-        /* FOOTER */
-        .footer {
-            text-align: center;
-            font-size: 9pt;
-            color: #888;
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px solid #ddd;
-        }
-
-        .footer .agency-logo {
-            width: 120px;
-            margin-bottom: 10px;
-        }
-
-        .footer .agency-contact {
-            margin-top: 10px;
-            font-size: 10pt;
-            color: #555;
-        }
-
-        .footer .agency-contact a {
-            color: #D5A861;
-            text-decoration: none;
-        }
+        /* PAGE BREAKS */
+        .critical-issues { page-break-before: always; padding: 15px 0; }
+        .on-page-seo { page-break-before: always; padding: 15px 0; }
+        .site-structure { page-break-before: always; padding: 15px 0; }
+        .technical-seo { page-break-before: always; padding: 15px 0; }
+        .local-seo { page-break-before: always; padding: 15px 0; }
+        .action-plan { page-break-before: always; padding: 15px 0; }
+        .executive-summary { padding: 15px 0; }
+        h2, h3 { page-break-after: avoid; }
 
         /* RESPONSIVE - handles long brand names */
         @media screen and (max-width: 768px) {
             .cover { padding: 40px 20px; min-height: 100vh; }
-            .cover h1 { font-size: 20pt; word-break: break-all; overflow-wrap: anywhere; max-width: 100%; }
+            .cover h1 { font-size: 20pt; word-break: break-word; overflow-wrap: anywhere; max-width: 100%; }
             .cover .scores { flex-wrap: wrap; gap: 12px; justify-content: center; }
             .cover .score-item { min-width: 60px; }
             .cover .score-num { font-size: 24pt; }
             .cover .score-label { font-size: 8pt; }
-            .content { padding: 24px 20px; }
+            .content, .executive-summary, .critical-issues, .on-page-seo, .site-structure, .technical-seo, .local-seo, .action-plan { padding: 24px 20px; }
             table { display: block; overflow-x: auto; font-size: 9pt; }
             .two-col { flex-direction: column; }
         }
@@ -431,7 +108,7 @@
             .cover .tagline { font-size: 11pt; }
             .cover .score-num { font-size: 20pt; }
             .cover .score-label { font-size: 7pt; }
-            .content { padding: 20px 16px; }
+            .content, .executive-summary, .critical-issues, .on-page-seo, .site-structure, .technical-seo, .local-seo, .action-plan { padding: 20px 16px; }
         }
         @media screen and (max-width: 360px) {
             .cover h1 { font-size: 14pt; }
@@ -961,15 +638,9 @@
     </div>
 
     <div class="footer">
-        <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="agency-logo">
-        <p>Report generated by SeamlessFlow | January 1, 2026</p>
-        <p>idealdecorrental.com | Event Rentals | Huntington NY & Conyers GA</p>
-        <div class="agency-contact">
-            <strong>SeamlessFlow.ai</strong> | Local SEO & Business Automation<br>
-            <a href="tel:+13477498146">(347) 749-8146</a> |
-            <a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a> |
-            <a href="https://seamlessflow.ai">seamlessflow.ai</a>
-        </div>
+        <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="footer-logo">
+        <p><a href="tel:+13477498146" style="color:#1a1a2e; text-decoration:none; font-weight:bold;">(347) 749-8146</a> | <a href="mailto:info@seamlessflow.ai" style="color:#1a1a2e; text-decoration:none;">info@seamlessflow.ai</a> | <a href="https://seamlessflow.ai" style="color:#1a1a2e; text-decoration:none;">seamlessflow.ai</a></p>
+        <p style="margin-top: 10px; font-size: 8pt; color: #999;">Audit generated January 1, 2026</p>
     </div>
 </div>
 
