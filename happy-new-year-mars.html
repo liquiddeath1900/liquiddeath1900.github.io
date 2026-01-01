@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026 - Mars Attack!</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #000000 0%, #1a0505 30%, #3d1010 60%, #8b2500 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+        }
+
+        .mars-surface {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(180deg, #8b2500 0%, #5c1a00 50%, #3d1010 100%);
+            border-top: 3px solid #ff4500;
+            box-shadow: 0 -20px 60px rgba(255, 69, 0, 0.3);
+        }
+
+        .crater {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, #3d1010 0%, #5c1a00 100%);
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .transmission {
+            font-size: clamp(12px, 2vw, 18px);
+            color: #00ff00;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: flicker 0.5s ease forwards, blink 1s step-end infinite;
+        }
+
+        .year {
+            font-size: clamp(60px, 18vw, 180px);
+            font-weight: 900;
+            color: #ff4500;
+            text-shadow:
+                0 0 20px #ff4500,
+                0 0 40px #ff4500,
+                0 0 80px #ff0000,
+                0 0 120px #ff0000;
+            animation: pulse-glow 2s ease-in-out infinite;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.5s forwards, pulse-glow 2s ease-in-out infinite;
+        }
+
+        .message {
+            font-size: clamp(16px, 3vw, 28px);
+            color: #00ff00;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #00ff00;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
+        }
+
+        .rocket-container {
+            position: fixed;
+            animation: land 4s ease-out forwards;
+            z-index: 100;
+        }
+
+        .rocket {
+            font-size: clamp(60px, 15vw, 120px);
+            filter: drop-shadow(0 0 30px #00ffff);
+            animation: hover 2s ease-in-out infinite;
+            animation-delay: 4s;
+        }
+
+        .rocket-flame {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            animation: flame 0.1s linear infinite;
+            opacity: 1;
+        }
+
+        .claude-badge {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff6b6b, #a855f7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: clamp(10px, 2vw, 14px);
+            color: white;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
+            animation: badge-glow 1s ease-in-out infinite;
+        }
+
+        .collab-message {
+            position: fixed;
+            bottom: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease 3.5s forwards;
+            z-index: 50;
+        }
+
+        .collab-text {
+            font-size: clamp(14px, 3vw, 24px);
+            color: #fff;
+            text-shadow: 0 0 20px #a855f7;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 2px solid #a855f7;
+        }
+
+        .alien-text {
+            font-size: clamp(20px, 4vw, 36px);
+            color: #00ffff;
+            margin-top: 30px;
+            text-shadow: 0 0 20px #00ffff;
+            opacity: 0;
+            animation: fadeIn 1s ease 2s forwards;
+            letter-spacing: 2px;
+        }
+
+        .beam {
+            position: fixed;
+            width: 100px;
+            height: 0;
+            background: linear-gradient(180deg, rgba(0,255,255,0.8) 0%, rgba(0,255,255,0) 100%);
+            left: 50%;
+            transform: translateX(-50%);
+            animation: beam-down 2s ease-out 4.5s forwards;
+            z-index: 5;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .ufo {
+            position: fixed;
+            font-size: 30px;
+            animation: fly-across 8s linear infinite;
+            opacity: 0.7;
+        }
+
+        .laser {
+            position: fixed;
+            width: 3px;
+            height: 0;
+            background: #00ff00;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            animation: shoot 0.5s ease-out forwards;
+        }
+
+        @keyframes land {
+            0% { top: -150px; left: 50%; transform: translateX(-50%) rotate(-10deg); }
+            60% { top: 20%; transform: translateX(-50%) rotate(5deg); }
+            80% { top: 15%; transform: translateX(-50%) rotate(-3deg); }
+            100% { top: 18%; left: 50%; transform: translateX(-50%) rotate(0deg); }
+        }
+
+        @keyframes hover {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes flame {
+            0% { opacity: 1; transform: translateX(-50%) scaleY(1); }
+            50% { opacity: 0.7; transform: translateX(-50%) scaleY(1.3); }
+            100% { opacity: 1; transform: translateX(-50%) scaleY(1); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { text-shadow: 0 0 20px #ff4500, 0 0 40px #ff4500; }
+            50% { text-shadow: 0 0 40px #ff4500, 0 0 80px #ff4500, 0 0 120px #ff0000; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes badge-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.8); }
+            50% { box-shadow: 0 0 40px rgba(168, 85, 247, 1), 0 0 60px rgba(255, 107, 107, 0.5); }
+        }
+
+        @keyframes beam-down {
+            0% { height: 0; top: 30%; opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { height: 40vh; top: 30%; opacity: 0.6; }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes fly-across {
+            0% { left: -50px; top: 15%; }
+            100% { left: 110%; top: 25%; }
+        }
+
+        @keyframes shoot {
+            0% { height: 0; opacity: 1; }
+            100% { height: 100px; opacity: 0; }
+        }
+
+        .earth {
+            position: fixed;
+            top: 10%;
+            right: 10%;
+            width: clamp(40px, 8vw, 80px);
+            height: clamp(40px, 8vw, 80px);
+            background: radial-gradient(circle at 30% 30%, #4a90d9, #1e5799, #0a2a5c);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(74, 144, 217, 0.5);
+            animation: earth-glow 3s ease-in-out infinite;
+        }
+
+        .earth::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        @keyframes earth-glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(74, 144, 217, 0.5); }
+            50% { box-shadow: 0 0 50px rgba(74, 144, 217, 0.8); }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="earth"></div>
+
+    <div class="mars-surface">
+        <div class="crater" style="width: 60px; height: 30px; left: 10%; bottom: 40%;"></div>
+        <div class="crater" style="width: 100px; height: 50px; left: 60%; bottom: 20%;"></div>
+        <div class="crater" style="width: 40px; height: 20px; left: 80%; bottom: 60%;"></div>
+        <div class="crater" style="width: 80px; height: 40px; left: 30%; bottom: 10%;"></div>
+    </div>
+
+    <div class="container">
+        <div class="transmission">📡 Incoming Transmission from Mars...</div>
+        <div class="year">2026</div>
+        <div class="message">🔴 MARS HAS LANDED 🔴</div>
+        <div class="alien-text">👽 We come in peace... to BUILD! 👽</div>
+    </div>
+
+    <div class="rocket-container">
+        <div class="claude-badge">CLAUDE CODE 🤖</div>
+        <div class="rocket">🚀</div>
+        <div class="rocket-flame">🔥</div>
+    </div>
+
+    <div class="beam"></div>
+
+    <div class="collab-message">
+        <div class="collab-text">
+            🛸 You + Claude Code = Galactic Domination 🛸<br>
+            <span style="font-size: 0.8em; color: #00ff00;">Ready to conquer 2026 together!</span>
+        </div>
+    </div>
+
+    <div class="ufo" style="animation-delay: 2s;">🛸</div>
+    <div class="ufo" style="animation-delay: 5s; animation-duration: 6s;">🛸</div>
+
+    <script>
+        // Stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.width = (Math.random() * 2 + 1) + 'px';
+            star.style.height = star.style.width;
+            starsContainer.appendChild(star);
+        }
+
+        // Random laser shots
+        function shootLaser() {
+            const laser = document.createElement('div');
+            laser.className = 'laser';
+            laser.style.left = Math.random() * 100 + '%';
+            laser.style.top = Math.random() * 50 + '%';
+            document.body.appendChild(laser);
+            setTimeout(() => laser.remove(), 500);
+        }
+
+        setInterval(shootLaser, 2000);
+
+        // Hide flame after landing
+        setTimeout(() => {
+            document.querySelector('.rocket-flame').style.display = 'none';
+        }, 4000);
+    </script>
+</body>
+</html>
