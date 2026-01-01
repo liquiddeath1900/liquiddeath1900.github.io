@@ -415,23 +415,28 @@
 
         /* RESPONSIVE - handles long brand names */
         @media screen and (max-width: 768px) {
-            .cover { padding: 40px 24px; min-height: 100vh; }
-            .cover h1 { font-size: 24pt; word-break: break-word; overflow-wrap: break-word; }
-            .cover .scores { flex-wrap: wrap; gap: 16px; justify-content: center; }
-            .cover .score-num { font-size: 28pt; }
+            .cover { padding: 40px 20px; min-height: 100vh; }
+            .cover h1 { font-size: 20pt; word-break: break-all; overflow-wrap: anywhere; max-width: 100%; }
+            .cover .scores { flex-wrap: wrap; gap: 12px; justify-content: center; }
+            .cover .score-item { min-width: 60px; }
+            .cover .score-num { font-size: 24pt; }
+            .cover .score-label { font-size: 8pt; }
             .content { padding: 24px 20px; }
             table { display: block; overflow-x: auto; font-size: 9pt; }
             .two-col { flex-direction: column; }
         }
         @media screen and (max-width: 480px) {
-            .cover h1 { font-size: 18pt; }
-            .cover .tagline { font-size: 12pt; }
-            .cover .score-num { font-size: 24pt; }
+            .cover { padding: 30px 16px; }
+            .cover h1 { font-size: 16pt; letter-spacing: -1px; }
+            .cover .tagline { font-size: 11pt; }
+            .cover .score-num { font-size: 20pt; }
+            .cover .score-label { font-size: 7pt; }
             .content { padding: 20px 16px; }
         }
         @media screen and (max-width: 360px) {
             .cover h1 { font-size: 14pt; }
-            .cover .score-num { font-size: 20pt; }
+            .cover .score-num { font-size: 18pt; }
+            .cover .scores { gap: 8px; }
         }
     </style>
 </head>
