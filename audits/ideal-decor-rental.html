@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ideal Decor Rental - SEO & Performance Audit</title>
+    <meta property="og:title" content="Ideal Decor Rental - SEO Audit by SeamlessFlow">
+    <meta property="og:description" content="Comprehensive SEO & Performance Audit Report">
+    <meta property="og:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #222;
+            background: white;
+        }
+
+        /* Only cover page forces a break after */
+        .cover {
+            page-break-after: always;
+        }
+
+        /* BRAND THEMING - Ideal Decor Gold */
+        :root {
+            --brand-primary: #D5A861;
+            --brand-secondary: #8B6914;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #8B6914 0%, #D5A861 100%);
+            color: white;
+        }
+
+        .cover .cover-logo {
+            width: 240px;
+            margin-bottom: 30px;
+        }
+
+        .cover h1 {
+            font-size: 42pt;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .cover .tagline {
+            font-size: 14pt;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: rgba(255,255,255,0.5);
+            margin-top: 20px;
+        }
+
+        .cover .scores {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .cover .score-item {
+            text-align: center;
+        }
+
+        .cover .score-num {
+            font-size: 36pt;
+            font-weight: 700;
+        }
+
+        .cover .score-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .red { color: #e53935; }
+        .yellow { color: #f9a825; }
+        .green { color: #43a047; }
+
+        /* CONTENT PAGES */
+        .content {
+            padding: 15px 0;
+        }
+
+        h2 {
+            font-size: 14pt;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #222;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin: 12px 0 6px 0;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 6px;
+        }
+
+        ul {
+            margin: 5px 0 8px 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 12px 0;
+            font-size: 9pt;
+        }
+
+        th {
+            background: #D5A861;
+            color: white;
+            padding: 6px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 5px 8px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .good { color: #43a047; font-weight: 600; }
+        .bad { color: #e53935; font-weight: 600; }
+        .warn { color: #f9a825; font-weight: 600; }
+
+        /* ISSUE BOXES */
+        .issue {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #e53935;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .issue h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #c62828;
+            margin-bottom: 8px;
+        }
+
+        .issue p {
+            margin: 5px 0;
+            font-size: 10pt;
+        }
+
+        .issue code {
+            display: block;
+            background: #263238;
+            color: #80cbc4;
+            padding: 6px 10px;
+            margin: 6px 0;
+            border-radius: 4px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 8pt;
+            overflow-wrap: break-word;
+        }
+
+        .issue .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 5px 10px;
+            margin-top: 6px;
+            font-size: 9pt;
+        }
+
+        /* STRENGTH BOXES */
+        .strength {
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-left: 4px solid #43a047;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .strength h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        /* CRITICAL ALERT */
+        .critical-alert {
+            background: #e53935;
+            color: white;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .critical-alert h4 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .critical-alert p {
+            margin: 0;
+            font-size: 9pt;
+        }
+
+        /* PRIORITY TAGS */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-high { background: #e53935; color: white; }
+        .tag-med { background: #f9a825; color: #222; }
+        .tag-low { background: #43a047; color: white; }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            margin: 8px 0;
+        }
+
+        .checklist li {
+            padding: 4px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            font-size: 9pt;
+        }
+
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #999;
+            border-radius: 3px;
+        }
+
+        /* SUMMARY BOX */
+        .summary {
+            background: #D5A861;
+            color: white;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 14pt;
+        }
+
+        .summary ol {
+            margin-left: 20px;
+        }
+
+        .summary li {
+            margin: 4px 0;
+            font-size: 9pt;
+        }
+
+        /* TWO COLUMNS */
+        .two-col {
+            display: flex;
+            gap: 20px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        /* PDF PAGE BREAK CONTROLS */
+        table {
+            page-break-inside: auto;
+            break-inside: auto;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .issue, .strength {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        h2, h3 {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        .two-col {
+            page-break-inside: auto;
+            break-inside: auto;
+        }
+
+        /* SECTION-SPECIFIC PAGE BREAKS */
+        .executive-summary {
+            padding: 15px 0;
+        }
+
+        .critical-issues {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .on-page-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .site-structure {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .technical-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .local-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .action-plan {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #888;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .agency-logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .footer .agency-contact {
+            margin-top: 10px;
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .footer .agency-contact a {
+            color: #D5A861;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="cover">
+    <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="cover-logo">
+    <h1>IDEALDECORRENTAL.COM</h1>
+    <div class="tagline">SEO & Performance Audit Report</div>
+
+    <div class="scores">
+        <div class="score-item">
+            <div class="score-num red">45</div>
+            <div class="score-label">Technical</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num red">35</div>
+            <div class="score-label">On-Page</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">55</div>
+            <div class="score-label">Security</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">70</div>
+            <div class="score-label">Mobile</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num red">40</div>
+            <div class="score-label">Local</div>
+        </div>
+    </div>
+
+    <div class="meta">
+        January 1, 2026<br>
+        Custom PHP / Bootstrap | Huntington NY & Conyers GA
+    </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="executive-summary">
+    <h2>Executive Summary</h2>
+
+    <div class="critical-alert">
+        <h4>CRITICAL: Meta Descriptions Missing Across Entire Site</h4>
+        <p>Every page shows "Call (631) 923-6169" as the description. Google can't understand your services. This is killing your click-through rate.</p>
+    </div>
+
+    <div class="strength">
+        <h4>What's Working</h4>
+        <ul>
+            <li>SSL certificate active with proper HTTPS redirect</li>
+            <li>Extensive product catalog (300+ items indexed)</li>
+            <li>Good heading structure with clear H1 tags</li>
+            <li>All images have alt text for accessibility</li>
+            <li>Mobile-responsive Bootstrap framework</li>
+            <li>Presence on The Knot wedding marketplace</li>
+        </ul>
+    </div>
+
+    <h3>Site Overview</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Current State</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Business</td>
+            <td>IDEAL Decor Rentals - Event Furniture Rental</td>
+            <td class="good">Active</td>
+        </tr>
+        <tr>
+            <td>Owner</td>
+            <td>Wayne Robinson</td>
+            <td class="good">Listed</td>
+        </tr>
+        <tr>
+            <td>NY Location</td>
+            <td>1670 New York Avenue, Huntington NY 11746</td>
+            <td class="good">Present</td>
+        </tr>
+        <tr>
+            <td>GA Location</td>
+            <td>2203 Old Covington Hwy, Suite B, Conyers GA 30013</td>
+            <td class="good">Present</td>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td>SSL certificate active, HTTP redirects properly</td>
+            <td class="good">Secure</td>
+        </tr>
+        <tr>
+            <td>Sitemap</td>
+            <td>Present but last updated April 2022</td>
+            <td class="bad">Outdated</td>
+        </tr>
+        <tr>
+            <td>robots.txt</td>
+            <td>Returns 404 error</td>
+            <td class="bad">Missing</td>
+        </tr>
+        <tr>
+            <td>Google Business Profile</td>
+            <td>Not found in search results</td>
+            <td class="bad">Missing</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CRITICAL ISSUES -->
+<div class="critical-issues">
+    <h2>Critical Issues</h2>
+    <p>These issues are severely impacting your online visibility and must be addressed immediately.</p>
+
+    <div class="issue">
+        <h4>1. Useless Meta Descriptions Across Entire Site <span class="tag tag-high">Critical</span></h4>
+        <code>&lt;meta name="description" content=" Call (631) 923-6169"&gt;</code>
+        <p><strong>Impact:</strong> Google shows this in search results. People don't click because it tells them nothing about your business.</p>
+        <div class="fix"><strong>Fix:</strong> Write unique 150-160 character descriptions for each page. Example: "Luxury event rentals in NY & GA. Acrylic tables, infinity chairs, LED furniture & custom pieces for weddings and events."</div>
+    </div>
+
+    <div class="issue">
+        <h4>2. Lorem Ipsum Placeholder Text on Homepage <span class="tag tag-high">Critical</span></h4>
+        <code>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis rem deleniti..."</code>
+        <p><strong>Impact:</strong> Looks extremely unprofessional. Google may penalize for thin/fake content.</p>
+        <div class="fix"><strong>Fix:</strong> Replace the "Interior Design Ideas" section with real content about your services, or remove the section entirely.</div>
+    </div>
+
+    <div class="issue">
+        <h4>3. No Schema Markup (Structured Data) <span class="tag tag-high">High</span></h4>
+        <code>Found: 0 schema scripts on homepage</code>
+        <p><strong>Impact:</strong> Missing rich snippets in Google (star ratings, prices, business hours). Competitors with schema get more clicks.</p>
+        <div class="fix"><strong>Fix:</strong> Add LocalBusiness schema for both locations, plus Product schema for rental items.</div>
+    </div>
+
+    <div class="issue">
+        <h4>4. robots.txt Returns 404 Error <span class="tag tag-med">Medium</span></h4>
+        <code>https://idealdecorrental.com/robots.txt → 404 Not Found</code>
+        <p><strong>Impact:</strong> Search engines can't find crawling instructions. May affect indexing efficiency.</p>
+        <div class="fix"><strong>Fix:</strong> Create robots.txt at root: User-agent: * Allow: / Sitemap: https://idealdecorrental.com/sitemap.xml</div>
+    </div>
+
+    <div class="issue">
+        <h4>5. Twitter/Social Meta Tags Point to Wrong Domain <span class="tag tag-med">Medium</span></h4>
+        <code>twitter:domain: "https://idealroomdecor.4ed.us/"</code>
+        <p><strong>Impact:</strong> Social shares may link to wrong site or show broken previews.</p>
+        <div class="fix"><strong>Fix:</strong> Update all Twitter meta tags to use idealdecorrental.com domain.</div>
+    </div>
+</div>
+
+<!-- ON-PAGE SEO ANALYSIS -->
+<div class="on-page-seo">
+    <h2>On-Page SEO Analysis</h2>
+
+    <table>
+        <tr>
+            <th style="width:20%">Element</th>
+            <th style="width:35%">Current State</th>
+            <th style="width:12%">Status</th>
+            <th style="width:33%">Recommendation</th>
+        </tr>
+        <tr>
+            <td><strong>Title Tag</strong></td>
+            <td>"Home - Ideal Room Decor" (24 chars)</td>
+            <td class="warn">Weak</td>
+            <td>Add location + service keywords</td>
+        </tr>
+        <tr>
+            <td><strong>Meta Description</strong></td>
+            <td>"Call (631) 923-6169"</td>
+            <td class="bad">Critical</td>
+            <td>Write compelling 150-char description</td>
+        </tr>
+        <tr>
+            <td><strong>H1 Tag</strong></td>
+            <td>"High End Event Rentals"</td>
+            <td class="good">Good</td>
+            <td>Could add location for local SEO</td>
+        </tr>
+        <tr>
+            <td><strong>H2 Tags</strong></td>
+            <td>3 found, well-structured</td>
+            <td class="good">Good</td>
+            <td>Include service keywords</td>
+        </tr>
+        <tr>
+            <td><strong>Image Alt Text</strong></td>
+            <td>11 images, all have alt</td>
+            <td class="good">Good</td>
+            <td>Make alts more descriptive</td>
+        </tr>
+        <tr>
+            <td><strong>Canonical Tag</strong></td>
+            <td>Not present</td>
+            <td class="bad">Missing</td>
+            <td>Add self-referencing canonicals</td>
+        </tr>
+        <tr>
+            <td><strong>Schema Markup</strong></td>
+            <td>None found</td>
+            <td class="bad">Missing</td>
+            <td>Add LocalBusiness + Product schemas</td>
+        </tr>
+        <tr>
+            <td><strong>Keywords Meta</strong></td>
+            <td>Empty</td>
+            <td class="warn">N/A</td>
+            <td>Not used by Google, low priority</td>
+        </tr>
+    </table>
+
+    <h3>Content Opportunities</h3>
+    <table>
+        <tr>
+            <th>Missing Page</th>
+            <th>Why It Matters</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>Services Page</td>
+            <td>No dedicated page explaining rental process and pricing</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>Location Pages</td>
+            <td>"Event rentals Huntington NY" - local keyword targeting</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>Contact Page</td>
+            <td>Only modal popup exists, no dedicated /contact URL</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>FAQ Page</td>
+            <td>Answer common questions, capture voice search</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- SITE STRUCTURE -->
+<div class="site-structure">
+    <h2>Site Structure</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Core Pages Found</h3>
+            <table>
+                <tr><th>Page</th><th>Status</th></tr>
+                <tr><td>Homepage</td><td class="good">Live</td></tr>
+                <tr><td>About</td><td class="good">Live</td></tr>
+                <tr><td>Gallery</td><td class="good">Live</td></tr>
+                <tr><td>Press</td><td class="good">Live</td></tr>
+                <tr><td>Catalog</td><td class="good">30+ categories</td></tr>
+                <tr><td>Contact</td><td class="warn">Modal only</td></tr>
+                <tr><td>Services</td><td class="bad">Missing</td></tr>
+                <tr><td>Locations</td><td class="bad">Missing</td></tr>
+                <tr><td>FAQ</td><td class="bad">Missing</td></tr>
+            </table>
+
+            <h3>URL Issues</h3>
+            <table>
+                <tr><th>Issue</th><th>Details</th></tr>
+                <tr><td>Duplicate URLs</td><td>/catalog/barstools vs /catalog/bar-stools</td></tr>
+                <tr><td>No Contact URL</td><td>Contact links use javascript:void(0)</td></tr>
+                <tr><td>Sitemap Outdated</td><td>Last updated April 2022</td></tr>
+            </table>
+        </div>
+        <div>
+            <h3>Catalog Categories (30+)</h3>
+            <table>
+                <tr><th>Category</th><th>Items</th></tr>
+                <tr><td>Seating</td><td>60+ chairs</td></tr>
+                <tr><td>Bar Stools</td><td>20+ options</td></tr>
+                <tr><td>Tables</td><td>Multiple types</td></tr>
+                <tr><td>Bars</td><td>20+ styles</td></tr>
+                <tr><td>LED Furniture</td><td>10+ items</td></tr>
+                <tr><td>Props</td><td>40+ pieces</td></tr>
+                <tr><td>Thrones</td><td>Available</td></tr>
+                <tr><td>Custom Products</td><td>Available</td></tr>
+            </table>
+            <p><strong>Note:</strong> Extensive catalog is a strength, but needs better SEO optimization per category.</p>
+        </div>
+    </div>
+</div>
+
+<!-- TECHNICAL SEO -->
+<div class="technical-seo">
+    <h2>Technical SEO & Security</h2>
+
+    <h3>Positive Findings</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Status</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td class="good">Enabled</td>
+            <td>SSL certificate active</td>
+        </tr>
+        <tr>
+            <td>HTTP Redirect</td>
+            <td class="good">301 Redirect</td>
+            <td>HTTP properly redirects to HTTPS</td>
+        </tr>
+        <tr>
+            <td>Mobile Viewport</td>
+            <td class="good">Present</td>
+            <td>width=device-width, initial-scale=1</td>
+        </tr>
+        <tr>
+            <td>Framework</td>
+            <td class="good">Bootstrap</td>
+            <td>Responsive design framework</td>
+        </tr>
+        <tr>
+            <td>Sitemap</td>
+            <td class="warn">Exists</td>
+            <td>Present but outdated (April 2022)</td>
+        </tr>
+    </table>
+
+    <h3>Security Header Issues</h3>
+    <div class="issue">
+        <h4>Missing Security Headers <span class="tag tag-med">Medium</span></h4>
+        <code>Current: Server: Apache | No HSTS | No X-Frame-Options | No CSP</code>
+        <p><strong>Impact:</strong> Site vulnerable to clickjacking, XSS attacks, MIME sniffing.</p>
+        <div class="fix"><strong>Fix:</strong> Add security headers via .htaccess: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, HSTS</div>
+    </div>
+
+    <div class="issue">
+        <h4>Server Version Exposed <span class="tag tag-low">Low</span></h4>
+        <code>Server: Apache</code>
+        <p><strong>Impact:</strong> Attackers can target known Apache vulnerabilities.</p>
+        <div class="fix"><strong>Fix:</strong> Add "ServerTokens Prod" to Apache config to hide version info.</div>
+    </div>
+
+    <h3>Third-Party Scripts</h3>
+    <table>
+        <tr>
+            <th>Script</th>
+            <th>Purpose</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>Bootstrap CSS/JS</td>
+            <td>Framework</td>
+            <td class="good">Required</td>
+        </tr>
+        <tr>
+            <td>Owl Carousel</td>
+            <td>Image slider</td>
+            <td class="warn">Minor speed impact</td>
+        </tr>
+        <tr>
+            <td>FontAwesome</td>
+            <td>Icons</td>
+            <td class="warn">Could optimize</td>
+        </tr>
+        <tr>
+            <td>Banner Video (MP4)</td>
+            <td>Hero media</td>
+            <td class="warn">Check file size</td>
+        </tr>
+    </table>
+</div>
+
+<!-- LOCAL SEO + KEYWORDS -->
+<div class="local-seo">
+    <h2>Local SEO</h2>
+
+    <h3>NAP Consistency (Name, Address, Phone)</h3>
+    <table>
+        <tr>
+            <th>Platform</th>
+            <th>Business Name</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Website Title</td>
+            <td>Ideal Room Decor</td>
+            <td class="warn">Inconsistent</td>
+        </tr>
+        <tr>
+            <td>Website Content</td>
+            <td>IDEAL Decor Rentals</td>
+            <td class="warn">Different name</td>
+        </tr>
+        <tr>
+            <td>The Knot</td>
+            <td>Ideal Decor Rentals / Iconic Decor Rentals</td>
+            <td class="bad">Multiple names</td>
+        </tr>
+        <tr>
+            <td>Domain</td>
+            <td>idealdecorrental.com</td>
+            <td class="good">Clear</td>
+        </tr>
+        <tr>
+            <td>Google Business Profile</td>
+            <td>Not found in search</td>
+            <td class="bad">Missing</td>
+        </tr>
+    </table>
+
+    <div class="issue">
+        <h4>Google Business Profile Not Found <span class="tag tag-high">Critical</span></h4>
+        <p><strong>Impact:</strong> Invisible in "event rentals near me" searches. Competitors appearing while you're not.</p>
+        <div class="fix"><strong>Fix:</strong> Create/claim GBP for both NY and GA locations immediately. This is free and takes 1 hour.</div>
+    </div>
+
+    <div class="issue">
+        <h4>0 Reviews on The Knot <span class="tag tag-med">Medium</span></h4>
+        <p><strong>Impact:</strong> No social proof. Couples compare vendors by reviews.</p>
+        <div class="fix"><strong>Fix:</strong> Request reviews from recent clients. Send follow-up emails after events.</div>
+    </div>
+
+    <h2 style="margin-top:30px;">Target Keywords</h2>
+
+    <table>
+        <tr>
+            <th>Keyword</th>
+            <th>Intent</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>event rentals Long Island</td>
+            <td>Local</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>wedding rentals Huntington NY</td>
+            <td>Service + location</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>luxury event rentals Atlanta</td>
+            <td>Local</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>acrylic furniture rental NYC</td>
+            <td>Product specific</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>LED furniture rental NY</td>
+            <td>Product specific</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>throne chair rental wedding</td>
+            <td>Product specific</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>ghost chair rental Long Island</td>
+            <td>Product + location</td>
+            <td><span class="tag tag-low">Low</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="content action-plan">
+    <h2>Action Plan</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Week 1: Emergency Fixes</h3>
+            <ul class="checklist">
+                <li>Create Google Business Profiles (NY & GA)</li>
+                <li>Write unique meta descriptions for top 10 pages</li>
+                <li>Remove Lorem Ipsum placeholder text</li>
+                <li>Create robots.txt file</li>
+                <li>Fix Twitter meta domain references</li>
+            </ul>
+
+            <h3>Week 2: Technical Fixes</h3>
+            <ul class="checklist">
+                <li>Add security headers to .htaccess</li>
+                <li>Regenerate sitemap with current dates</li>
+                <li>Add canonical tags to all pages</li>
+                <li>Create dedicated Contact page</li>
+                <li>Add LocalBusiness schema markup</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Week 3: Content & Local</h3>
+            <ul class="checklist">
+                <li>Create location pages (NY, GA, service areas)</li>
+                <li>Standardize business name everywhere</li>
+                <li>Add testimonials/reviews section</li>
+                <li>Optimize title tags with locations</li>
+                <li>Request reviews on Google & The Knot</li>
+            </ul>
+
+            <h3>Week 4: Citations & Growth</h3>
+            <ul class="checklist">
+                <li>Submit to wedding directories (WeddingWire, etc.)</li>
+                <li>Create/verify Yelp & Facebook listings</li>
+                <li>Add Product schema to catalog items</li>
+                <li>Start monthly blog content</li>
+                <li>Set up Google Search Console monitoring</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>Top 3 Priorities</h3>
+        <ol>
+            <li><strong>URGENT: Create Google Business Profiles</strong> - You're invisible in local "near me" searches. Free and takes 1 hour.</li>
+            <li><strong>HIGH: Fix Meta Descriptions</strong> - Every search result shows just a phone number. Write compelling descriptions to increase clicks 30-50%.</li>
+            <li><strong>HIGH: Remove Placeholder Content</strong> - Lorem ipsum text makes you look unprofessional and hurts rankings.</li>
+        </ol>
+        <p style="margin-top: 15px;">Expected improvement: 2-4 weeks after fixes before Google reflects changes.</p>
+    </div>
+
+    <div class="footer">
+        <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="agency-logo">
+        <p>Report generated by SeamlessFlow | January 1, 2026</p>
+        <p>idealdecorrental.com | Event Rentals | Huntington NY & Conyers GA</p>
+        <div class="agency-contact">
+            <strong>SeamlessFlow.ai</strong> | Local SEO & Business Automation<br>
+            <a href="tel:+13477498146">(347) 749-8146</a> |
+            <a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a> |
+            <a href="https://seamlessflow.ai">seamlessflow.ai</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
