@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SeamlessFlow.ai - SEO & Performance Audit</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #222;
+            background: white;
+        }
+
+        .page {
+            page-break-after: always;
+            min-height: 100%;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* BRAND THEMING - SeamlessFlow Blue */
+        :root {
+            --brand-primary: #2563EB;
+            --brand-secondary: #1e3a8a;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563EB 100%);
+            color: white;
+        }
+
+        .cover .cover-logo {
+            width: 240px;
+            margin-bottom: 30px;
+        }
+
+        .cover h1 {
+            font-size: 42pt;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .cover .tagline {
+            font-size: 14pt;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 60px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: rgba(255,255,255,0.5);
+            margin-top: 40px;
+        }
+
+        .cover .scores {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .cover .score-item {
+            text-align: center;
+        }
+
+        .cover .score-num {
+            font-size: 36pt;
+            font-weight: 700;
+        }
+
+        .cover .score-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .red { color: #e53935; }
+        .yellow { color: #f9a825; }
+        .green { color: #43a047; }
+
+        /* CONTENT PAGES */
+        .content {
+            padding: 40px 0;
+        }
+
+        h2 {
+            font-size: 18pt;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #222;
+        }
+
+        h3 {
+            font-size: 12pt;
+            font-weight: 700;
+            margin: 25px 0 12px 0;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin: 10px 0 15px 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #2563EB;
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .good { color: #43a047; font-weight: 600; }
+        .bad { color: #e53935; font-weight: 600; }
+        .warn { color: #f9a825; font-weight: 600; }
+
+        /* ISSUE BOXES */
+        .issue {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #e53935;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .issue h4 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #c62828;
+            margin-bottom: 8px;
+        }
+
+        .issue p {
+            margin: 5px 0;
+            font-size: 10pt;
+        }
+
+        .issue code {
+            display: block;
+            background: #263238;
+            color: #80cbc4;
+            padding: 10px 14px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 9pt;
+            overflow-wrap: break-word;
+        }
+
+        .issue .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 8px 12px;
+            margin-top: 10px;
+            font-size: 10pt;
+        }
+
+        /* STRENGTH BOXES */
+        .strength {
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-left: 4px solid #43a047;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .strength h4 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        /* PRIORITY TAGS */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-high { background: #e53935; color: white; }
+        .tag-med { background: #f9a825; color: #222; }
+        .tag-low { background: #43a047; color: white; }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #999;
+            border-radius: 3px;
+        }
+
+        /* SUMMARY BOX */
+        .summary {
+            background: #2563EB;
+            color: white;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 14pt;
+        }
+
+        .summary ol {
+            margin-left: 20px;
+        }
+
+        .summary li {
+            margin: 10px 0;
+        }
+
+        /* TWO COLUMNS */
+        .two-col {
+            display: flex;
+            gap: 40px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        /* PDF PAGE BREAK CONTROLS - Minimal, let content flow */
+
+        /* Only avoid breaks inside small self-contained boxes */
+        .issue, .strength, .summary {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* Keep headings attached to following content */
+        h2, h3 {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        /* Prevent widows and orphans */
+        p {
+            orphans: 3;
+            widows: 3;
+        }
+
+        /* Tables can split - don't force to new page */
+        table {
+            page-break-inside: auto;
+        }
+
+        /* But keep individual rows together */
+        tr {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #888;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .agency-logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .footer .agency-contact {
+            margin-top: 10px;
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .footer .agency-contact a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+    <img src="https://raw.githubusercontent.com/liquiddeath1900/liquiddeath1900.github.io/main/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="cover-logo">
+    <h1>SEAMLESSFLOW.AI</h1>
+    <div class="tagline">SEO & Performance Audit Report</div>
+
+    <div class="scores">
+        <div class="score-item">
+            <div class="score-num green">82</div>
+            <div class="score-label">Technical</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num green">85</div>
+            <div class="score-label">On-Page</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">68</div>
+            <div class="score-label">Speed</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num green">80</div>
+            <div class="score-label">Mobile</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">72</div>
+            <div class="score-label">Local</div>
+        </div>
+    </div>
+
+    <div class="meta">
+        December 30, 2025<br>
+        Custom HTML/Tailwind | New York, NY
+    </div>
+</div>
+
+<!-- PAGE 2: EXECUTIVE SUMMARY -->
+<div class="page content">
+    <h2>Executive Summary</h2>
+
+    <p>SeamlessFlow.ai is a well-structured digital agency website with strong on-page SEO fundamentals and comprehensive content targeting service businesses. The site demonstrates good SEO practices with industry-specific landing pages, location pages, and active blog content. Key opportunities exist in performance optimization and local SEO schema implementation.</p>
+
+    <div class="strength">
+        <h4>Key Strengths</h4>
+        <ul>
+            <li>Excellent meta tag implementation (OG, Twitter Cards, descriptions)</li>
+            <li>Comprehensive industry-specific landing pages (8 verticals)</li>
+            <li>Location-based SEO pages (11 cities/boroughs)</li>
+            <li>Active blog with 15+ SEO-optimized articles</li>
+            <li>Clear value proposition and pricing transparency</li>
+            <li>Case study with real analytics data (CashForBottles)</li>
+            <li>Mobile-responsive design with video hero</li>
+        </ul>
+    </div>
+
+    <h3>Site Overview</h3>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Total Pages Indexed</td>
+            <td>49+ URLs discovered</td>
+            <td class="good">Excellent</td>
+        </tr>
+        <tr>
+            <td>Platform</td>
+            <td>Custom HTML with Tailwind CSS</td>
+            <td class="good">Modern</td>
+        </tr>
+        <tr>
+            <td>SSL Certificate</td>
+            <td>Active HTTPS</td>
+            <td class="good">Secure</td>
+        </tr>
+        <tr>
+            <td>Mobile Responsive</td>
+            <td>Yes - viewport configured</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>Language Tag</td>
+            <td>lang="en"</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>Google Verification</td>
+            <td>Present (google-site-verification)</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>Bing Verification</td>
+            <td>Present (msvalidate.01)</td>
+            <td class="good">Good</td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 3: CRITICAL ISSUES -->
+<div class="page content">
+    <h2>Critical Issues</h2>
+    <p>These issues should be addressed to improve performance and SEO.</p>
+
+    <div class="issue">
+        <h4>1. Tailwind CSS CDN in Production</h4>
+        <code>[WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI</code>
+        <p><strong>Impact:</strong> Slower page load, larger CSS bundle, potential render blocking</p>
+        <div class="fix"><strong>Fix:</strong> Compile Tailwind CSS locally and serve minified production build. This can reduce CSS size by 90%+</div>
+    </div>
+
+    <div class="issue">
+        <h4>2. Deprecated Meta Tag</h4>
+        <code>&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt; is deprecated</code>
+        <p><strong>Impact:</strong> Minor - may affect iOS PWA behavior in future</p>
+        <div class="fix"><strong>Fix:</strong> Replace with <code>&lt;meta name="mobile-web-app-capable" content="yes"&gt;</code></div>
+    </div>
+
+    <div class="issue">
+        <h4>3. Missing LocalBusiness Schema Markup</h4>
+        <p>No structured data for LocalBusiness, Organization, or Service schema detected.</p>
+        <p><strong>Impact:</strong> Missing rich snippets in search results, reduced local SEO signals</p>
+        <div class="fix"><strong>Fix:</strong> Add JSON-LD schema for LocalBusiness with NAP, services, and service areas</div>
+    </div>
+
+    <div class="issue">
+        <h4>4. Hero Video May Impact LCP</h4>
+        <p>Auto-playing video on homepage can slow initial page load on mobile.</p>
+        <p><strong>Impact:</strong> Potential Core Web Vitals issues (LCP)</p>
+        <div class="fix"><strong>Fix:</strong> Use poster image, lazy-load video, or load after page interaction</div>
+    </div>
+</div>
+
+<!-- PAGE 4: ON-PAGE SEO ANALYSIS -->
+<div class="page content">
+    <h2>On-Page SEO Analysis</h2>
+
+    <table>
+        <tr>
+            <th style="width:20%">Element</th>
+            <th style="width:40%">Current State</th>
+            <th style="width:10%">Status</th>
+            <th style="width:30%">Recommendation</th>
+        </tr>
+        <tr>
+            <td><strong>Title Tag</strong></td>
+            <td>"Local SEO Services & Business Automation | SeamlessFlow.ai" (58 chars)</td>
+            <td class="good">Good</td>
+            <td>Perfect length and keywords</td>
+        </tr>
+        <tr>
+            <td><strong>Meta Description</strong></td>
+            <td>"Help service businesses get found online and automate operations. Local SEO services starting at $497/month."</td>
+            <td class="good">Good</td>
+            <td>Clear value prop with pricing</td>
+        </tr>
+        <tr>
+            <td><strong>H1 Tag</strong></td>
+            <td>"Make Your Business #1 on Google"</td>
+            <td class="good">Good</td>
+            <td>Strong, benefit-focused headline</td>
+        </tr>
+        <tr>
+            <td><strong>OG Tags</strong></td>
+            <td>Title, Description, Image, URL all present</td>
+            <td class="good">Excellent</td>
+            <td>1200x630 image optimized</td>
+        </tr>
+        <tr>
+            <td><strong>Twitter Cards</strong></td>
+            <td>summary_large_image with all fields</td>
+            <td class="good">Excellent</td>
+            <td>Great for social sharing</td>
+        </tr>
+        <tr>
+            <td><strong>Canonical URL</strong></td>
+            <td>Not explicitly set</td>
+            <td class="warn">Check</td>
+            <td>Add canonical tag to prevent duplicates</td>
+        </tr>
+        <tr>
+            <td><strong>Favicon</strong></td>
+            <td>Custom favicon.ico present</td>
+            <td class="good">Good</td>
+            <td>Brand consistent</td>
+        </tr>
+    </table>
+
+    <h3>Heading Structure</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Status</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>H1 Tag</td>
+            <td class="good">Present</td>
+            <td>"Make Your Business #1 on Google"</td>
+        </tr>
+        <tr>
+            <td>H2 Tags</td>
+            <td class="good">6 found</td>
+            <td>Services, Industries, Results, Method, Benefits, Testimonials</td>
+        </tr>
+        <tr>
+            <td>H3 Tags</td>
+            <td class="good">Multiple</td>
+            <td>Service cards, industry pages, benefits</td>
+        </tr>
+        <tr>
+            <td>Hierarchy</td>
+            <td class="good">Correct</td>
+            <td>Proper H1 > H2 > H3 nesting</td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 5: SITE STRUCTURE -->
+<div class="page content">
+    <h2>Site Architecture</h2>
+    <p>49+ URLs discovered. Excellent content organization with clear topical clusters.</p>
+
+    <div class="two-col">
+        <div>
+            <h3>Core Pages</h3>
+            <table>
+                <tr><th>Page</th><th>URL</th></tr>
+                <tr><td>Home</td><td>/</td></tr>
+                <tr><td>Pricing</td><td>/pricing.html</td></tr>
+                <tr><td>Contact</td><td>/contact.html</td></tr>
+                <tr><td>FAQ</td><td>/faq.html</td></tr>
+                <tr><td>Free Audit</td><td>/free-audit.html</td></tr>
+                <tr><td>Local SEO</td><td>/local-seo.html</td></tr>
+                <tr><td>GMB Optimization</td><td>/google-my-business-optimization.html</td></tr>
+                <tr><td>SEO vs Paid Ads</td><td>/seo-vs-paid-ads.html</td></tr>
+            </table>
+
+            <h3>Industry Pages (8)</h3>
+            <table>
+                <tr><th>Industry</th><th>URL</th></tr>
+                <tr><td>HVAC SEO</td><td>/hvac-seo.html</td></tr>
+                <tr><td>Plumber SEO</td><td>/plumber-seo.html</td></tr>
+                <tr><td>Electrician SEO</td><td>/electrician-seo.html</td></tr>
+                <tr><td>Roofing SEO</td><td>/roofing-seo.html</td></tr>
+                <tr><td>Garage Door SEO</td><td>/garage-door-seo.html</td></tr>
+                <tr><td>Cleaning Service</td><td>/cleaning-service-seo.html</td></tr>
+                <tr><td>Pet Grooming</td><td>/pet-grooming-seo.html</td></tr>
+                <tr><td>Auto Detailing</td><td>/auto-detailing-seo.html</td></tr>
+            </table>
+        </div>
+        <div>
+            <h3>Location Pages (11)</h3>
+            <table>
+                <tr><th>Location</th><th>URL</th></tr>
+                <tr><td>Manhattan</td><td>/manhattan-seo.html</td></tr>
+                <tr><td>Brooklyn</td><td>/brooklyn-seo.html</td></tr>
+                <tr><td>Queens</td><td>/queens-seo.html</td></tr>
+                <tr><td>Bronx</td><td>/bronx-seo.html</td></tr>
+                <tr><td>Albany</td><td>/albany-seo.html</td></tr>
+                <tr><td>Syracuse</td><td>/syracuse-seo.html</td></tr>
+                <tr><td>Rochester</td><td>/rochester-seo.html</td></tr>
+                <tr><td>Pittsburgh</td><td>/pittsburgh-seo.html</td></tr>
+                <tr><td>Philadelphia</td><td>/philadelphia-seo.html</td></tr>
+                <tr><td>Richmond</td><td>/richmond-seo.html</td></tr>
+                <tr><td>Norfolk</td><td>/norfolk-seo.html</td></tr>
+            </table>
+
+            <h3>Blog Content (15+ Posts)</h3>
+            <table>
+                <tr><th>Topic</th><th>Count</th></tr>
+                <tr><td>HVAC guides</td><td>2</td></tr>
+                <tr><td>Plumber guides</td><td>3</td></tr>
+                <tr><td>Electrician guides</td><td>2</td></tr>
+                <tr><td>Other industries</td><td>8+</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 6: TECHNICAL SEO -->
+<div class="page content">
+    <h2>Technical SEO & Performance</h2>
+
+    <h3>Positive Findings</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Status</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td class="good">Enabled</td>
+            <td>SSL certificate active, proper redirect</td>
+        </tr>
+        <tr>
+            <td>Mobile Viewport</td>
+            <td class="good">Configured</td>
+            <td>width=device-width, initial-scale=1.0</td>
+        </tr>
+        <tr>
+            <td>Language Attribute</td>
+            <td class="good">Present</td>
+            <td>lang="en"</td>
+        </tr>
+        <tr>
+            <td>Open Graph</td>
+            <td class="good">Complete</td>
+            <td>All required tags present</td>
+        </tr>
+        <tr>
+            <td>Twitter Cards</td>
+            <td class="good">Complete</td>
+            <td>summary_large_image</td>
+        </tr>
+        <tr>
+            <td>Google Verification</td>
+            <td class="good">Present</td>
+            <td>Search Console connected</td>
+        </tr>
+        <tr>
+            <td>Bing Verification</td>
+            <td class="good">Present</td>
+            <td>Webmaster Tools connected</td>
+        </tr>
+        <tr>
+            <td>Theme Color</td>
+            <td class="good">Set</td>
+            <td>#007bff for mobile browsers</td>
+        </tr>
+    </table>
+
+    <h3>Technology Stack</h3>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Technology</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>Framework</td>
+            <td>Custom HTML + Tailwind CSS</td>
+            <td class="good">Lightweight</td>
+        </tr>
+        <tr>
+            <td>CSS</td>
+            <td>Tailwind CDN (production)</td>
+            <td class="bad">Needs compile</td>
+        </tr>
+        <tr>
+            <td>Icons</td>
+            <td>Font Awesome</td>
+            <td class="warn">External load</td>
+        </tr>
+        <tr>
+            <td>Video</td>
+            <td>Self-hosted MP4</td>
+            <td class="warn">Large file</td>
+        </tr>
+        <tr>
+            <td>Analytics</td>
+            <td>Google Analytics 4</td>
+            <td class="good">Tracking active</td>
+        </tr>
+    </table>
+
+    <h3>Recommended Schema Types</h3>
+    <table>
+        <tr>
+            <th>Schema Type</th>
+            <th>Page</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>LocalBusiness / ProfessionalService</td>
+            <td>Homepage, Contact</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>Service</td>
+            <td>All service pages</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>FAQPage</td>
+            <td>/faq.html</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>Article/BlogPosting</td>
+            <td>All blog posts</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>BreadcrumbList</td>
+            <td>All pages</td>
+            <td><span class="tag tag-low">Low</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 7: LOCAL SEO + KEYWORDS -->
+<div class="page content">
+    <h2>Local SEO</h2>
+
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Status</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Business Phone</td>
+            <td class="good">Visible</td>
+            <td>(347) 749-8146 in footer</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td class="good">Visible</td>
+            <td>info@seamlessflow.ai</td>
+        </tr>
+        <tr>
+            <td>Service Areas</td>
+            <td class="good">Listed</td>
+            <td>NYC, Albany, Pittsburgh, Philadelphia, Richmond</td>
+        </tr>
+        <tr>
+            <td>Location Pages</td>
+            <td class="good">11 pages</td>
+            <td>Borough and city-specific landing pages</td>
+        </tr>
+        <tr>
+            <td>LocalBusiness Schema</td>
+            <td class="bad">Missing</td>
+            <td>Needs structured data markup</td>
+        </tr>
+        <tr>
+            <td>Physical Address</td>
+            <td class="warn">Not visible</td>
+            <td>Consider adding if applicable</td>
+        </tr>
+        <tr>
+            <td>Google Business Profile</td>
+            <td class="warn">Unknown</td>
+            <td>Verify GBP is claimed and optimized</td>
+        </tr>
+    </table>
+
+    <h2 style="margin-top:30px;">Target Keywords</h2>
+
+    <table>
+        <tr>
+            <th>Keyword</th>
+            <th>Intent</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>local SEO services NYC</td>
+            <td>Local</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>SEO for plumbers</td>
+            <td>Industry</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>HVAC SEO company</td>
+            <td>Industry</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>Google Business Profile optimization</td>
+            <td>Service</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>electrician marketing</td>
+            <td>Industry</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>roofing SEO services</td>
+            <td>Industry</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>Brooklyn SEO company</td>
+            <td>Local</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>business automation NYC</td>
+            <td>Service</td>
+            <td><span class="tag tag-low">Low</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 8: ACTION PLAN -->
+<div class="page content">
+    <h2>Action Plan</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Week 1: Critical Fixes</h3>
+            <ul class="checklist">
+                <li>Compile Tailwind CSS for production</li>
+                <li>Fix deprecated meta tag</li>
+                <li>Add canonical URLs to all pages</li>
+                <li>Optimize hero video loading</li>
+            </ul>
+
+            <h3>Week 2: Schema Implementation</h3>
+            <ul class="checklist">
+                <li>Add LocalBusiness schema to homepage</li>
+                <li>Add Service schema to service pages</li>
+                <li>Add FAQPage schema to /faq.html</li>
+                <li>Add Article schema to blog posts</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Week 3: Local SEO</h3>
+            <ul class="checklist">
+                <li>Verify Google Business Profile</li>
+                <li>Add physical address if applicable</li>
+                <li>Build local citations</li>
+                <li>Optimize location page content</li>
+            </ul>
+
+            <h3>Week 4: Performance</h3>
+            <ul class="checklist">
+                <li>Run PageSpeed Insights audit</li>
+                <li>Optimize image sizes</li>
+                <li>Lazy-load below-fold content</li>
+                <li>Test Core Web Vitals</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>Top 3 Priorities</h3>
+        <ol>
+            <li><strong>Compile Tailwind CSS</strong> - Remove CDN warning, improve load time by 1-2 seconds</li>
+            <li><strong>Add LocalBusiness Schema</strong> - Enable rich snippets and improve local SEO signals</li>
+            <li><strong>Optimize Hero Video</strong> - Improve Core Web Vitals LCP score for mobile</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <img src="https://raw.githubusercontent.com/liquiddeath1900/liquiddeath1900.github.io/main/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="agency-logo">
+        <p>Report generated by SeamlessFlow | December 30, 2025</p>
+        <p>seamlessflow.ai | Local SEO & Business Automation | New York, NY</p>
+        <div class="agency-contact">
+            <strong>SeamlessFlow.ai</strong> | Local SEO & Business Automation<br>
+            <a href="tel:+13477498146">(347) 749-8146</a> |
+            <a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a> |
+            <a href="https://seamlessflow.ai">seamlessflow.ai</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

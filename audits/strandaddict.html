@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strand Addict - SEO & Performance Audit</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #222;
+            background: white;
+        }
+
+        /* Only cover page forces a break after */
+        .cover {
+            page-break-after: always;
+        }
+
+        /* BRAND THEMING - Strand Addict Dark */
+        :root {
+            --brand-primary: #393838;
+            --brand-secondary: #2a2929;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #2a2929 0%, #393838 100%);
+            color: white;
+        }
+
+        .cover .cover-logo {
+            width: 240px;
+            margin-bottom: 30px;
+        }
+
+        .cover h1 {
+            font-size: 42pt;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .cover .tagline {
+            font-size: 14pt;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: rgba(255,255,255,0.5);
+            margin-top: 20px;
+        }
+
+        .cover .scores {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .cover .score-item {
+            text-align: center;
+        }
+
+        .cover .score-num {
+            font-size: 36pt;
+            font-weight: 700;
+        }
+
+        .cover .score-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .red { color: #e53935; }
+        .yellow { color: #f9a825; }
+        .green { color: #43a047; }
+
+        /* CONTENT PAGES */
+        .content {
+            padding: 15px 0;
+        }
+
+        h2 {
+            font-size: 14pt;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #222;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin: 12px 0 6px 0;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 6px;
+        }
+
+        ul {
+            margin: 5px 0 8px 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 12px 0;
+            font-size: 9pt;
+        }
+
+        th {
+            background: #393838;
+            color: white;
+            padding: 6px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 5px 8px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .good { color: #43a047; font-weight: 600; }
+        .bad { color: #e53935; font-weight: 600; }
+        .warn { color: #f9a825; font-weight: 600; }
+
+        /* ISSUE BOXES */
+        .issue {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #e53935;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .issue h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #c62828;
+            margin-bottom: 8px;
+        }
+
+        .issue p {
+            margin: 5px 0;
+            font-size: 10pt;
+        }
+
+        .issue code {
+            display: block;
+            background: #263238;
+            color: #80cbc4;
+            padding: 6px 10px;
+            margin: 6px 0;
+            border-radius: 4px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 8pt;
+            overflow-wrap: break-word;
+        }
+
+        .issue .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 5px 10px;
+            margin-top: 6px;
+            font-size: 9pt;
+        }
+
+        /* STRENGTH BOXES */
+        .strength {
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-left: 4px solid #43a047;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .strength h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        /* CRITICAL ALERT */
+        .critical-alert {
+            background: #e53935;
+            color: white;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .critical-alert h4 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .critical-alert p {
+            margin: 0;
+            font-size: 9pt;
+        }
+
+        /* PRIORITY TAGS */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-high { background: #e53935; color: white; }
+        .tag-med { background: #f9a825; color: #222; }
+        .tag-low { background: #43a047; color: white; }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            margin: 8px 0;
+        }
+
+        .checklist li {
+            padding: 4px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            font-size: 9pt;
+        }
+
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #999;
+            border-radius: 3px;
+        }
+
+        /* SUMMARY BOX */
+        .summary {
+            background: #393838;
+            color: white;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 14pt;
+        }
+
+        .summary ol {
+            margin-left: 20px;
+        }
+
+        .summary li {
+            margin: 4px 0;
+            font-size: 9pt;
+        }
+
+        /* TWO COLUMNS */
+        .two-col {
+            display: flex;
+            gap: 20px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        /* PDF PAGE BREAK CONTROLS - Compact layout for 8 pages */
+
+        /* LET tables split across pages - prevents orphaned headers */
+        table {
+            page-break-inside: auto;
+            break-inside: auto;
+        }
+
+        /* Keep individual rows together */
+        tr {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* Keep small boxes intact */
+        .issue, .strength {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* Keep headers with following content */
+        h2, h3 {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        /* Two-column grids flow naturally */
+        .two-col {
+            page-break-inside: auto;
+            break-inside: auto;
+        }
+
+        /* SECTION-SPECIFIC PAGE BREAKS - Only page-break-before, NO page-break-after */
+        /* Target: 8 pages total */
+
+        .executive-summary {
+            padding: 15px 0;
+        }
+
+        .critical-issues {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .on-page-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .site-structure {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .technical-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .local-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .action-plan {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #888;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .agency-logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .footer .agency-contact {
+            margin-top: 10px;
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .footer .agency-contact a {
+            color: #393838;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="cover">
+    <img src="https://raw.githubusercontent.com/liquiddeath1900/liquiddeath1900.github.io/main/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="cover-logo">
+    <h1>STRANDADDICT.COM</h1>
+    <div class="tagline">SEO & Performance Audit Report</div>
+
+    <div class="scores">
+        <div class="score-item">
+            <div class="score-num red">40</div>
+            <div class="score-label">Technical</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">50</div>
+            <div class="score-label">On-Page</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">65</div>
+            <div class="score-label">Speed</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">75</div>
+            <div class="score-label">Mobile</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num red">45</div>
+            <div class="score-label">Local</div>
+        </div>
+    </div>
+
+    <div class="meta">
+        December 30, 2024<br>
+        Squarespace | Lower East Side, NYC
+    </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="executive-summary">
+    <h2>Executive Summary</h2>
+
+    <div class="critical-alert">
+        <h4>CRITICAL: Your Site is Invisible to Google</h4>
+        <p>A NOINDEX tag is preventing Google from showing your site in search results. This must be fixed immediately.</p>
+    </div>
+
+    <div class="strength">
+        <h4>What's Working</h4>
+        <ul>
+            <li>Beautiful visual design with strong brand identity</li>
+            <li>HTTPS security enabled</li>
+            <li>Schema markup present (3 schemas found)</li>
+            <li>Mobile-responsive Squarespace template</li>
+            <li>Clear business location with embedded Google Map</li>
+            <li>Social media presence linked (Instagram, YouTube, Facebook)</li>
+        </ul>
+    </div>
+
+    <h3>Site Overview</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Current State</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Business</td>
+            <td>Strand Addict Studio - Hair Braiding Salon</td>
+            <td class="good">Active</td>
+        </tr>
+        <tr>
+            <td>Services</td>
+            <td>Stitch Braids, Locs, Extensions, Twists</td>
+            <td class="good">Listed</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>137 Allen Street, New York, NY 10002</td>
+            <td class="good">Present</td>
+        </tr>
+        <tr>
+            <td>Platform</td>
+            <td>Squarespace</td>
+            <td class="good">Modern</td>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td>SSL certificate active</td>
+            <td class="good">Secure</td>
+        </tr>
+        <tr>
+            <td>Sitemap</td>
+            <td>Present (uses HTTP URL)</td>
+            <td class="warn">Check</td>
+        </tr>
+        <tr>
+            <td>robots.txt</td>
+            <td>Present</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>Google Indexing</td>
+            <td>BLOCKED by NOINDEX tag</td>
+            <td class="bad">Critical</td>
+        </tr>
+    </table>
+</div>
+
+<!-- CRITICAL ISSUES -->
+<div class="critical-issues">
+    <h2>Critical Issues</h2>
+    <p>These issues are severely impacting your online visibility and must be addressed immediately.</p>
+
+    <div class="issue">
+        <h4>1. NOINDEX Meta Tag Blocking Google <span class="tag tag-high">Critical</span></h4>
+        <code>&lt;meta name="ROBOTS" content="NOINDEX"&gt;</code>
+        <p><strong>Impact:</strong> Google cannot index your website. You will NOT appear in any search results. Potential customers searching for "braids near me" or "hair salon Lower East Side" will never find you.</p>
+        <div class="fix"><strong>Fix:</strong> In Squarespace: Settings → SEO → Enable "Allow search engines to index this site". This is likely accidentally disabled.</div>
+    </div>
+
+    <div class="issue">
+        <h4>2. 77% of Images Missing Alt Text <span class="tag tag-high">High</span></h4>
+        <code>17 of 22 images have no alt attribute</code>
+        <p><strong>Impact:</strong> Google Image Search can't understand your portfolio. This is a huge missed opportunity - people search for hairstyle inspiration on Google Images constantly.</p>
+        <div class="fix"><strong>Fix:</strong> Add descriptive alt text to every image. Example: "Goddess locs hairstyle with gold accents by Strand Addict NYC"</div>
+    </div>
+
+    <div class="issue">
+        <h4>3. Duplicate H1 Tags <span class="tag tag-med">Medium</span></h4>
+        <code>Found 2 H1 tags: "Strand Addict Studio" and "OUR LOCATION:"</code>
+        <p><strong>Impact:</strong> Confuses search engines about your page's main topic. Should only have one H1 per page.</p>
+        <div class="fix"><strong>Fix:</strong> Change "OUR LOCATION:" to H2 or H3. Keep "Strand Addict Studio" as the only H1.</div>
+    </div>
+
+    <div class="issue">
+        <h4>4. Sitemap Uses HTTP Instead of HTTPS <span class="tag tag-med">Medium</span></h4>
+        <code>Sitemap: http://www.strandaddict.com/sitemap.xml</code>
+        <p><strong>Impact:</strong> Google may have issues following links in sitemap. All URLs should use HTTPS.</p>
+        <div class="fix"><strong>Fix:</strong> Squarespace should auto-generate HTTPS sitemaps. Check your site URL settings are set to HTTPS.</div>
+    </div>
+</div>
+
+<!-- ON-PAGE SEO ANALYSIS -->
+<div class="on-page-seo">
+    <h2>On-Page SEO Analysis</h2>
+
+    <table>
+        <tr>
+            <th style="width:20%">Element</th>
+            <th style="width:35%">Current State</th>
+            <th style="width:12%">Status</th>
+            <th style="width:33%">Recommendation</th>
+        </tr>
+        <tr>
+            <td><strong>Title Tag</strong></td>
+            <td>"Strand Addict" (13 chars)</td>
+            <td class="warn">Too Short</td>
+            <td>"Strand Addict | Braids & Locs - Lower East Side NYC"</td>
+        </tr>
+        <tr>
+            <td><strong>Meta Description</strong></td>
+            <td>"Stitch Braids | Locs | Extensions | Twists"</td>
+            <td class="warn">Duplicate</td>
+            <td>Add compelling copy with location</td>
+        </tr>
+        <tr>
+            <td><strong>H1 Tag</strong></td>
+            <td>"Strand Addict Studio"</td>
+            <td class="warn">Multiple</td>
+            <td>Keep one H1, change others to H2</td>
+        </tr>
+        <tr>
+            <td><strong>H2 Tag</strong></td>
+            <td>Tagline (good length)</td>
+            <td class="good">Good</td>
+            <td>Consider adding location keyword</td>
+        </tr>
+        <tr>
+            <td><strong>Schema Markup</strong></td>
+            <td>3 schemas found</td>
+            <td class="good">Present</td>
+            <td>Add LocalBusiness schema</td>
+        </tr>
+        <tr>
+            <td><strong>Canonical URL</strong></td>
+            <td>Not explicitly set</td>
+            <td class="warn">Check</td>
+            <td>Verify in Squarespace settings</td>
+        </tr>
+        <tr>
+            <td><strong>Image Alt Text</strong></td>
+            <td>5 of 22 images have alt</td>
+            <td class="bad">77% Missing</td>
+            <td>Add descriptive alt to all images</td>
+        </tr>
+        <tr>
+            <td><strong>Internal Links</strong></td>
+            <td>Blog, Gallery, Videos linked</td>
+            <td class="good">Good</td>
+            <td>Add service-specific pages</td>
+        </tr>
+    </table>
+
+    <h3>Content Opportunities</h3>
+    <table>
+        <tr>
+            <th>Missing Page</th>
+            <th>Why It Matters</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>Services Page</td>
+            <td>No dedicated page listing all services with prices</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>About/Bio Page</td>
+            <td>Build trust with stylist credentials and story</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>FAQ Page</td>
+            <td>Answer common questions, capture voice search</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>Location Landing Page</td>
+            <td>"Braids Lower East Side NYC" - local keyword targeting</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- SITE STRUCTURE -->
+<div class="site-structure">
+    <h2>Site Structure</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Core Pages Found</h3>
+            <table>
+                <tr><th>Page</th><th>Status</th></tr>
+                <tr><td>Homepage</td><td class="good">Live</td></tr>
+                <tr><td>Blog</td><td class="good">Live</td></tr>
+                <tr><td>Gallery</td><td class="good">Live</td></tr>
+                <tr><td>Videos</td><td class="good">Live</td></tr>
+                <tr><td>Appointment (Acuity)</td><td class="good">Live</td></tr>
+                <tr><td>Shop (External)</td><td class="warn">guinguisbodega.com</td></tr>
+                <tr><td>Services Page</td><td class="bad">Missing</td></tr>
+                <tr><td>About Page</td><td class="bad">Missing</td></tr>
+                <tr><td>Contact Page</td><td class="bad">Missing</td></tr>
+            </table>
+
+            <h3>URL Issues</h3>
+            <table>
+                <tr><th>Issue</th><th>Details</th></tr>
+                <tr><td>HTTP in OG Tags</td><td>og:url uses http:// not https://</td></tr>
+                <tr><td>HTTP in Sitemap</td><td>All sitemap URLs use http://</td></tr>
+                <tr><td>External Shop</td><td>Product shop on separate domain loses SEO value</td></tr>
+            </table>
+        </div>
+        <div>
+            <h3>Blog Content (18 Posts)</h3>
+            <table>
+                <tr><th>Topic</th><th>Notes</th></tr>
+                <tr><td>DHT Blocking Shampoos</td><td>Hair care</td></tr>
+                <tr><td>Hair Loss & Regrowth</td><td>Educational</td></tr>
+                <tr><td>Braid History & Culture</td><td>Cultural</td></tr>
+                <tr><td>Lunar Hair Care</td><td>Unique angle</td></tr>
+                <tr><td>Hair Discrimination</td><td>Awareness</td></tr>
+            </table>
+            <p><strong>Note:</strong> Great content but most posts are from 2017-2019. Fresh content signals relevance to Google.</p>
+        </div>
+    </div>
+</div>
+
+<!-- TECHNICAL SEO -->
+<div class="technical-seo">
+    <h2>Technical SEO & Performance</h2>
+
+    <h3>Positive Findings</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Status</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td class="good">Enabled</td>
+            <td>SSL certificate active</td>
+        </tr>
+        <tr>
+            <td>robots.txt</td>
+            <td class="good">Present</td>
+            <td>Standard Squarespace config</td>
+        </tr>
+        <tr>
+            <td>sitemap.xml</td>
+            <td class="good">Present</td>
+            <td>Auto-generated by Squarespace</td>
+        </tr>
+        <tr>
+            <td>Schema Markup</td>
+            <td class="good">3 Found</td>
+            <td>Could add LocalBusiness schema</td>
+        </tr>
+        <tr>
+            <td>Mobile Responsive</td>
+            <td class="good">Yes</td>
+            <td>Squarespace template is responsive</td>
+        </tr>
+        <tr>
+            <td>Google Verification</td>
+            <td class="good">Present</td>
+            <td>Site verification meta tag found</td>
+        </tr>
+    </table>
+
+    <h3>Console Warnings Detected</h3>
+    <div class="issue">
+        <h4>Google Maps API Deprecation <span class="tag tag-low">Low</span></h4>
+        <code>google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement</code>
+        <p><strong>Impact:</strong> Map may stop working in future. Low priority.</p>
+        <div class="fix"><strong>Fix:</strong> This is a Squarespace issue - report to their support.</div>
+    </div>
+
+    <div class="issue">
+        <h4>Maps Not Loaded Async <span class="tag tag-low">Low</span></h4>
+        <code>Google Maps JavaScript API has been loaded directly without loading=async</code>
+        <p><strong>Impact:</strong> Slightly slower page load. Minor performance issue.</p>
+        <div class="fix"><strong>Fix:</strong> Squarespace platform issue - not directly fixable.</div>
+    </div>
+
+    <h3>Third-Party Scripts</h3>
+    <table>
+        <tr>
+            <th>Script</th>
+            <th>Purpose</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>Google Maps</td>
+            <td>Location embed</td>
+            <td class="warn">Minor speed impact</td>
+        </tr>
+        <tr>
+            <td>Acuity Scheduling</td>
+            <td>Appointment booking</td>
+            <td class="good">Essential - keep</td>
+        </tr>
+        <tr>
+            <td>Facebook Pixel</td>
+            <td>Domain verification</td>
+            <td class="good">Standard tracking</td>
+        </tr>
+        <tr>
+            <td>Pinterest Tag</td>
+            <td>Domain verification</td>
+            <td class="good">Good for visual content</td>
+        </tr>
+    </table>
+</div>
+
+<!-- LOCAL SEO + KEYWORDS -->
+<div class="local-seo">
+    <h2>Local SEO</h2>
+
+    <h3>NAP Consistency (Name, Address, Phone)</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>On Website</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Business Name</td>
+            <td>Strand Addict Studio</td>
+            <td class="good">Consistent</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>137 Allen Street, New York, NY 10002</td>
+            <td class="good">Present</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>Not visible on homepage</td>
+            <td class="bad">Missing</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>guingui@strandaddict.com</td>
+            <td class="good">Present</td>
+        </tr>
+        <tr>
+            <td>Google Business Profile</td>
+            <td>Not verified on site</td>
+            <td class="warn">Check GBP Status</td>
+        </tr>
+    </table>
+
+    <div class="issue">
+        <h4>No Phone Number Visible <span class="tag tag-high">High</span></h4>
+        <p><strong>Impact:</strong> Mobile users can't tap-to-call. Huge friction for booking appointments.</p>
+        <div class="fix"><strong>Fix:</strong> Add clickable phone number in header or footer. Use tel: link for mobile.</div>
+    </div>
+
+    <div class="issue">
+        <h4>LocalBusiness Schema Missing <span class="tag tag-med">Medium</span></h4>
+        <p><strong>Impact:</strong> Missing rich snippets in search results (hours, reviews, services).</p>
+        <div class="fix"><strong>Fix:</strong> Add LocalBusiness or HairSalon schema with address, hours, services, and reviews.</div>
+    </div>
+
+    <h2 style="margin-top:30px;">Target Keywords</h2>
+
+    <table>
+        <tr>
+            <th>Keyword</th>
+            <th>Intent</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>braids lower east side</td>
+            <td>Local</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>locs nyc</td>
+            <td>Service + location</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>stitch braids new york</td>
+            <td>Specific style</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>hair braiding salon near me</td>
+            <td>Local intent</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>knotless braids lower east side</td>
+            <td>Trending style</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>protective hairstyles manhattan</td>
+            <td>Category search</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>goddess locs nyc</td>
+            <td>Specific style</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="content action-plan">
+    <h2>Action Plan</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Week 1: Emergency Fixes</h3>
+            <ul class="checklist">
+                <li>Remove NOINDEX tag (Squarespace SEO settings)</li>
+                <li>Add phone number to header/footer</li>
+                <li>Update title tag with location keyword</li>
+                <li>Fix meta description (remove duplicate)</li>
+                <li>Submit site to Google Search Console</li>
+            </ul>
+
+            <h3>Week 2: On-Page Optimization</h3>
+            <ul class="checklist">
+                <li>Add alt text to all 17 images missing it</li>
+                <li>Fix duplicate H1 (change "OUR LOCATION" to H2)</li>
+                <li>Create Services page with all offerings</li>
+                <li>Add LocalBusiness schema markup</li>
+                <li>Update OG tags to use HTTPS</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Week 3: Local SEO</h3>
+            <ul class="checklist">
+                <li>Verify/optimize Google Business Profile</li>
+                <li>Ensure NAP consistency across all platforms</li>
+                <li>Add business to Yelp, Apple Maps, Bing Places</li>
+                <li>Request reviews from recent clients</li>
+                <li>Create location landing page</li>
+            </ul>
+
+            <h3>Week 4: Content Strategy</h3>
+            <ul class="checklist">
+                <li>Publish 1 fresh blog post</li>
+                <li>Create About/Bio page</li>
+                <li>Add FAQ page with common questions</li>
+                <li>Optimize gallery images with keywords</li>
+                <li>Set up Google Analytics if not present</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>Top 3 Priorities</h3>
+        <ol>
+            <li><strong>URGENT: Remove NOINDEX tag</strong> - Your site is completely invisible to Google right now</li>
+            <li><strong>HIGH: Add phone number</strong> - Mobile users can't contact you easily</li>
+            <li><strong>HIGH: Fix image alt text</strong> - 77% of your portfolio is invisible to Google Images</li>
+        </ol>
+        <p style="margin-top: 15px;">Once the NOINDEX is fixed, expect 2-4 weeks before Google starts showing your site in search results.</p>
+    </div>
+
+    <div class="footer">
+        <img src="https://raw.githubusercontent.com/liquiddeath1900/liquiddeath1900.github.io/main/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="agency-logo">
+        <p>Report generated by SeamlessFlow | December 30, 2024</p>
+        <p>strandaddict.com | Hair Salon | Lower East Side, NYC</p>
+        <div class="agency-contact">
+            <strong>SeamlessFlow.ai</strong> | Local SEO & Business Automation<br>
+            <a href="tel:+13477498146">(347) 749-8146</a> |
+            <a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a> |
+            <a href="https://seamlessflow.ai">seamlessflow.ai</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

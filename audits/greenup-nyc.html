@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Audit Report - GreenUp NYC</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #4ecdc4 0%, #2c3e50 100%); color: white; padding: 40px; border-radius: 12px 12px 0 0; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header p { opacity: 0.9; font-size: 14px; }
+        .logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+        .report-body { background: white; padding: 40px; border-radius: 0 0 12px 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
+        .score-section { display: flex; justify-content: center; gap: 30px; margin: 30px 0; flex-wrap: wrap; }
+        .score-card { text-align: center; padding: 20px; min-width: 120px; }
+        .score-circle { width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 32px; font-weight: bold; color: white; }
+        .score-label { font-size: 14px; color: #666; }
+        .score-good { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .score-warning { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .score-critical { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+
+        .section { margin: 40px 0; }
+        .section-title { font-size: 20px; color: #2c3e50; border-left: 4px solid #4ecdc4; padding-left: 15px; margin-bottom: 20px; }
+
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .metric-card { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #4ecdc4; }
+        .metric-card.warning { border-left-color: #f59e0b; }
+        .metric-card.critical { border-left-color: #ef4444; }
+        .metric-card.good { border-left-color: #10b981; }
+        .metric-label { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #2c3e50; margin-top: 5px; }
+        .metric-status { font-size: 12px; margin-top: 5px; }
+        .status-good { color: #10b981; }
+        .status-warning { color: #f59e0b; }
+        .status-critical { color: #ef4444; }
+
+        .issue-list { list-style: none; }
+        .issue-item { padding: 15px; margin: 10px 0; background: #fff5f5; border-radius: 8px; border-left: 4px solid #ef4444; }
+        .issue-item.high { background: #fffbeb; border-left-color: #f59e0b; }
+        .issue-item.medium { background: #f0f9ff; border-left-color: #3b82f6; }
+        .issue-title { font-weight: bold; color: #2c3e50; }
+        .issue-desc { font-size: 14px; color: #666; margin-top: 5px; }
+        .issue-fix { font-size: 13px; color: #4ecdc4; margin-top: 8px; }
+
+        .quick-win { padding: 15px; margin: 10px 0; background: #ecfdf5; border-radius: 8px; border-left: 4px solid #10b981; }
+        .quick-win-title { font-weight: bold; color: #065f46; }
+        .quick-win-impact { font-size: 14px; color: #047857; margin-top: 5px; }
+
+        .check-list { list-style: none; }
+        .check-item { padding: 10px 0; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; gap: 10px; }
+        .check-icon { font-size: 18px; }
+        .check-pass { color: #10b981; }
+        .check-fail { color: #ef4444; }
+
+        .summary-box { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 25px; border-radius: 12px; margin: 30px 0; }
+        .summary-title { font-size: 18px; font-weight: bold; color: #0c4a6e; margin-bottom: 10px; }
+        .summary-text { color: #0369a1; }
+
+        .footer { text-align: center; padding: 30px; color: #666; font-size: 14px; }
+        .footer a { color: #4ecdc4; text-decoration: none; }
+
+        .cta-section { background: #2c3e50; color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 30px 0; }
+        .cta-section h3 { margin-bottom: 10px; }
+        .cta-section p { opacity: 0.9; margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: #4ecdc4; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: bold; }
+
+        @media print {
+            .container { max-width: 100%; }
+            .header { background: #4ecdc4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .score-circle { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">SeamlessFlow.ai</div>
+            <h1>SEO Audit Report</h1>
+            <p>Prepared for GreenUp NYC | December 28, 2025</p>
+        </div>
+
+        <div class="report-body">
+            <!-- Business Info -->
+            <div class="section">
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Website</div>
+                        <div class="metric-value" style="font-size: 16px;">greenup.nyc</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Business Type</div>
+                        <div class="metric-value" style="font-size: 16px;">Local Service</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Location</div>
+                        <div class="metric-value" style="font-size: 16px;">New York, NY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overall Scores -->
+            <div class="section">
+                <h2 class="section-title">Performance Scores</h2>
+                <div class="score-section">
+                    <div class="score-card">
+                        <div class="score-circle score-warning">63</div>
+                        <div class="score-label">Mobile Performance</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-circle score-good">85</div>
+                        <div class="score-label">Desktop Performance</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-circle score-good">85</div>
+                        <div class="score-label">Mobile SEO</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-circle score-good">92</div>
+                        <div class="score-label">Desktop SEO</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-circle score-good">88</div>
+                        <div class="score-label">Accessibility</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Web Vitals -->
+            <div class="section">
+                <h2 class="section-title">Core Web Vitals</h2>
+                <div class="metric-grid">
+                    <div class="metric-card critical">
+                        <div class="metric-label">LCP (Largest Contentful Paint)</div>
+                        <div class="metric-value">9.3s</div>
+                        <div class="metric-status status-critical">Critical - Should be under 2.5s</div>
+                    </div>
+                    <div class="metric-card warning">
+                        <div class="metric-label">FCP (First Contentful Paint)</div>
+                        <div class="metric-value">2.6s</div>
+                        <div class="metric-status status-warning">Needs Improvement - Should be under 1.8s</div>
+                    </div>
+                    <div class="metric-card good">
+                        <div class="metric-label">CLS (Cumulative Layout Shift)</div>
+                        <div class="metric-value">0</div>
+                        <div class="metric-status status-good">Excellent - No layout shift</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical SEO -->
+            <div class="section">
+                <h2 class="section-title">Technical SEO Checklist</h2>
+                <ul class="check-list">
+                    <li class="check-item">
+                        <span class="check-icon check-pass">&#10004;</span>
+                        <span><strong>HTTPS Enabled</strong> - Site is secure</span>
+                    </li>
+                    <li class="check-item">
+                        <span class="check-icon check-pass">&#10004;</span>
+                        <span><strong>robots.txt</strong> - Present and properly configured</span>
+                    </li>
+                    <li class="check-item">
+                        <span class="check-icon check-pass">&#10004;</span>
+                        <span><strong>XML Sitemap</strong> - Present with 30 URLs indexed</span>
+                    </li>
+                    <li class="check-item">
+                        <span class="check-icon check-pass">&#10004;</span>
+                        <span><strong>Title Tag</strong> - "GreenUp — Hassle-Free Bottle & Can Recycling Service" (55 chars)</span>
+                    </li>
+                    <li class="check-item">
+                        <span class="check-icon check-pass">&#10004;</span>
+                        <span><strong>Meta Description</strong> - Present and descriptive (121 chars)</span>
+                    </li>
+                    <li class="check-item">
+                        <span class="check-icon check-pass">&#10004;</span>
+                        <span><strong>Open Graph Tags</strong> - Properly configured for social sharing</span>
+                    </li>
+                    <li class="check-item">
+                        <span class="check-icon check-pass">&#10004;</span>
+                        <span><strong>Mobile Responsive</strong> - Site is mobile-friendly</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Priority Issues -->
+            <div class="section">
+                <h2 class="section-title">Priority Issues</h2>
+                <ul class="issue-list">
+                    <li class="issue-item">
+                        <div class="issue-title">Critical: Slow LCP (9.3 seconds)</div>
+                        <div class="issue-desc">The largest contentful paint is 9.3 seconds on mobile. This is 3.7x slower than Google's recommended 2.5s threshold. Users may abandon the site before it fully loads.</div>
+                        <div class="issue-fix">Fix: Optimize hero images, implement lazy loading, consider using WebP format, and review hosting/CDN performance.</div>
+                    </li>
+                    <li class="issue-item high">
+                        <div class="issue-title">High: Slow First Contentful Paint (2.6s)</div>
+                        <div class="issue-desc">Users wait 2.6 seconds before seeing any content. This hurts perceived performance and may increase bounce rates.</div>
+                        <div class="issue-fix">Fix: Minimize render-blocking resources, inline critical CSS, defer non-essential JavaScript.</div>
+                    </li>
+                    <li class="issue-item high">
+                        <div class="issue-title">High: Mobile Performance Score (63/100)</div>
+                        <div class="issue-desc">Mobile performance is below the recommended 90+ threshold. Given that most local searches happen on mobile, this impacts visibility.</div>
+                        <div class="issue-fix">Fix: Address LCP and FCP issues, reduce JavaScript bundle size, optimize images.</div>
+                    </li>
+                    <li class="issue-item medium">
+                        <div class="issue-title">Medium: Missing LocalBusiness Schema</div>
+                        <div class="issue-desc">No structured data detected for local business. This means missing rich snippet opportunities in search results.</div>
+                        <div class="issue-fix">Fix: Add LocalBusiness JSON-LD schema with NAP, service area, and hours.</div>
+                    </li>
+                    <li class="issue-item medium">
+                        <div class="issue-title">Medium: No Location Keywords in Title</div>
+                        <div class="issue-desc">Title tag doesn't include "NYC" or "New York" despite being a local service.</div>
+                        <div class="issue-fix">Fix: Update title to "GreenUp NYC — Bottle & Can Recycling Pickup Service"</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Wins -->
+            <div class="section">
+                <h2 class="section-title">Quick Wins</h2>
+                <div class="quick-win">
+                    <div class="quick-win-title">1. Add "NYC" to Title Tag</div>
+                    <div class="quick-win-impact">Impact: Improved local search visibility | Effort: 5 minutes</div>
+                </div>
+                <div class="quick-win">
+                    <div class="quick-win-title">2. Compress Hero Images</div>
+                    <div class="quick-win-impact">Impact: Faster LCP, better mobile experience | Effort: 30 minutes</div>
+                </div>
+                <div class="quick-win">
+                    <div class="quick-win-title">3. Add LocalBusiness Schema</div>
+                    <div class="quick-win-impact">Impact: Rich snippets in search results | Effort: 1 hour</div>
+                </div>
+                <div class="quick-win">
+                    <div class="quick-win-title">4. Implement Image Lazy Loading</div>
+                    <div class="quick-win-impact">Impact: Faster initial page load | Effort: 30 minutes</div>
+                </div>
+                <div class="quick-win">
+                    <div class="quick-win-title">5. Review and Optimize Google Business Profile</div>
+                    <div class="quick-win-impact">Impact: Map pack visibility, direct leads | Effort: 1 hour</div>
+                </div>
+            </div>
+
+            <!-- Executive Summary -->
+            <div class="summary-box">
+                <div class="summary-title">Executive Summary</div>
+                <div class="summary-text">
+                    GreenUp NYC has solid SEO fundamentals in place — HTTPS, robots.txt, sitemap, and good meta tags are all configured correctly. Desktop performance is strong at 85/100. However, <strong>mobile performance is the critical weakness</strong> with a 9.3-second LCP that will hurt both user experience and Google rankings. For a local service business, mobile speed is crucial since most customers search on their phones. The immediate priority should be optimizing images and page load speed. Adding local schema and NYC keywords will also improve local search visibility.
+                </div>
+            </div>
+
+            <!-- On-Page Analysis -->
+            <div class="section">
+                <h2 class="section-title">On-Page Analysis</h2>
+                <div class="metric-grid">
+                    <div class="metric-card good">
+                        <div class="metric-label">Title Tag</div>
+                        <div class="metric-value" style="font-size: 14px;">GreenUp — Hassle-Free Bottle & Can Recycling Service</div>
+                        <div class="metric-status status-good">55 characters - Good length</div>
+                    </div>
+                    <div class="metric-card good">
+                        <div class="metric-label">Meta Description</div>
+                        <div class="metric-value" style="font-size: 14px;">From single homes to apartment buildings, GreenUp collects, redeems, and pays you within hours.</div>
+                        <div class="metric-status status-good">121 characters - Good length</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Site Structure -->
+            <div class="section">
+                <h2 class="section-title">Site Structure</h2>
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Total Pages Indexed</div>
+                        <div class="metric-value">30</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Internal Links</div>
+                        <div class="metric-value">4+</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">External Links</div>
+                        <div class="metric-value">2</div>
+                        <div class="metric-status">App Store links</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-section">
+                <h3>Ready to Improve Your Rankings?</h3>
+                <p>Let's implement these fixes and get your site performing at its best.</p>
+                <a href="tel:+13477498146" class="cta-button">Call (347) 749-8146</a>
+            </div>
+
+            <div class="footer">
+                <p>Report generated by <a href="https://seamlessflow.ai">SeamlessFlow.ai</a></p>
+                <p style="margin-top: 10px;">December 28, 2025 | Confidential</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tog Maker - SEO & Performance Audit</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #222;
+            background: white;
+        }
+
+        .page {
+            page-break-after: always;
+            min-height: 100%;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .cover h1 {
+            font-size: 48pt;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+
+        .cover .tagline {
+            font-size: 16pt;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: #888;
+            margin-top: 40px;
+        }
+
+        .cover .scores {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .cover .score-item {
+            text-align: center;
+        }
+
+        .cover .score-num {
+            font-size: 36pt;
+            font-weight: 700;
+        }
+
+        .cover .score-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+        }
+
+        .red { color: #e53935; }
+        .yellow { color: #f9a825; }
+        .green { color: #43a047; }
+
+        /* CONTENT PAGES */
+        .content {
+            padding: 40px 0;
+        }
+
+        h2 {
+            font-size: 18pt;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #222;
+        }
+
+        h3 {
+            font-size: 12pt;
+            font-weight: 700;
+            margin: 25px 0 12px 0;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #222;
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .good { color: #43a047; font-weight: 600; }
+        .bad { color: #e53935; font-weight: 600; }
+        .warn { color: #f9a825; font-weight: 600; }
+
+        /* ISSUE BOXES */
+        .issue {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #e53935;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .issue h4 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #c62828;
+            margin-bottom: 8px;
+        }
+
+        .issue code {
+            display: block;
+            background: #263238;
+            color: #80cbc4;
+            padding: 10px 14px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 9pt;
+            overflow-wrap: break-word;
+        }
+
+        .issue .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 8px 12px;
+            margin-top: 10px;
+            font-size: 10pt;
+        }
+
+        /* PRIORITY TAGS */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-high { background: #e53935; color: white; }
+        .tag-med { background: #f9a825; color: #222; }
+        .tag-low { background: #43a047; color: white; }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #999;
+            border-radius: 3px;
+        }
+
+        /* SUMMARY BOX */
+        .summary {
+            background: #222;
+            color: white;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 14pt;
+        }
+
+        .summary ol {
+            margin-left: 20px;
+        }
+
+        .summary li {
+            margin: 10px 0;
+        }
+
+        /* TWO COLUMNS */
+        .two-col {
+            display: flex;
+            gap: 40px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #888;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+    <h1>TOGMAKER.COM</h1>
+    <div class="tagline">SEO & Performance Audit Report</div>
+
+    <div class="scores">
+        <div class="score-item">
+            <div class="score-num yellow">65</div>
+            <div class="score-label">Technical</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num green">75</div>
+            <div class="score-label">On-Page</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num red">50</div>
+            <div class="score-label">Speed</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">60</div>
+            <div class="score-label">Mobile</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num green">80</div>
+            <div class="score-label">Local</div>
+        </div>
+    </div>
+
+    <div class="meta">
+        December 26, 2025<br>
+        Platform: Wix | Location: Brooklyn, NY
+    </div>
+</div>
+
+<!-- PAGE 2: CRITICAL ISSUES -->
+<div class="page content">
+    <h2>Critical Issues</h2>
+    <p>These issues need immediate attention as they directly impact user experience and SEO.</p>
+
+    <div class="issue">
+        <h4>1. YouTube Iframe Errors (22 instances)</h4>
+        <code>Refused to display 'https://www.youtube.com/' in frame - X-Frame-Options set to deny</code>
+        <p><strong>Impact:</strong> Videos not loading, 22 console errors flooding the browser</p>
+        <div class="fix"><strong>Fix:</strong> Replace embeds with youtube-nocookie.com or use Wix native video</div>
+    </div>
+
+    <div class="issue">
+        <h4>2. Missing Resources (404 Errors)</h4>
+        <code>Failed to load resource: server responded with status 404</code>
+        <p><strong>Impact:</strong> Broken functionality, wasted bandwidth, poor UX</p>
+        <div class="fix"><strong>Fix:</strong> Audit all resources in Wix dashboard and remove dead links</div>
+    </div>
+
+    <div class="issue">
+        <h4>3. Missing H1 Tag</h4>
+        <p><strong>Current:</strong> "Tog Maker" uses H2 tag instead of H1</p>
+        <p><strong>Impact:</strong> Poor heading hierarchy hurts SEO rankings</p>
+        <div class="fix"><strong>Fix:</strong> Change main headline to H1 tag</div>
+    </div>
+
+    <div class="issue">
+        <h4>4. Privy Widget Failed</h4>
+        <code>Privy Wix client failed to initialize: Request not allowed</code>
+        <p><strong>Impact:</strong> Email capture likely not working</p>
+        <div class="fix"><strong>Fix:</strong> Check Privy settings in Wix or remove if unused</div>
+    </div>
+</div>
+
+<!-- PAGE 3: ON-PAGE SEO -->
+<div class="page content">
+    <h2>On-Page SEO Analysis</h2>
+
+    <table>
+        <tr>
+            <th style="width:20%">Element</th>
+            <th style="width:40%">Current State</th>
+            <th style="width:10%">Status</th>
+            <th style="width:30%">Recommendation</th>
+        </tr>
+        <tr>
+            <td><strong>Title Tag</strong></td>
+            <td>"Get Top Custom Manufacturing Services | Tog Maker | New York" (62 chars)</td>
+            <td class="good">Good</td>
+            <td>Keep as-is</td>
+        </tr>
+        <tr>
+            <td><strong>Meta Description</strong></td>
+            <td>"Discover top-notch custom manufacturing services at Tog Maker..."</td>
+            <td class="warn">OK</td>
+            <td>Add: screen printing, embroidery, Brooklyn</td>
+        </tr>
+        <tr>
+            <td><strong>H1 Tag</strong></td>
+            <td>Missing - main title uses H2</td>
+            <td class="bad">Bad</td>
+            <td>Add H1: "Custom Screen Printing Brooklyn"</td>
+        </tr>
+        <tr>
+            <td><strong>H2 Tags</strong></td>
+            <td>"ABOUT TOG MAKER", blog titles present</td>
+            <td class="good">Good</td>
+            <td>Structure is acceptable</td>
+        </tr>
+        <tr>
+            <td><strong>Image Alt Text</strong></td>
+            <td>Multiple images missing alt attributes</td>
+            <td class="bad">Bad</td>
+            <td>Add descriptive alt text to all images</td>
+        </tr>
+        <tr>
+            <td><strong>Internal Links</strong></td>
+            <td>Good footer navigation structure</td>
+            <td class="good">Good</td>
+            <td>Add contextual links in content</td>
+        </tr>
+    </table>
+
+    <h3>Content Strengths</h3>
+    <ul>
+        <li>Clear value proposition: "one-stop-shop for custom manufacturing"</li>
+        <li>Founders named (Racks Hogan, Elliott Gress) - adds authenticity</li>
+        <li>Services listed: screen printing, embroidery, DTG, custom labeling</li>
+        <li>Google Reviews integrated: 5.0 stars with 10 reviews</li>
+    </ul>
+
+    <h3>Content Weaknesses</h3>
+    <ul>
+        <li>Homepage content is thin - needs more text</li>
+        <li>Blog post titles not optimized for SEO</li>
+        <li>Portfolio items use placeholder names (project-title-1, etc.)</li>
+        <li>No visible schema markup for local business</li>
+    </ul>
+</div>
+
+<!-- PAGE 4: SITE STRUCTURE -->
+<div class="page content">
+    <h2>Site Structure</h2>
+    <p>49 URLs discovered across the site. Here's the breakdown:</p>
+
+    <div class="two-col">
+        <div>
+            <h3>Core Pages</h3>
+            <table>
+                <tr><th>Page</th><th>URL</th></tr>
+                <tr><td>Home</td><td>/</td></tr>
+                <tr><td>Shop</td><td>/shop</td></tr>
+                <tr><td>Get Quote</td><td>/estimate</td></tr>
+                <tr><td>FAQ</td><td>/faq</td></tr>
+                <tr><td>About</td><td>/about</td></tr>
+                <tr><td>Contact</td><td>/contact</td></tr>
+                <tr><td>Blog</td><td>/blog</td></tr>
+                <tr><td>Portfolio</td><td>/portfolio</td></tr>
+                <tr><td>Gallery</td><td>/gallery</td></tr>
+                <tr><td>Book Now</td><td>/booknow</td></tr>
+            </table>
+        </div>
+        <div>
+            <h3>URL Issues Found</h3>
+            <table>
+                <tr><th>URL</th><th>Problem</th></tr>
+                <tr><td>/general-5</td><td class="bad">Generic Wix URL</td></tr>
+                <tr><td>/project-title-1</td><td class="warn">Placeholder</td></tr>
+                <tr><td>/project-title-2</td><td class="warn">Placeholder</td></tr>
+                <tr><td>/project-title-3</td><td class="warn">Placeholder</td></tr>
+                <tr><td>/challenges</td><td class="warn">Purpose unclear</td></tr>
+                <tr><td>/classprojects</td><td class="warn">Possibly outdated</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <h3>Blog Content (15+ Posts)</h3>
+    <p>Active blog with tutorials and event coverage. Topics include:</p>
+    <ul>
+        <li>Squad Gang Factory episodes (series content)</li>
+        <li>Sneaker Con event coverage</li>
+        <li>Screen printing tutorials and guides</li>
+        <li>Custom manufacturing education</li>
+    </ul>
+</div>
+
+<!-- PAGE 5: PERFORMANCE -->
+<div class="page content">
+    <h2>Performance Analysis</h2>
+
+    <h3>Third-Party Scripts</h3>
+    <table>
+        <tr>
+            <th>Script</th>
+            <th>Purpose</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Wix Platform</td>
+            <td>Core functionality</td>
+            <td class="good">Required</td>
+            <td>None needed</td>
+        </tr>
+        <tr>
+            <td>Google Reviews</td>
+            <td>Display reviews</td>
+            <td class="good">Working</td>
+            <td>Keep</td>
+        </tr>
+        <tr>
+            <td>YouTube Embeds</td>
+            <td>Video content</td>
+            <td class="bad">Broken</td>
+            <td>Fix or remove</td>
+        </tr>
+        <tr>
+            <td>Instagram Widget</td>
+            <td>Social feed</td>
+            <td class="warn">Heavy</td>
+            <td>Lazy-load</td>
+        </tr>
+        <tr>
+            <td>Privy</td>
+            <td>Email capture</td>
+            <td class="bad">Failed</td>
+            <td>Fix or remove</td>
+        </tr>
+        <tr>
+            <td>Wix Analytics</td>
+            <td>Tracking</td>
+            <td class="good">Working</td>
+            <td>Keep</td>
+        </tr>
+    </table>
+
+    <h3>Optimization Opportunities</h3>
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>Impact</th>
+            <th>Difficulty</th>
+        </tr>
+        <tr>
+            <td>Fix/remove broken YouTube embeds</td>
+            <td>-2s load time, eliminates 22 errors</td>
+            <td><span class="tag tag-low">Easy</span></td>
+        </tr>
+        <tr>
+            <td>Lazy-load Instagram widget</td>
+            <td>-1s initial load time</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>Remove broken Privy widget</td>
+            <td>Cleaner console, fewer requests</td>
+            <td><span class="tag tag-low">Easy</span></td>
+        </tr>
+        <tr>
+            <td>Optimize/compress images</td>
+            <td>-500ms load time</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 6: LOCAL SEO + KEYWORDS -->
+<div class="page content">
+    <h2>Local SEO</h2>
+
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Status</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Business Address</td>
+            <td class="good">Visible</td>
+            <td>1086 Myrtle Ave, Brooklyn</td>
+        </tr>
+        <tr>
+            <td>Google Reviews</td>
+            <td class="good">Active</td>
+            <td>5.0 stars, 10 reviews</td>
+        </tr>
+        <tr>
+            <td>Business Hours</td>
+            <td class="good">Listed</td>
+            <td>M-F 12PM-9PM</td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td class="warn">Check</td>
+            <td>Not prominent in header</td>
+        </tr>
+        <tr>
+            <td>LocalBusiness Schema</td>
+            <td class="bad">Missing</td>
+            <td>Needs structured data markup</td>
+        </tr>
+        <tr>
+            <td>Location Landing Page</td>
+            <td class="bad">Missing</td>
+            <td>Create /brooklyn-screen-printing</td>
+        </tr>
+    </table>
+
+    <h2 style="margin-top:30px;">Target Keywords</h2>
+
+    <table>
+        <tr>
+            <th>Keyword</th>
+            <th>Intent</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>screen printing brooklyn</td>
+            <td>Local</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>custom t-shirt printing nyc</td>
+            <td>Local</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>embroidery services brooklyn</td>
+            <td>Local</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>custom apparel manufacturer new york</td>
+            <td>Local</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>dtg printing brooklyn</td>
+            <td>Local</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>screen printing classes nyc</td>
+            <td>Service</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>bulk t-shirt printing new york</td>
+            <td>Commercial</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 7: ACTION PLAN -->
+<div class="page content">
+    <h2>Action Plan</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Week 1: Critical Fixes</h3>
+            <ul class="checklist">
+                <li>Fix or remove YouTube embeds</li>
+                <li>Audit and fix 404 errors in Wix</li>
+                <li>Add H1 tag to homepage</li>
+                <li>Check/fix Privy integration</li>
+            </ul>
+
+            <h3>Week 2: SEO Improvements</h3>
+            <ul class="checklist">
+                <li>Update meta description with keywords</li>
+                <li>Add alt text to all images</li>
+                <li>Rename portfolio URLs properly</li>
+                <li>Add LocalBusiness schema markup</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Week 3: Content & Local</h3>
+            <ul class="checklist">
+                <li>Create Brooklyn landing page</li>
+                <li>Optimize blog post titles for SEO</li>
+                <li>Request more Google reviews</li>
+                <li>Verify Google Business Profile</li>
+            </ul>
+
+            <h3>Week 4: Performance</h3>
+            <ul class="checklist">
+                <li>Lazy-load Instagram widget</li>
+                <li>Audit all third-party scripts</li>
+                <li>Test mobile performance</li>
+                <li>Submit sitemap to Search Console</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>Top 3 Priorities</h3>
+        <ol>
+            <li><strong>Fix broken YouTube embeds</strong> - 22 console errors hurting performance and UX</li>
+            <li><strong>Add H1 tag</strong> - Basic SEO requirement currently missing</li>
+            <li><strong>Enhance local SEO</strong> - Add schema markup and create location-specific page</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <p>Report generated by Claude Code | December 2025</p>
+        <p>togmaker.com | Custom Screen Printing & Embroidery | Brooklyn, NY</p>
+    </div>
+</div>
+
+</body>
+</html>

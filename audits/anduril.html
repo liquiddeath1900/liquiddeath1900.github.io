@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anduril - SEO & Performance Audit</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #222;
+            background: white;
+        }
+
+        .page {
+            page-break-after: always;
+            min-height: 100%;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: white;
+        }
+
+        .cover h1 {
+            font-size: 52pt;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .cover .tagline {
+            font-size: 14pt;
+            color: #aaa;
+            margin-bottom: 60px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        .cover .scores {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .cover .score-item {
+            text-align: center;
+        }
+
+        .cover .score-num {
+            font-size: 36pt;
+            font-weight: 700;
+        }
+
+        .cover .score-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        .red { color: #e53935; }
+        .yellow { color: #f9a825; }
+        .green { color: #43a047; }
+
+        /* CONTENT PAGES */
+        .content {
+            padding: 40px 0;
+        }
+
+        h2 {
+            font-size: 18pt;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #222;
+        }
+
+        h3 {
+            font-size: 12pt;
+            font-weight: 700;
+            margin: 25px 0 12px 0;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin: 10px 0 15px 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #1a1a2e;
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .good { color: #43a047; font-weight: 600; }
+        .bad { color: #e53935; font-weight: 600; }
+        .warn { color: #f9a825; font-weight: 600; }
+
+        /* ISSUE BOXES */
+        .issue {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #e53935;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .issue h4 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #c62828;
+            margin-bottom: 8px;
+        }
+
+        .issue p {
+            margin: 5px 0;
+            font-size: 10pt;
+        }
+
+        .issue .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 8px 12px;
+            margin-top: 10px;
+            font-size: 10pt;
+        }
+
+        .strength {
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-left: 4px solid #43a047;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .strength h4 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        /* PRIORITY TAGS */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-high { background: #e53935; color: white; }
+        .tag-med { background: #f9a825; color: #222; }
+        .tag-low { background: #43a047; color: white; }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #999;
+            border-radius: 3px;
+        }
+
+        /* SUMMARY BOX */
+        .summary {
+            background: #1a1a2e;
+            color: white;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 14pt;
+        }
+
+        .summary ol {
+            margin-left: 20px;
+        }
+
+        .summary li {
+            margin: 10px 0;
+        }
+
+        /* TWO COLUMNS */
+        .two-col {
+            display: flex;
+            gap: 40px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #888;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+    <h1>ANDURIL.COM</h1>
+    <div class="tagline">SEO & Performance Audit Report</div>
+
+    <div class="scores">
+        <div class="score-item">
+            <div class="score-num green">88</div>
+            <div class="score-label">Technical</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num green">85</div>
+            <div class="score-label">On-Page</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">72</div>
+            <div class="score-label">Speed</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num green">80</div>
+            <div class="score-label">Mobile</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">65</div>
+            <div class="score-label">Content</div>
+        </div>
+    </div>
+
+    <div class="meta">
+        December 26, 2025<br>
+        Defense Technology Company | Costa Mesa, CA
+    </div>
+</div>
+
+<!-- PAGE 2: EXECUTIVE SUMMARY -->
+<div class="page content">
+    <h2>Executive Summary</h2>
+
+    <p>Anduril Industries is a defense technology company with a well-structured, modern website built for enterprise credibility. The site demonstrates strong technical SEO fundamentals but has opportunities for improvement in content depth and page speed optimization.</p>
+
+    <div class="strength">
+        <h4>Key Strengths</h4>
+        <ul>
+            <li>Excellent meta tag implementation (OG, Twitter Cards)</li>
+            <li>Clean URL structure with logical hierarchy</li>
+            <li>Strong brand consistency across pages</li>
+            <li>Well-organized product/service architecture</li>
+            <li>Active newsroom with fresh content</li>
+        </ul>
+    </div>
+
+    <h3>Site Overview</h3>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Total Pages Indexed</td>
+            <td>49+ URLs discovered</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>Platform</td>
+            <td>Custom (React/Next.js with Sanity CMS)</td>
+            <td class="good">Modern</td>
+        </tr>
+        <tr>
+            <td>SSL Certificate</td>
+            <td>Active HTTPS</td>
+            <td class="good">Secure</td>
+        </tr>
+        <tr>
+            <td>Mobile Responsive</td>
+            <td>Yes - viewport configured</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>Language Tag</td>
+            <td>lang="en"</td>
+            <td class="good">Good</td>
+        </tr>
+    </table>
+
+    <h3>Domain Categories</h3>
+    <table>
+        <tr>
+            <th>Domain</th>
+            <th>Products/Services</th>
+        </tr>
+        <tr>
+            <td><strong>Sea</strong></td>
+            <td>Seapower, Dive-XL, Connected Warfare</td>
+        </tr>
+        <tr>
+            <td><strong>Land</strong></td>
+            <td>Counter Intrusion, Counter UAS, Sentry</td>
+        </tr>
+        <tr>
+            <td><strong>Air</strong></td>
+            <td>Ghost, Fury, Roadrunner, Barracuda, Altius</td>
+        </tr>
+        <tr>
+            <td><strong>Space</strong></td>
+            <td>Space Surveillance, EagleEye</td>
+        </tr>
+        <tr>
+            <td><strong>Software</strong></td>
+            <td>Lattice (Command & Control, Mission Autonomy, Mesh, SDK)</td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 3: ON-PAGE SEO -->
+<div class="page content">
+    <h2>On-Page SEO Analysis</h2>
+
+    <table>
+        <tr>
+            <th style="width:20%">Element</th>
+            <th style="width:40%">Current State</th>
+            <th style="width:10%">Status</th>
+            <th style="width:30%">Notes</th>
+        </tr>
+        <tr>
+            <td><strong>Title Tag</strong></td>
+            <td>"Transforming U.S. Defense Capabilities with Advanced Technology | Anduril" (76 chars)</td>
+            <td class="good">Good</td>
+            <td>Slightly long but acceptable</td>
+        </tr>
+        <tr>
+            <td><strong>Meta Description</strong></td>
+            <td>"Anduril Industries builds advanced autonomous systems and defense technology to protect US and allied forces..."</td>
+            <td class="good">Good</td>
+            <td>Clear value proposition</td>
+        </tr>
+        <tr>
+            <td><strong>OG Tags</strong></td>
+            <td>Title, Description, Image, URL all present</td>
+            <td class="good">Excellent</td>
+            <td>1200x630 image optimized</td>
+        </tr>
+        <tr>
+            <td><strong>Twitter Cards</strong></td>
+            <td>summary_large_image with all fields</td>
+            <td class="good">Excellent</td>
+            <td>Great for social sharing</td>
+        </tr>
+        <tr>
+            <td><strong>Canonical URL</strong></td>
+            <td>Present</td>
+            <td class="good">Good</td>
+            <td>Prevents duplicate content</td>
+        </tr>
+        <tr>
+            <td><strong>Favicon</strong></td>
+            <td>Custom .ico file</td>
+            <td class="good">Good</td>
+            <td>Brand consistent</td>
+        </tr>
+        <tr>
+            <td><strong>Viewport</strong></td>
+            <td>Properly configured for mobile</td>
+            <td class="good">Good</td>
+            <td>maximum-scale=5.0</td>
+        </tr>
+    </table>
+
+    <h3>Content Analysis</h3>
+
+    <div class="issue">
+        <h4>Template Variables Visible in Source</h4>
+        <p>Found: <code>@\[descriptionTitle\]</code>, <code>@\[description\]</code>, <code>@\[title\]</code>, <code>@\[shortTitle\]</code></p>
+        <p><strong>Impact:</strong> Template placeholders visible in rendered HTML - looks unprofessional and may confuse crawlers</p>
+        <div class="fix"><strong>Fix:</strong> Ensure all template variables are properly replaced before rendering</div>
+    </div>
+
+    <div class="issue">
+        <h4>Thin Homepage Content</h4>
+        <p>Homepage is primarily navigation and product showcases with minimal text content</p>
+        <p><strong>Impact:</strong> Less keyword-rich content for search engines to index</p>
+        <div class="fix"><strong>Fix:</strong> Add introductory paragraph explaining Anduril's mission and capabilities</div>
+    </div>
+
+    <h3>Heading Structure</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Status</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>H1 Tag</td>
+            <td class="warn">Check</td>
+            <td>Uses template variable @\[shortTitle\]</td>
+        </tr>
+        <tr>
+            <td>H2 Tags</td>
+            <td class="good">Present</td>
+            <td>Product names, section headers</td>
+        </tr>
+        <tr>
+            <td>H3 Tags</td>
+            <td class="good">Present</td>
+            <td>Domain descriptions (Sea, Land, Air)</td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 4: SITE STRUCTURE -->
+<div class="page content">
+    <h2>Site Architecture</h2>
+    <p>49 URLs discovered. Well-organized hierarchical structure.</p>
+
+    <div class="two-col">
+        <div>
+            <h3>Core Pages</h3>
+            <table>
+                <tr><th>Page</th><th>URL</th></tr>
+                <tr><td>Home</td><td>/</td></tr>
+                <tr><td>Careers</td><td>/careers</td></tr>
+                <tr><td>News</td><td>/news</td></tr>
+                <tr><td>Mission</td><td>/mission</td></tr>
+                <tr><td>Leadership</td><td>/anduril-leadership</td></tr>
+                <tr><td>Privacy Policy</td><td>/privacy-policy</td></tr>
+                <tr><td>Terms of Use</td><td>/terms-of-use</td></tr>
+            </table>
+
+            <h3>Product Pages</h3>
+            <table>
+                <tr><th>Product</th><th>URL</th></tr>
+                <tr><td>Ghost</td><td>/ghost</td></tr>
+                <tr><td>Fury</td><td>/fury</td></tr>
+                <tr><td>Roadrunner</td><td>/roadrunner</td></tr>
+                <tr><td>Barracuda</td><td>/barracuda</td></tr>
+                <tr><td>Dive-XL</td><td>/dive-xl</td></tr>
+                <tr><td>Menace</td><td>/menace-x</td></tr>
+                <tr><td>Sentry</td><td>/sentry</td></tr>
+                <tr><td>Anvil</td><td>/anvil</td></tr>
+                <tr><td>Spark</td><td>/spark</td></tr>
+            </table>
+        </div>
+        <div>
+            <h3>Domain Sections</h3>
+            <table>
+                <tr><th>Section</th><th>URL Pattern</th></tr>
+                <tr><td>Sea</td><td>/sea/*</td></tr>
+                <tr><td>Land</td><td>/land/*</td></tr>
+                <tr><td>Air</td><td>/air/*</td></tr>
+                <tr><td>Space</td><td>/space/*</td></tr>
+                <tr><td>Lattice</td><td>/lattice/*</td></tr>
+            </table>
+
+            <h3>Content Sections</h3>
+            <table>
+                <tr><th>Section</th><th>Count</th></tr>
+                <tr><td>News Articles</td><td>25+ posts</td></tr>
+                <tr><td>Product Pages</td><td>15+ pages</td></tr>
+                <tr><td>Career Pages</td><td>Multiple</td></tr>
+            </table>
+
+            <h3>International</h3>
+            <table>
+                <tr><th>Region</th><th>URL</th></tr>
+                <tr><td>UK</td><td>/uk</td></tr>
+                <tr><td>Australia</td><td>Referenced in news</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 5: TECHNICAL SEO -->
+<div class="page content">
+    <h2>Technical SEO</h2>
+
+    <h3>Positive Findings</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Status</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td class="good">Enabled</td>
+            <td>SSL certificate active</td>
+        </tr>
+        <tr>
+            <td>Mobile Viewport</td>
+            <td class="good">Configured</td>
+            <td>width=device-width, initial-scale=1.0</td>
+        </tr>
+        <tr>
+            <td>Language Attribute</td>
+            <td class="good">Present</td>
+            <td>lang="en"</td>
+        </tr>
+        <tr>
+            <td>Open Graph</td>
+            <td class="good">Complete</td>
+            <td>All required tags present</td>
+        </tr>
+        <tr>
+            <td>Twitter Cards</td>
+            <td class="good">Complete</td>
+            <td>summary_large_image</td>
+        </tr>
+        <tr>
+            <td>Bing Verification</td>
+            <td class="good">Present</td>
+            <td>msvalidate.01 tag found</td>
+        </tr>
+        <tr>
+            <td>CDN</td>
+            <td class="good">Active</td>
+            <td>Sanity CDN for images</td>
+        </tr>
+    </table>
+
+    <h3>Issues Found</h3>
+
+    <div class="issue">
+        <h4>Template Rendering Issue</h4>
+        <p>Unrendered template variables in HTML: @\[descriptionTitle\], @\[description\], @\[title\]</p>
+        <div class="fix"><strong>Fix:</strong> Debug SSR/hydration to ensure variables render properly</div>
+    </div>
+
+    <div class="issue">
+        <h4>Missing Schema Markup</h4>
+        <p>No visible Organization, Product, or Article schema in scraped content</p>
+        <div class="fix"><strong>Fix:</strong> Add JSON-LD structured data for Organization and Products</div>
+    </div>
+
+    <div class="issue">
+        <h4>Heavy JavaScript Bundle</h4>
+        <p>React/Next.js SPA may impact initial load performance and crawlability</p>
+        <div class="fix"><strong>Fix:</strong> Ensure proper SSR, add preloading for critical resources</div>
+    </div>
+
+    <h3>Recommended Schema Types</h3>
+    <table>
+        <tr>
+            <th>Schema Type</th>
+            <th>Page</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>Organization</td>
+            <td>Homepage, About</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>Product</td>
+            <td>All product pages</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>Article/NewsArticle</td>
+            <td>News posts</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>JobPosting</td>
+            <td>Career pages</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>BreadcrumbList</td>
+            <td>All pages</td>
+            <td><span class="tag tag-low">Low</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 6: PERFORMANCE & CONTENT -->
+<div class="page content">
+    <h2>Performance Considerations</h2>
+
+    <h3>Technology Stack</h3>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Technology</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>Framework</td>
+            <td>React (likely Next.js)</td>
+            <td class="warn">Heavy JS bundle</td>
+        </tr>
+        <tr>
+            <td>CMS</td>
+            <td>Sanity.io</td>
+            <td class="good">Fast CDN delivery</td>
+        </tr>
+        <tr>
+            <td>Images</td>
+            <td>Sanity CDN with auto-format</td>
+            <td class="good">Optimized</td>
+        </tr>
+        <tr>
+            <td>Animations</td>
+            <td>Lenis (smooth scroll)</td>
+            <td class="warn">Additional JS</td>
+        </tr>
+    </table>
+
+    <h3>Image Optimization</h3>
+    <p>Images served via Sanity CDN with automatic format detection (auto=format). Good implementation.</p>
+
+    <h2 style="margin-top: 30px;">Content Strategy</h2>
+
+    <h3>Strengths</h3>
+    <ul>
+        <li><strong>Active Newsroom:</strong> Regular press releases and company updates (25+ articles)</li>
+        <li><strong>Product Documentation:</strong> Dedicated pages for each product line</li>
+        <li><strong>Career Content:</strong> Forge Program, SkillBridge, Open Roles</li>
+        <li><strong>Thought Leadership:</strong> "Rebooting the Arsenal" mission documents</li>
+    </ul>
+
+    <h3>Opportunities</h3>
+    <table>
+        <tr>
+            <th>Opportunity</th>
+            <th>Current State</th>
+            <th>Recommendation</th>
+        </tr>
+        <tr>
+            <td>Blog/Insights</td>
+            <td>News only</td>
+            <td>Add technical blog for organic traffic</td>
+        </tr>
+        <tr>
+            <td>Case Studies</td>
+            <td>Limited</td>
+            <td>Add customer success stories (where allowed)</td>
+        </tr>
+        <tr>
+            <td>Video Content</td>
+            <td>YouTube channel exists</td>
+            <td>Embed videos on product pages</td>
+        </tr>
+        <tr>
+            <td>FAQ Pages</td>
+            <td>Not visible</td>
+            <td>Add FAQ for each product category</td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 7: KEYWORDS & COMPETITORS -->
+<div class="page content">
+    <h2>Keyword Opportunities</h2>
+
+    <table>
+        <tr>
+            <th>Keyword</th>
+            <th>Category</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>defense technology company</td>
+            <td>Brand</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>autonomous defense systems</td>
+            <td>Product</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>counter drone technology</td>
+            <td>Product</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>military AI software</td>
+            <td>Product</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>defense contractor jobs</td>
+            <td>Recruitment</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>unmanned underwater vehicles</td>
+            <td>Product</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>loitering munitions</td>
+            <td>Product</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>collaborative combat aircraft</td>
+            <td>Product</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>border security technology</td>
+            <td>Use Case</td>
+            <td><span class="tag tag-low">Low</span></td>
+        </tr>
+    </table>
+
+    <h2 style="margin-top: 30px;">Social Media Presence</h2>
+
+    <table>
+        <tr>
+            <th>Platform</th>
+            <th>Handle</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>X (Twitter)</td>
+            <td>@anduriltech</td>
+            <td class="good">Active</td>
+        </tr>
+        <tr>
+            <td>YouTube</td>
+            <td>@AndurilIndustries</td>
+            <td class="good">Active</td>
+        </tr>
+        <tr>
+            <td>Instagram</td>
+            <td>@anduril_industries</td>
+            <td class="good">Active</td>
+        </tr>
+        <tr>
+            <td>Facebook</td>
+            <td>/andurilindustries</td>
+            <td class="good">Active</td>
+        </tr>
+        <tr>
+            <td>LinkedIn</td>
+            <td>/company/andurilindustries</td>
+            <td class="good">Active</td>
+        </tr>
+    </table>
+
+    <p><strong>Note:</strong> Strong social presence across all major platforms. Links properly configured in footer.</p>
+</div>
+
+<!-- PAGE 8: ACTION PLAN -->
+<div class="page content">
+    <h2>Action Plan</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Week 1: Critical Fixes</h3>
+            <ul class="checklist">
+                <li>Fix template variable rendering issue</li>
+                <li>Verify H1 tag renders properly</li>
+                <li>Add Organization schema to homepage</li>
+                <li>Test SSR for all key pages</li>
+            </ul>
+
+            <h3>Week 2: Schema Implementation</h3>
+            <ul class="checklist">
+                <li>Add Product schema to all product pages</li>
+                <li>Add Article schema to news posts</li>
+                <li>Add JobPosting schema to careers</li>
+                <li>Implement BreadcrumbList navigation</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Week 3: Content Enhancement</h3>
+            <ul class="checklist">
+                <li>Add intro paragraph to homepage</li>
+                <li>Create FAQ pages for each domain</li>
+                <li>Embed YouTube videos on product pages</li>
+                <li>Improve internal linking</li>
+            </ul>
+
+            <h3>Week 4: Performance</h3>
+            <ul class="checklist">
+                <li>Audit JavaScript bundle size</li>
+                <li>Implement resource preloading</li>
+                <li>Test Core Web Vitals</li>
+                <li>Submit updated sitemap to GSC</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>Top 3 Priorities</h3>
+        <ol>
+            <li><strong>Fix template rendering</strong> - Visible @\[variable\] placeholders hurt professionalism</li>
+            <li><strong>Add structured data</strong> - Organization & Product schema for rich results</li>
+            <li><strong>Improve content depth</strong> - Add text content to homepage and FAQ pages</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <p>Report generated by Claude Code | December 2025</p>
+        <p>anduril.com | Defense Technology | Costa Mesa, CA</p>
+    </div>
+</div>
+
+</body>
+</html>
