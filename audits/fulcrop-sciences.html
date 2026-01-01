@@ -53,6 +53,26 @@
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
         th { background: #f8f9fa; font-weight: 600; }
         .business-type { display: inline-block; background: #4a7c23; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; margin-top: 10px; }
+
+        /* MOBILE RESPONSIVE */
+        @media screen and (max-width: 768px) {
+            .container { padding: 12px; }
+            .header { padding: 24px 20px; }
+            .header h1 { font-size: 22px; }
+            .score-grid { gap: 12px; }
+            .score-card { padding: 18px; }
+            .score-card .score { font-size: 36px; }
+            .section { padding: 20px; }
+            .section h2 { font-size: 18px; }
+            .issue-list li { padding: 12px; }
+            .win-item { padding: 12px; }
+            .footer { padding: 20px; }
+            table { display: block; overflow-x: auto; }
+        }
+        @media screen and (max-width: 400px) {
+            .header h1 { font-size: 18px; }
+            .score-card .score { font-size: 32px; }
+        }
     </style>
 </head>
 <body>

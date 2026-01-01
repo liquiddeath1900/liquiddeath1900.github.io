@@ -72,6 +72,31 @@
             .header { background: #4ecdc4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .score-circle { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
+
+        /* MOBILE RESPONSIVE */
+        @media screen and (max-width: 768px) {
+            .container { padding: 12px; }
+            .header { padding: 24px 20px; border-radius: 8px 8px 0 0; }
+            .header h1 { font-size: 22px; }
+            .report-body { padding: 20px; }
+            .score-section { gap: 15px; }
+            .score-card { min-width: 90px; padding: 15px 10px; }
+            .score-circle { width: 70px; height: 70px; font-size: 24px; }
+            .score-label { font-size: 12px; }
+            .section { margin: 25px 0; }
+            .section-title { font-size: 18px; }
+            .metric-grid { gap: 10px; }
+            .metric-card { padding: 15px; }
+            .metric-value { font-size: 18px; }
+            .issue-item, .quick-win { padding: 12px; }
+            .summary-box { padding: 20px; }
+            .cta-section { padding: 20px; }
+            .cta-button { padding: 10px 20px; }
+        }
+        @media screen and (max-width: 400px) {
+            .header h1 { font-size: 20px; }
+            .score-circle { width: 60px; height: 60px; font-size: 20px; }
+        }
     </style>
 </head>
 <body>
