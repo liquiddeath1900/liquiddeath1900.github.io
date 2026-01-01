@@ -3,386 +3,769 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Audit Report - Fulcrop Sciences</title>
+    <title>Fulcrop Sciences - SEO & Performance Audit</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #2d5016 0%, #4a7c23 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px; }
-        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .header .url { opacity: 0.9; font-size: 1.1rem; }
-        .header .date { opacity: 0.8; margin-top: 10px; }
-        .score-card { background: white; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .overall-score { display: flex; align-items: center; gap: 30px; }
-        .score-circle { width: 150px; height: 150px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-size: 3rem; font-weight: bold; }
-        .score-circle span { font-size: 1rem; font-weight: normal; }
-        .score-poor { background: linear-gradient(135deg, #dc3545, #c82333); }
-        .score-fair { background: linear-gradient(135deg, #ffc107, #e0a800); }
-        .score-good { background: linear-gradient(135deg, #28a745, #1e7e34); }
-        .score-details h2 { margin-bottom: 15px; color: #333; }
-        .score-breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .score-item { background: #f8f9fa; padding: 15px; border-radius: 8px; }
-        .score-item .label { font-size: 0.9rem; color: #666; }
-        .score-item .value { font-size: 1.5rem; font-weight: bold; }
-        .section { background: white; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .section h2 { color: #2d5016; border-bottom: 2px solid #4a7c23; padding-bottom: 10px; margin-bottom: 20px; }
-        .issue { padding: 15px; border-left: 4px solid; margin-bottom: 15px; background: #f8f9fa; border-radius: 0 8px 8px 0; }
-        .issue-critical { border-color: #dc3545; }
-        .issue-warning { border-color: #ffc107; }
-        .issue-info { border-color: #17a2b8; }
-        .issue-good { border-color: #28a745; }
-        .issue h3 { margin-bottom: 8px; }
-        .issue p { color: #666; }
-        .tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; margin-right: 5px; }
-        .tag-critical { background: #dc3545; color: white; }
-        .tag-warning { background: #ffc107; color: #333; }
-        .tag-good { background: #28a745; color: white; }
-        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .metric-card { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; }
-        .metric-card .value { font-size: 2rem; font-weight: bold; }
-        .metric-card .label { color: #666; margin-top: 5px; }
-        .metric-card.poor .value { color: #dc3545; }
-        .metric-card.fair .value { color: #ffc107; }
-        .metric-card.good .value { color: #28a745; }
-        .quick-wins { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
-        .quick-wins h2 { color: #2d5016; border-color: #4a7c23; }
-        .win-item { display: flex; align-items: flex-start; gap: 15px; padding: 15px; background: white; border-radius: 8px; margin-bottom: 10px; }
-        .win-number { background: #4a7c23; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
-        .footer { text-align: center; padding: 30px; color: #666; }
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #f8f9fa; font-weight: 600; }
-        .business-type { display: inline-block; background: #4a7c23; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; margin-top: 10px; }
+        @page {
+            size: letter;
+            margin: 0.5in 0.6in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #222;
+            background: white;
+        }
+
+        .page {
+            page-break-after: always;
+            min-height: 100%;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* BRAND THEMING - Fulcrop Green */
+        :root {
+            --brand-primary: #4a7c23;
+            --brand-secondary: #2d5016;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c23 100%);
+            color: white;
+        }
+
+        .cover .cover-logo {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .cover h1 {
+            font-size: 36pt;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .cover .tagline {
+            font-size: 14pt;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 60px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: rgba(255,255,255,0.6);
+            margin-top: 40px;
+        }
+
+        .cover .scores {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .cover .score-item {
+            text-align: center;
+        }
+
+        .cover .score-num {
+            font-size: 36pt;
+            font-weight: 700;
+        }
+
+        .cover .score-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .red { color: #e53935; }
+        .yellow { color: #f9a825; }
+        .green { color: #43a047; }
+
+        /* CONTENT PAGES */
+        .content {
+            padding: 30px 20px;
+        }
+
+        h2 {
+            font-size: 16pt;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--brand-primary);
+            color: var(--brand-secondary);
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 10pt;
+        }
+
+        ul {
+            margin: 8px 0 12px 18px;
+            font-size: 10pt;
+        }
+
+        li {
+            margin: 4px 0;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 20px 0;
+            font-size: 9pt;
+        }
+
+        th {
+            background: var(--brand-primary);
+            color: white;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .good { color: #43a047; font-weight: 600; }
+        .bad { color: #e53935; font-weight: 600; }
+        .warn { color: #f9a825; font-weight: 600; }
+
+        /* ISSUE BOXES */
+        .issue {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #e53935;
+            padding: 12px 15px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+
+        .issue h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #c62828;
+            margin-bottom: 6px;
+        }
+
+        .issue p {
+            margin: 4px 0;
+            font-size: 9pt;
+        }
+
+        .issue .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 6px 10px;
+            margin-top: 8px;
+            font-size: 9pt;
+        }
+
+        .issue.warning {
+            background: #fffde7;
+            border-color: #fff59d;
+            border-left-color: #f9a825;
+        }
+
+        .issue.warning h4 {
+            color: #f57f17;
+        }
+
+        /* STRENGTH BOXES */
+        .strength {
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-left: 4px solid #43a047;
+            padding: 12px 15px;
+            margin: 12px 0;
+            border-radius: 4px;
+        }
+
+        .strength h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 6px;
+        }
+
+        /* PRIORITY TAGS */
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 7pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-high { background: #e53935; color: white; }
+        .tag-med { background: #f9a825; color: #222; }
+        .tag-low { background: #43a047; color: white; }
+
+        /* METRICS GRID */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .metric-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border-left: 3px solid #ddd;
+        }
+
+        .metric-card.bad { border-left-color: #e53935; }
+        .metric-card.warn { border-left-color: #f9a825; }
+        .metric-card.good { border-left-color: #43a047; }
+
+        .metric-card .value {
+            font-size: 20pt;
+            font-weight: 700;
+        }
+
+        .metric-card .label {
+            font-size: 8pt;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .metric-card small {
+            font-size: 7pt;
+            color: #888;
+        }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .checklist li {
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            font-size: 9pt;
+        }
+
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #999;
+            border-radius: 3px;
+        }
+
+        /* SUMMARY BOX */
+        .summary {
+            background: var(--brand-primary);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 12pt;
+        }
+
+        .summary ol {
+            margin-left: 18px;
+        }
+
+        .summary li {
+            margin: 8px 0;
+            font-size: 9pt;
+        }
+
+        /* TWO COLUMNS */
+        .two-col {
+            display: flex;
+            gap: 30px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        /* QUICK WINS */
+        .quick-win {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: #f0f9f0;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .quick-win .number {
+            background: var(--brand-primary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10pt;
+            flex-shrink: 0;
+        }
+
+        .quick-win strong {
+            font-size: 10pt;
+        }
+
+        .quick-win p {
+            font-size: 9pt;
+            margin: 4px 0 0 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #888;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .agency-logo {
+            width: 100px;
+            margin-bottom: 8px;
+        }
+
+        .footer .agency-contact {
+            margin-top: 8px;
+            font-size: 9pt;
+            color: #555;
+        }
+
+        .footer .agency-contact a {
+            color: var(--brand-primary);
+            text-decoration: none;
+        }
+
+        /* PAGE BREAKS */
+        .executive-summary { padding: 15px 0; }
+        .critical-issues { page-break-before: always; padding: 15px 0; }
+        .technical-seo { page-break-before: always; padding: 15px 0; }
+        .action-plan { page-break-before: always; padding: 15px 0; }
+        h2, h3 { page-break-after: avoid; }
 
         /* MOBILE RESPONSIVE */
         @media screen and (max-width: 768px) {
-            .container { padding: 12px; }
-            .header { padding: 24px 20px; }
-            .header h1 { font-size: 22px; }
-            .score-grid { gap: 12px; }
-            .score-card { padding: 18px; }
-            .score-card .score { font-size: 36px; }
-            .section { padding: 20px; }
-            .section h2 { font-size: 18px; }
-            .issue-list li { padding: 12px; }
-            .win-item { padding: 12px; }
-            .footer { padding: 20px; }
-            table { display: block; overflow-x: auto; }
+            .cover { padding: 40px 24px; min-height: 100vh; }
+            .cover h1 { font-size: 24pt; letter-spacing: -1px; }
+            .cover .tagline { font-size: 12pt; margin-bottom: 40px; }
+            .cover .scores { flex-wrap: wrap; gap: 16px; justify-content: center; }
+            .cover .score-item { min-width: 70px; }
+            .cover .score-num { font-size: 28pt; }
+            .cover .score-label { font-size: 8pt; }
+            .content { padding: 24px 20px; }
+            h2 { font-size: 14pt; }
+            h3 { font-size: 10pt; }
+            p, li { font-size: 9pt; }
+            table { display: block; overflow-x: auto; white-space: nowrap; font-size: 8pt; }
+            th, td { padding: 6px 8px; }
+            .two-col { flex-direction: column; gap: 20px; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .issue, .strength { padding: 10px 12px; margin: 10px 0; }
+            .issue h4, .strength h4 { font-size: 9pt; }
+            .summary { padding: 15px; margin: 15px 0; }
+            .summary h3 { font-size: 11pt; }
+            .checklist li { font-size: 9pt; padding-left: 24px; }
+            .footer { padding: 12px 15px; margin-top: 20px; }
         }
         @media screen and (max-width: 400px) {
-            .header h1 { font-size: 18px; }
-            .score-card .score { font-size: 32px; }
+            .cover h1 { font-size: 20pt; }
+            .cover .scores { gap: 12px; }
+            .cover .score-num { font-size: 24pt; }
+            .content { padding: 20px 16px; }
+            .metrics-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>SEO Audit Report</h1>
-            <div class="url">fulcropsciences.com</div>
-            <div class="business-type">E-Commerce</div>
-            <div class="date">Generated: December 28, 2024</div>
+
+<!-- PAGE 1: COVER -->
+<div class="cover">
+    <img src="https://raw.githubusercontent.com/liquiddeath1900/liquiddeath1900.github.io/main/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="cover-logo">
+    <h1>FULCROPSCIENCES.COM</h1>
+    <div class="tagline">SEO & Performance Audit Report</div>
+
+    <div class="scores">
+        <div class="score-item">
+            <div class="score-num red">32</div>
+            <div class="score-label">Overall</div>
         </div>
-
-        <div class="score-card">
-            <div class="overall-score">
-                <div class="score-circle score-poor">
-                    32
-                    <span>/ 100</span>
-                </div>
-                <div class="score-details">
-                    <h2>Overall SEO Health: Poor</h2>
-                    <p>This e-commerce site has critical performance issues that are significantly impacting user experience and search rankings. The 9MB page size and high CLS are causing visitors to leave before conversion.</p>
-                </div>
-            </div>
-            <div class="score-breakdown">
-                <div class="score-item">
-                    <div class="label">PageSpeed (Mobile)</div>
-                    <div class="value" style="color: #dc3545;">35</div>
-                </div>
-                <div class="score-item">
-                    <div class="label">PageSpeed (Desktop)</div>
-                    <div class="value" style="color: #ffc107;">55</div>
-                </div>
-                <div class="score-item">
-                    <div class="label">Technical SEO</div>
-                    <div class="value" style="color: #ffc107;">45</div>
-                </div>
-                <div class="score-item">
-                    <div class="label">On-Page SEO</div>
-                    <div class="value" style="color: #dc3545;">30</div>
-                </div>
-                <div class="score-item">
-                    <div class="label">Content</div>
-                    <div class="value" style="color: #dc3545;">25</div>
-                </div>
-            </div>
+        <div class="score-item">
+            <div class="score-num red">35</div>
+            <div class="score-label">Mobile</div>
         </div>
-
-        <div class="section">
-            <h2>Core Web Vitals (Mobile)</h2>
-            <div class="metrics-grid">
-                <div class="metric-card poor">
-                    <div class="value">7.5s</div>
-                    <div class="label">LCP (Largest Contentful Paint)</div>
-                    <small>Target: &lt; 2.5s</small>
-                </div>
-                <div class="metric-card poor">
-                    <div class="value">0.48</div>
-                    <div class="label">CLS (Cumulative Layout Shift)</div>
-                    <small>Target: &lt; 0.1</small>
-                </div>
-                <div class="metric-card fair">
-                    <div class="value">312ms</div>
-                    <div class="label">INP (Interaction to Next Paint)</div>
-                    <small>Target: &lt; 200ms</small>
-                </div>
-                <div class="metric-card poor">
-                    <div class="value">9.0MB</div>
-                    <div class="label">Total Page Size</div>
-                    <small>Target: &lt; 3MB</small>
-                </div>
-            </div>
+        <div class="score-item">
+            <div class="score-num yellow">55</div>
+            <div class="score-label">Desktop</div>
         </div>
-
-        <div class="section">
-            <h2>Critical Issues</h2>
-
-            <div class="issue issue-critical">
-                <span class="tag tag-critical">Critical</span>
-                <h3>9MB Page Size - 3x Over Budget</h3>
-                <p>Your homepage weighs 9MB, which is 3x the recommended maximum. This causes extremely slow load times, especially on mobile. Main culprits: unoptimized images, videos, and excessive JavaScript.</p>
-            </div>
-
-            <div class="issue issue-critical">
-                <span class="tag tag-critical">Critical</span>
-                <h3>CLS 0.48 - Layout Shifting Heavily</h3>
-                <p>Page elements are moving around as the page loads, causing a terrible user experience. Users are clicking wrong buttons and getting frustrated. Primary cause: popup modal without reserved space and images without dimensions.</p>
-            </div>
-
-            <div class="issue issue-critical">
-                <span class="tag tag-critical">Critical</span>
-                <h3>reCAPTCHA Loading 10+ Times</h3>
-                <p>Google reCAPTCHA scripts are loading multiple times across the page, dramatically increasing load time and JavaScript execution. This is a plugin conflict or misconfiguration.</p>
-            </div>
-
-            <div class="issue issue-critical">
-                <span class="tag tag-critical">Critical</span>
-                <h3>LCP 7.5s - Users Leaving Before Page Loads</h3>
-                <p>The main content takes 7.5 seconds to appear on mobile. Google considers anything over 2.5s as "poor." This is destroying your mobile rankings and bounce rate.</p>
-            </div>
-
-            <div class="issue issue-warning">
-                <span class="tag tag-warning">Warning</span>
-                <h3>Render-Blocking JavaScript</h3>
-                <p>Multiple JavaScript files are blocking page rendering. Elementor, WooCommerce, and various plugins are all loading synchronously instead of deferred.</p>
-            </div>
-
-            <div class="issue issue-warning">
-                <span class="tag tag-warning">Warning</span>
-                <h3>No Image Optimization</h3>
-                <p>Images are served in PNG/JPG format instead of modern WebP/AVIF. No lazy loading detected on below-fold images.</p>
-            </div>
+        <div class="score-item">
+            <div class="score-num yellow">45</div>
+            <div class="score-label">Technical</div>
         </div>
-
-        <div class="section">
-            <h2>Technical SEO Status</h2>
-            <table>
-                <tr>
-                    <th>Check</th>
-                    <th>Status</th>
-                    <th>Notes</th>
-                </tr>
-                <tr>
-                    <td>HTTPS</td>
-                    <td><span class="tag tag-good">Pass</span></td>
-                    <td>SSL certificate valid</td>
-                </tr>
-                <tr>
-                    <td>robots.txt</td>
-                    <td><span class="tag tag-good">Pass</span></td>
-                    <td>File exists and accessible</td>
-                </tr>
-                <tr>
-                    <td>sitemap.xml</td>
-                    <td><span class="tag tag-warning">Redirect</span></td>
-                    <td>301 redirects - should be direct URL</td>
-                </tr>
-                <tr>
-                    <td>Mobile Friendly</td>
-                    <td><span class="tag tag-warning">Issues</span></td>
-                    <td>Responsive but slow to load</td>
-                </tr>
-                <tr>
-                    <td>Schema Markup</td>
-                    <td><span class="tag tag-warning">Partial</span></td>
-                    <td>Basic WooCommerce schema only</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section">
-            <h2>Platform Analysis</h2>
-            <div class="issue issue-info">
-                <h3>Tech Stack Detected</h3>
-                <p><strong>CMS:</strong> WordPress<br>
-                <strong>Page Builder:</strong> Elementor<br>
-                <strong>E-Commerce:</strong> WooCommerce<br>
-                <strong>Forms:</strong> WPForms<br>
-                <strong>Other:</strong> reCAPTCHA, various analytics scripts</p>
-            </div>
-            <div class="issue issue-warning">
-                <span class="tag tag-warning">Warning</span>
-                <h3>Plugin Bloat Detected</h3>
-                <p>Multiple plugins are loading scripts globally even when not needed. This is a common WordPress/Elementor issue that compounds performance problems.</p>
-            </div>
-        </div>
-
-        <div class="section quick-wins">
-            <h2>Quick Wins - Immediate Actions</h2>
-
-            <div class="win-item">
-                <div class="win-number">1</div>
-                <div>
-                    <strong>Fix reCAPTCHA Multiple Loading</strong>
-                    <p>This single fix could cut 2-3 seconds off load time. Check WPForms settings and any other plugins using reCAPTCHA. Only load on pages with forms.</p>
-                </div>
-            </div>
-
-            <div class="win-item">
-                <div class="win-number">2</div>
-                <div>
-                    <strong>Install Image Optimization Plugin</strong>
-                    <p>Use ShortPixel, Smush, or Imagify to automatically convert images to WebP and compress them. Expected savings: 50-70% of image weight.</p>
-                </div>
-            </div>
-
-            <div class="win-item">
-                <div class="win-number">3</div>
-                <div>
-                    <strong>Fix CLS from Popup Modal</strong>
-                    <p>Reserve space for the popup or delay its appearance until after page load. Add width/height attributes to all images to prevent layout shifts.</p>
-                </div>
-            </div>
-
-            <div class="win-item">
-                <div class="win-number">4</div>
-                <div>
-                    <strong>Enable WP Rocket or LiteSpeed Cache</strong>
-                    <p>Install a caching plugin to serve static HTML, minify CSS/JS, and defer render-blocking resources. This alone can improve scores by 15-25 points.</p>
-                </div>
-            </div>
-
-            <div class="win-item">
-                <div class="win-number">5</div>
-                <div>
-                    <strong>Lazy Load Below-Fold Images</strong>
-                    <p>Add loading="lazy" to images not visible on initial page load. Most caching plugins do this automatically.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>E-Commerce Specific Issues</h2>
-
-            <div class="issue issue-warning">
-                <span class="tag tag-warning">Warning</span>
-                <h3>Product Schema Limited</h3>
-                <p>WooCommerce provides basic product schema, but consider enhancing with reviews, availability, and price range for better rich snippets in search results.</p>
-            </div>
-
-            <div class="issue issue-warning">
-                <span class="tag tag-warning">Warning</span>
-                <h3>Slow Add-to-Cart Experience</h3>
-                <p>With 312ms INP, user interactions feel sluggish. This directly impacts conversion rates - every 100ms delay can reduce conversions by 7%.</p>
-            </div>
-
-            <div class="issue issue-info">
-                <h3>Mobile Commerce at Risk</h3>
-                <p>With 7.5s LCP on mobile, you're losing most mobile shoppers before they see your products. Mobile e-commerce accounts for 60%+ of online shopping.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Recommended Action Plan</h2>
-            <table>
-                <tr>
-                    <th>Priority</th>
-                    <th>Action</th>
-                    <th>Impact</th>
-                    <th>Effort</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Fix reCAPTCHA duplicate loading</td>
-                    <td>High</td>
-                    <td>Low</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Install caching plugin (WP Rocket)</td>
-                    <td>High</td>
-                    <td>Low</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Image optimization + WebP conversion</td>
-                    <td>High</td>
-                    <td>Medium</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Fix popup CLS issue</td>
-                    <td>Medium</td>
-                    <td>Low</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Audit and remove unused plugins</td>
-                    <td>Medium</td>
-                    <td>Medium</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Defer non-critical JavaScript</td>
-                    <td>Medium</td>
-                    <td>Medium</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Add lazy loading to all images</td>
-                    <td>Medium</td>
-                    <td>Low</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section">
-            <h2>Expected Results After Fixes</h2>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="value" style="color: #28a745;">65-75</div>
-                    <div class="label">Mobile PageSpeed (from 35)</div>
-                </div>
-                <div class="metric-card">
-                    <div class="value" style="color: #28a745;">80-90</div>
-                    <div class="label">Desktop PageSpeed (from 55)</div>
-                </div>
-                <div class="metric-card">
-                    <div class="value" style="color: #28a745;">&lt;3MB</div>
-                    <div class="label">Page Size (from 9MB)</div>
-                </div>
-                <div class="metric-card">
-                    <div class="value" style="color: #28a745;">&lt;0.1</div>
-                    <div class="label">CLS Score (from 0.48)</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>Generated by SeamlessFlow Site Audit System</p>
-            <p style="margin-top: 5px;">Contact: seamlessflow.ai@gmail.com | (347) 749-8146</p>
+        <div class="score-item">
+            <div class="score-num red">25</div>
+            <div class="score-label">Content</div>
         </div>
     </div>
+
+    <div class="meta">
+        December 28, 2024<br>
+        E-Commerce (WordPress/WooCommerce)
+    </div>
+</div>
+
+<!-- PAGE 2: EXECUTIVE SUMMARY -->
+<div class="page content executive-summary">
+    <h2>Executive Summary</h2>
+
+    <p>Fulcrop Sciences' e-commerce website has <strong>critical performance issues</strong> that are significantly impacting user experience and search rankings. The 9MB page size and high CLS are causing visitors to leave before conversion. Mobile performance is particularly concerning with a 7.5-second LCP.</p>
+
+    <div class="issue">
+        <h4>Overall Assessment: Poor (32/100)</h4>
+        <p>This score reflects severe performance bottlenecks that require immediate attention. The site's current state is likely costing significant revenue through lost mobile visitors and poor search visibility.</p>
+    </div>
+
+    <h3>Core Web Vitals (Mobile)</h3>
+    <div class="metrics-grid">
+        <div class="metric-card bad">
+            <div class="value bad">7.5s</div>
+            <div class="label">LCP</div>
+            <small>Target: &lt;2.5s</small>
+        </div>
+        <div class="metric-card bad">
+            <div class="value bad">0.48</div>
+            <div class="label">CLS</div>
+            <small>Target: &lt;0.1</small>
+        </div>
+        <div class="metric-card warn">
+            <div class="value warn">312ms</div>
+            <div class="label">INP</div>
+            <small>Target: &lt;200ms</small>
+        </div>
+        <div class="metric-card bad">
+            <div class="value bad">9.0MB</div>
+            <div class="label">Page Size</div>
+            <small>Target: &lt;3MB</small>
+        </div>
+    </div>
+
+    <h3>Site Overview</h3>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Platform</td>
+            <td>WordPress + WooCommerce + Elementor</td>
+            <td class="warn">Heavy Stack</td>
+        </tr>
+        <tr>
+            <td>SSL Certificate</td>
+            <td>Active HTTPS</td>
+            <td class="good">Secure</td>
+        </tr>
+        <tr>
+            <td>robots.txt</td>
+            <td>Present</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>sitemap.xml</td>
+            <td>301 Redirect</td>
+            <td class="warn">Should be direct</td>
+        </tr>
+        <tr>
+            <td>Mobile Friendly</td>
+            <td>Responsive but slow</td>
+            <td class="warn">Issues</td>
+        </tr>
+        <tr>
+            <td>Schema Markup</td>
+            <td>Basic WooCommerce only</td>
+            <td class="warn">Partial</td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 3: CRITICAL ISSUES -->
+<div class="page content critical-issues">
+    <h2>Critical Issues</h2>
+    <p>These issues must be addressed immediately to improve performance and rankings.</p>
+
+    <div class="issue">
+        <h4><span class="tag tag-high">Critical</span> 9MB Page Size - 3x Over Budget</h4>
+        <p>Your homepage weighs 9MB, which is 3x the recommended maximum. This causes extremely slow load times, especially on mobile.</p>
+        <p><strong>Main culprits:</strong> Unoptimized images, videos, and excessive JavaScript</p>
+        <div class="fix"><strong>Fix:</strong> Compress images, convert to WebP, remove unused scripts, enable caching</div>
+    </div>
+
+    <div class="issue">
+        <h4><span class="tag tag-high">Critical</span> CLS 0.48 - Severe Layout Shifting</h4>
+        <p>Page elements are moving around as the page loads, causing a terrible user experience. Users are clicking wrong buttons and getting frustrated.</p>
+        <p><strong>Primary cause:</strong> Popup modal without reserved space and images without dimensions</p>
+        <div class="fix"><strong>Fix:</strong> Reserve space for popup, add width/height to all images</div>
+    </div>
+
+    <div class="issue">
+        <h4><span class="tag tag-high">Critical</span> reCAPTCHA Loading 10+ Times</h4>
+        <p>Google reCAPTCHA scripts are loading multiple times across the page, dramatically increasing load time and JavaScript execution.</p>
+        <p><strong>Cause:</strong> Plugin conflict or misconfiguration</p>
+        <div class="fix"><strong>Fix:</strong> Check WPForms settings, only load reCAPTCHA on pages with forms</div>
+    </div>
+
+    <div class="issue">
+        <h4><span class="tag tag-high">Critical</span> LCP 7.5s - Users Leaving Before Load</h4>
+        <p>The main content takes 7.5 seconds to appear on mobile. Google considers anything over 2.5s as "poor."</p>
+        <p><strong>Impact:</strong> Destroying mobile rankings and bounce rate</p>
+        <div class="fix"><strong>Fix:</strong> Optimize hero images, implement lazy loading, defer JS</div>
+    </div>
+
+    <div class="issue warning">
+        <h4><span class="tag tag-med">Warning</span> Render-Blocking JavaScript</h4>
+        <p>Multiple JavaScript files are blocking page rendering. Elementor, WooCommerce, and various plugins are all loading synchronously.</p>
+        <div class="fix"><strong>Fix:</strong> Defer non-critical JavaScript, use async loading</div>
+    </div>
+
+    <div class="issue warning">
+        <h4><span class="tag tag-med">Warning</span> No Image Optimization</h4>
+        <p>Images are served in PNG/JPG format instead of modern WebP/AVIF. No lazy loading detected on below-fold images.</p>
+        <div class="fix"><strong>Fix:</strong> Install image optimization plugin (ShortPixel, Smush, or Imagify)</div>
+    </div>
+</div>
+
+<!-- PAGE 4: TECHNICAL SEO -->
+<div class="page content technical-seo">
+    <h2>Technical SEO Status</h2>
+
+    <table>
+        <tr>
+            <th>Check</th>
+            <th>Status</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td class="good">Pass</td>
+            <td>SSL certificate valid</td>
+        </tr>
+        <tr>
+            <td>robots.txt</td>
+            <td class="good">Pass</td>
+            <td>File exists and accessible</td>
+        </tr>
+        <tr>
+            <td>sitemap.xml</td>
+            <td class="warn">Redirect</td>
+            <td>301 redirects - should be direct URL</td>
+        </tr>
+        <tr>
+            <td>Mobile Friendly</td>
+            <td class="warn">Issues</td>
+            <td>Responsive but too slow to load</td>
+        </tr>
+        <tr>
+            <td>Schema Markup</td>
+            <td class="warn">Partial</td>
+            <td>Basic WooCommerce schema only</td>
+        </tr>
+    </table>
+
+    <h3>Platform Analysis</h3>
+    <div class="strength">
+        <h4>Tech Stack Detected</h4>
+        <ul>
+            <li><strong>CMS:</strong> WordPress</li>
+            <li><strong>Page Builder:</strong> Elementor</li>
+            <li><strong>E-Commerce:</strong> WooCommerce</li>
+            <li><strong>Forms:</strong> WPForms</li>
+            <li><strong>Other:</strong> reCAPTCHA, various analytics scripts</li>
+        </ul>
+    </div>
+
+    <div class="issue warning">
+        <h4><span class="tag tag-med">Warning</span> Plugin Bloat Detected</h4>
+        <p>Multiple plugins are loading scripts globally even when not needed. This is a common WordPress/Elementor issue that compounds performance problems.</p>
+    </div>
+
+    <h3>E-Commerce Specific Issues</h3>
+    <table>
+        <tr>
+            <th>Issue</th>
+            <th>Impact</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>Product Schema Limited</td>
+            <td>Missing rich snippets in search</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>Slow Add-to-Cart (312ms INP)</td>
+            <td>7% conversion loss per 100ms</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>Mobile Commerce at Risk</td>
+            <td>Losing 60%+ of shoppers</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 5: ACTION PLAN -->
+<div class="page content action-plan">
+    <h2>Action Plan</h2>
+
+    <h3>Quick Wins - Immediate Actions</h3>
+
+    <div class="quick-win">
+        <div class="number">1</div>
+        <div>
+            <strong>Fix reCAPTCHA Multiple Loading</strong>
+            <p>This single fix could cut 2-3 seconds off load time. Check WPForms settings and any other plugins using reCAPTCHA.</p>
+        </div>
+    </div>
+
+    <div class="quick-win">
+        <div class="number">2</div>
+        <div>
+            <strong>Install Caching Plugin (WP Rocket)</strong>
+            <p>Serve static HTML, minify CSS/JS, defer render-blocking resources. Can improve scores by 15-25 points.</p>
+        </div>
+    </div>
+
+    <div class="quick-win">
+        <div class="number">3</div>
+        <div>
+            <strong>Install Image Optimization Plugin</strong>
+            <p>Use ShortPixel, Smush, or Imagify to convert images to WebP. Expected savings: 50-70% of image weight.</p>
+        </div>
+    </div>
+
+    <div class="quick-win">
+        <div class="number">4</div>
+        <div>
+            <strong>Fix CLS from Popup Modal</strong>
+            <p>Reserve space for popup or delay appearance until after page load. Add width/height to all images.</p>
+        </div>
+    </div>
+
+    <div class="quick-win">
+        <div class="number">5</div>
+        <div>
+            <strong>Enable Lazy Loading</strong>
+            <p>Add loading="lazy" to images not visible on initial page load. Most caching plugins do this automatically.</p>
+        </div>
+    </div>
+
+    <h3>Expected Results After Fixes</h3>
+    <div class="metrics-grid">
+        <div class="metric-card good">
+            <div class="value good">65-75</div>
+            <div class="label">Mobile Score</div>
+            <small>From 35</small>
+        </div>
+        <div class="metric-card good">
+            <div class="value good">80-90</div>
+            <div class="label">Desktop Score</div>
+            <small>From 55</small>
+        </div>
+        <div class="metric-card good">
+            <div class="value good">&lt;3MB</div>
+            <div class="label">Page Size</div>
+            <small>From 9MB</small>
+        </div>
+        <div class="metric-card good">
+            <div class="value good">&lt;0.1</div>
+            <div class="label">CLS Score</div>
+            <small>From 0.48</small>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>Top 3 Priorities</h3>
+        <ol>
+            <li><strong>Fix reCAPTCHA loading</strong> - Single fix that cuts 2-3 seconds off load time</li>
+            <li><strong>Install caching + image optimization</strong> - Can reduce page size from 9MB to under 3MB</li>
+            <li><strong>Fix layout shift (CLS)</strong> - Immediate improvement to user experience</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <img src="https://raw.githubusercontent.com/liquiddeath1900/liquiddeath1900.github.io/main/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="agency-logo">
+        <p>Report generated by SeamlessFlow | December 28, 2024</p>
+        <p>seamlessflow.ai | Local SEO & Business Automation | New York, NY</p>
+        <div class="agency-contact">
+            <strong>SeamlessFlow.ai</strong> | Local SEO & Business Automation<br>
+            <a href="tel:+13477498146">(347) 749-8146</a> |
+            <a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a> |
+            <a href="https://seamlessflow.ai">seamlessflow.ai</a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
