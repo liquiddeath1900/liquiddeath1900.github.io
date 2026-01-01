@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tog Maker - Project Quote | SeamlessFlow</title>
+    <meta property="og:title" content="Tog Maker - Project Quote | SeamlessFlow">
+    <meta property="og:description" content="Website Optimization & SEO Implementation Quote">
+    <meta property="og:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
+    <style>
+        @page { size: letter; margin: 0.5in 0.6in; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11pt; line-height: 1.4; color: #222; background: white; }
+        :root { --brand-primary: #1a1a2e; --brand-secondary: #16213e; --accent: #4CAF50; }
+
+        /* COVER */
+        .cover { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; padding: 60px; background: linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-primary) 100%); color: white; page-break-after: always; }
+        .cover .cover-logo { width: 240px; margin-bottom: 30px; }
+        .cover h1 { font-size: 36pt; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; text-transform: uppercase; }
+        .cover .tagline { font-size: 16pt; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+        .cover .client-name { font-size: 24pt; font-weight: 700; color: #4CAF50; margin: 30px 0; }
+        .cover .meta { font-size: 11pt; color: rgba(255,255,255,0.5); margin-top: 30px; }
+
+        /* CONTENT */
+        .content { padding: 40px 50px; }
+        h2 { font-size: 16pt; font-weight: 700; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #222; }
+        h3 { font-size: 12pt; font-weight: 700; margin: 20px 0 10px 0; color: #444; }
+        p { margin-bottom: 10px; }
+        ul { margin: 10px 0 15px 25px; }
+        li { margin: 8px 0; }
+
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0 25px 0; font-size: 10pt; }
+        th { background: var(--brand-primary); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5px; }
+        td { padding: 10px 12px; border-bottom: 1px solid #ddd; vertical-align: top; }
+        tr:nth-child(even) { background: #f9f9f9; }
+
+        /* DELIVERABLE BOX */
+        .deliverable { background: #f8f9fa; border-left: 4px solid var(--brand-primary); padding: 12px 15px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+        .deliverable h4 { font-size: 10pt; font-weight: 700; color: var(--brand-primary); margin-bottom: 5px; }
+        .deliverable p { font-size: 9pt; color: #666; margin: 0; }
+
+        /* PRICING BOX */
+        .pricing-option { background: white; border: 2px solid #ddd; border-radius: 8px; padding: 25px; margin: 15px 0; text-align: center; }
+        .pricing-option.featured { border-color: var(--accent); background: linear-gradient(135deg, #f0fff0 0%, #e8f5e9 100%); }
+        .pricing-option h3 { margin: 0 0 10px 0; font-size: 14pt; }
+        .pricing-option .price { font-size: 32pt; font-weight: 800; color: var(--brand-primary); margin: 15px 0; }
+        .pricing-option .price span { font-size: 14pt; font-weight: 400; color: #666; }
+        .pricing-option .savings { background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-size: 9pt; font-weight: 700; display: inline-block; margin-bottom: 15px; }
+        .pricing-option ul { text-align: left; margin: 15px 0; list-style: none; }
+        .pricing-option li { padding: 8px 0; border-bottom: 1px solid #eee; font-size: 10pt; }
+        .pricing-option li:before { content: "✓ "; color: var(--accent); font-weight: bold; }
+
+        /* TWO COLUMNS */
+        .two-col { display: flex; gap: 25px; }
+        .two-col > div { flex: 1; }
+
+        /* SUMMARY BOX */
+        .summary { background: var(--brand-primary); color: white; padding: 20px 25px; margin: 25px 0; border-radius: 8px; }
+        .summary h3 { color: white; margin: 0 0 15px 0; font-size: 14pt; }
+        .summary p { margin: 8px 0; font-size: 10pt; opacity: 0.9; }
+
+        /* CTA */
+        .cta { text-align: center; margin: 30px 0; }
+        .cta-button { display: inline-block; background: var(--accent); color: white; padding: 15px 40px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 12pt; }
+        .cta-button:hover { background: #43a047; }
+
+        /* FOOTER */
+        .footer { margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; }
+        .footer-logo { width: 180px; margin-bottom: 10px; }
+        .footer p { font-size: 9pt; color: #666; margin: 3px 0; }
+
+        /* PAGE BREAK */
+        .page-break { page-break-before: always; }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 768px) {
+            .cover { padding: 40px 20px; }
+            .cover h1 { font-size: 24pt; }
+            .content { padding: 30px 20px; }
+            .two-col { flex-direction: column; }
+            .pricing-option .price { font-size: 28pt; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="cover">
+    <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="cover-logo">
+    <h1>Project Quote</h1>
+    <div class="tagline">Website Optimization & SEO Implementation</div>
+    <div class="client-name">Tog Maker</div>
+    <p style="font-size: 12pt; opacity: 0.8;">Custom Screen Printing & Embroidery | Brooklyn, NY</p>
+    <div class="meta">
+        Prepared: January 1, 2026<br>
+        Valid for 30 days
+    </div>
+</div>
+
+<!-- PAGE 2: SCOPE OF WORK -->
+<div class="content">
+    <h2>Scope of Work</h2>
+    <p>Based on our comprehensive audit of togmaker.com, we've identified the following improvements to boost your online presence and fix critical issues affecting user experience.</p>
+
+    <h3>Critical Fixes</h3>
+    <div class="deliverable">
+        <h4>YouTube Video Embed Repairs</h4>
+        <p>Fix 22 broken video embeds causing console errors and preventing content from loading</p>
+    </div>
+    <div class="deliverable">
+        <h4>404 Error Resolution</h4>
+        <p>Identify and fix all broken resource links affecting site performance</p>
+    </div>
+    <div class="deliverable">
+        <h4>Email Capture Widget</h4>
+        <p>Fix or replace broken Privy integration to restore lead capture functionality</p>
+    </div>
+
+    <h3>SEO Implementation</h3>
+    <div class="deliverable">
+        <h4>Heading Structure Optimization</h4>
+        <p>Add proper H1 tag and optimize heading hierarchy for search engines</p>
+    </div>
+    <div class="deliverable">
+        <h4>Meta Data Enhancement</h4>
+        <p>Optimize meta descriptions with target keywords: screen printing, embroidery, Brooklyn</p>
+    </div>
+    <div class="deliverable">
+        <h4>Image SEO</h4>
+        <p>Add descriptive alt text to all images for accessibility and search visibility</p>
+    </div>
+    <div class="deliverable">
+        <h4>URL Cleanup</h4>
+        <p>Rename generic portfolio URLs (project-title-1, etc.) to SEO-friendly names</p>
+    </div>
+    <div class="deliverable">
+        <h4>LocalBusiness Schema Markup</h4>
+        <p>Add structured data to help Google understand your business for local search</p>
+    </div>
+
+    <h3>Local SEO & Content</h3>
+    <div class="deliverable">
+        <h4>Brooklyn Landing Page</h4>
+        <p>Create dedicated location page targeting "screen printing brooklyn" and related keywords</p>
+    </div>
+    <div class="deliverable">
+        <h4>Blog Title Optimization</h4>
+        <p>Optimize existing blog post titles for better search visibility</p>
+    </div>
+    <div class="deliverable">
+        <h4>Google Search Console Setup</h4>
+        <p>Submit sitemap and configure search console for ongoing monitoring</p>
+    </div>
+
+    <h3>Performance Optimization</h3>
+    <div class="deliverable">
+        <h4>Widget Optimization</h4>
+        <p>Implement lazy-loading for Instagram feed to improve page speed</p>
+    </div>
+    <div class="deliverable">
+        <h4>Third-Party Script Audit</h4>
+        <p>Review and optimize all external scripts for better performance</p>
+    </div>
+</div>
+
+<!-- PAGE 3: PRICING -->
+<div class="content page-break">
+    <h2>Investment Options</h2>
+    <p>Choose the payment structure that works best for you. All options include the complete scope of work with 1-2 week delivery.</p>
+
+    <div class="two-col" style="margin-top: 25px;">
+        <div>
+            <div class="pricing-option">
+                <h3>Option A: Milestone Payments</h3>
+                <p style="color: #666; font-size: 10pt;">Pay as we complete each phase</p>
+                <div class="price">$997</div>
+                <ul>
+                    <li><strong>Phase 1:</strong> Critical Fixes - $350</li>
+                    <li><strong>Phase 2:</strong> SEO & Schema - $350</li>
+                    <li><strong>Phase 3:</strong> Content & Performance - $297</li>
+                </ul>
+                <p style="font-size: 9pt; color: #888; margin-top: 15px;">Payment due at start of each phase</p>
+            </div>
+        </div>
+        <div>
+            <div class="pricing-option featured">
+                <span class="savings">SAVE $197</span>
+                <h3>Option B: Homie Rate</h3>
+                <p style="color: #666; font-size: 10pt;">50% upfront, 50% on completion</p>
+                <div class="price">$800</div>
+                <ul>
+                    <li><strong>Deposit:</strong> $400 to start</li>
+                    <li><strong>Final:</strong> $400 on completion</li>
+                    <li><strong>Bonus:</strong> Priority support for 30 days</li>
+                </ul>
+                <p style="font-size: 9pt; color: #2e7d32; font-weight: 600; margin-top: 15px;">Best value - 20% discount</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>What's Included</h3>
+        <p>✓ All deliverables listed in scope of work</p>
+        <p>✓ 1-2 week turnaround</p>
+        <p>✓ Before/after documentation</p>
+        <p>✓ 30-day support for any issues</p>
+        <p>✓ Training on how to maintain changes</p>
+    </div>
+
+    <h2 style="margin-top: 30px;">Timeline</h2>
+    <table>
+        <tr>
+            <th>Phase</th>
+            <th>Deliverables</th>
+        </tr>
+        <tr>
+            <td><strong>Phase 1</strong></td>
+            <td>Critical fixes: YouTube embeds, 404 errors, Privy widget, H1 tag</td>
+        </tr>
+        <tr>
+            <td><strong>Phase 2</strong></td>
+            <td>SEO implementation: Meta tags, alt text, URLs, schema markup</td>
+        </tr>
+        <tr>
+            <td><strong>Phase 3</strong></td>
+            <td>Content & performance: Brooklyn page, blog optimization, Search Console</td>
+        </tr>
+    </table>
+    <p style="font-size: 10pt; color: #666;"><strong>Estimated completion:</strong> 1-2 weeks from project start</p>
+
+    <h2 style="margin-top: 30px;">Next Steps</h2>
+    <ol style="margin-left: 25px;">
+        <li style="margin: 10px 0;">Review this quote and choose your preferred payment option</li>
+        <li style="margin: 10px 0;">Reply to confirm or ask any questions</li>
+        <li style="margin: 10px 0;">We'll send payment link and get started</li>
+    </ol>
+
+    <div class="footer">
+        <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="footer-logo">
+        <p><a href="tel:+13477498146" style="color:#1a1a2e; text-decoration:none; font-weight:bold;">(347) 749-8146</a> | <a href="mailto:info@seamlessflow.ai" style="color:#1a1a2e; text-decoration:none;">info@seamlessflow.ai</a> | <a href="https://seamlessflow.ai" style="color:#1a1a2e; text-decoration:none;">seamlessflow.ai</a></p>
+        <p style="margin-top: 10px; font-size: 8pt; color: #999;">Quote valid for 30 days from January 1, 2026</p>
+    </div>
+</div>
+
+</body>
+</html>
