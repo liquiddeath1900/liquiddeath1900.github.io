@@ -5,14 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Page</title>
     <meta property="og:title" content="Test - SeamlessFlow">
-    <meta property="og:image" content="https://seamlessflow.ai/assets/Untitled-1.jpg">
+    <meta property="og:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
     <style>
         body { font-family: Arial, sans-serif; padding: 40px; text-align: center; }
         h1 { color: #333; }
+        .ig-notice {
+            background: #ff6b6b;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: none;
+        }
+        .ig-notice a { color: white; font-weight: bold; }
     </style>
 </head>
 <body>
+    <div class="ig-notice" id="igNotice">
+        <p><strong>Instagram Browser Detected</strong></p>
+        <p>Tap the <strong>⋯</strong> menu and select <strong>"Open in Browser"</strong> for the best experience.</p>
+    </div>
     <h1>SeamlessFlow Test Page</h1>
-    <p>If you can see this, Instagram browser works.</p>
+    <p>If you can see this, the page loaded successfully.</p>
+    <script>
+        // Detect Instagram in-app browser
+        var ua = navigator.userAgent || navigator.vendor;
+        if (ua.indexOf('Instagram') > -1) {
+            document.getElementById('igNotice').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
