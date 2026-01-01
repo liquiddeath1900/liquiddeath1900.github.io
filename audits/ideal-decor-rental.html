@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ideal Decor Rental - SEO & Performance Audit</title>
     <meta property="og:title" content="Ideal Decor Rental - SEO Audit by SeamlessFlow">
     <meta property="og:description" content="Comprehensive SEO & Performance Audit Report">
@@ -82,6 +83,8 @@
             display: flex;
             gap: 20px;
             margin-top: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .cover .score-item {
@@ -408,6 +411,27 @@
         .footer .agency-contact a {
             color: #D5A861;
             text-decoration: none;
+        }
+
+        /* RESPONSIVE - handles long brand names */
+        @media screen and (max-width: 768px) {
+            .cover { padding: 40px 24px; min-height: 100vh; }
+            .cover h1 { font-size: 24pt; word-break: break-word; overflow-wrap: break-word; }
+            .cover .scores { flex-wrap: wrap; gap: 16px; justify-content: center; }
+            .cover .score-num { font-size: 28pt; }
+            .content { padding: 24px 20px; }
+            table { display: block; overflow-x: auto; font-size: 9pt; }
+            .two-col { flex-direction: column; }
+        }
+        @media screen and (max-width: 480px) {
+            .cover h1 { font-size: 18pt; }
+            .cover .tagline { font-size: 12pt; }
+            .cover .score-num { font-size: 24pt; }
+            .content { padding: 20px 16px; }
+        }
+        @media screen and (max-width: 360px) {
+            .cover h1 { font-size: 14pt; }
+            .cover .score-num { font-size: 20pt; }
         }
     </style>
 </head>
