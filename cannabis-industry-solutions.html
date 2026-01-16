@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI & Automation for Cannabis Dispensaries | SeamlessFlow</title>
+    <meta name="description" content="How NYC dispensaries are using AI and automation to increase revenue, cut costs, and stay compliant. SeamlessFlow provides custom solutions for the cannabis industry.">
+    <meta property="og:title" content="AI & Automation for Cannabis Dispensaries | SeamlessFlow">
+    <meta property="og:description" content="9 ways AI is transforming dispensary operations - backed by real data and case studies.">
+    <meta property="og:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in 0.6in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #222;
+            background: white;
+        }
+
+        .cover {
+            page-break-after: always;
+        }
+
+        :root {
+            --brand-green: #2E7D32;
+            --brand-dark: #1a1a2e;
+            --accent-gold: #FFD54C;
+        }
+
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2E7D32 100%);
+            color: white;
+        }
+
+        .cover .cover-logo {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .cover h1 {
+            font-size: 32pt;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #FFD54C;
+            line-height: 1.1;
+        }
+
+        .cover .tagline {
+            font-size: 14pt;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: rgba(255,255,255,0.6);
+            margin-top: 20px;
+        }
+
+        .cover .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cover .stat-item {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .cover .stat-num {
+            font-size: 32pt;
+            font-weight: 700;
+            color: #FFD54C;
+        }
+
+        .cover .stat-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        h2 {
+            font-size: 16pt;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #2E7D32;
+            color: #1a1a2e;
+        }
+
+        h3 {
+            font-size: 12pt;
+            font-weight: 700;
+            margin: 18px 0 10px 0;
+            color: #2E7D32;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin: 8px 0 12px 20px;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 18px 0;
+            font-size: 10pt;
+        }
+
+        th {
+            background: #1a1a2e;
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid #2E7D32;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+            page-break-inside: avoid;
+        }
+
+        .service-card h4 {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card .number {
+            background: #2E7D32;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12pt;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 10pt;
+            margin: 8px 0;
+        }
+
+        .service-card .proof {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 10px 14px;
+            margin-top: 12px;
+            font-size: 9pt;
+            border-radius: 4px;
+        }
+
+        .service-card .proof strong {
+            color: #2E7D32;
+        }
+
+        .service-card .seamlessflow-angle {
+            background: #fff3e0;
+            border-left: 3px solid #FFD54C;
+            padding: 10px 14px;
+            margin-top: 10px;
+            font-size: 9pt;
+            border-radius: 4px;
+        }
+
+        .market-highlight {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2E7D32 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .market-highlight h3 {
+            color: #FFD54C;
+            margin-top: 0;
+            font-size: 14pt;
+        }
+
+        .market-highlight .big-stat {
+            font-size: 42pt;
+            font-weight: 800;
+            color: #FFD54C;
+            margin: 10px 0;
+        }
+
+        .market-highlight p {
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+        }
+
+        .two-col {
+            display: flex;
+            gap: 30px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        .cta-section {
+            background: #1a1a2e;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            color: #FFD54C;
+            font-size: 16pt;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 20px;
+        }
+
+        .cta-section .cta-btn {
+            display: inline-block;
+            background: #2E7D32;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 11pt;
+            margin: 5px;
+        }
+
+        .cta-section .cta-btn:hover {
+            background: #1b5e20;
+        }
+
+        .cta-section .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid #FFD54C;
+            color: #FFD54C;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-savings { background: #2E7D32; color: white; }
+        .tag-revenue { background: #1565c0; color: white; }
+        .tag-compliance { background: #7b1fa2; color: white; }
+        .tag-efficiency { background: #ef6c00; color: white; }
+
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #666;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .footer-logo {
+            width: 160px;
+            margin-bottom: 12px;
+        }
+
+        .footer a {
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        @media screen and (max-width: 768px) {
+            .cover { padding: 40px 20px; }
+            .cover h1 { font-size: 20pt; }
+            .cover .stats { gap: 15px; }
+            .cover .stat-num { font-size: 24pt; }
+            .content { padding: 20px; }
+            .two-col { flex-direction: column; gap: 15px; }
+            table { font-size: 9pt; }
+            .service-card { padding: 15px; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .cover h1 { font-size: 16pt; }
+            .cover .tagline { font-size: 12pt; }
+            .market-highlight .big-stat { font-size: 32pt; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+    <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="cover-logo">
+    <h1>AI & Automation for Cannabis Dispensaries</h1>
+    <div class="tagline">How NYC's smartest dispensaries are cutting costs, increasing revenue, and staying compliant with intelligent automation.</div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-num">$1.6B+</div>
+            <div class="stat-label">NYC Market 2025</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">519</div>
+            <div class="stat-label">Licensed Dispensaries</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">40%</div>
+            <div class="stat-label">Wait Time Reduction</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">$25K+</div>
+            <div class="stat-label">Annual Savings</div>
+        </div>
+    </div>
+
+    <div class="meta">
+        January 2026 | NYC Cannabis Industry Report<br>
+        Prepared by SeamlessFlow.ai
+    </div>
+</div>
+
+<!-- MARKET OVERVIEW -->
+<div class="content">
+    <h2>The NYC Cannabis Opportunity</h2>
+
+    <div class="market-highlight">
+        <h3>New York's Cannabis Market is Exploding</h3>
+        <div class="big-stat">60%+ YoY Growth</div>
+        <p>From $317M in 2023 to $1.6B+ in 2025. Over 200 dispensaries now operate in NYC alone.</p>
+    </div>
+
+    <p>New York's legal cannabis market saw explosive growth in 2025, with sales topping <strong>$1.6 billion</strong> and licensed retailers more than doubling. The Office of Cannabis Management has issued over 1,900 adult-use licenses, with 519 dispensaries operational as of November 2025.</p>
+
+    <h3>The Challenge for Dispensary Operators</h3>
+    <p>With rapid growth comes operational complexity:</p>
+    <ul>
+        <li><strong>Compliance burden:</strong> Metrc reporting, purchase limits, ID verification</li>
+        <li><strong>Staffing pressure:</strong> Finding and retaining quality budtenders</li>
+        <li><strong>Inventory management:</strong> Preventing stockouts and dead stock</li>
+        <li><strong>Customer experience:</strong> Long wait times, overwhelming menus</li>
+        <li><strong>Marketing restrictions:</strong> No Google/Meta ads for cannabis</li>
+    </ul>
+
+    <h3>The AI & Automation Solution</h3>
+    <p>Forward-thinking dispensaries are using AI and automation to solve these challenges. Here's what's working right now:</p>
+</div>
+
+<!-- SERVICE 1: AI BUDTENDERS -->
+<div class="content page-break">
+    <h2>9 Ways AI & Automation Help Dispensaries</h2>
+
+    <div class="service-card">
+        <h4><span class="number">1</span> 24/7 AI Budtenders</h4>
+        <p><strong>What it does:</strong> Answer customer questions around the clock via web chat, SMS, or in-store kiosks. Recommend products based on desired effect, budget, tolerance, and real-time inventory.</p>
+        <ul>
+            <li>Handle FAQs: hours, IDs, returns, delivery rules, loyalty programs</li>
+            <li>Guide customers: "What should I get for sleep / anxiety / pain?"</li>
+            <li>Reduce staff workload on repetitive questions</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> Dispensaries using AI budtenders report <strong>40% reduced wait times</strong> and increased conversion rates. StrainBrain users see <strong>20-23% higher cart sizes</strong> from guided recommendations.
+            <br><em>Sources: Explica, StrainBrain, Terrayn</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> We build your custom AI budtender once, then deploy it across website, in-store tablet, and SMS - all synced to your live inventory.
+        </div>
+    </div>
+
+    <div class="service-card">
+        <h4><span class="number">2</span> Smarter Inventory & Demand Forecasting</h4>
+        <p><strong>What it does:</strong> Predict which SKUs will move fastest by day, season, and location. Recommend optimal reorder points and quantities automatically.</p>
+        <ul>
+            <li>Reduce dead stock and stock-outs (especially top flower + carts)</li>
+            <li>Auto-trigger purchase orders when stock drops below thresholds</li>
+            <li>Analyze 90+ days of sales history to build custom forecasting</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> AI inventory tools like Prelude and GreenStock AI <strong>trigger automated reorders</strong> and reduce tied-up capital. Grupo Flor reported <strong>optimized inventory levels and reduced manual entry errors</strong> after implementation.
+            <br><em>Sources: Prelude, GreenStock AI, Cova</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> We plug your POS + online menu into an AI layer that sends weekly "order-this-not-that" recommendations straight to your phone.
+        </div>
+    </div>
+
+    <div class="service-card">
+        <h4><span class="number">3</span> Metrc Compliance Automation <span class="tag tag-compliance">Compliance</span></h4>
+        <p><strong>What it does:</strong> Automate the painful parts of seed-to-sale tracking. Flag discrepancies before they become violations. Sync sales in real-time to avoid end-of-day data entry marathons.</p>
+        <ul>
+            <li>Automated reporting instead of manual daily Metrc logins</li>
+            <li>Real-time monitoring of purchase limits and product equivalencies</li>
+            <li>Alerts for discrepancies before regulators find them</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> Metrc's own time studies show automated compliance saves <strong>~2,000 hours and $25,000+ per year</strong> for an average retailer. Manual reporting "is time-consuming and results in errors, increasing the risk of compliance infractions, fines, or worse, loss of retail license."
+            <br><em>Sources: Metrc, GrowFlow, Flowhub, NCIA</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> "AI compliance cop" that quietly watches every transaction and flags risk before regulators do. Integrates with your existing POS.
+        </div>
+    </div>
+</div>
+
+<!-- SERVICES 4-6 -->
+<div class="content page-break">
+    <div class="service-card">
+        <h4><span class="number">4</span> Hyper-Personalized Marketing & Loyalty <span class="tag tag-revenue">Revenue</span></h4>
+        <p><strong>What it does:</strong> Segment customers by behavior (what they buy, when, why). Send automated, compliant SMS/email flows that actually convert.</p>
+        <ul>
+            <li>Win-back campaigns for lapsed customers</li>
+            <li>Birthday offers and low-stock alerts on favorite strains</li>
+            <li>Personalized deals: indica night-time user vs. micro-dose edible user</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> Happy Cabbage dispensary SMS campaigns converted <strong>14.92% of audience in 24 hours</strong> and <strong>23.8% after one week</strong>. Targeted segmentation by product preference drives repeat purchases.
+            <br><em>Sources: Happy Cabbage, Leafbuyer, Alpine IQ</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> "Set-and-forget" flows that keep your list warm and turn one-time tourists into regulars. Fully compliant with cannabis marketing rules.
+        </div>
+    </div>
+
+    <div class="service-card">
+        <h4><span class="number">5</span> E-Commerce: Guided Shopping vs. Menu Overwhelm</h4>
+        <p><strong>What it does:</strong> Turn a huge, confusing menu into a guided quiz or chat. Surface a small set of "best fit" products instead of 200+ SKUs.</p>
+        <ul>
+            <li>AI recommendations on website, kiosks, and mobile apps</li>
+            <li>"Quick shop" modes reduce friction and speed up checkout</li>
+            <li>Works on top of whatever e-commerce platform you already use</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> BLAZE ECOM and similar platforms use AI product recommendations to <strong>increase average order value</strong>. Spark Budtender's guided flows show how reducing choices actually speeds up purchasing.
+            <br><em>Sources: BLAZE, Spark Budtender, Dutchie</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> We install an AI menu layer on top of your existing e-commerce. No platform switch required.
+        </div>
+    </div>
+
+    <div class="service-card">
+        <h4><span class="number">6</span> In-Store Throughput & Labor Optimization <span class="tag tag-efficiency">Efficiency</span></h4>
+        <p><strong>What it does:</strong> Kiosks and AI agents pre-qualify customers before they hit the human budtender. Auto-collect intake info (desired effect, budget, experience level).</p>
+        <ul>
+            <li>Self-service ordering reduces line wait times</li>
+            <li>Suggest staffing levels by hour/day based on historical traffic</li>
+            <li>Free up staff for high-touch customers who need real guidance</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> Dispensaries implementing self-service kiosks report <strong>40% reduction in wait times</strong> and up to <strong>35% increase in revenue</strong> due to faster transactions and upselling.
+            <br><em>Sources: Flowhub, Cure8, Seed Technology</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> "Get more done with the same crew" - AI handles basic hand-holding so humans focus on customers who actually want the conversation.
+        </div>
+    </div>
+</div>
+
+<!-- SERVICES 7-9 -->
+<div class="content page-break">
+    <div class="service-card">
+        <h4><span class="number">7</span> Data-Driven Product Mix & Pricing Strategy <span class="tag tag-revenue">Revenue</span></h4>
+        <p><strong>What it does:</strong> Identify which SKUs truly drive margin vs. just volume. Suggest bundles and test pricing strategies.</p>
+        <ul>
+            <li>Find your 20% of SKUs that make 80% of profit</li>
+            <li>Create smart bundles: "sleep kit," "first-time edible pack," "wake and bake combo"</li>
+            <li>Test happy hour pricing, bundle discounts, dynamic promos</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> AI forecasting tools help cannabis operators <strong>pick the right product mix and improve profit margins</strong>, not just sales volume. Retailers using data-driven pricing see better inventory turnover.
+            <br><em>Sources: Cova, Terrayn, IT4Weed</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> Weekly AI reports telling you which products to push, which to drop, and how to price them for maximum margin.
+        </div>
+    </div>
+
+    <div class="service-card">
+        <h4><span class="number">8</span> Security, Fraud & Loss Prevention <span class="tag tag-savings">Savings</span></h4>
+        <p><strong>What it does:</strong> Use cameras + AI to monitor for theft, loitering, and suspicious patterns. Connect loyalty, kiosk, and ID data to spot issues early.</p>
+        <ul>
+            <li>AI video analysis for loss prevention</li>
+            <li>Pattern detection for looper behavior and fake IDs</li>
+            <li>Document incidents for regulators and insurance claims</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> Modern kiosk and ID solutions combine customer identification with security analytics. Dispensaries using integrated security systems report <strong>reduced shrink and better audit documentation</strong>.
+            <br><em>Sources: Solink, IDScan, ViAge</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> Bundle AI video analysis + ID + POS data as a "protect your license + reduce shrink" package.
+        </div>
+    </div>
+
+    <div class="service-card">
+        <h4><span class="number">9</span> Executive Dashboards & Decision Support</h4>
+        <p><strong>What it does:</strong> Pull POS, e-commerce, loyalty, staffing, and campaign data into one view. Answer questions in plain language.</p>
+        <ul>
+            <li>"Which brand should we drop?"</li>
+            <li>"What should we order more of before 4/20?"</li>
+            <li>Clean reports for investors and regulators</li>
+        </ul>
+        <div class="proof">
+            <strong>Proof:</strong> AI-first cannabis platforms market "real-time operational intelligence" that turns messy data into simple, actionable insights. Multi-location operators use dashboards to <strong>standardize excellence across stores</strong>.
+            <br><em>Sources: BLAZE, Cova, Terrayn</em>
+        </div>
+        <div class="seamlessflow-angle">
+            <strong>SeamlessFlow Approach:</strong> The "single brain" over your whole tech stack. Ask questions, get answers, make decisions faster.
+        </div>
+    </div>
+</div>
+
+<!-- ROI SUMMARY -->
+<div class="content page-break">
+    <h2>The Bottom Line: ROI Summary</h2>
+
+    <table>
+        <tr>
+            <th>Solution</th>
+            <th>Impact</th>
+            <th>Typical ROI</th>
+        </tr>
+        <tr>
+            <td>AI Budtender</td>
+            <td>Higher conversion, larger carts</td>
+            <td><strong>20-23% cart size increase</strong></td>
+        </tr>
+        <tr>
+            <td>Inventory AI</td>
+            <td>Less dead stock, fewer stockouts</td>
+            <td><strong>Reduced tied-up capital</strong></td>
+        </tr>
+        <tr>
+            <td>Metrc Automation</td>
+            <td>Time savings, fewer violations</td>
+            <td><strong>$25K+ / 2,000 hrs annually</strong></td>
+        </tr>
+        <tr>
+            <td>SMS/Loyalty Automation</td>
+            <td>Customer retention, repeat visits</td>
+            <td><strong>15-24% conversion rates</strong></td>
+        </tr>
+        <tr>
+            <td>Self-Service Kiosks</td>
+            <td>Faster throughput, happier customers</td>
+            <td><strong>40% wait time reduction</strong></td>
+        </tr>
+        <tr>
+            <td>Pricing Intelligence</td>
+            <td>Better margins, smarter bundles</td>
+            <td><strong>Improved profit per SKU</strong></td>
+        </tr>
+        <tr>
+            <td>Security AI</td>
+            <td>Reduced shrink, license protection</td>
+            <td><strong>Lower loss, better documentation</strong></td>
+        </tr>
+        <tr>
+            <td>Executive Dashboard</td>
+            <td>Faster decisions, unified data</td>
+            <td><strong>Hours saved weekly</strong></td>
+        </tr>
+    </table>
+
+    <div class="market-highlight">
+        <h3>Why Now?</h3>
+        <p style="font-size: 12pt; max-width: 600px; margin: 0 auto;">
+            With 519 licensed dispensaries and growing, competition in NYC is heating up fast. The dispensaries that adopt AI and automation today will have a <strong>significant operational advantage</strong> over those still doing things manually.
+        </p>
+    </div>
+
+    <h3>What Makes SeamlessFlow Different</h3>
+    <div class="two-col">
+        <div>
+            <h4>Most AI Tools</h4>
+            <ul>
+                <li>Plug-and-play SaaS products</li>
+                <li>One-size-fits-all approach</li>
+                <li>You adapt to the software</li>
+                <li>Generic support</li>
+            </ul>
+        </div>
+        <div>
+            <h4>SeamlessFlow</h4>
+            <ul>
+                <li><strong>Custom-built automation</strong> for your workflow</li>
+                <li>Integrates with your existing tools</li>
+                <li>The software adapts to you</li>
+                <li>NYC-based, hands-on implementation</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="content">
+    <div class="cta-section">
+        <h3>Ready to Automate Your Dispensary?</h3>
+        <p>Let's talk about which solutions make sense for your operation.<br>Free 30-minute consultation - no pressure, just insights.</p>
+        <a href="tel:+13477498146" class="cta-btn">Call (347) 749-8146</a>
+        <a href="mailto:info@seamlessflow.ai" class="cta-btn secondary">Email Us</a>
+    </div>
+
+    <div class="footer">
+        <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="footer-logo">
+        <p>
+            <a href="tel:+13477498146">(347) 749-8146</a> |
+            <a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a> |
+            <a href="https://seamlessflow.ai">seamlessflow.ai</a>
+        </p>
+        <p style="margin-top: 12px; font-size: 8pt; color: #999;">
+            NYC AI & Automation Agency | Cannabis Industry Solutions<br>
+            Report generated January 2026
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
