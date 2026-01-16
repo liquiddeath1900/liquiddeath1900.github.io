@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terp Bros AI Assistant Demo | SeamlessFlow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Fake website background to simulate TerpBros */
+        .fake-website {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fake-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .fake-logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #FFD54C;
+        }
+
+        .fake-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .fake-nav a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .fake-hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: url('https://www.terpbrosnyc.com/media/terp-mobile-85-scaled.jpg') center/cover;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .fake-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            border-radius: 12px;
+        }
+
+        .fake-hero h1 {
+            position: relative;
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #FFD54C;
+        }
+
+        .fake-hero p {
+            position: relative;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .fake-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .fake-product {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .fake-product-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .demo-banner {
+            background: #e53935;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: 700;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        /* ============================================
+           TERP BUDDY - THE CLIPPY-STYLE ASSISTANT
+           ============================================ */
+
+        .terp-buddy-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* The Character - Clippy-style animated buddy */
+        .terp-buddy {
+            width: 100px;
+            height: 120px;
+            cursor: pointer;
+            position: relative;
+            animation: buddy-float 3s ease-in-out infinite;
+            transition: transform 0.3s;
+        }
+
+        .terp-buddy:hover {
+            transform: scale(1.1);
+        }
+
+        /* The Bud Body */
+        .buddy-body {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #66BB6A 0%, #2E7D32 100%);
+            border-radius: 50% 50% 45% 45%;
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.5);
+        }
+
+        /* Leaf details on the body */
+        .buddy-body::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 35px;
+            background: linear-gradient(135deg, #81C784 0%, #4CAF50 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: -15px;
+            left: -5px;
+            transform: rotate(-30deg);
+            animation: leaf-wave 2s ease-in-out infinite;
+        }
+
+        .buddy-body::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 35px;
+            background: linear-gradient(135deg, #81C784 0%, #4CAF50 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: -15px;
+            right: -5px;
+            transform: rotate(30deg);
+            animation: leaf-wave 2s ease-in-out infinite reverse;
+        }
+
+        @keyframes leaf-wave {
+            0%, 100% { transform: rotate(-30deg); }
+            50% { transform: rotate(-20deg); }
+        }
+
+        /* The Face */
+        .buddy-face {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Eyes */
+        .buddy-eye {
+            width: 14px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            animation: blink 4s infinite;
+        }
+
+        .buddy-eye.left { left: 8px; }
+        .buddy-eye.right { right: 8px; }
+
+        .buddy-eye::after {
+            content: '';
+            width: 8px;
+            height: 10px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 3px;
+            animation: look-around 5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 96%, 100% { transform: scaleY(1); }
+            98% { transform: scaleY(0.1); }
+        }
+
+        @keyframes look-around {
+            0%, 40%, 100% { transform: translateX(0); }
+            45%, 55% { transform: translateX(3px); }
+            60%, 95% { transform: translateX(-2px); }
+        }
+
+        /* Sunglasses */
+        .buddy-sunglasses {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 54px;
+            height: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sunglass-lens {
+            width: 22px;
+            height: 16px;
+            background: linear-gradient(180deg, #333 0%, #000 100%);
+            border-radius: 3px 3px 8px 8px;
+            border: 2px solid #222;
+            position: relative;
+        }
+
+        .sunglass-lens::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 8px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+
+        .sunglass-bridge {
+            width: 6px;
+            height: 3px;
+            background: #222;
+            position: absolute;
+            top: 6px;
+            left: 24px;
+        }
+
+        /* Smile */
+        .buddy-smile {
+            width: 25px;
+            height: 12px;
+            border: 3px solid #1a1a2e;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            position: absolute;
+            bottom: 5px;
+            left: 17px;
+            animation: smile-bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes smile-bounce {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(1.1); }
+        }
+
+        /* Waving Arm */
+        .buddy-arm {
+            width: 12px;
+            height: 30px;
+            background: linear-gradient(135deg, #66BB6A 0%, #2E7D32 100%);
+            border-radius: 10px;
+            position: absolute;
+            bottom: 25px;
+            right: -5px;
+            transform-origin: bottom center;
+            animation: wave 1.5s ease-in-out infinite;
+        }
+
+        .buddy-arm::after {
+            content: '✋';
+            font-size: 16px;
+            position: absolute;
+            top: -14px;
+            left: -4px;
+            animation: hand-wave 1.5s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(20deg); }
+        }
+
+        @keyframes hand-wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-20deg); }
+            75% { transform: rotate(20deg); }
+        }
+
+        /* Float animation */
+        @keyframes buddy-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Talking animation - add class .talking */
+        .terp-buddy.talking .buddy-smile {
+            animation: talk 0.3s infinite;
+        }
+
+        @keyframes talk {
+            0%, 100% { height: 12px; border-radius: 0 0 20px 20px; }
+            50% { height: 8px; border-radius: 0 0 15px 15px; }
+        }
+
+        /* Excited animation - add class .excited */
+        .terp-buddy.excited {
+            animation: buddy-float 0.5s ease-in-out infinite, excited-bounce 0.3s ease-in-out infinite;
+        }
+
+        @keyframes excited-bounce {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.05) translateY(-5px); }
+        }
+
+        /* Notification dot */
+        .terp-buddy .notification {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 24px;
+            height: 24px;
+            background: #FFD54C;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Chat Bubble */
+        .terp-chat {
+            position: absolute;
+            bottom: 100px;
+            right: 0;
+            width: 340px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: none;
+            animation: slide-up 0.3s ease-out;
+        }
+
+        .terp-chat.active {
+            display: block;
+        }
+
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .terp-chat-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .terp-chat-header h3 {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terp-chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        .terp-chat-close:hover {
+            opacity: 1;
+        }
+
+        .terp-chat-body {
+            padding: 20px;
+            color: #333;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .terp-message {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .terp-message.bot {
+            background: #f5f5f5;
+            padding: 12px 15px;
+            border-radius: 12px 12px 12px 0;
+            font-size: 14px;
+        }
+
+        .terp-message.bot .name {
+            font-weight: 700;
+            color: #2E7D32;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Option Buttons */
+        .terp-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .terp-option {
+            background: #f0f0f0;
+            border: 2px solid #e0e0e0;
+            padding: 12px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+            transition: all 0.2s;
+            color: #333;
+        }
+
+        .terp-option:hover {
+            background: #e8f5e9;
+            border-color: #4CAF50;
+        }
+
+        .terp-option .emoji {
+            margin-right: 8px;
+        }
+
+        /* Effect Pills */
+        .effect-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .effect-pill {
+            background: #e8f5e9;
+            color: #2E7D32;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .effect-pill:hover {
+            background: #4CAF50;
+            color: white;
+        }
+
+        /* Result Card */
+        .terp-result {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .terp-result h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terp-result ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .terp-result li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+        }
+
+        .terp-result li:last-child {
+            border-bottom: none;
+        }
+
+        .terp-result .shop-btn {
+            display: block;
+            background: #FFD54C;
+            color: #1a1a2e;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .terp-result .shop-btn:hover {
+            transform: scale(1.02);
+        }
+
+        /* Initial popup bubble */
+        .terp-intro-bubble {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+            background: white;
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 12px 12px 0 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            max-width: 260px;
+            font-size: 14px;
+            line-height: 1.5;
+            display: none;
+            animation: bounce-in 0.4s ease-out;
+        }
+
+        .terp-intro-bubble.show {
+            display: block;
+        }
+
+        .terp-intro-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 30px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
+
+        @keyframes bounce-in {
+            0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+            50% { transform: scale(1.05) translateY(-5px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .terp-intro-bubble strong {
+            color: #2E7D32;
+        }
+
+        /* Back button */
+        .terp-back {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 13px;
+            cursor: pointer;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+
+        .terp-back:hover {
+            color: #333;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 480px) {
+            .terp-chat {
+                width: calc(100vw - 40px);
+                right: -10px;
+            }
+
+            .fake-nav {
+                display: none;
+            }
+
+            .fake-hero h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="demo-banner">
+    🎬 DEMO: Terp Buddy AI Assistant for TerpBros | Built by SeamlessFlow
+</div>
+
+<!-- Fake TerpBros Website Background -->
+<div class="fake-website" style="margin-top: 50px;">
+    <div class="fake-header">
+        <div class="fake-logo">TERP BROS</div>
+        <div class="fake-nav">
+            <a href="#">Shop</a>
+            <a href="#">Delivery</a>
+            <a href="#">Locations</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+
+    <div class="fake-hero">
+        <h1>Keeping Queens Elevated</h1>
+        <p>Legal Recreational Cannabis | Astoria & Ozone Park</p>
+    </div>
+
+    <h2 style="margin-bottom: 20px; color: #FFD54C;">Shop By Category</h2>
+    <div class="fake-products">
+        <div class="fake-product">
+            <div class="fake-product-icon">🌸</div>
+            <div>Flower</div>
+        </div>
+        <div class="fake-product">
+            <div class="fake-product-icon">🚬</div>
+            <div>Pre-Rolls</div>
+        </div>
+        <div class="fake-product">
+            <div class="fake-product-icon">💨</div>
+            <div>Vapes</div>
+        </div>
+        <div class="fake-product">
+            <div class="fake-product-icon">🍬</div>
+            <div>Edibles</div>
+        </div>
+        <div class="fake-product">
+            <div class="fake-product-icon">💎</div>
+            <div>Concentrates</div>
+        </div>
+        <div class="fake-product">
+            <div class="fake-product-icon">💧</div>
+            <div>Tinctures</div>
+        </div>
+    </div>
+
+    <p style="text-align: center; opacity: 0.7; margin-top: 40px;">
+        👆 This is a simulated TerpBros page. The assistant in the bottom-right is the demo.
+    </p>
+</div>
+
+<!-- ============================================
+     TERP BUDDY ASSISTANT
+     ============================================ -->
+<div class="terp-buddy-container">
+
+    <!-- Intro popup bubble -->
+    <div class="terp-intro-bubble" id="introBubble">
+        <strong>Hey! 👋</strong> Need help finding something? I know this menu like the back of my hand. <br><br>
+        <em>Click me to get started!</em>
+    </div>
+
+    <!-- Main chat window -->
+    <div class="terp-chat" id="chatWindow">
+        <div class="terp-chat-header">
+            <h3>🌿 Terp Buddy</h3>
+            <button class="terp-chat-close" onclick="closeChat()">×</button>
+        </div>
+        <div class="terp-chat-body" id="chatBody">
+            <!-- Content injected by JS -->
+        </div>
+    </div>
+
+    <!-- The floating character - Clippy-style animated bud -->
+    <div class="terp-buddy" id="terpBuddy" onclick="toggleChat()">
+        <div class="buddy-body">
+            <div class="buddy-face">
+                <div class="buddy-sunglasses">
+                    <div class="sunglass-lens"></div>
+                    <div class="sunglass-bridge"></div>
+                    <div class="sunglass-lens"></div>
+                </div>
+                <div class="buddy-eye left"></div>
+                <div class="buddy-eye right"></div>
+                <div class="buddy-smile"></div>
+            </div>
+        </div>
+        <div class="buddy-arm"></div>
+        <span class="notification" id="notification">👋</span>
+    </div>
+
+</div>
+
+<script>
+    // ============================================
+    // TERP BUDDY LOGIC
+    // ============================================
+
+    let chatOpen = false;
+    let currentStep = 'welcome';
+    let userSelections = {
+        effect: null,
+        format: null,
+        budget: null
+    };
+
+    // Show intro bubble after 3 seconds
+    setTimeout(() => {
+        document.getElementById('introBubble').classList.add('show');
+    }, 3000);
+
+    function toggleChat() {
+        const chat = document.getElementById('chatWindow');
+        const intro = document.getElementById('introBubble');
+        const notification = document.getElementById('notification');
+
+        intro.classList.remove('show');
+        notification.style.display = 'none';
+
+        if (chatOpen) {
+            chat.classList.remove('active');
+            chatOpen = false;
+        } else {
+            chat.classList.add('active');
+            chatOpen = true;
+            if (currentStep === 'welcome') {
+                showWelcome();
+            }
+        }
+    }
+
+    function closeChat() {
+        document.getElementById('chatWindow').classList.remove('active');
+        chatOpen = false;
+    }
+
+    function showWelcome() {
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                Yo, what's good! Welcome to Terp Bros. 🙌<br><br>
+                I'm here to help you find exactly what you need - whether you're a regular or this is your first time. No judgment, just good vibes.<br><br>
+                <strong>What can I help you with?</strong>
+            </div>
+            <div class="terp-options">
+                <div class="terp-option" onclick="startGuide()">
+                    <span class="emoji">🎯</span> Help me find the right product
+                </div>
+                <div class="terp-option" onclick="showEffects()">
+                    <span class="emoji">✨</span> I know what effect I want
+                </div>
+                <div class="terp-option" onclick="showFormats()">
+                    <span class="emoji">📦</span> I know what format I want
+                </div>
+                <div class="terp-option" onclick="showFAQ()">
+                    <span class="emoji">❓</span> I have a question
+                </div>
+            </div>
+        `;
+        currentStep = 'welcome';
+    }
+
+    function startGuide() {
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                Bet, let's find your perfect match. 💯<br><br>
+                <strong>First up - what vibe are you going for?</strong>
+            </div>
+            <div class="effect-pills">
+                <div class="effect-pill" onclick="selectEffect('sleep')">😴 Sleep</div>
+                <div class="effect-pill" onclick="selectEffect('relax')">😌 Relax</div>
+                <div class="effect-pill" onclick="selectEffect('energy')">⚡ Energy</div>
+                <div class="effect-pill" onclick="selectEffect('focus')">🧠 Focus</div>
+                <div class="effect-pill" onclick="selectEffect('happy')">😊 Happy</div>
+                <div class="effect-pill" onclick="selectEffect('creative')">🎨 Creative</div>
+                <div class="effect-pill" onclick="selectEffect('pain')">💪 Pain Relief</div>
+            </div>
+            <button class="terp-back" onclick="showWelcome()">← Back</button>
+        `;
+        currentStep = 'effect';
+    }
+
+    function showEffects() {
+        startGuide();
+    }
+
+    function selectEffect(effect) {
+        userSelections.effect = effect;
+        const effectNames = {
+            sleep: 'Sleep/Wind Down',
+            relax: 'Relaxation',
+            energy: 'Energy/Uplift',
+            focus: 'Focus/Clarity',
+            happy: 'Happy/Social',
+            creative: 'Creative Flow',
+            pain: 'Pain Relief'
+        };
+
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                ${effectNames[effect]} - solid choice. 👌<br><br>
+                <strong>How do you like to consume?</strong>
+            </div>
+            <div class="terp-options">
+                <div class="terp-option" onclick="selectFormat('flower')">
+                    <span class="emoji">🌸</span> Flower - Classic, full experience
+                </div>
+                <div class="terp-option" onclick="selectFormat('preroll')">
+                    <span class="emoji">🚬</span> Pre-Roll - Ready to go
+                </div>
+                <div class="terp-option" onclick="selectFormat('vape')">
+                    <span class="emoji">💨</span> Vape - Discreet & convenient
+                </div>
+                <div class="terp-option" onclick="selectFormat('edible')">
+                    <span class="emoji">🍬</span> Edible - Long lasting
+                </div>
+                <div class="terp-option" onclick="selectFormat('any')">
+                    <span class="emoji">🤷</span> Surprise me
+                </div>
+            </div>
+            <button class="terp-back" onclick="startGuide()">← Back</button>
+        `;
+        currentStep = 'format';
+    }
+
+    function showFormats() {
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                What format are you looking for today?
+            </div>
+            <div class="terp-options">
+                <div class="terp-option" onclick="directFormat('flower')">
+                    <span class="emoji">🌸</span> Flower
+                </div>
+                <div class="terp-option" onclick="directFormat('preroll')">
+                    <span class="emoji">🚬</span> Pre-Rolls
+                </div>
+                <div class="terp-option" onclick="directFormat('vape')">
+                    <span class="emoji">💨</span> Vapes
+                </div>
+                <div class="terp-option" onclick="directFormat('edible')">
+                    <span class="emoji">🍬</span> Edibles
+                </div>
+                <div class="terp-option" onclick="directFormat('concentrate')">
+                    <span class="emoji">💎</span> Concentrates
+                </div>
+                <div class="terp-option" onclick="directFormat('tincture')">
+                    <span class="emoji">💧</span> Tinctures
+                </div>
+            </div>
+            <button class="terp-back" onclick="showWelcome()">← Back</button>
+        `;
+    }
+
+    function directFormat(format) {
+        const formatUrls = {
+            flower: 'https://www.terpbrosnyc.com/products/flower/',
+            preroll: 'https://www.terpbrosnyc.com/products/pre-rolls/',
+            vape: 'https://www.terpbrosnyc.com/products/vapes/',
+            edible: 'https://www.terpbrosnyc.com/products/edibles/',
+            concentrate: 'https://www.terpbrosnyc.com/products/concentrates/',
+            tincture: 'https://www.terpbrosnyc.com/products/tinctures/'
+        };
+
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                Here's our ${format} selection! Some customer favorites are on top. 🔥
+            </div>
+            <div class="terp-result">
+                <h4>🛒 ${format.charAt(0).toUpperCase() + format.slice(1)} Collection</h4>
+                <a href="${formatUrls[format]}" target="_blank" class="shop-btn">
+                    Browse ${format.charAt(0).toUpperCase() + format.slice(1)} →
+                </a>
+            </div>
+            <button class="terp-back" onclick="showFormats()">← Back</button>
+        `;
+    }
+
+    function selectFormat(format) {
+        userSelections.format = format;
+
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                Almost there! 🎯<br><br>
+                <strong>What's your budget looking like?</strong>
+            </div>
+            <div class="terp-options">
+                <div class="terp-option" onclick="selectBudget('low')">
+                    <span class="emoji">💵</span> Under $30 - Keep it light
+                </div>
+                <div class="terp-option" onclick="selectBudget('mid')">
+                    <span class="emoji">💰</span> $30-60 - Sweet spot
+                </div>
+                <div class="terp-option" onclick="selectBudget('high')">
+                    <span class="emoji">💎</span> $60+ - Treat yourself
+                </div>
+                <div class="terp-option" onclick="selectBudget('any')">
+                    <span class="emoji">🤷</span> Show me all options
+                </div>
+            </div>
+            <button class="terp-back" onclick="selectEffect(userSelections.effect)">← Back</button>
+        `;
+        currentStep = 'budget';
+    }
+
+    function selectBudget(budget) {
+        userSelections.budget = budget;
+        showRecommendations();
+    }
+
+    function showRecommendations() {
+        const { effect, format, budget } = userSelections;
+
+        // Recommendation logic based on selections
+        const recommendations = getRecommendations(effect, format, budget);
+
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                Aight, based on what you told me, here's what I'd recommend: 🎯
+            </div>
+            <div class="terp-result">
+                <h4>🔥 My Picks For You</h4>
+                <ul>
+                    ${recommendations.map(r => `<li>${r.emoji} <strong>${r.name}</strong> - ${r.note}</li>`).join('')}
+                </ul>
+                <a href="https://www.terpbrosnyc.com/shop/" target="_blank" class="shop-btn">
+                    Shop Now →
+                </a>
+            </div>
+            <div class="terp-message bot" style="margin-top: 15px;">
+                <div class="name">🌿 Terp Buddy</div>
+                Want me to help you with anything else? Our budtenders at the shop can also give you more specific recs based on what's in stock today.
+            </div>
+            <div class="terp-options">
+                <div class="terp-option" onclick="showWelcome()">
+                    <span class="emoji">🔄</span> Start over
+                </div>
+                <div class="terp-option" onclick="showFAQ()">
+                    <span class="emoji">❓</span> I have a question
+                </div>
+            </div>
+        `;
+        currentStep = 'results';
+    }
+
+    function getRecommendations(effect, format, budget) {
+        // This would connect to real inventory in production
+        // For demo, showing curated recommendations
+
+        const recs = {
+            sleep: [
+                { emoji: '🌙', name: 'Granddaddy Purple', note: 'Heavy indica, knocks you out' },
+                { emoji: '💜', name: 'Purple Punch', note: 'Sweet, relaxing, sleepy' },
+                { emoji: '🍇', name: 'Grape Ape', note: 'Classic nighttime strain' }
+            ],
+            relax: [
+                { emoji: '🍦', name: 'Gelato', note: 'Smooth, balanced, chill' },
+                { emoji: '🌊', name: 'Blue Dream', note: 'Mellow & easy-going' },
+                { emoji: '🎂', name: 'Wedding Cake', note: 'Rich, relaxing hybrid' }
+            ],
+            energy: [
+                { emoji: '🍋', name: 'Super Lemon Haze', note: 'Citrus burst, pure energy' },
+                { emoji: '☀️', name: 'Sour Diesel', note: 'Classic wake & bake' },
+                { emoji: '🍊', name: 'Tangie', note: 'Uplifting, creative' }
+            ],
+            focus: [
+                { emoji: '🧠', name: 'Jack Herer', note: 'Clear-headed focus' },
+                { emoji: '🌲', name: 'Durban Poison', note: 'Pure sativa, productive' },
+                { emoji: '⚡', name: 'Green Crack', note: 'Sharp mental energy' }
+            ],
+            happy: [
+                { emoji: '😄', name: 'Pineapple Express', note: 'Happy, social vibes' },
+                { emoji: '🍪', name: 'GSC (Girl Scout Cookies)', note: 'Euphoric & uplifting' },
+                { emoji: '🌈', name: 'Zkittlez', note: 'Fruity, happy feels' }
+            ],
+            creative: [
+                { emoji: '🎨', name: 'Trainwreck', note: 'Creative explosion' },
+                { emoji: '🚀', name: 'Amnesia Haze', note: 'Ideas flowing' },
+                { emoji: '💫', name: 'Maui Wowie', note: 'Island inspiration' }
+            ],
+            pain: [
+                { emoji: '💪', name: 'ACDC', note: 'High CBD, body relief' },
+                { emoji: '🩹', name: 'Harlequin', note: 'Balanced pain fighter' },
+                { emoji: '🌿', name: 'Northern Lights', note: 'Full body relaxation' }
+            ]
+        };
+
+        return recs[effect] || recs.relax;
+    }
+
+    function showFAQ() {
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                What do you need to know? I got you. 💯
+            </div>
+            <div class="terp-options">
+                <div class="terp-option" onclick="answerFAQ('first')">
+                    <span class="emoji">🆕</span> First time buying legal weed?
+                </div>
+                <div class="terp-option" onclick="answerFAQ('id')">
+                    <span class="emoji">🪪</span> What ID do I need?
+                </div>
+                <div class="terp-option" onclick="answerFAQ('delivery')">
+                    <span class="emoji">🚗</span> How does delivery work?
+                </div>
+                <div class="terp-option" onclick="answerFAQ('hours')">
+                    <span class="emoji">🕐</span> What are your hours?
+                </div>
+                <div class="terp-option" onclick="answerFAQ('payment')">
+                    <span class="emoji">💳</span> How can I pay?
+                </div>
+            </div>
+            <button class="terp-back" onclick="showWelcome()">← Back</button>
+        `;
+        currentStep = 'faq';
+    }
+
+    function answerFAQ(question) {
+        const answers = {
+            first: `
+                <strong>Welcome to the legal side! 🎉</strong><br><br>
+                Here's what to expect:<br>
+                • Bring valid ID (21+)<br>
+                • Our budtenders will help you choose<br>
+                • Start low, go slow with dosing<br>
+                • No judgment - ask any questions!<br><br>
+                We love helping first-timers find their perfect product.
+            `,
+            id: `
+                <strong>You'll need valid government ID showing you're 21+</strong><br><br>
+                We accept:<br>
+                • Driver's license<br>
+                • State ID<br>
+                • Passport<br>
+                • Military ID<br><br>
+                Must be the real deal - no photos of IDs.
+            `,
+            delivery: `
+                <strong>We deliver throughout Queens! 🚗</strong><br><br>
+                • $30 minimum for nearby areas<br>
+                • $70 minimum for farther zones<br>
+                • Same-day delivery available<br>
+                • Track your order in real-time<br><br>
+                Check our delivery zones at the shop page!
+            `,
+            hours: `
+                <strong>Both locations:</strong><br><br>
+                📍 <strong>Astoria & Ozone Park</strong><br>
+                Mon-Thu: 10am - 10pm<br>
+                Fri-Sat: 10am - 11pm<br>
+                Sun: 11am - 9pm<br><br>
+                Come through! 🙌
+            `,
+            payment: `
+                <strong>We accept:</strong><br><br>
+                • Cash (ATM on-site)<br>
+                • Debit cards<br>
+                • CanPay app<br><br>
+                No credit cards yet (federal banking rules 🙄), but we make it easy!
+            `
+        };
+
+        const body = document.getElementById('chatBody');
+        body.innerHTML = `
+            <div class="terp-message bot">
+                <div class="name">🌿 Terp Buddy</div>
+                ${answers[question]}
+            </div>
+            <div class="terp-options">
+                <div class="terp-option" onclick="showFAQ()">
+                    <span class="emoji">❓</span> Another question
+                </div>
+                <div class="terp-option" onclick="showWelcome()">
+                    <span class="emoji">🏠</span> Back to main menu
+                </div>
+            </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
