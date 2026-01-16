@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SMP Ztylez - Google Business Profile Audit</title>
+    <meta property="og:title" content="SMP Ztylez - GBP Audit by SeamlessFlow">
+    <meta property="og:description" content="Google Business Profile Optimization Report">
+    <meta property="og:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
+    <style>
+        @page { size: letter; margin: 0.5in 0.6in; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11pt; line-height: 1.4; color: #222; background: white; }
+
+        :root {
+            --brand-primary: #1a1a2e;
+            --brand-secondary: #16213e;
+            --accent: #4285f4;
+        }
+
+        /* COVER */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-primary) 100%);
+            color: white;
+            page-break-after: always;
+        }
+        .cover .cover-logo { width: 240px; margin-bottom: 30px; }
+        .cover h1 { font-size: 36pt; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; text-transform: uppercase; }
+        .cover .tagline { font-size: 16pt; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+        .cover .client-name { font-size: 20pt; font-weight: 700; color: #4285f4; margin: 20px 0; }
+        .cover .gbp-badge { background: #4285f4; padding: 8px 20px; border-radius: 20px; font-size: 10pt; font-weight: 700; margin-bottom: 20px; }
+        .cover .meta { font-size: 11pt; color: rgba(255,255,255,0.5); margin-top: 20px; }
+
+        .cover .scores { display: flex; gap: 20px; margin-top: 25px; flex-wrap: wrap; justify-content: center; }
+        .cover .score-item { text-align: center; min-width: 80px; }
+        .cover .score-num { font-size: 32pt; font-weight: 700; }
+        .cover .score-label { font-size: 9pt; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
+
+        .red { color: #e53935; }
+        .yellow { color: #f9a825; }
+        .green { color: #43a047; }
+
+        /* CONTENT */
+        .content { padding: 30px 40px; }
+        h2 { font-size: 14pt; font-weight: 700; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #222; }
+        h3 { font-size: 11pt; font-weight: 700; margin: 15px 0 8px 0; color: #444; }
+        p { margin-bottom: 8px; }
+        ul { margin: 8px 0 12px 20px; }
+        li { margin: 5px 0; }
+
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; margin: 10px 0 15px 0; font-size: 9pt; }
+        th { background: var(--brand-primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5px; }
+        td { padding: 8px 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+        tr:nth-child(even) { background: #f9f9f9; }
+
+        .good { color: #43a047; font-weight: 600; }
+        .bad { color: #e53935; font-weight: 600; }
+        .warn { color: #f9a825; font-weight: 600; }
+
+        /* ISSUE/WARNING/STRENGTH BOXES */
+        .issue { background: #fff5f5; border: 1px solid #ffcdd2; border-left: 4px solid #e53935; padding: 12px 15px; margin: 10px 0; border-radius: 4px; }
+        .issue h4 { font-size: 10pt; font-weight: 700; color: #c62828; margin-bottom: 8px; }
+        .issue p { margin: 5px 0; font-size: 10pt; }
+        .issue .fix { background: #e8f5e9; border-left: 3px solid #43a047; padding: 6px 10px; margin-top: 8px; font-size: 9pt; }
+
+        .warning { background: #fffde7; border: 1px solid #fff9c4; border-left: 4px solid #f9a825; padding: 12px 15px; margin: 10px 0; border-radius: 4px; }
+        .warning h4 { font-size: 10pt; font-weight: 700; color: #f57f17; margin-bottom: 8px; }
+        .warning p { margin: 5px 0; font-size: 10pt; }
+        .warning .fix { background: #e8f5e9; border-left: 3px solid #43a047; padding: 6px 10px; margin-top: 8px; font-size: 9pt; }
+
+        .strength { background: #e8f5e9; border: 1px solid #c8e6c9; border-left: 4px solid #43a047; padding: 12px 15px; margin: 10px 0; border-radius: 4px; }
+        .strength h4 { font-size: 10pt; font-weight: 700; color: #2e7d32; margin-bottom: 6px; }
+
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 3px; font-size: 8pt; font-weight: 700; text-transform: uppercase; }
+        .tag-high { background: #e53935; color: white; }
+        .tag-med { background: #f9a825; color: #222; }
+        .tag-low { background: #43a047; color: white; }
+
+        /* TWO COLUMNS */
+        .two-col { display: flex; gap: 20px; }
+        .two-col > div { flex: 1; }
+
+        /* SUMMARY BOX */
+        .summary { background: var(--brand-primary); color: white; padding: 18px 22px; margin: 20px 0; border-radius: 8px; }
+        .summary h3 { color: white; margin: 0 0 12px 0; font-size: 13pt; }
+        .summary p { margin: 6px 0; font-size: 10pt; opacity: 0.9; }
+        .summary ol { margin-left: 20px; }
+        .summary li { margin: 5px 0; font-size: 10pt; }
+
+        /* CHECKLIST */
+        .checklist { list-style: none; margin: 10px 0; }
+        .checklist li { padding: 5px 0 5px 26px; position: relative; border-bottom: 1px solid #eee; font-size: 9pt; }
+        .checklist li:before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; border: 2px solid #999; border-radius: 3px; }
+
+        /* PAGE BREAKS */
+        .page-break { page-break-before: always; }
+
+        /* FOOTER */
+        .footer { margin-top: 25px; padding-top: 15px; border-top: 2px solid #eee; text-align: center; }
+        .footer-logo { width: 180px; margin-bottom: 10px; }
+        .footer p { font-size: 9pt; color: #666; margin: 3px 0; }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 768px) {
+            .cover { padding: 40px 20px; min-height: 100vh; }
+            .cover h1 { font-size: 22pt; word-break: break-word; }
+            .cover .scores { gap: 12px; }
+            .cover .score-num { font-size: 24pt; }
+            .content { padding: 24px 20px; }
+            .two-col { flex-direction: column; }
+            table { display: block; overflow-x: auto; }
+        }
+        @media screen and (max-width: 480px) {
+            .cover { padding: 30px 16px; }
+            .cover h1 { font-size: 18pt; }
+            .cover .score-num { font-size: 20pt; }
+            .content { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="cover">
+    <img src="https://liquiddeath1900.github.io/assets/whitelogo.png" alt="SeamlessFlow" class="cover-logo">
+    <div class="gbp-badge">GOOGLE BUSINESS PROFILE</div>
+    <h1>GBP Audit</h1>
+    <div class="tagline">Local Search Visibility Report</div>
+    <div class="client-name">SMP Ztylez</div>
+    <p style="font-size: 11pt; opacity: 0.7;">Scalp Micropigmentation Studio | Woodside, Queens NY</p>
+
+    <div class="scores">
+        <div class="score-item">
+            <div class="score-num yellow">70</div>
+            <div class="score-label">Profile</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">65</div>
+            <div class="score-label">Reviews</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num green">75</div>
+            <div class="score-label">Photos</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num red">45</div>
+            <div class="score-label">Engagement</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">64</div>
+            <div class="score-label">Overall</div>
+        </div>
+    </div>
+
+    <div class="meta">
+        January 16, 2025<br>
+        Companion to SEO Audit Report
+    </div>
+</div>
+
+<!-- PAGE 2: PROFILE OVERVIEW -->
+<div class="content">
+    <h2>Profile Overview</h2>
+
+    <div class="strength">
+        <h4>Key Strengths</h4>
+        <ul>
+            <li><strong>Perfect 5.0 rating</strong> - 100% 5-star reviews demonstrate exceptional service quality</li>
+            <li><strong>Verified business</strong> - Profile is claimed and verified by owner</li>
+            <li><strong>Inclusive attributes</strong> - LGBTQ+ friendly, Women-owned, Asian-owned badges build trust</li>
+        </ul>
+    </div>
+
+    <h3>Basic Information</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Current State</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Business Name</td>
+            <td>Smp Ztylez</td>
+            <td class="good">Correct</td>
+        </tr>
+        <tr>
+            <td>Primary Category</td>
+            <td>Beauty Salon (implied)</td>
+            <td class="warn">Could be more specific</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>69-16 Roosevelt Ave 2FL, Woodside, NY 11377</td>
+            <td class="good">Complete</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>(718) 825-6901</td>
+            <td class="good">Listed</td>
+        </tr>
+        <tr>
+            <td>Website</td>
+            <td>smpztylez.com</td>
+            <td class="good">Linked</td>
+        </tr>
+        <tr>
+            <td>Hours</td>
+            <td>Listed</td>
+            <td class="good">Complete</td>
+        </tr>
+        <tr>
+            <td>Verified</td>
+            <td>Yes</td>
+            <td class="good">Verified</td>
+        </tr>
+        <tr>
+            <td>Business Description</td>
+            <td>Not visible/minimal</td>
+            <td class="bad">Missing</td>
+        </tr>
+    </table>
+
+    <h3>Business Attributes</h3>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>LGBTQ+ friendly</td>
+            <td class="good">Enabled</td>
+        </tr>
+        <tr>
+            <td>Women-owned</td>
+            <td class="good">Enabled</td>
+        </tr>
+        <tr>
+            <td>Asian-owned</td>
+            <td class="good">Enabled</td>
+        </tr>
+        <tr>
+            <td>LGBTQ+ owned</td>
+            <td class="good">Enabled</td>
+        </tr>
+        <tr>
+            <td>Wheelchair accessible</td>
+            <td class="warn">Not specified</td>
+        </tr>
+        <tr>
+            <td>Accepts credit cards</td>
+            <td class="warn">Not specified</td>
+        </tr>
+    </table>
+</div>
+
+<!-- PAGE 3: REVIEWS ANALYSIS -->
+<div class="content page-break">
+    <h2>Reviews Analysis</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Review Metrics</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Total Reviews</td>
+                    <td>17</td>
+                    <td class="warn">Below competitors</td>
+                </tr>
+                <tr>
+                    <td>Average Rating</td>
+                    <td>5.0 stars</td>
+                    <td class="good">Perfect</td>
+                </tr>
+                <tr>
+                    <td>5-Star Reviews</td>
+                    <td>17 (100%)</td>
+                    <td class="good">Excellent</td>
+                </tr>
+                <tr>
+                    <td>Recent Review</td>
+                    <td>Within 30 days</td>
+                    <td class="good">Active</td>
+                </tr>
+                <tr>
+                    <td>Owner Responses</td>
+                    <td>0%</td>
+                    <td class="bad">None visible</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h3>Rating Distribution</h3>
+            <table>
+                <tr><th>Stars</th><th>Count</th></tr>
+                <tr><td>5 Stars</td><td>17 (100%)</td></tr>
+                <tr><td>4 Stars</td><td>0</td></tr>
+                <tr><td>3 Stars</td><td>0</td></tr>
+                <tr><td>2 Stars</td><td>0</td></tr>
+                <tr><td>1 Star</td><td>0</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <h3>Review Themes (from 5-star reviews)</h3>
+    <table>
+        <tr>
+            <th>Theme</th>
+            <th>Frequency</th>
+        </tr>
+        <tr>
+            <td>"Professional" / "Expert"</td>
+            <td>High</td>
+        </tr>
+        <tr>
+            <td>"Natural looking results"</td>
+            <td>High</td>
+        </tr>
+        <tr>
+            <td>"Clean environment"</td>
+            <td>Medium</td>
+        </tr>
+        <tr>
+            <td>"Friendly staff"</td>
+            <td>Medium</td>
+        </tr>
+    </table>
+
+    <h3>Competitor Comparison</h3>
+    <table>
+        <tr>
+            <th>Business</th>
+            <th>Rating</th>
+            <th>Reviews</th>
+            <th>Gap</th>
+        </tr>
+        <tr style="background: #e3f2fd;">
+            <td><strong>SMP Ztylez</strong></td>
+            <td>5.0</td>
+            <td>17</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Parascalpmicro</td>
+            <td>5.0</td>
+            <td>46</td>
+            <td class="bad">-29 reviews</td>
+        </tr>
+        <tr>
+            <td>Skalp=</td>
+            <td>5.0</td>
+            <td>62</td>
+            <td class="bad">-45 reviews</td>
+        </tr>
+    </table>
+    <p style="font-size: 9pt; color: #666; margin-top: 10px;"><strong>Note:</strong> All competitors have perfect 5.0 ratings. Review count becomes the key differentiator for local search ranking.</p>
+</div>
+
+<!-- PAGE 4: ISSUES & ACTION PLAN -->
+<div class="content page-break">
+    <h2>Issues & Opportunities</h2>
+
+    <div class="issue">
+        <h4><span class="tag tag-high">High</span> No Owner Responses to Reviews</h4>
+        <p><strong>Impact:</strong> Google values engagement. Responding to reviews shows you care about customers and can improve local ranking.</p>
+        <div class="fix"><strong>Fix:</strong> Reply to all 17 existing reviews with personalized thank-you messages. Set up notifications to respond to future reviews within 24-48 hours.</div>
+    </div>
+
+    <div class="warning">
+        <h4><span class="tag tag-med">Medium</span> Low Review Count vs Competitors</h4>
+        <p><strong>Impact:</strong> Competitors have 2.5-3.5x more reviews. Review quantity is a ranking factor for "near me" searches.</p>
+        <div class="fix"><strong>Fix:</strong> Implement review generation strategy - ask satisfied clients via text/email, add QR code to aftercare cards, follow up 1 week post-treatment.</div>
+    </div>
+
+    <div class="warning">
+        <h4><span class="tag tag-med">Medium</span> Missing Business Description</h4>
+        <p><strong>Impact:</strong> The "From the business" section helps Google understand what you do and shows in search results.</p>
+        <div class="fix"><strong>Fix:</strong> Add 750-character description with keywords: "Scalp micropigmentation Queens", "SMP Woodside", "hair loss solution NYC". Mention services, experience, and what makes you unique.</div>
+    </div>
+
+    <div class="warning">
+        <h4><span class="tag tag-low">Low</span> Category Could Be More Specific</h4>
+        <p><strong>Impact:</strong> "Beauty Salon" is broad. More specific categories help you appear for targeted searches.</p>
+        <div class="fix"><strong>Fix:</strong> Add secondary categories if available: "Hair Restoration Service", "Tattoo Shop" (SMP is technically tattooing), "Cosmetic Surgeon" alternative.</div>
+    </div>
+
+    <h2 style="margin-top: 25px;">Action Plan</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Quick Wins (This Week)</h3>
+            <ul class="checklist">
+                <li>Respond to all 17 existing reviews</li>
+                <li>Write and add business description (750 chars)</li>
+                <li>Add "Accepts credit cards" attribute</li>
+            </ul>
+
+            <h3>Short-Term (2-4 Weeks)</h3>
+            <ul class="checklist">
+                <li>Create review request email/text template</li>
+                <li>Add QR code to aftercare instructions</li>
+                <li>Post first Google Business update</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Ongoing</h3>
+            <ul class="checklist">
+                <li>Respond to new reviews within 48 hours</li>
+                <li>Post weekly updates (photos, offers, tips)</li>
+                <li>Ask every satisfied client for a review</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>Top 3 Priorities</h3>
+        <ol>
+            <li><strong>Respond to Reviews:</strong> Reply to all 17 reviews this week. This is the fastest way to improve engagement score.</li>
+            <li><strong>Build Review Count:</strong> Target 10 new reviews per month. Goal: Match Parascalpmicro (46) within 90 days.</li>
+            <li><strong>Complete Profile:</strong> Add business description with local keywords to help Google understand your services.</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="footer-logo">
+        <p><a href="tel:+13477498146" style="color:#1a1a2e; text-decoration:none; font-weight:bold;">(347) 749-8146</a> | <a href="mailto:info@seamlessflow.ai" style="color:#1a1a2e; text-decoration:none;">info@seamlessflow.ai</a> | <a href="https://seamlessflow.ai" style="color:#1a1a2e; text-decoration:none;">seamlessflow.ai</a></p>
+        <p style="margin-top: 10px; font-size: 8pt; color: #999;">GBP Audit generated January 16, 2025</p>
+    </div>
+</div>
+
+</body>
+</html>
