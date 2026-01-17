@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GreenUp Recycle - Security Audit Report</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #222;
+            background: white;
+        }
+
+        .cover {
+            page-break-after: always;
+        }
+
+        :root {
+            --brand-primary: #2e7d32;
+            --brand-secondary: #1b5e20;
+        }
+
+        /* COVER PAGE - Green theme for GreenUp */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: white;
+        }
+
+        .cover .cover-logo {
+            width: 240px;
+            margin-bottom: 30px;
+        }
+
+        .cover h1 {
+            font-size: 38pt;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .cover .tagline {
+            font-size: 14pt;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: rgba(255,255,255,0.6);
+            margin-top: 20px;
+        }
+
+        .cover .scores {
+            display: flex;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .cover .score-item {
+            text-align: center;
+        }
+
+        .cover .score-num {
+            font-size: 42pt;
+            font-weight: 700;
+        }
+
+        .cover .score-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .red { color: #e53935; }
+        .yellow { color: #ffd54f; }
+        .green { color: #81c784; }
+
+        /* CONTENT PAGES */
+        .content {
+            padding: 15px 0;
+        }
+
+        h2 {
+            font-size: 14pt;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #2e7d32;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin: 12px 0 6px 0;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 6px;
+        }
+
+        ul {
+            margin: 5px 0 8px 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 12px 0;
+            font-size: 9pt;
+        }
+
+        th {
+            background: #2e7d32;
+            color: white;
+            padding: 6px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 5px 8px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .good { color: #43a047; font-weight: 600; }
+        .bad { color: #e53935; font-weight: 600; }
+        .warn { color: #f9a825; font-weight: 600; }
+
+        /* ISSUE BOXES */
+        .issue {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #e53935;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .issue h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #c62828;
+            margin-bottom: 8px;
+        }
+
+        .issue p {
+            margin: 5px 0;
+            font-size: 10pt;
+        }
+
+        .issue .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 5px 10px;
+            margin-top: 6px;
+            font-size: 9pt;
+        }
+
+        /* STRENGTH BOXES */
+        .strength {
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-left: 4px solid #43a047;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+        }
+
+        .strength h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        /* PRIORITY TAGS */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-high { background: #e53935; color: white; }
+        .tag-med { background: #f9a825; color: #222; }
+        .tag-low { background: #43a047; color: white; }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            margin: 8px 0;
+        }
+
+        .checklist li {
+            padding: 4px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            font-size: 9pt;
+        }
+
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #999;
+            border-radius: 3px;
+        }
+
+        /* SUMMARY BOX */
+        .summary {
+            background: #2e7d32;
+            color: white;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 14pt;
+        }
+
+        .summary ol {
+            margin-left: 20px;
+        }
+
+        .summary li {
+            margin: 4px 0;
+            font-size: 9pt;
+        }
+
+        /* TWO COLUMNS */
+        .two-col {
+            display: flex;
+            gap: 20px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        /* PAGE BREAKS */
+        .critical-issues { page-break-before: always; padding: 15px 0; }
+        .findings-medium { page-break-before: always; padding: 15px 0; }
+        .action-plan { page-break-before: always; padding: 15px 0; }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #888;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .agency-logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .footer .agency-contact {
+            margin-top: 10px;
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .footer .agency-contact a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+    <img src="https://raw.githubusercontent.com/liquiddeath1900/liquiddeath1900.github.io/main/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="cover-logo">
+    <h1>GREENUP.NYC</h1>
+    <div class="tagline">Security Audit Report</div>
+
+    <div class="scores">
+        <div class="score-item">
+            <div class="score-num red">2</div>
+            <div class="score-label">High Risk</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num yellow">4</div>
+            <div class="score-label">Medium Risk</div>
+        </div>
+        <div class="score-item">
+            <div class="score-num green">3</div>
+            <div class="score-label">Low Risk</div>
+        </div>
+    </div>
+
+    <div class="meta">
+        January 16, 2026<br>
+        Framer Website | iOS & Android App
+    </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="content">
+    <h2>Executive Summary</h2>
+
+    <p>This security audit examined the public-facing digital presence of GreenUp Recycle, including the website (greenup.nyc) and mobile app listings. We found <strong>9 security issues</strong> that could be exploited by attackers or cause legal/compliance problems.</p>
+
+    <div class="strength">
+        <h4>What's Working Well</h4>
+        <ul>
+            <li>HTTPS is enabled with valid SSL certificate</li>
+            <li>HSTS (HTTP Strict Transport Security) is active</li>
+            <li>X-Content-Type-Options header prevents MIME sniffing</li>
+            <li>Data is encrypted in transit (per Play Store)</li>
+            <li>Users can request data deletion (GDPR compliant)</li>
+        </ul>
+    </div>
+
+    <h3>Business Information</h3>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Details</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Website</td>
+            <td>greenup.nyc (hosted on Framer)</td>
+            <td class="good">Live</td>
+        </tr>
+        <tr>
+            <td>Mobile App</td>
+            <td>com.greenuprecycle (iOS & Android)</td>
+            <td class="good">Live</td>
+        </tr>
+        <tr>
+            <td>SSL Certificate</td>
+            <td>Let's Encrypt, expires Feb 24, 2026</td>
+            <td class="warn">39 days left</td>
+        </tr>
+        <tr>
+            <td>Services</td>
+            <td>Bottle/can pickup, e-waste recycling</td>
+            <td class="good">Active</td>
+        </tr>
+    </table>
+
+    <h3>Risk Summary</h3>
+    <table>
+        <tr>
+            <th>Severity</th>
+            <th>Count</th>
+            <th>What It Means</th>
+        </tr>
+        <tr>
+            <td><span class="tag tag-high">HIGH</span></td>
+            <td>2</td>
+            <td>Could lead to attacks or data breaches - fix this week</td>
+        </tr>
+        <tr>
+            <td><span class="tag tag-med">MEDIUM</span></td>
+            <td>4</td>
+            <td>Makes you look unprofessional or creates legal risk - fix this month</td>
+        </tr>
+        <tr>
+            <td><span class="tag tag-low">LOW</span></td>
+            <td>3</td>
+            <td>Minor issues or things to monitor - fix when convenient</td>
+        </tr>
+    </table>
+</div>
+
+<!-- HIGH SEVERITY ISSUES -->
+<div class="critical-issues">
+    <h2>High Severity Issues</h2>
+    <p>These need immediate attention to protect your business and customers.</p>
+
+    <div class="issue">
+        <h4>1. Missing Security Headers <span class="tag tag-high">HIGH</span></h4>
+        <p><strong>What's happening:</strong> Your website is missing important security settings that protect against common attacks.</p>
+        <table>
+            <tr>
+                <th>Missing Header</th>
+                <th>What It Protects Against</th>
+            </tr>
+            <tr>
+                <td>Content-Security-Policy</td>
+                <td>Hackers injecting malicious code into your site</td>
+            </tr>
+            <tr>
+                <td>X-Frame-Options</td>
+                <td>Clickjacking (tricking users into clicking hidden buttons)</td>
+            </tr>
+            <tr>
+                <td>X-XSS-Protection</td>
+                <td>Cross-site scripting attacks</td>
+            </tr>
+            <tr>
+                <td>Referrer-Policy</td>
+                <td>Leaking sensitive URLs to other websites</td>
+            </tr>
+        </table>
+        <div class="fix"><strong>How to fix:</strong> In Framer, go to Site Settings > Custom Code > Head and add security headers. Or use Cloudflare (free) to add them automatically.</div>
+    </div>
+
+    <div class="issue">
+        <h4>2. Developer Email Exposed on App Store <span class="tag tag-high">HIGH</span></h4>
+        <p><strong>What's happening:</strong> The Google Play Store shows personal email and phone numbers that hackers could use for phishing attacks.</p>
+        <table>
+            <tr>
+                <th>Exposed Info</th>
+                <th>Risk</th>
+            </tr>
+            <tr>
+                <td>william.shtainer@greenuprecycle.com</td>
+                <td>Targeted phishing emails pretending to be Google/Apple</td>
+            </tr>
+            <tr>
+                <td>+1 347-551-4319</td>
+                <td>Social engineering phone calls</td>
+            </tr>
+            <tr>
+                <td>1109 Flushing Ave, Brooklyn</td>
+                <td>Physical security concerns</td>
+            </tr>
+        </table>
+        <div class="fix"><strong>How to fix:</strong> Update Play Store listing to use a generic email like developer@greenuprecycle.com. Consider using a business phone number instead of personal.</div>
+    </div>
+</div>
+
+<!-- MEDIUM SEVERITY ISSUES -->
+<div class="findings-medium">
+    <h2>Medium Severity Issues</h2>
+    <p>These create legal risk or make your business look unprofessional.</p>
+
+    <div class="issue">
+        <h4>3. Privacy Policy Has Placeholder Text <span class="tag tag-med">MEDIUM</span></h4>
+        <p><strong>What's happening:</strong> Your privacy policy looks unfinished, which could cause legal problems.</p>
+        <table>
+            <tr>
+                <th>Problem Found</th>
+                <th>Current Text</th>
+            </tr>
+            <tr>
+                <td>Incomplete date</td>
+                <td>"Last modified: March ___, 2025"</td>
+            </tr>
+            <tr>
+                <td>Missing link</td>
+                <td>"[URL TO TERMS OF USE]"</td>
+            </tr>
+            <tr>
+                <td>Wrong page title</td>
+                <td>"Privacy policy - My Framer Site"</td>
+            </tr>
+            <tr>
+                <td>Empty CCPA metrics</td>
+                <td>All fields show "[__]"</td>
+            </tr>
+        </table>
+        <div class="fix"><strong>How to fix:</strong> Update privacy policy with correct dates, links, and company name. This is important for California users (CCPA compliance).</div>
+    </div>
+
+    <div class="issue">
+        <h4>4. Dead Link on Website <span class="tag tag-med">MEDIUM</span></h4>
+        <p><strong>What's happening:</strong> The "Start Earning" button links to a site that doesn't exist (greenup.coastart.studio).</p>
+        <div class="fix"><strong>How to fix:</strong> Update the button to link to your app store pages or remove it.</div>
+    </div>
+
+    <div class="issue">
+        <h4>5. Two Different Business Addresses <span class="tag tag-med">MEDIUM</span></h4>
+        <p><strong>What's happening:</strong> Your website and app store show different addresses, which confuses customers and hurts Google rankings.</p>
+        <table>
+            <tr>
+                <th>Source</th>
+                <th>Address</th>
+            </tr>
+            <tr>
+                <td>Play Store</td>
+                <td>1109 Flushing Ave, Brooklyn, NY 11237</td>
+            </tr>
+            <tr>
+                <td>Website Footer</td>
+                <td>65-55 Traffic Ave, Ridgewood, NY 11385</td>
+            </tr>
+        </table>
+        <div class="fix"><strong>How to fix:</strong> Pick one address and use it everywhere - website, app stores, Google Business Profile.</div>
+    </div>
+
+    <div class="issue">
+        <h4>6. Technology Stack Exposed <span class="tag tag-med">MEDIUM</span></h4>
+        <p><strong>What's happening:</strong> Your website reveals it's built on Framer with exact version numbers. Hackers look for this info.</p>
+        <div class="fix"><strong>How to fix:</strong> This is mostly unavoidable with hosted platforms, but monitor Framer security updates and apply them quickly.</div>
+    </div>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="content action-plan">
+    <h2>Action Plan</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>This Week (Urgent)</h3>
+            <ul class="checklist">
+                <li>Add missing security headers via Framer or Cloudflare</li>
+                <li>Fix privacy policy placeholder text</li>
+                <li>Fix or remove the dead coastart.studio link</li>
+                <li>Update app store to use generic developer email</li>
+            </ul>
+
+            <h3>This Month</h3>
+            <ul class="checklist">
+                <li>Consolidate to one business address everywhere</li>
+                <li>Verify SSL auto-renewal is active</li>
+                <li>Update page title on privacy policy</li>
+                <li>Complete CCPA metrics section</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Low Priority</h3>
+            <ul class="checklist">
+                <li>Monitor SSL certificate expiration (Feb 24)</li>
+                <li>Review third-party tracking compliance</li>
+                <li>Specify what "4 other data types" the app collects</li>
+            </ul>
+
+            <h3>Future Considerations</h3>
+            <ul class="checklist">
+                <li>Full mobile app security audit (APK analysis)</li>
+                <li>API penetration testing</li>
+                <li>Security monitoring setup</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>Top 3 Priorities</h3>
+        <ol>
+            <li><strong>Add security headers</strong> - Protects against common web attacks</li>
+            <li><strong>Fix privacy policy</strong> - Avoids legal issues with California users</li>
+            <li><strong>Hide developer personal info</strong> - Prevents targeted phishing attacks</li>
+        </ol>
+        <p style="margin-top: 15px;">Most of these fixes can be done in under an hour. The security headers are the most important technical fix.</p>
+    </div>
+
+    <div class="footer">
+        <img src="https://raw.githubusercontent.com/liquiddeath1900/liquiddeath1900.github.io/main/assets/website%20homelogo.png" alt="SeamlessFlow.ai" class="agency-logo">
+        <p>Security Audit by SeamlessFlow.ai | January 16, 2026</p>
+        <p>greenup.nyc | Bottle & Can Recycling | NYC</p>
+        <div class="agency-contact">
+            <strong>SeamlessFlow.ai</strong> | Security & Automation<br>
+            <a href="tel:+13477498146">(347) 749-8146</a> |
+            <a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a> |
+            <a href="https://seamlessflow.ai">seamlessflow.ai</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
