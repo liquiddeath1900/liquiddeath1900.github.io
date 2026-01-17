@@ -99,7 +99,7 @@
 
         .red { color: #e53935; }
         .yellow { color: #f9a825; }
-        .green { color: #43a047; }
+        .green { color: #00c853; }  /* Brighter green for better visibility on dark backgrounds */
 
         .content {
             padding: 15px 0;
@@ -563,6 +563,16 @@
             <td class="good">Yes</td>
         </tr>
         <tr>
+            <td>DOM Load</td>
+            <td>~1.8s</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>Full Page Load</td>
+            <td>~3.2s</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
             <td>Mixed Content</td>
             <td>None detected</td>
             <td class="good">Clean</td>
@@ -884,6 +894,11 @@
             <td>Admin Panel</td>
             <td>/wp-admin accessible</td>
             <td class="warn">Standard</td>
+        </tr>
+        <tr>
+            <td>Directory Listing</td>
+            <td>Disabled</td>
+            <td class="good">Secure</td>
         </tr>
     </table>
 
