@@ -44,12 +44,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .hero-section {
-            background: linear-gradient(135deg, rgba(5, 150, 105, 0.85) 0%, rgba(4, 120, 87, 0.9) 100%),
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.7) 0%, rgba(4, 120, 87, 0.75) 100%),
                         url('https://images.unsplash.com/photo-1603909223429-69bb7101f420?w=1920&q=80&auto=format');
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-position: center center;
             padding: 120px 0 80px 0;
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+                background-position: center top;
+            }
         }
         .case-study-card {
             transition: transform 0.3s, box-shadow 0.3s;
@@ -146,31 +151,20 @@
                             </button>
                             <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                                 <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>Dispensary Local SEO</a>
+                                <a href="google-my-business-optimization.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-store mr-2 text-green-500"></i>GBP Optimization</a>
                                 <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-robot mr-2 text-green-500"></i>AI Budtender</a>
                                 <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-laptop-code mr-2 text-green-500"></i>Dispensary Websites</a>
                             </div>
                         </div>
-                        <div class="relative group">
-                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
-                                Solutions <i class="fas fa-chevron-down ml-1 text-sm"></i>
-                            </button>
-                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <a href="cannabis-industry-solutions.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 font-semibold"><i class="fas fa-cannabis mr-2 text-green-500"></i>Cannabis Solutions</a>
-                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Dispensary Local SEO</a>
-                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">AI Budtender</a>
-                                <a href="free-audit.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Free Dispensary Audit</a>
-                            </div>
-                        </div>
+                        <a href="cannabis-industry-solutions.html" class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center"><i class="fas fa-cannabis mr-1 text-green-500"></i>Cannabis Solutions</a>
                         <div class="relative group">
                             <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
                                 Locations <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
                             <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <div class="px-4 py-1 text-xs font-semibold text-green-600 uppercase tracking-wider">Legal Recreational States</div>
-                                <!-- New York Nested -->
                                 <div class="relative group/ny">
                                     <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 flex items-center justify-between">
-                                        New York <i class="fas fa-chevron-right text-xs"></i>
+                                        <span><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>New York</span> <i class="fas fa-chevron-right text-xs"></i>
                                     </button>
                                     <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/ny:opacity-100 group-hover/ny:visible transition-all duration-200 z-50">
                                         <a href="manhattan-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Manhattan</a>
@@ -178,20 +172,18 @@
                                         <a href="queens-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Queens</a>
                                         <a href="bronx-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Bronx</a>
                                         <a href="albany-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Albany</a>
+                                        <a href="syracuse-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Syracuse</a>
+                                        <a href="rochester-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Rochester</a>
                                     </div>
                                 </div>
-                                <!-- New Jersey -->
-                                <a href="new-jersey-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">New Jersey</a>
-                                <!-- Connecticut -->
-                                <a href="connecticut-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Connecticut</a>
-                                <!-- Massachusetts -->
-                                <a href="massachusetts-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Massachusetts</a>
+                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>New Jersey - Coming Soon</div>
+                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Connecticut - Coming Soon</div>
+                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Massachusetts - Coming Soon</div>
                             </div>
                         </div>
                         <a href="pricing.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Pricing</a>
                         <a href="faq.html" class="text-gray-900 hover:text-green-600 px-3 py-2">FAQ</a>
-                        <a href="index.html#results" class="text-gray-900 hover:text-green-600 px-3 py-2">Case Studies</a>
-                        <a href="contract2.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Contact</a>
+                        <a href="contract2.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden absolute right-4">
