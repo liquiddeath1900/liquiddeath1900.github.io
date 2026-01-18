@@ -23,6 +23,21 @@ RewriteRule ^norfolk-seo-PREVIEW\.html$ /local-seo.html [R=301,L]
 RewriteRule ^richmond-seo\.html$ /local-seo.html [R=301,L]
 RewriteRule ^richmond-seo-PREVIEW\.html$ /local-seo.html [R=301,L]
 
+# Old blog posts → Local SEO (will create cannabis blog later)
+RewriteRule ^blog/497-seo-service\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/auto-detailing-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/cleaning-service-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/electrician-local-seo-guide\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/electrician-local-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/garage-door-seo-guide\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/hvac-seo-budget\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/hvac-winter-lead-generation\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/pet-grooming-seo-tips\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/plumber-gmb-mistakes\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/plumber-gmb-setup-guide\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/plumber-seo-vs-paid-ads\.html$ /local-seo.html [R=301,L]
+RewriteRule ^blog/roofing-seo-guide\.html$ /local-seo.html [R=301,L]
+
 # Enable compression
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
