@@ -1,3 +1,18 @@
+# 301 Redirects - Old Service Pages to Cannabis Pages
+# Preserves SEO value from old pages
+RewriteEngine On
+
+# Old service business pages → Dispensary Local SEO
+RewriteRule ^hvac-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^plumber-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^electrician-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^roofing-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^garage-door-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^locksmith-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^cleaning-service-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^pet-grooming-seo\.html$ /local-seo.html [R=301,L]
+RewriteRule ^auto-detailing-seo\.html$ /local-seo.html [R=301,L]
+
 # Enable compression
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
