@@ -1,693 +1,859 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B68C3RNBVD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B68C3RNBVD');
+    </script>
+
     <meta charset="UTF-8">
-    <title>AI & Automation for Cannabis Dispensaries | SeamlessFlow</title>
-    <meta name="description" content="How NYC dispensaries are using AI and automation to increase revenue, cut costs, and stay compliant. SeamlessFlow provides custom solutions for the cannabis industry.">
-    <meta property="og:title" content="AI & Automation for Cannabis Dispensaries | SeamlessFlow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PERFORMANCE OPTIMIZATIONS -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <title>AI & Automation for Cannabis Dispensaries | SeamlessFlow.ai</title>
+    <meta name="description" content="How NYC dispensaries are using AI and automation to increase revenue, cut costs, and stay compliant. 9 proven ways AI transforms dispensary operations.">
+    <meta property="og:title" content="AI & Automation for Cannabis Dispensaries | SeamlessFlow.ai">
     <meta property="og:description" content="9 ways AI is transforming dispensary operations - backed by real data and case studies.">
     <meta property="og:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seamlessflow.ai/cannabis-industry-solutions.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://www.seamlessflow.ai/cannabis-industry-solutions.html">
+    <meta name="keywords" content="cannabis dispensary AI, dispensary automation, Metrc compliance, cannabis POS integration, AI budtender, dispensary marketing automation">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @page {
-            size: letter;
-            margin: 0.5in 0.6in;
+        .hero-section {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.75) 0%, rgba(4, 120, 87, 0.8) 100%),
+                        url('https://images.unsplash.com/photo-1616690710400-a16d146927c5?w=1920&q=80&auto=format');
+            background-size: cover;
+            background-position: center center;
+            padding: 120px 0 80px 0;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+                background-position: center top;
+            }
         }
+        .service-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: white;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .tag-savings { background: #059669; color: white; }
+        .tag-revenue { background: #1d4ed8; color: white; }
+        .tag-compliance { background: #7c3aed; color: white; }
+        .tag-efficiency { background: #ea580c; color: white; }
 
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 11pt;
-            line-height: 1.4;
-            color: #222;
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
             background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
         }
 
-        .cover {
-            page-break-after: always;
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
         }
 
-        :root {
-            --brand-green: #2E7D32;
-            --brand-dark: #1a1a2e;
-            --accent-gold: #FFD54C;
-        }
-
-        .cover {
+        .hamburger {
+            cursor: pointer;
+            width: 28px;
+            height: 24px;
+            position: relative;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #2E7D32 100%);
-            color: white;
+            gap: 6px;
         }
 
-        .cover .cover-logo {
-            width: 200px;
-            margin-bottom: 30px;
-        }
-
-        .cover h1 {
-            font-size: 32pt;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            color: #FFD54C;
-            line-height: 1.1;
-        }
-
-        .cover .tagline {
-            font-size: 14pt;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 30px;
-            max-width: 500px;
-        }
-
-        .cover .meta {
-            font-size: 11pt;
-            color: rgba(255,255,255,0.6);
-            margin-top: 20px;
-        }
-
-        .cover .stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 35px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .cover .stat-item {
-            text-align: center;
-            min-width: 100px;
-        }
-
-        .cover .stat-num {
-            font-size: 32pt;
-            font-weight: 700;
-            color: #FFD54C;
-        }
-
-        .cover .stat-label {
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255,255,255,0.7);
-        }
-
-        .content {
-            padding: 30px 40px;
-        }
-
-        h2 {
-            font-size: 16pt;
-            font-weight: 700;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 3px solid #2E7D32;
-            color: #1a1a2e;
-        }
-
-        h3 {
-            font-size: 12pt;
-            font-weight: 700;
-            margin: 18px 0 10px 0;
-            color: #2E7D32;
-        }
-
-        p {
-            margin-bottom: 10px;
-        }
-
-        ul {
-            margin: 8px 0 12px 20px;
-        }
-
-        li {
-            margin: 6px 0;
-        }
-
-        table {
+        .hamburger span {
+            display: block;
+            height: 3px;
             width: 100%;
-            border-collapse: collapse;
-            margin: 12px 0 18px 0;
-            font-size: 10pt;
+            background: #374151;
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            position: relative;
         }
 
-        th {
-            background: #1a1a2e;
-            color: white;
-            padding: 10px 12px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .hamburger.active {
+            gap: 0;
         }
 
-        td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #ddd;
-            vertical-align: top;
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            position: absolute;
         }
 
-        tr:nth-child(even) {
-            background: #f5f5f5;
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
         }
 
-        .service-card {
-            background: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            border-left: 5px solid #2E7D32;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 6px;
-            page-break-inside: avoid;
-        }
-
-        .service-card h4 {
-            font-size: 13pt;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .service-card .number {
-            background: #2E7D32;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12pt;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            font-size: 10pt;
-            margin: 8px 0;
-        }
-
-        .service-card .proof {
-            background: #e8f5e9;
-            border-left: 3px solid #43a047;
-            padding: 10px 14px;
-            margin-top: 12px;
-            font-size: 9pt;
-            border-radius: 4px;
-        }
-
-        .service-card .proof strong {
-            color: #2E7D32;
-        }
-
-        .service-card .seamlessflow-angle {
-            background: #fff3e0;
-            border-left: 3px solid #FFD54C;
-            padding: 10px 14px;
-            margin-top: 10px;
-            font-size: 9pt;
-            border-radius: 4px;
-        }
-
-        .market-highlight {
-            background: linear-gradient(135deg, #1a1a2e 0%, #2E7D32 100%);
-            color: white;
-            padding: 25px 30px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .market-highlight h3 {
-            color: #FFD54C;
-            margin-top: 0;
-            font-size: 14pt;
-        }
-
-        .market-highlight .big-stat {
-            font-size: 42pt;
-            font-weight: 800;
-            color: #FFD54C;
-            margin: 10px 0;
-        }
-
-        .market-highlight p {
-            color: rgba(255,255,255,0.85);
-            margin: 0;
-        }
-
-        .two-col {
-            display: flex;
-            gap: 30px;
-        }
-
-        .two-col > div {
-            flex: 1;
-        }
-
-        .cta-section {
-            background: #1a1a2e;
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin: 25px 0;
-            text-align: center;
-        }
-
-        .cta-section h3 {
-            color: #FFD54C;
-            font-size: 16pt;
-            margin-bottom: 15px;
-        }
-
-        .cta-section p {
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 20px;
-        }
-
-        .cta-section .cta-btn {
-            display: inline-block;
-            background: #2E7D32;
-            color: white;
-            padding: 14px 30px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 11pt;
-            margin: 5px;
-        }
-
-        .cta-section .cta-btn:hover {
-            background: #1b5e20;
-        }
-
-        .cta-section .cta-btn.secondary {
-            background: transparent;
-            border: 2px solid #FFD54C;
-            color: #FFD54C;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 8pt;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .tag-savings { background: #2E7D32; color: white; }
-        .tag-revenue { background: #1565c0; color: white; }
-        .tag-compliance { background: #7b1fa2; color: white; }
-        .tag-efficiency { background: #ef6c00; color: white; }
-
-        .footer {
-            text-align: center;
-            font-size: 9pt;
-            color: #666;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
-        }
-
-        .footer-logo {
-            width: 160px;
-            margin-bottom: 12px;
-        }
-
-        .footer a {
-            color: #1a1a2e;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .page-break {
-            page-break-before: always;
-        }
-
-        @media screen and (max-width: 768px) {
-            .cover { padding: 40px 20px; }
-            .cover h1 { font-size: 20pt; }
-            .cover .stats { gap: 15px; }
-            .cover .stat-num { font-size: 24pt; }
-            .content { padding: 20px; }
-            .two-col { flex-direction: column; gap: 15px; }
-            table { font-size: 9pt; }
-            .service-card { padding: 15px; }
-        }
-
-        @media screen and (max-width: 480px) {
-            .cover h1 { font-size: 16pt; }
-            .cover .tagline { font-size: 12pt; }
-            .market-highlight .big-stat { font-size: 32pt; }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            position: absolute;
         }
     </style>
 </head>
 <body>
-
-<!-- COVER PAGE -->
-<div class="cover">
-    <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="cover-logo">
-    <h1>AI & Automation for Cannabis Dispensaries</h1>
-    <div class="tagline">How NYC's smartest dispensaries are cutting costs, increasing revenue, and staying compliant with intelligent automation.</div>
-
-    <div class="stats">
-        <div class="stat-item">
-            <div class="stat-num">$1.6B+</div>
-            <div class="stat-label">NYC Market 2025</div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10" loading="eager" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
+                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>Dispensary Local SEO</a>
+                                <a href="google-my-business-optimization.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-store mr-2 text-green-500"></i>GBP Optimization</a>
+                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-robot mr-2 text-green-500"></i>AI Budtender</a>
+                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-laptop-code mr-2 text-green-500"></i>Dispensary Websites</a>
+                            </div>
+                        </div>
+                        <a href="cannabis-industry-solutions.html" class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center"><i class="fas fa-cannabis mr-1 text-green-500"></i>Cannabis Solutions</a>
+                        <div class="relative group">
+                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
+                                Locations <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            </button>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <div class="relative group/ny">
+                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 flex items-center justify-between">
+                                        <span><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>New York</span> <i class="fas fa-chevron-right text-xs"></i>
+                                    </button>
+                                    <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/ny:opacity-100 group-hover/ny:visible transition-all duration-200 z-50">
+                                        <a href="manhattan-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Manhattan</a>
+                                        <a href="brooklyn-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Brooklyn</a>
+                                        <a href="queens-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Queens</a>
+                                        <a href="bronx-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Bronx</a>
+                                        <a href="albany-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Albany</a>
+                                        <a href="syracuse-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Syracuse</a>
+                                        <a href="rochester-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Rochester</a>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>New Jersey - Coming Soon</div>
+                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Connecticut - Coming Soon</div>
+                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Massachusetts - Coming Soon</div>
+                            </div>
+                        </div>
+                        <a href="pricing.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Pricing</a>
+                        <a href="faq.html" class="text-gray-900 hover:text-green-600 px-3 py-2">FAQ</a>
+                        <a href="contract2.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden absolute right-4">
+                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+                <div class="px-6 py-4 space-y-1">
+                    <a href="index.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-home mr-3 text-blue-500"></i>Home
+                    </a>
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                            <span><i class="fas fa-cogs mr-3 text-green-500"></i>Services</span>
+                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                        </button>
+                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                            <a href="local-seo.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-map-marker-alt mr-3 text-green-500"></i>Dispensary Local SEO
+                            </a>
+                            <a href="marketing-automation.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-robot mr-3 text-green-500"></i>AI Budtender
+                            </a>
+                            <a href="website-development.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-laptop-code mr-3 text-green-500"></i>Dispensary Websites
+                            </a>
+                        </div>
+                    </div>
+                    <a href="cannabis-industry-solutions.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-cannabis mr-3 text-green-500"></i>Cannabis Solutions
+                    </a>
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                            <span><i class="fas fa-map-marked-alt mr-3 text-green-500"></i>Locations</span>
+                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                        </button>
+                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                            <div class="px-4 py-1 text-xs font-semibold text-green-600 uppercase tracking-wider">New York</div>
+                            <a href="manhattan-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Manhattan</a>
+                            <a href="brooklyn-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Brooklyn</a>
+                            <a href="queens-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Queens</a>
+                            <a href="bronx-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Bronx</a>
+                            <a href="albany-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Albany</a>
+                            <a href="syracuse-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Syracuse</a>
+                            <a href="rochester-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Rochester</a>
+                        </div>
+                    </div>
+                    <a href="pricing.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-dollar-sign mr-3 text-green-500"></i>Pricing
+                    </a>
+                    <a href="faq.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-question-circle mr-3 text-green-500"></i>FAQ
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
+                        <a href="contract2.html" class="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-envelope mr-2"></i>Contact Us
+                        </a>
+                        <a href="tel:+13477498146" class="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="stat-item">
-            <div class="stat-num">519</div>
-            <div class="stat-label">Licensed Dispensaries</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">40%</div>
-            <div class="stat-label">Wait Time Reduction</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">$25K+</div>
-            <div class="stat-label">Annual Savings</div>
-        </div>
-    </div>
+    </nav>
 
-    <div class="meta">
-        January 2026 | NYC Cannabis Industry Report<br>
-        Prepared by SeamlessFlow.ai
-    </div>
-</div>
-
-<!-- MARKET OVERVIEW -->
-<div class="content">
-    <h2>The NYC Cannabis Opportunity</h2>
-
-    <div class="market-highlight">
-        <h3>New York's Cannabis Market is Exploding</h3>
-        <div class="big-stat">60%+ YoY Growth</div>
-        <p>From $317M in 2023 to $1.6B+ in 2025. Over 200 dispensaries now operate in NYC alone.</p>
-    </div>
-
-    <p>New York's legal cannabis market saw explosive growth in 2025, with sales topping <strong>$1.6 billion</strong> and licensed retailers more than doubling. The Office of Cannabis Management has issued over 1,900 adult-use licenses, with 519 dispensaries operational as of November 2025.</p>
-
-    <h3>The Challenge for Dispensary Operators</h3>
-    <p>With rapid growth comes operational complexity:</p>
-    <ul>
-        <li><strong>Compliance burden:</strong> Metrc reporting, purchase limits, ID verification</li>
-        <li><strong>Staffing pressure:</strong> Finding and retaining quality budtenders</li>
-        <li><strong>Inventory management:</strong> Preventing stockouts and dead stock</li>
-        <li><strong>Customer experience:</strong> Long wait times, overwhelming menus</li>
-        <li><strong>Marketing restrictions:</strong> No Google/Meta ads for cannabis</li>
-    </ul>
-
-    <h3>The AI & Automation Solution</h3>
-    <p>Forward-thinking dispensaries are using AI and automation to solve these challenges. Here's what's working right now:</p>
-</div>
-
-<!-- SERVICE 1: AI BUDTENDERS -->
-<div class="content page-break">
-    <h2>9 Ways AI & Automation Help Dispensaries</h2>
-
-    <div class="service-card">
-        <h4><span class="number">1</span> 24/7 AI Budtenders</h4>
-        <p><strong>What it does:</strong> Answer customer questions around the clock via web chat, SMS, or in-store kiosks. Recommend products based on desired effect, budget, tolerance, and real-time inventory.</p>
-        <ul>
-            <li>Handle FAQs: hours, IDs, returns, delivery rules, loyalty programs</li>
-            <li>Guide customers: "What should I get for sleep / anxiety / pain?"</li>
-            <li>Reduce staff workload on repetitive questions</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> Dispensaries using AI budtenders report <strong>40% reduced wait times</strong> and increased conversion rates. StrainBrain users see <strong>20-23% higher cart sizes</strong> from guided recommendations.
-            <br><em>Sources: Explica, StrainBrain, Terrayn</em>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <i class="fas fa-robot mr-3"></i>AI & Automation for<br>Cannabis Dispensaries
+            </h1>
+            <p class="text-xl md:text-2xl mb-4">
+                How NYC's smartest dispensaries are cutting costs, increasing revenue, and staying compliant
+            </p>
+            <p class="text-lg mb-8 max-w-3xl mx-auto">
+                9 proven ways AI is transforming dispensary operations - backed by real data and case studies from the cannabis industry.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center sm:items-center">
+                <a href="contract2.html" class="bg-white hover:bg-gray-100 text-green-700 px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
+                    <i class="fas fa-cannabis mr-2"></i>Get Started
+                </a>
+                <a href="tel:+13477498146" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-lg text-lg font-semibold inline-block transition-all">
+                    <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
+                </a>
+            </div>
         </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> We build your custom AI budtender once, then deploy it across website, in-store tablet, and SMS - all synced to your live inventory.
-        </div>
-    </div>
+    </section>
 
-    <div class="service-card">
-        <h4><span class="number">2</span> Smarter Inventory & Demand Forecasting</h4>
-        <p><strong>What it does:</strong> Predict which SKUs will move fastest by day, season, and location. Recommend optimal reorder points and quantities automatically.</p>
-        <ul>
-            <li>Reduce dead stock and stock-outs (especially top flower + carts)</li>
-            <li>Auto-trigger purchase orders when stock drops below thresholds</li>
-            <li>Analyze 90+ days of sales history to build custom forecasting</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> AI inventory tools like Prelude and GreenStock AI <strong>trigger automated reorders</strong> and reduce tied-up capital. Grupo Flor reported <strong>optimized inventory levels and reduced manual entry errors</strong> after implementation.
-            <br><em>Sources: Prelude, GreenStock AI, Cova</em>
+    <!-- Stats Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                <div class="text-center stat-card p-6 rounded-xl">
+                    <div class="text-3xl md:text-4xl font-bold mb-2">$1.6B+</div>
+                    <div class="text-sm md:text-lg">NYC Market 2025</div>
+                </div>
+                <div class="text-center stat-card p-6 rounded-xl">
+                    <div class="text-3xl md:text-4xl font-bold mb-2">519</div>
+                    <div class="text-sm md:text-lg">Licensed Dispensaries</div>
+                </div>
+                <div class="text-center stat-card p-6 rounded-xl">
+                    <div class="text-3xl md:text-4xl font-bold mb-2">40%</div>
+                    <div class="text-sm md:text-lg">Wait Time Reduction</div>
+                </div>
+                <div class="text-center stat-card p-6 rounded-xl">
+                    <div class="text-3xl md:text-4xl font-bold mb-2">$25K+</div>
+                    <div class="text-sm md:text-lg">Annual Savings</div>
+                </div>
+            </div>
         </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> We plug your POS + online menu into an AI layer that sends weekly "order-this-not-that" recommendations straight to your phone.
-        </div>
-    </div>
+    </section>
 
-    <div class="service-card">
-        <h4><span class="number">3</span> Metrc Compliance Automation <span class="tag tag-compliance">Compliance</span></h4>
-        <p><strong>What it does:</strong> Automate the painful parts of seed-to-sale tracking. Flag discrepancies before they become violations. Sync sales in real-time to avoid end-of-day data entry marathons.</p>
-        <ul>
-            <li>Automated reporting instead of manual daily Metrc logins</li>
-            <li>Real-time monitoring of purchase limits and product equivalencies</li>
-            <li>Alerts for discrepancies before regulators find them</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> Metrc's own time studies show automated compliance saves <strong>~2,000 hours and $25,000+ per year</strong> for an average retailer. Manual reporting "is time-consuming and results in errors, increasing the risk of compliance infractions, fines, or worse, loss of retail license."
-            <br><em>Sources: Metrc, GrowFlow, Flowhub, NCIA</em>
-        </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> "AI compliance cop" that quietly watches every transaction and flags risk before regulators do. Integrates with your existing POS.
-        </div>
-    </div>
-</div>
+    <!-- Market Overview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <i class="fas fa-chart-line text-green-600 mr-3"></i>The NYC Cannabis Opportunity
+                </h2>
+            </div>
 
-<!-- SERVICES 4-6 -->
-<div class="content page-break">
-    <div class="service-card">
-        <h4><span class="number">4</span> Hyper-Personalized Marketing & Loyalty <span class="tag tag-revenue">Revenue</span></h4>
-        <p><strong>What it does:</strong> Segment customers by behavior (what they buy, when, why). Send automated, compliant SMS/email flows that actually convert.</p>
-        <ul>
-            <li>Win-back campaigns for lapsed customers</li>
-            <li>Birthday offers and low-stock alerts on favorite strains</li>
-            <li>Personalized deals: indica night-time user vs. micro-dose edible user</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> Happy Cabbage dispensary SMS campaigns converted <strong>14.92% of audience in 24 hours</strong> and <strong>23.8% after one week</strong>. Targeted segmentation by product preference drives repeat purchases.
-            <br><em>Sources: Happy Cabbage, Leafbuyer, Alpine IQ</em>
-        </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> "Set-and-forget" flows that keep your list warm and turn one-time tourists into regulars. Fully compliant with cannabis marketing rules.
-        </div>
-    </div>
+            <div class="bg-gradient-to-r from-green-600 to-green-800 text-white rounded-2xl p-8 mb-12 text-center">
+                <h3 class="text-2xl font-bold mb-2 text-yellow-300">New York's Cannabis Market is Exploding</h3>
+                <div class="text-5xl md:text-6xl font-bold my-4 text-yellow-300">60%+ YoY Growth</div>
+                <p class="text-xl text-green-100">From $317M in 2023 to $1.6B+ in 2025. Over 200 dispensaries now operate in NYC alone.</p>
+            </div>
 
-    <div class="service-card">
-        <h4><span class="number">5</span> E-Commerce: Guided Shopping vs. Menu Overwhelm</h4>
-        <p><strong>What it does:</strong> Turn a huge, confusing menu into a guided quiz or chat. Surface a small set of "best fit" products instead of 200+ SKUs.</p>
-        <ul>
-            <li>AI recommendations on website, kiosks, and mobile apps</li>
-            <li>"Quick shop" modes reduce friction and speed up checkout</li>
-            <li>Works on top of whatever e-commerce platform you already use</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> BLAZE ECOM and similar platforms use AI product recommendations to <strong>increase average order value</strong>. Spark Budtender's guided flows show how reducing choices actually speeds up purchasing.
-            <br><em>Sources: BLAZE, Spark Budtender, Dutchie</em>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-green-700"><i class="fas fa-exclamation-triangle mr-2"></i>The Challenge for Dispensary Operators</h3>
+                    <p class="text-gray-700 mb-4">With rapid growth comes operational complexity:</p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-times text-red-500 mr-3 mt-1"></i><span><strong>Compliance burden:</strong> Metrc reporting, purchase limits, ID verification</span></li>
+                        <li class="flex items-start"><i class="fas fa-times text-red-500 mr-3 mt-1"></i><span><strong>Staffing pressure:</strong> Finding and retaining quality budtenders</span></li>
+                        <li class="flex items-start"><i class="fas fa-times text-red-500 mr-3 mt-1"></i><span><strong>Inventory management:</strong> Preventing stockouts and dead stock</span></li>
+                        <li class="flex items-start"><i class="fas fa-times text-red-500 mr-3 mt-1"></i><span><strong>Customer experience:</strong> Long wait times, overwhelming menus</span></li>
+                        <li class="flex items-start"><i class="fas fa-times text-red-500 mr-3 mt-1"></i><span><strong>Marketing restrictions:</strong> No Google/Meta ads for cannabis</span></li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-green-700"><i class="fas fa-robot mr-2"></i>The AI & Automation Solution</h3>
+                    <p class="text-gray-700 mb-4">Forward-thinking dispensaries are using AI and automation to solve these challenges:</p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i><span>Automate compliance reporting</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i><span>AI budtenders handle FAQs 24/7</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i><span>Smart inventory forecasting</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i><span>Self-service kiosks reduce wait times</span></li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i><span>SMS/loyalty automation that works</span></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> We install an AI menu layer on top of your existing e-commerce. No platform switch required.
-        </div>
-    </div>
+    </section>
 
-    <div class="service-card">
-        <h4><span class="number">6</span> In-Store Throughput & Labor Optimization <span class="tag tag-efficiency">Efficiency</span></h4>
-        <p><strong>What it does:</strong> Kiosks and AI agents pre-qualify customers before they hit the human budtender. Auto-collect intake info (desired effect, budget, experience level).</p>
-        <ul>
-            <li>Self-service ordering reduces line wait times</li>
-            <li>Suggest staffing levels by hour/day based on historical traffic</li>
-            <li>Free up staff for high-touch customers who need real guidance</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> Dispensaries implementing self-service kiosks report <strong>40% reduction in wait times</strong> and up to <strong>35% increase in revenue</strong> due to faster transactions and upselling.
-            <br><em>Sources: Flowhub, Cure8, Seed Technology</em>
-        </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> "Get more done with the same crew" - AI handles basic hand-holding so humans focus on customers who actually want the conversation.
-        </div>
-    </div>
-</div>
+    <!-- 9 Ways AI Helps Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <i class="fas fa-lightbulb text-green-600 mr-3"></i>9 Ways AI & Automation Help Dispensaries
+                </h2>
+                <p class="text-xl text-gray-600">Proven solutions backed by real data and case studies</p>
+            </div>
 
-<!-- SERVICES 7-9 -->
-<div class="content page-break">
-    <div class="service-card">
-        <h4><span class="number">7</span> Data-Driven Product Mix & Pricing Strategy <span class="tag tag-revenue">Revenue</span></h4>
-        <p><strong>What it does:</strong> Identify which SKUs truly drive margin vs. just volume. Suggest bundles and test pricing strategies.</p>
-        <ul>
-            <li>Find your 20% of SKUs that make 80% of profit</li>
-            <li>Create smart bundles: "sleep kit," "first-time edible pack," "wake and bake combo"</li>
-            <li>Test happy hour pricing, bundle discounts, dynamic promos</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> AI forecasting tools help cannabis operators <strong>pick the right product mix and improve profit margins</strong>, not just sales volume. Retailers using data-driven pricing see better inventory turnover.
-            <br><em>Sources: Cova, Terrayn, IT4Weed</em>
+            <div class="space-y-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-green-500">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
+                            <h3 class="text-2xl font-bold">24/7 AI Budtenders</h3>
+                        </div>
+                        <p class="text-gray-700 mb-4">Answer customer questions around the clock via web chat, SMS, or in-store kiosks. Recommend products based on desired effect, budget, tolerance, and real-time inventory.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Handle FAQs: hours, IDs, returns</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Guide: "What's good for sleep?"</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Reduce staff workload</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> Dispensaries using AI budtenders report <strong>40% reduced wait times</strong> and <strong>20-23% higher cart sizes</strong> from guided recommendations.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> We build your custom AI budtender once, then deploy it across website, in-store tablet, and SMS - all synced to live inventory.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-green-500">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">2</div>
+                            <h3 class="text-2xl font-bold">Smarter Inventory & Demand Forecasting</h3>
+                        </div>
+                        <p class="text-gray-700 mb-4">Predict which SKUs will move fastest by day, season, and location. Recommend optimal reorder points and quantities automatically.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Reduce dead stock & stock-outs</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Auto-trigger purchase orders</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>90+ day sales history analysis</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> AI inventory tools <strong>trigger automated reorders</strong> and reduce tied-up capital. Grupo Flor reported <strong>optimized inventory levels</strong> after implementation.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> We plug your POS + online menu into an AI layer that sends weekly "order-this-not-that" recommendations straight to your phone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-purple-500">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">3</div>
+                            <h3 class="text-2xl font-bold">Metrc Compliance Automation</h3>
+                            <span class="tag tag-compliance ml-3">Compliance</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Automate the painful parts of seed-to-sale tracking. Flag discrepancies before they become violations. Sync sales in real-time to avoid end-of-day data entry marathons.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Automated Metrc reporting</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Real-time purchase limit monitoring</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Discrepancy alerts</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> Metrc's own studies show automated compliance saves <strong>~2,000 hours and $25,000+ per year</strong> for an average retailer.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> "AI compliance cop" that quietly watches every transaction and flags risk before regulators do. Integrates with your existing POS.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-blue-500">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">4</div>
+                            <h3 class="text-2xl font-bold">Hyper-Personalized Marketing & Loyalty</h3>
+                            <span class="tag tag-revenue ml-3">Revenue</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Segment customers by behavior (what they buy, when, why). Send automated, compliant SMS/email flows that actually convert.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Win-back campaigns</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Birthday offers & low-stock alerts</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Personalized deals by preference</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> Happy Cabbage dispensary SMS campaigns converted <strong>14.92% of audience in 24 hours</strong> and <strong>23.8% after one week</strong>.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> "Set-and-forget" flows that keep your list warm and turn one-time tourists into regulars. Fully compliant with cannabis marketing rules.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-green-500">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">5</div>
+                            <h3 class="text-2xl font-bold">E-Commerce: Guided Shopping vs. Menu Overwhelm</h3>
+                        </div>
+                        <p class="text-gray-700 mb-4">Turn a huge, confusing menu into a guided quiz or chat. Surface a small set of "best fit" products instead of 200+ SKUs.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>AI recommendations on website</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>"Quick shop" modes</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Works with existing e-commerce</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> BLAZE ECOM and similar platforms use AI recommendations to <strong>increase average order value</strong>. Guided flows speed up purchasing.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> We install an AI menu layer on top of your existing e-commerce. No platform switch required.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-orange-500">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-orange-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">6</div>
+                            <h3 class="text-2xl font-bold">In-Store Throughput & Labor Optimization</h3>
+                            <span class="tag tag-efficiency ml-3">Efficiency</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Kiosks and AI agents pre-qualify customers before they hit the human budtender. Auto-collect intake info (desired effect, budget, experience level).</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Self-service ordering</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Smart staffing suggestions</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Free up staff for high-touch</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> Dispensaries with self-service kiosks report <strong>40% reduction in wait times</strong> and up to <strong>35% increase in revenue</strong>.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> "Get more done with the same crew" - AI handles basic hand-holding so humans focus on customers who actually want the conversation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-blue-500">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">7</div>
+                            <h3 class="text-2xl font-bold">Data-Driven Product Mix & Pricing Strategy</h3>
+                            <span class="tag tag-revenue ml-3">Revenue</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Identify which SKUs truly drive margin vs. just volume. Suggest bundles and test pricing strategies.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Find your 80/20 profit SKUs</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Create smart bundles</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Test dynamic pricing</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> AI forecasting tools help cannabis operators <strong>pick the right product mix and improve profit margins</strong>, not just sales volume.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> Weekly AI reports telling you which products to push, which to drop, and how to price them for maximum margin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-green-600">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-700 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">8</div>
+                            <h3 class="text-2xl font-bold">Security, Fraud & Loss Prevention</h3>
+                            <span class="tag tag-savings ml-3">Savings</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Use cameras + AI to monitor for theft, loitering, and suspicious patterns. Connect loyalty, kiosk, and ID data to spot issues early.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>AI video analysis</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Pattern detection for loopers</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Document incidents</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> Dispensaries using integrated security systems report <strong>reduced shrink and better audit documentation</strong>.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> Bundle AI video analysis + ID + POS data as a "protect your license + reduce shrink" package.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-8 border-green-500">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">9</div>
+                            <h3 class="text-2xl font-bold">Executive Dashboards & Decision Support</h3>
+                        </div>
+                        <p class="text-gray-700 mb-4">Pull POS, e-commerce, loyalty, staffing, and campaign data into one view. Answer questions in plain language.</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>"Which brand should we drop?"</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>"What to order before 4/20?"</li>
+                            <li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-2"></i>Clean investor reports</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-green-700">Proof:</strong> AI-first cannabis platforms market "real-time operational intelligence" that turns messy data into <strong>simple, actionable insights</strong>.</p>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                                <p class="text-sm"><strong class="text-yellow-700">SeamlessFlow:</strong> The "single brain" over your whole tech stack. Ask questions, get answers, make decisions faster.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> Weekly AI reports telling you which products to push, which to drop, and how to price them for maximum margin.
+    </section>
+
+    <!-- ROI Summary -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <i class="fas fa-dollar-sign text-green-600 mr-3"></i>The Bottom Line: ROI Summary
+                </h2>
+            </div>
+
+            <div class="overflow-x-auto mb-12">
+                <table class="w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <thead class="bg-gray-900 text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Solution</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Impact</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Typical ROI</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap font-medium">AI Budtender</td>
+                            <td class="px-6 py-4">Higher conversion, larger carts</td>
+                            <td class="px-6 py-4 font-bold text-green-600">20-23% cart size increase</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap font-medium">Inventory AI</td>
+                            <td class="px-6 py-4">Less dead stock, fewer stockouts</td>
+                            <td class="px-6 py-4 font-bold text-green-600">Reduced tied-up capital</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap font-medium">Metrc Automation</td>
+                            <td class="px-6 py-4">Time savings, fewer violations</td>
+                            <td class="px-6 py-4 font-bold text-green-600">$25K+ / 2,000 hrs annually</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap font-medium">SMS/Loyalty Automation</td>
+                            <td class="px-6 py-4">Customer retention, repeat visits</td>
+                            <td class="px-6 py-4 font-bold text-green-600">15-24% conversion rates</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap font-medium">Self-Service Kiosks</td>
+                            <td class="px-6 py-4">Faster throughput, happier customers</td>
+                            <td class="px-6 py-4 font-bold text-green-600">40% wait time reduction</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap font-medium">Pricing Intelligence</td>
+                            <td class="px-6 py-4">Better margins, smarter bundles</td>
+                            <td class="px-6 py-4 font-bold text-green-600">Improved profit per SKU</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap font-medium">Security AI</td>
+                            <td class="px-6 py-4">Reduced shrink, license protection</td>
+                            <td class="px-6 py-4 font-bold text-green-600">Lower loss, better documentation</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap font-medium">Executive Dashboard</td>
+                            <td class="px-6 py-4">Faster decisions, unified data</td>
+                            <td class="px-6 py-4 font-bold text-green-600">Hours saved weekly</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Why Now -->
+            <div class="bg-gradient-to-r from-green-600 to-green-800 text-white rounded-2xl p-8 mb-12 text-center">
+                <h3 class="text-2xl font-bold mb-4 text-yellow-300">Why Now?</h3>
+                <p class="text-xl max-w-3xl mx-auto">
+                    With 519 licensed dispensaries and growing, competition in NYC is heating up fast. The dispensaries that adopt AI and automation today will have a <strong>significant operational advantage</strong> over those still doing things manually.
+                </p>
+            </div>
+
+            <!-- What Makes Us Different -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-100 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-600"><i class="fas fa-times-circle mr-2 text-gray-400"></i>Most AI Tools</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li class="flex items-start"><i class="fas fa-minus text-gray-400 mr-3 mt-1"></i>Plug-and-play SaaS products</li>
+                        <li class="flex items-start"><i class="fas fa-minus text-gray-400 mr-3 mt-1"></i>One-size-fits-all approach</li>
+                        <li class="flex items-start"><i class="fas fa-minus text-gray-400 mr-3 mt-1"></i>You adapt to the software</li>
+                        <li class="flex items-start"><i class="fas fa-minus text-gray-400 mr-3 mt-1"></i>Generic support</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-2xl p-8 border-2 border-green-500">
+                    <h3 class="text-2xl font-bold mb-6 text-green-700"><i class="fas fa-check-circle mr-2"></i>SeamlessFlow</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i><strong>Custom-built automation</strong> for your workflow</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i>Integrates with your existing tools</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i>The software adapts to you</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mr-3 mt-1"></i>NYC-based, hands-on implementation</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="service-card">
-        <h4><span class="number">8</span> Security, Fraud & Loss Prevention <span class="tag tag-savings">Savings</span></h4>
-        <p><strong>What it does:</strong> Use cameras + AI to monitor for theft, loitering, and suspicious patterns. Connect loyalty, kiosk, and ID data to spot issues early.</p>
-        <ul>
-            <li>AI video analysis for loss prevention</li>
-            <li>Pattern detection for looper behavior and fake IDs</li>
-            <li>Document incidents for regulators and insurance claims</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> Modern kiosk and ID solutions combine customer identification with security analytics. Dispensaries using integrated security systems report <strong>reduced shrink and better audit documentation</strong>.
-            <br><em>Sources: Solink, IDScan, ViAge</em>
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                <i class="fas fa-rocket mr-3"></i>Ready to Automate Your Dispensary?
+            </h2>
+            <p class="text-xl mb-8">
+                Let's talk about which solutions make sense for your operation.<br>Free 30-minute consultation - no pressure, just insights.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
+                <a href="tel:+13477498146" class="bg-white hover:bg-gray-100 text-green-700 px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
+                    <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
+                </a>
+                <a href="mailto:info@seamlessflow.ai" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-lg text-lg font-semibold inline-block transition-all">
+                    <i class="fas fa-envelope mr-2"></i>Email Us
+                </a>
+            </div>
+            <p class="mt-6 text-green-200">
+                <i class="fas fa-shield-alt mr-2"></i>NYC AI & Automation Agency | Cannabis Industry Specialists
+            </p>
         </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> Bundle AI video analysis + ID + POS data as a "protect your license + reduce shrink" package.
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
+                    <p class="text-gray-300 mb-4">Starting at $497/month - Cancel anytime</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <span>Cancel anytime</span>
+                        </div>
+                        <div class="flex items-center text-green-400">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>(347) 749-8146</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="contract2.html" class="bg-green-500 hover:bg-green-400 text-white px-4 py-2 rounded-lg font-bold text-sm inline-block transition-colors">
+                            <i class="fas fa-cannabis mr-2"></i>Get Started
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="local-seo.html" class="hover:text-white">Dispensary Local SEO</a></li>
+                        <li><a href="marketing-automation.html" class="hover:text-white">AI Budtender</a></li>
+                        <li><a href="website-development.html" class="hover:text-white">Dispensary Websites</a></li>
+                        <li><a href="google-my-business-optimization.html" class="hover:text-white">GBP Optimization</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="cannabis-industry-solutions.html" class="hover:text-white">Cannabis Solutions</a></li>
+                        <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Service Areas</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><strong>NY:</strong> Manhattan, Brooklyn, Queens, Bronx, Albany</li>
+                        <li><strong>NJ:</strong> Coming Soon</li>
+                        <li><strong>CT:</strong> Coming Soon</li>
+                        <li><strong>MA:</strong> Coming Soon</li>
+                    </ul>
+                    <div class="mt-4 space-y-2">
+                        <a href="tel:+13477498146" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span class="font-bold">(347) 749-8146</span>
+                        </a>
+                        <a href="mailto:info@seamlessflow.ai" class="flex items-center text-gray-300 hover:text-white">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span class="text-sm">info@seamlessflow.ai</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <div class="text-center text-gray-300 mb-4">
+                    <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
+                        <span class="flex items-center">
+                            <i class="fas fa-cannabis mr-2 text-green-400"></i>
+                            Cannabis Industry Specialists
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-robot mr-2 text-green-400"></i>
+                            AI & Automation Experts
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-green-400"></i>
+                            NYC Based
+                        </span>
+                    </div>
+                </div>
+                <div class="text-center text-gray-400 text-sm">
+                    <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+                </div>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <div class="service-card">
-        <h4><span class="number">9</span> Executive Dashboards & Decision Support</h4>
-        <p><strong>What it does:</strong> Pull POS, e-commerce, loyalty, staffing, and campaign data into one view. Answer questions in plain language.</p>
-        <ul>
-            <li>"Which brand should we drop?"</li>
-            <li>"What should we order more of before 4/20?"</li>
-            <li>Clean reports for investors and regulators</li>
-        </ul>
-        <div class="proof">
-            <strong>Proof:</strong> AI-first cannabis platforms market "real-time operational intelligence" that turns messy data into simple, actionable insights. Multi-location operators use dashboards to <strong>standardize excellence across stores</strong>.
-            <br><em>Sources: BLAZE, Cova, Terrayn</em>
-        </div>
-        <div class="seamlessflow-angle">
-            <strong>SeamlessFlow Approach:</strong> The "single brain" over your whole tech stack. Ask questions, get answers, make decisions faster.
-        </div>
-    </div>
-</div>
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
 
-<!-- ROI SUMMARY -->
-<div class="content page-break">
-    <h2>The Bottom Line: ROI Summary</h2>
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                } else if (mobileMenu) {
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
 
-    <table>
-        <tr>
-            <th>Solution</th>
-            <th>Impact</th>
-            <th>Typical ROI</th>
-        </tr>
-        <tr>
-            <td>AI Budtender</td>
-            <td>Higher conversion, larger carts</td>
-            <td><strong>20-23% cart size increase</strong></td>
-        </tr>
-        <tr>
-            <td>Inventory AI</td>
-            <td>Less dead stock, fewer stockouts</td>
-            <td><strong>Reduced tied-up capital</strong></td>
-        </tr>
-        <tr>
-            <td>Metrc Automation</td>
-            <td>Time savings, fewer violations</td>
-            <td><strong>$25K+ / 2,000 hrs annually</strong></td>
-        </tr>
-        <tr>
-            <td>SMS/Loyalty Automation</td>
-            <td>Customer retention, repeat visits</td>
-            <td><strong>15-24% conversion rates</strong></td>
-        </tr>
-        <tr>
-            <td>Self-Service Kiosks</td>
-            <td>Faster throughput, happier customers</td>
-            <td><strong>40% wait time reduction</strong></td>
-        </tr>
-        <tr>
-            <td>Pricing Intelligence</td>
-            <td>Better margins, smarter bundles</td>
-            <td><strong>Improved profit per SKU</strong></td>
-        </tr>
-        <tr>
-            <td>Security AI</td>
-            <td>Reduced shrink, license protection</td>
-            <td><strong>Lower loss, better documentation</strong></td>
-        </tr>
-        <tr>
-            <td>Executive Dashboard</td>
-            <td>Faster decisions, unified data</td>
-            <td><strong>Hours saved weekly</strong></td>
-        </tr>
-    </table>
+        // Mobile dropdown toggle functionality
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
 
-    <div class="market-highlight">
-        <h3>Why Now?</h3>
-        <p style="font-size: 12pt; max-width: 600px; margin: 0 auto;">
-            With 519 licensed dispensaries and growing, competition in NYC is heating up fast. The dispensaries that adopt AI and automation today will have a <strong>significant operational advantage</strong> over those still doing things manually.
-        </p>
-    </div>
+                const dropdown = this.closest('.mobile-dropdown');
+                const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
+                const icon = this.querySelector('.fa-chevron-right');
 
-    <h3>What Makes SeamlessFlow Different</h3>
-    <div class="two-col">
-        <div>
-            <h4>Most AI Tools</h4>
-            <ul>
-                <li>Plug-and-play SaaS products</li>
-                <li>One-size-fits-all approach</li>
-                <li>You adapt to the software</li>
-                <li>Generic support</li>
-            </ul>
-        </div>
-        <div>
-            <h4>SeamlessFlow</h4>
-            <ul>
-                <li><strong>Custom-built automation</strong> for your workflow</li>
-                <li>Integrates with your existing tools</li>
-                <li>The software adapts to you</li>
-                <li>NYC-based, hands-on implementation</li>
-            </ul>
-        </div>
-    </div>
-</div>
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    if (icon) icon.style.transform = 'rotate(0deg)';
 
-<!-- CTA -->
-<div class="content">
-    <div class="cta-section">
-        <h3>Ready to Automate Your Dispensary?</h3>
-        <p>Let's talk about which solutions make sense for your operation.<br>Free 30-minute consultation - no pressure, just insights.</p>
-        <a href="tel:+13477498146" class="cta-btn">Call (347) 749-8146</a>
-        <a href="mailto:info@seamlessflow.ai" class="cta-btn secondary">Email Us</a>
-    </div>
+                    content.querySelectorAll('.mobile-dropdown-content').forEach(nested => {
+                        nested.style.maxHeight = '0px';
+                    });
+                    content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => {
+                        nestedIcon.style.transform = 'rotate(0deg)';
+                    });
+                } else {
+                    content.style.maxHeight = '500px';
+                    if (icon) icon.style.transform = 'rotate(90deg)';
+                }
+            });
+        });
 
-    <div class="footer">
-        <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="footer-logo">
-        <p>
-            <a href="tel:+13477498146">(347) 749-8146</a> |
-            <a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a> |
-            <a href="https://seamlessflow.ai">seamlessflow.ai</a>
-        </p>
-        <p style="margin-top: 12px; font-size: 8pt; color: #999;">
-            NYC AI & Automation Agency | Cannabis Industry Solutions<br>
-            Report generated January 2026
-        </p>
-    </div>
-</div>
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
 
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking on mobile menu links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
