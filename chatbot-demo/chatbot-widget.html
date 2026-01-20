@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeamlessFlow Chat Widget - GPCT Funnel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-info {
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .demo-info h1 { font-size: 2rem; margin-bottom: 1rem; }
+        .demo-info p { color: #94a3b8; max-width: 400px; }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+        }
+
+        .chat-toggle svg { width: 28px; height: 28px; fill: white; }
+        .chat-toggle.hidden { display: none; }
+
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            max-width: calc(100vw - 40px);
+            height: 520px;
+            background: #1e293b;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #334155;
+        }
+
+        .chat-window.active {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        /* MOBILE: Full screen */
+        @media (max-width: 768px) {
+            .chat-widget {
+                bottom: 0; right: 0; left: 0; top: 0;
+                position: fixed;
+                pointer-events: none;
+            }
+            .chat-toggle {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                pointer-events: auto;
+            }
+            .chat-window {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                width: 100%; max-width: 100%; height: 100%;
+                border-radius: 0;
+                pointer-events: auto;
+            }
+            .chat-window.active + .chat-toggle { display: none; }
+            .chat-close-mobile { display: flex !important; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-header-avatar {
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-header-avatar svg { width: 24px; height: 24px; fill: white; }
+        .chat-header-info { flex: 1; }
+        .chat-header-info h3 { color: white; font-size: 16px; font-weight: 600; }
+        .chat-header-info p { color: rgba(255,255,255,0.8); font-size: 12px; }
+
+        .chat-close-mobile {
+            display: none;
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.2);
+            border: none; border-radius: 50%;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        .chat-close-mobile svg { width: 20px; height: 20px; fill: white; }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.bot {
+            background: #334155;
+            color: #e2e8f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: #334155;
+            border-radius: 16px;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .typing-indicator span {
+            width: 8px; height: 8px;
+            background: #64748b;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .chat-input-area {
+            padding: 16px;
+            background: #0f172a;
+            border-top: 1px solid #334155;
+        }
+
+        @media (max-width: 768px) {
+            .chat-input-area {
+                padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+            }
+        }
+
+        .chat-input-wrapper { display: flex; gap: 10px; }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #334155;
+            border-radius: 24px;
+            background: #1e293b;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus { border-color: #10b981; }
+        .chat-input::placeholder { color: #64748b; }
+
+        .chat-send {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .chat-send:hover { transform: scale(1.05); }
+        .chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
+        .chat-send svg { width: 20px; height: 20px; fill: white; }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .quick-reply {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid #10b981;
+            color: #10b981;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-reply:hover {
+            background: #10b981;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-info">
+        <h1>SeamlessFlow Chat - GPCT Funnel</h1>
+        <p>Proven lead qualification flow: Goals → Challenges → Timeline → Contact. Value first, info second.</p>
+    </div>
+
+    <div class="chat-widget">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-header-avatar">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2zM7.5 13a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm9 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM12 17c-1.5 0-2.5-.5-3-1h6c-.5.5-1.5 1-3 1z"/></svg>
+                </div>
+                <div class="chat-header-info">
+                    <h3>Jamie</h3>
+                    <p>SeamlessFlow Assistant</p>
+                </div>
+                <button class="chat-close-mobile" id="chatClose">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input-area">
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." autocomplete="off">
+                    <button class="chat-send" id="chatSend">
+                        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle" title="Chat with Jamie">
+            <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2zM7.5 13a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm9 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM12 17c-1.5 0-2.5-.5-3-1h6c-.5.5-1.5 1-3 1z"/></svg>
+        </button>
+    </div>
+
+    <script>
+        // ============================================
+        // SEAMLESSFLOW CHAT - GPCT QUALIFICATION FUNNEL
+        // Based on proven high-converting frameworks:
+        // 1. Hook with value (not asking for info)
+        // 2. Understand their GOAL
+        // 3. Identify CHALLENGE/pain point
+        // 4. Qualify TIMELINE/urgency
+        // 5. THEN collect contact info
+        // 6. Optional CTA (not forced)
+        // ============================================
+
+        const WEBHOOK_URL = 'https://seamlessflow1.app.n8n.cloud/webhook/chatbot-lead';
+
+        const chatState = {
+            step: 0,
+            bypassAttempts: 0,
+            qualified: false,
+            data: {
+                goal: '',
+                businessType: '',
+                challenge: '',
+                timeline: '',
+                teamSize: '',
+                email: '',
+                wantsCall: false
+            },
+            transcript: []
+        };
+
+        // Bypass detection
+        const bypassPatterns = [
+            /skip/i, /next/i, /later/i, /don't want/i, /no thanks/i,
+            /not now/i, /pass/i, /nevermind/i, /forget it/i,
+            /just tell me/i, /can you just/i, /i just want/i,
+            /^no$/i, /^nah$/i, /^nope$/i, /why do you need/i
+        ];
+
+        const bypassResponses = [
+            "I get it - no one likes forms. But these questions help me figure out if we can actually help you. What's your main goal right now?",
+            "Fair enough! Just trying to make sure I connect you with the right info. What are you trying to achieve?",
+            "No pressure at all. I just want to make sure I'm not wasting your time. What's the main thing you're working on?"
+        ];
+
+        // GPCT CONVERSATION FLOW - SMART BRANCHING
+        // Dynamic challenges & CTAs based on goal selection
+        const conversationFlow = [
+            // STEP 0: GOAL - What service do they need?
+            {
+                message: "Hey! I'm Jamie 🤖 What are you looking to improve today?",
+                field: 'goal',
+                quickReplies: [
+                    "Get more customers (SEO)",
+                    "Automate my business (AI/Bots)",
+                    "Need an AI Budtender",
+                    "Protect my business (Security)"
+                ],
+                required: true,
+                validateAs: 'goal'
+            },
+            // STEP 1: BUSINESS TYPE - Cannabis Industry (skipped for AI Budtender)
+            {
+                message: "Nice. What type of cannabis business are you?",
+                field: 'businessType',
+                quickReplies: [
+                    "Dispensary / Retailer",
+                    "Cultivator / Grower",
+                    "Processor / Manufacturer",
+                    "Distributor / Delivery"
+                ],
+                required: true,
+                validateAs: 'businessType'
+            },
+            // STEP 2: CHALLENGE - Dynamic based on goal (set in branching logic)
+            {
+                message: "Got it. What's the biggest thing holding you back?",
+                field: 'challenge',
+                quickReplies: [], // Set dynamically
+                required: true,
+                validateAs: 'challenge'
+            },
+            // STEP 3: TIMELINE - Same for all
+            {
+                message: "How soon are you looking to fix this?",
+                field: 'timeline',
+                quickReplies: [
+                    "ASAP - it's urgent",
+                    "Next 30 days",
+                    "Next few months",
+                    "Just researching"
+                ],
+                required: true,
+                validateAs: 'timeline'
+            },
+            // STEP 4: TEAM SIZE - Same for all
+            {
+                message: "Quick one - how big is your team?",
+                field: 'teamSize',
+                quickReplies: [
+                    "Just me",
+                    "2-5 people",
+                    "6-20 people",
+                    "20+ people"
+                ],
+                required: true,
+                validateAs: 'teamSize'
+            },
+            // STEP 5: EMAIL - Same for all
+            {
+                message: "Almost done! What's the best email to reach you?",
+                field: 'email',
+                placeholder: "your@email.com",
+                required: true,
+                validateAs: 'email'
+            },
+            // STEP 6: CTA - Dynamic message based on goal
+            {
+                message: "", // Set dynamically
+                field: 'wantsCall',
+                quickReplies: [
+                    "Email me first",
+                    "Let's do a quick call"
+                ],
+                required: true,
+                validateAs: 'cta'
+            }
+        ];
+
+        // DYNAMIC CHALLENGES based on goal
+        const challengesByGoal = {
+            seo: [
+                "Competitors outranking us",
+                "Not showing on Google Maps",
+                "Bad or few reviews",
+                "Website doesn't convert"
+            ],
+            automation: [
+                "Too much manual work",
+                "Compliance paperwork overwhelming",
+                "Can't keep up with orders",
+                "Staff doing tasks bots could do"
+            ],
+            budtender: [
+                "Staff can't answer all product questions",
+                "Inconsistent recommendations",
+                "Customers overwhelmed by choices",
+                "High turnover / training costs"
+            ],
+            security: [
+                "Worried about data breaches",
+                "Compliance / audit concerns",
+                "Don't know our vulnerabilities",
+                "Need to protect customer data"
+            ]
+        };
+
+        // DYNAMIC CTA messages based on goal
+        const ctaByGoal = {
+            seo: "Perfect! Want a free visibility audit on a quick call, or should I email you first?",
+            automation: "Perfect! Want to discuss automation options on a quick call, or email first?",
+            budtender: "Perfect! Want a quick AI Budtender demo call, or should I email you info first?",
+            security: "Perfect! Want a free security assessment call, or should I email you first?"
+        };
+
+        // Helper to detect goal type
+        function getGoalType(goalText) {
+            const g = goalText.toLowerCase();
+            if (g.includes('seo') || g.includes('customer')) return 'seo';
+            if (g.includes('automate') || g.includes('bot')) return 'automation';
+            if (g.includes('budtender')) return 'budtender';
+            if (g.includes('security') || g.includes('protect')) return 'security';
+            return 'seo'; // default
+        }
+
+        // Validation - most fields accept quick reply or custom text
+        const validators = {
+            goal: (text) => text.length >= 2 ? null : "Just tap one of the options!",
+            businessType: (text) => text.length >= 2 ? null : "What type of business are you?",
+            challenge: (text) => text.length >= 2 ? null : "What's the main thing holding you back?",
+            timeline: (text) => text.length >= 2 ? null : "Just give me a rough idea of timing.",
+            teamSize: (text) => text.length >= 1 ? null : "How big is your team?",
+            email: (text) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text.trim()) ? null : "I need a valid email to send the report!",
+            cta: (text) => null // Always valid
+        };
+
+        // DOM
+        const chatToggle = document.getElementById('chatToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+        const chatClose = document.getElementById('chatClose');
+
+        chatToggle.addEventListener('click', () => {
+            chatWindow.classList.add('active');
+            chatToggle.classList.add('hidden');
+            if (chatState.step === 0 && chatState.transcript.length === 0) {
+                setTimeout(() => startConversation(), 500);
+            }
+            chatInput.focus();
+        });
+
+        chatClose.addEventListener('click', () => {
+            chatWindow.classList.remove('active');
+            chatToggle.classList.remove('hidden');
+        });
+
+        function startConversation() {
+            const first = conversationFlow[0];
+            addBotMessage(first.message, first.quickReplies);
+            logTranscript('bot', first.message);
+            chatInput.placeholder = first.placeholder || 'Type or select...';
+        }
+
+        function logTranscript(sender, message) {
+            chatState.transcript.push({
+                sender, message,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        function isBypassAttempt(text) {
+            return bypassPatterns.some(p => p.test(text.trim()));
+        }
+
+        function addBotMessage(text, quickReplies = null) {
+            const typing = document.createElement('div');
+            typing.className = 'typing-indicator';
+            typing.innerHTML = '<span></span><span></span><span></span>';
+            chatMessages.appendChild(typing);
+            scrollToBottom();
+
+            setTimeout(() => {
+                typing.remove();
+                const msg = document.createElement('div');
+                msg.className = 'message bot';
+                msg.textContent = text;
+                chatMessages.appendChild(msg);
+
+                if (quickReplies) {
+                    const replies = document.createElement('div');
+                    replies.className = 'quick-replies';
+                    quickReplies.forEach(reply => {
+                        const btn = document.createElement('button');
+                        btn.className = 'quick-reply';
+                        btn.textContent = reply;
+                        btn.addEventListener('click', () => handleUserInput(reply));
+                        replies.appendChild(btn);
+                    });
+                    chatMessages.appendChild(replies);
+                }
+                scrollToBottom();
+            }, 800);
+        }
+
+        function addUserMessage(text) {
+            const msg = document.createElement('div');
+            msg.className = 'message user';
+            msg.textContent = text;
+            chatMessages.appendChild(msg);
+            scrollToBottom();
+        }
+
+        function handleUserInput(text) {
+            if (!text.trim()) return;
+
+            const currentStep = conversationFlow[chatState.step];
+
+            addUserMessage(text);
+            logTranscript('user', text);
+
+            // Bypass check
+            if (currentStep.required && isBypassAttempt(text)) {
+                chatState.bypassAttempts++;
+                const response = bypassResponses[Math.min(chatState.bypassAttempts - 1, bypassResponses.length - 1)];
+                setTimeout(() => {
+                    addBotMessage(response);
+                    logTranscript('bot', response);
+                }, 500);
+                chatInput.value = '';
+                return;
+            }
+
+            // Validate
+            const validator = validators[currentStep.validateAs];
+            const error = validator ? validator(text) : null;
+            if (error && currentStep.required) {
+                setTimeout(() => {
+                    addBotMessage(error);
+                    logTranscript('bot', error);
+                }, 500);
+                chatInput.value = '';
+                return;
+            }
+
+            // Remove quick replies
+            const qr = chatMessages.querySelector('.quick-replies');
+            if (qr) qr.remove();
+
+            // Store data
+            if (currentStep.field === 'wantsCall') {
+                chatState.data.wantsCall = text.toLowerCase().includes('call');
+            } else {
+                chatState.data[currentStep.field] = text.trim();
+            }
+
+            // SMART BRANCHING based on goal
+            if (currentStep.field === 'goal') {
+                const goalType = getGoalType(text);
+                chatState.goalType = goalType;
+
+                // Set dynamic challenges for step 2
+                conversationFlow[2].quickReplies = challengesByGoal[goalType];
+                // Set dynamic CTA for step 6
+                conversationFlow[6].message = ctaByGoal[goalType];
+
+                // AI Budtender = Dispensary, skip business type question
+                if (goalType === 'budtender') {
+                    chatState.data.businessType = 'Dispensary / Retailer';
+                    chatState.step = 2; // Jump to challenge step
+                    chatState.bypassAttempts = 0;
+                    chatInput.value = '';
+                    const nextStep = conversationFlow[chatState.step];
+                    setTimeout(() => {
+                        addBotMessage("Perfect - dispensary it is! " + nextStep.message, nextStep.quickReplies);
+                        logTranscript('bot', "Perfect - dispensary it is! " + nextStep.message);
+                        chatInput.placeholder = nextStep.placeholder || 'Type or select...';
+                    }, 500);
+                    return;
+                }
+            }
+
+            chatState.step++;
+            chatState.bypassAttempts = 0;
+            chatInput.value = '';
+
+            // Done?
+            if (chatState.step >= conversationFlow.length) {
+                submitLead();
+                return;
+            }
+
+            // Next question
+            const nextStep = conversationFlow[chatState.step];
+            let message = nextStep.message
+                .replace('{name}', chatState.data.name)
+                .replace('{business}', chatState.data.business);
+
+            setTimeout(() => {
+                addBotMessage(message, nextStep.quickReplies);
+                logTranscript('bot', message);
+                chatInput.placeholder = nextStep.placeholder || 'Type or select...';
+            }, 500);
+        }
+
+        async function submitLead() {
+            const sendingMsg = "Got it! Sending this over to the team now...";
+            addBotMessage(sendingMsg);
+            logTranscript('bot', sendingMsg);
+
+            // Qualify lead based on timeline
+            const urgentTimelines = ['asap', 'urgent', '30 days', 'next 30'];
+            chatState.qualified = urgentTimelines.some(t =>
+                chatState.data.timeline.toLowerCase().includes(t)
+            );
+
+            const payload = {
+                ...chatState.data,
+                qualified: chatState.qualified,
+                source: 'website_chatbot_gpct',
+                timestamp: new Date().toISOString(),
+                page_url: window.location.href,
+                transcript: chatState.transcript,
+                transcript_text: chatState.transcript.map(t =>
+                    `[${t.sender.toUpperCase()}] ${t.message}`
+                ).join('\n'),
+                bypass_attempts: chatState.bypassAttempts,
+                is_mobile: window.innerWidth <= 768
+            };
+
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                let finalMsg;
+                if (chatState.data.wantsCall) {
+                    finalMsg = `Perfect ${chatState.data.name}! Check your email - you'll get a link to book a time that works for you. We'll have some visibility data ready for ${chatState.data.business} before the call. Talk soon!`;
+                } else {
+                    finalMsg = `You're all set ${chatState.data.name}! We'll put together some insights for ${chatState.data.business} and send them to ${chatState.data.email}. Keep an eye on your inbox!`;
+                }
+
+                setTimeout(() => {
+                    addBotMessage(finalMsg);
+                    logTranscript('bot', finalMsg);
+                }, 1500);
+
+            } catch (error) {
+                console.error('Webhook error:', error);
+                setTimeout(() => {
+                    addBotMessage(`Thanks ${chatState.data.name}! We got your info and will be in touch soon.`);
+                }, 1500);
+            }
+
+            chatInput.disabled = true;
+            chatSend.disabled = true;
+            chatInput.placeholder = 'Conversation complete';
+        }
+
+        chatSend.addEventListener('click', () => handleUserInput(chatInput.value));
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleUserInput(chatInput.value);
+        });
+
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>
