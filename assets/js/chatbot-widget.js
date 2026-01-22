@@ -4,6 +4,48 @@
 
 (function() {
     const WEBHOOK_URL = 'https://seamlessflow1.app.n8n.cloud/webhook/chatbot-lead';
+    const STORAGE_KEY = 'sf_chat_submitted';
+    const FAILED_LEADS_KEY = 'sf_chat_failed_leads';
+
+    // Check if user already submitted
+    function hasAlreadySubmitted() {
+        try {
+            return localStorage.getItem(STORAGE_KEY) !== null;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    // Save failed lead to localStorage for retry
+    function saveFailedLead(payload) {
+        try {
+            const failed = JSON.parse(localStorage.getItem(FAILED_LEADS_KEY) || '[]');
+            failed.push({ ...payload, failed_at: new Date().toISOString() });
+            localStorage.setItem(FAILED_LEADS_KEY, JSON.stringify(failed));
+        } catch (e) {
+            console.error('Could not save failed lead:', e);
+        }
+    }
+
+    // Mark user as submitted
+    function markAsSubmitted(email) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                email: email,
+                submitted_at: new Date().toISOString()
+            }));
+        } catch (e) {
+            console.error('Could not save submission status:', e);
+        }
+    }
+
+    // Fetch with timeout
+    function fetchWithTimeout(url, options, timeout = 10000) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeout);
+        return fetch(url, { ...options, signal: controller.signal })
+            .finally(() => clearTimeout(timeoutId));
+    }
 
     const chatState = {
         step: 0,
@@ -202,6 +244,19 @@
         });
 
         function startConversation() {
+            // Check if returning user
+            if (hasAlreadySubmitted()) {
+                const welcomeBack = "Welcome back! 👋 We already have your info on file. Need to update something or have a question?";
+                addBotMessage(welcomeBack, [
+                    "Start fresh conversation",
+                    "Call (347) 749-8146",
+                    "Email info@seamlessflow.ai"
+                ]);
+                logTranscript('bot', welcomeBack);
+                chatState.isReturningUser = true;
+                return;
+            }
+
             const first = conversationFlow[0];
             addBotMessage(first.message, first.quickReplies);
             logTranscript('bot', first.message);
@@ -259,6 +314,38 @@
 
         function handleUserInput(text) {
             if (!text.trim()) return;
+
+            // Handle returning user options
+            if (chatState.isReturningUser) {
+                addUserMessage(text);
+                logTranscript('user', text);
+
+                const qr = chatMessages.querySelector('.chat-quick-replies');
+                if (qr) qr.remove();
+
+                if (text.toLowerCase().includes('start fresh')) {
+                    chatState.isReturningUser = false;
+                    setTimeout(() => {
+                        const first = conversationFlow[0];
+                        addBotMessage(first.message, first.quickReplies);
+                        logTranscript('bot', first.message);
+                        chatInput.placeholder = first.placeholder || 'Type or select...';
+                    }, 500);
+                } else if (text.toLowerCase().includes('call')) {
+                    setTimeout(() => {
+                        addBotMessage("Give us a ring at (347) 749-8146 - we're here to help! 📞");
+                    }, 500);
+                    chatInput.disabled = true;
+                    chatSend.disabled = true;
+                } else if (text.toLowerCase().includes('email')) {
+                    setTimeout(() => {
+                        addBotMessage("Shoot us an email at info@seamlessflow.ai and we'll get back to you ASAP! 📧");
+                    }, 500);
+                    chatInput.disabled = true;
+                    chatSend.disabled = true;
+                }
+                return;
+            }
 
             const currentStep = conversationFlow[chatState.step];
 
@@ -361,11 +448,14 @@
             };
 
             try {
-                await fetch(WEBHOOK_URL, {
+                await fetchWithTimeout(WEBHOOK_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
-                });
+                }, 10000);
+
+                // Mark as submitted to prevent repeat spam
+                markAsSubmitted(chatState.data.email);
 
                 let finalMsg;
                 if (chatState.data.wantsCall) {
@@ -381,8 +471,19 @@
 
             } catch (error) {
                 console.error('Webhook error:', error);
+
+                // Save lead locally so it's not lost
+                saveFailedLead(payload);
+
+                // Honest error message with contact options
                 setTimeout(() => {
-                    addBotMessage("Thanks! We got your info and will be in touch soon.");
+                    const errorMsg = "Hmm, something went wrong on our end. Your info is saved locally. Please reach out directly:";
+                    addBotMessage(errorMsg);
+                    logTranscript('bot', errorMsg);
+
+                    setTimeout(() => {
+                        addBotMessage("📞 Call: (347) 749-8146\n📧 Email: info@seamlessflow.ai\n\nSorry for the trouble - we'll make it right!");
+                    }, 800);
                 }, 1500);
             }
 
