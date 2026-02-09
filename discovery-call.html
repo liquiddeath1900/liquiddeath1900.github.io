@@ -8,6 +8,7 @@
     <meta name="robots" content="noindex, nofollow">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .step-btn.active { background-color: #06b6d4; color: white; }
         .step-btn.completed { background-color: #10b981; color: white; }
@@ -32,6 +33,21 @@
         </div>
     </header>
 
+    <!-- Social Proof Bar -->
+    <section class="py-6 bg-green-900 border-b border-green-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12 text-white text-sm md:text-base">
+                <div class="flex items-center"><i class="fas fa-clock text-green-400 mr-2"></i><span class="font-bold mr-1">15-Min</span> Call</div>
+                <div class="hidden md:block w-px h-6 bg-green-600"></div>
+                <div class="flex items-center"><i class="fas fa-dollar-sign text-green-400 mr-2"></i><span class="font-bold mr-1">100%</span> Free</div>
+                <div class="hidden md:block w-px h-6 bg-green-600"></div>
+                <div class="flex items-center"><i class="fas fa-ban text-green-400 mr-2"></i>No Pressure</div>
+                <div class="hidden md:block w-px h-6 bg-green-600"></div>
+                <div class="flex items-center"><i class="fas fa-cannabis text-green-400 mr-2"></i>Cannabis-Focused</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Progress Steps -->
     <div class="bg-gray-800 px-4 py-2 border-b border-gray-700 no-print">
         <div class="max-w-4xl mx-auto">
@@ -40,6 +56,37 @@
             </div>
         </div>
     </div>
+
+    <!-- What to Expect -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4">What to Expect on Your Call</h2>
+            <p class="text-gray-600 text-center mb-12">No sales pitch. Just honest advice about your dispensary's digital presence.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-green-600 font-bold text-lg">1</span>
+                    </div>
+                    <h3 class="font-bold mb-2">We Listen (5 min)</h3>
+                    <p class="text-gray-600 text-sm">Tell us about your dispensary, your goals, and what's not working right now.</p>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-green-600 font-bold text-lg">2</span>
+                    </div>
+                    <h3 class="font-bold mb-2">We Analyze (5 min)</h3>
+                    <p class="text-gray-600 text-sm">We'll pull up your GBP, website, and rankings live and show you exactly where you stand.</p>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-xl">
+                    <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-green-600 font-bold text-lg">3</span>
+                    </div>
+                    <h3 class="font-bold mb-2">You Decide (5 min)</h3>
+                    <p class="text-gray-600 text-sm">We'll recommend next steps. No pressure — you decide if it makes sense for your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Form Container -->
     <main class="max-w-4xl mx-auto px-4 py-6">
@@ -564,6 +611,43 @@
             </button>
         </div>
     </main>
+
+    <!-- Trust Signals Strip -->
+    <section class="py-10 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+                <div class="flex items-center text-gray-700">
+                    <div class="bg-green-100 rounded-full p-2 mr-3"><i class="fas fa-handshake text-green-600"></i></div>
+                    <span class="font-semibold">No Contracts</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <div class="bg-green-100 rounded-full p-2 mr-3"><i class="fas fa-times-circle text-green-600"></i></div>
+                    <span class="font-semibold">Cancel Anytime</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <div class="bg-green-100 rounded-full p-2 mr-3"><i class="fas fa-chart-line text-green-600"></i></div>
+                    <span class="font-semibold">Results in 30 Days</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <div class="bg-green-100 rounded-full p-2 mr-3"><i class="fas fa-map-marker-alt text-green-600"></i></div>
+                    <span class="font-semibold">NYC-Based Team</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Final CTA -->
+    <section class="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Prefer to Chat Instead?</h2>
+            <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">Talk to Jamie, our AI assistant, or call us directly. Whatever works for you.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="document.getElementById('chatToggle').click();" class="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-bold inline-flex items-center transform hover:scale-105 transition-all shadow-lg cursor-pointer"><i class="fas fa-comments mr-3"></i>Chat With Jamie Now</button>
+                <a href="tel:+13477498146" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold inline-flex items-center hover:bg-white hover:text-green-700 transition-all"><i class="fas fa-phone mr-3"></i>(347) 749-8146</a>
+            </div>
+            <p class="mt-6 text-green-200 text-sm"><i class="fas fa-shield-alt mr-2"></i>No obligation. No pressure. Just a conversation about your goals.</p>
+        </div>
+    </section>
 
     <script>
         const STEPS = ['Basic Info', 'Time Drains', 'Money Leaks', 'Stress Points', 'Competition', 'Live Demo', 'Pain Summary', 'Money Math', 'Next Steps'];
