@@ -6,3 +6,8 @@ Disallow: /googlef24fe0a0e8ba99b6.html
 
 # Sitemap
 Sitemap: https://seamlessflow.ai/sitemap.xml
+
+# AI Crawler Access
+# llms.txt tells AI models (ChatGPT, Perplexity, Claude) about this site
+# See: https://llmstxt.org
+Allow: /llms.txt
