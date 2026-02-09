@@ -2,95 +2,440 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeamlessFlow.ai - SEO, Performance & Security Audit</title>
+    <title>SeamlessFlow.ai - SEO & Performance Audit</title>
     <meta property="og:title" content="SeamlessFlow.ai - SEO Audit by SeamlessFlow">
-    <meta property="og:description" content="Comprehensive SEO, Performance & Security Audit Report">
+    <meta property="og:description" content="Comprehensive SEO & Performance Audit Report">
     <meta property="og:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
     <style>
-        @page { size: letter; margin: 0.5in 0.6in; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11pt; line-height: 1.4; color: #222; background: white; }
-        :root { --brand-primary: #1a1a2e; --brand-secondary: #16213e; }
+        @page {
+            size: letter;
+            margin: 0.5in 0.6in;
+        }
 
-        /* COVER */
-        .cover { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; padding: 60px; background: linear-gradient(135deg, var(--brand-secondary) 0%, var(--brand-primary) 100%); color: white; page-break-after: always; }
-        .cover .cover-logo { width: 240px; margin-bottom: 30px; }
-        .cover h1 { font-size: 42pt; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; text-transform: uppercase; }
-        .cover .tagline { font-size: 14pt; color: rgba(255,255,255,0.7); margin-bottom: 30px; }
-        .cover .meta { font-size: 11pt; color: rgba(255,255,255,0.5); margin-top: 20px; }
-        .cover .scores { display: flex; gap: 20px; margin-top: 25px; flex-wrap: wrap; justify-content: center; }
-        .cover .score-item { text-align: center; }
-        .cover .score-num { font-size: 36pt; font-weight: 700; }
-        .cover .score-label { font-size: 9pt; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #222;
+            background: white;
+        }
+
+        .cover {
+            page-break-after: always;
+        }
+
+        :root {
+            --brand-primary: #16a34a;
+            --brand-secondary: #15803d;
+        }
+
+        /* COVER PAGE */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+            color: white;
+        }
+
+        .cover .cover-logo {
+            width: 240px;
+            margin-bottom: 30px;
+        }
+
+        .cover h1 {
+            font-size: 42pt;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .cover .tagline {
+            font-size: 14pt;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+        }
+
+        .cover .meta {
+            font-size: 11pt;
+            color: rgba(255,255,255,0.5);
+            margin-top: 20px;
+        }
+
+        .cover .scores {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .cover .score-item {
+            text-align: center;
+        }
+
+        .cover .score-num {
+            font-size: 36pt;
+            font-weight: 700;
+        }
+
+        .cover .score-label {
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+        }
+
         .red { color: #e53935; }
         .yellow { color: #f9a825; }
         .green { color: #43a047; }
 
-        /* CONTENT */
-        .content { padding: 15px 0; }
-        h2 { font-size: 14pt; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #222; }
-        h3 { font-size: 11pt; font-weight: 700; margin: 12px 0 6px 0; color: #444; }
-        p { margin-bottom: 6px; }
-        ul { margin: 5px 0 8px 20px; }
-        li { margin: 5px 0; }
+        /* CONTENT PAGES */
+        .content {
+            padding: 15px 0;
+        }
+
+        h2 {
+            font-size: 14pt;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #222;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin: 12px 0 6px 0;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 6px;
+        }
+
+        ul {
+            margin: 5px 0 8px 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
 
         /* TABLES */
-        table { width: 100%; border-collapse: collapse; margin: 8px 0 12px 0; font-size: 9pt; page-break-inside: auto; }
-        th { background: var(--brand-primary); color: white; padding: 6px 8px; text-align: left; font-weight: 600; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5px; }
-        td { padding: 5px 8px; border-bottom: 1px solid #ddd; vertical-align: top; }
-        tr { page-break-inside: avoid; }
-        tr:nth-child(even) { background: #f9f9f9; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 12px 0;
+            font-size: 9pt;
+            page-break-inside: auto;
+        }
+
+        th {
+            background: #16a34a;
+            color: white;
+            padding: 6px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 5px 8px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr {
+            page-break-inside: avoid;
+        }
+
         .good { color: #43a047; font-weight: 600; }
         .bad { color: #e53935; font-weight: 600; }
         .warn { color: #f9a825; font-weight: 600; }
 
-        /* BOXES */
-        .issue { background: #fff5f5; border: 1px solid #ffcdd2; border-left: 4px solid #e53935; padding: 10px 12px; margin: 8px 0; border-radius: 4px; }
-        .issue h4 { font-size: 10pt; font-weight: 700; color: #c62828; margin-bottom: 8px; }
-        .issue p { margin: 5px 0; font-size: 10pt; }
-        .issue code { display: block; background: #263238; color: #80cbc4; padding: 6px 10px; margin: 6px 0; border-radius: 4px; font-family: 'SF Mono', Consolas, monospace; font-size: 8pt; overflow-wrap: break-word; }
-        .issue .fix { background: #e8f5e9; border-left: 3px solid #43a047; padding: 5px 10px; margin-top: 6px; font-size: 9pt; }
-        .warning { background: #fff8e1; border: 1px solid #ffe082; border-left: 4px solid #f9a825; padding: 10px 12px; margin: 8px 0; border-radius: 4px; }
-        .warning h4 { font-size: 10pt; font-weight: 700; color: #f57c00; margin-bottom: 8px; }
-        .warning p { margin: 5px 0; font-size: 10pt; }
-        .warning .fix { background: #e8f5e9; border-left: 3px solid #43a047; padding: 5px 10px; margin-top: 6px; font-size: 9pt; }
-        .strength { background: #e8f5e9; border: 1px solid #c8e6c9; border-left: 4px solid #43a047; padding: 10px 12px; margin: 8px 0; border-radius: 4px; }
-        .strength h4 { font-size: 10pt; font-weight: 700; color: #2e7d32; margin-bottom: 5px; }
+        /* ISSUE BOXES */
+        .issue {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-left: 4px solid #e53935;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
 
-        /* TAGS & CHECKLIST */
-        .tag { display: inline-block; padding: 3px 10px; border-radius: 3px; font-size: 8pt; font-weight: 700; text-transform: uppercase; }
+        .issue h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #c62828;
+            margin-bottom: 8px;
+        }
+
+        .issue p {
+            margin: 5px 0;
+            font-size: 10pt;
+        }
+
+        .issue code {
+            display: block;
+            background: #263238;
+            color: #80cbc4;
+            padding: 6px 10px;
+            margin: 6px 0;
+            border-radius: 4px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 8pt;
+            overflow-wrap: break-word;
+        }
+
+        .issue .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 5px 10px;
+            margin-top: 6px;
+            font-size: 9pt;
+        }
+
+        /* WARNING BOXES */
+        .warning {
+            background: #fffde7;
+            border: 1px solid #fff9c4;
+            border-left: 4px solid #f9a825;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .warning h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #f57f17;
+            margin-bottom: 8px;
+        }
+
+        .warning p {
+            margin: 5px 0;
+            font-size: 10pt;
+        }
+
+        .warning code {
+            display: block;
+            background: #263238;
+            color: #80cbc4;
+            padding: 6px 10px;
+            margin: 6px 0;
+            border-radius: 4px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 8pt;
+        }
+
+        .warning .fix {
+            background: #e8f5e9;
+            border-left: 3px solid #43a047;
+            padding: 5px 10px;
+            margin-top: 6px;
+            font-size: 9pt;
+        }
+
+        /* STRENGTH BOXES */
+        .strength {
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-left: 4px solid #43a047;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .strength h4 {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        /* CRITICAL ALERT */
+        .critical-alert {
+            background: #e53935;
+            color: white;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .critical-alert h4 {
+            font-size: 11pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .critical-alert p {
+            margin: 0;
+            font-size: 9pt;
+        }
+
+        /* PRIORITY TAGS */
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
         .tag-high { background: #e53935; color: white; }
         .tag-med { background: #f9a825; color: #222; }
         .tag-low { background: #43a047; color: white; }
-        .checklist { list-style: none; margin: 8px 0; }
-        .checklist li { padding: 4px 0; padding-left: 24px; position: relative; border-bottom: 1px solid #eee; font-size: 9pt; }
-        .checklist li:before { content: ""; position: absolute; left: 0; top: 6px; width: 14px; height: 14px; border: 2px solid #999; border-radius: 3px; }
 
-        /* SUMMARY & LAYOUT */
-        .summary { background: var(--brand-primary); color: white; padding: 15px 20px; margin: 15px 0; border-radius: 6px; }
-        .summary h3 { color: white; margin-top: 0; margin-bottom: 15px; font-size: 14pt; }
-        .summary li { margin: 4px 0; font-size: 9pt; }
-        .two-col { display: flex; gap: 20px; }
-        .two-col > div { flex: 1; }
-        .footer { margin-top: 20px; padding-top: 15px; border-top: 2px solid #eee; text-align: center; }
-        .footer-logo { width: 180px; margin-bottom: 10px; }
-        .footer p { font-size: 9pt; color: #666; margin: 3px 0; }
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            margin: 8px 0;
+        }
 
-        /* PAGE BREAKS */
-        .critical-issues { page-break-before: always; padding: 15px 0; }
-        .on-page-seo { page-break-before: always; padding: 15px 0; }
-        .site-structure { page-break-before: always; padding: 15px 0; }
-        .technical-seo { page-break-before: always; padding: 15px 0; }
-        .local-seo { page-break-before: always; padding: 15px 0; }
-        .action-plan { page-break-before: always; padding: 15px 0; }
-        .executive-summary { padding: 15px 0; }
-        h2, h3 { page-break-after: avoid; }
+        .checklist li {
+            padding: 4px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+            font-size: 9pt;
+        }
 
-        /* RESPONSIVE - handles long brand names */
+        .checklist li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #999;
+            border-radius: 3px;
+        }
+
+        /* SUMMARY BOX */
+        .summary {
+            background: #16a34a;
+            color: white;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 14pt;
+        }
+
+        .summary ol {
+            margin-left: 20px;
+        }
+
+        .summary li {
+            margin: 4px 0;
+            font-size: 9pt;
+        }
+
+        /* TWO COLUMNS */
+        .two-col {
+            display: flex;
+            gap: 20px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        /* PAGE BREAK RULES */
+        .issue, .strength, .warning {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        h2, h3 {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        .two-col {
+            page-break-inside: auto;
+            break-inside: auto;
+        }
+
+        .executive-summary {
+            padding: 15px 0;
+        }
+
+        .critical-issues {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .on-page-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .site-structure {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .technical-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .local-seo {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        .action-plan {
+            padding: 15px 0;
+            page-break-before: always;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 9pt;
+            color: #888;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+        }
+
+        .footer-logo {
+            width: 180px;
+            margin-bottom: 10px;
+        }
+
+        /* RESPONSIVE */
         @media screen and (max-width: 768px) {
             .cover { padding: 40px 20px; min-height: 100vh; }
             .cover h1 { font-size: 20pt; word-break: break-word; overflow-wrap: anywhere; max-width: 100%; }
@@ -124,21 +469,22 @@
     <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="cover-logo">
     <h1>SEAMLESSFLOW.AI</h1>
     <div class="tagline">SEO, Performance & Security Audit Report</div>
+
     <div class="scores">
         <div class="score-item">
-            <div class="score-num green">85</div>
+            <div class="score-num green">78</div>
             <div class="score-label">Technical</div>
         </div>
         <div class="score-item">
-            <div class="score-num green">95</div>
+            <div class="score-num green">82</div>
             <div class="score-label">On-Page</div>
         </div>
         <div class="score-item">
-            <div class="score-num green">98</div>
+            <div class="score-num yellow">65</div>
             <div class="score-label">Speed</div>
         </div>
         <div class="score-item">
-            <div class="score-num green">95</div>
+            <div class="score-num green">85</div>
             <div class="score-label">Mobile</div>
         </div>
         <div class="score-item">
@@ -146,83 +492,165 @@
             <div class="score-label">Security</div>
         </div>
     </div>
-    <div class="meta">December 31, 2025 | Static Site (GitHub Pages) | NYC Agency</div>
+
+    <div class="meta">
+        February 9, 2026<br>
+        GitHub Pages (Static HTML) | New York, NY
+    </div>
 </div>
 
 <!-- PAGE 2: EXECUTIVE SUMMARY -->
 <div class="content executive-summary">
     <h2>Executive Summary</h2>
+
+    <div class="critical-alert">
+        <h4>CRITICAL: Zero Google Business Profile Reviews</h4>
+        <p>Your GBP has 0 reviews and 0 rating. Google won't rank businesses with no social proof. This is the #1 reason you're invisible on Maps.</p>
+    </div>
+
     <div class="strength">
         <h4>Key Strengths</h4>
         <ul>
-            <li><strong>Blazing Fast Performance:</strong> 104ms First Contentful Paint, 96ms total load time</li>
-            <li><strong>Excellent On-Page SEO:</strong> Perfect title (58 chars), meta description (152 chars), proper H1</li>
-            <li><strong>Strong Technical Foundation:</strong> LocalBusiness schema, canonical URLs, comprehensive sitemap</li>
-            <li><strong>Comprehensive Content:</strong> 49 pages covering services, 11 locations, and 8 industries</li>
+            <li>Strong on-page SEO: proper titles, meta descriptions, single H1 per page across all 11+ pages</li>
+            <li>LocalBusiness schema markup implemented on homepage</li>
+            <li>Canonical URLs properly set</li>
+            <li>OG tags configured for social sharing</li>
+            <li>robots.txt and sitemap.xml properly configured</li>
+            <li>HTTPS enabled with valid SSL certificate</li>
+            <li>No exposed sensitive files (.env, .git, admin panels)</li>
+            <li>Comprehensive content: 20+ pages including location pages for 7 NYC boroughs/cities</li>
         </ul>
     </div>
 
     <h3>Site Overview</h3>
     <table>
-        <tr><th>Element</th><th>Current State</th><th>Status</th></tr>
-        <tr><td>Domain</td><td>seamlessflow.ai (www redirect active)</td><td class="good">Pass</td></tr>
-        <tr><td>Platform</td><td>Static HTML on GitHub Pages</td><td class="good">Fast</td></tr>
-        <tr><td>SSL Certificate</td><td>Valid (GitHub-managed)</td><td class="good">Secure</td></tr>
-        <tr><td>Total Pages</td><td>49 indexed URLs in sitemap</td><td class="good">Good</td></tr>
-        <tr><td>robots.txt</td><td>Present with sitemap reference</td><td class="good">Pass</td></tr>
-        <tr><td>Sitemap</td><td>XML sitemap at /sitemap.xml</td><td class="good">Pass</td></tr>
-        <tr><td>Schema Markup</td><td>LocalBusiness implemented</td><td class="good">Pass</td></tr>
-        <tr><td>Security Headers</td><td>Missing critical headers (CSP, HSTS)</td><td class="bad">Needs Fix</td></tr>
+        <tr>
+            <th>Element</th>
+            <th>Current State</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Business</td>
+            <td>SeamlessFlow.ai - Cannabis Marketing Agency</td>
+            <td class="good">Active</td>
+        </tr>
+        <tr>
+            <td>Services</td>
+            <td>Local SEO, AI Budtender, Website Dev, Automation</td>
+            <td class="good">Listed</td>
+        </tr>
+        <tr>
+            <td>Platform</td>
+            <td>GitHub Pages (Static HTML + Tailwind CSS)</td>
+            <td class="good">Fast</td>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td>SSL valid through April 29, 2026</td>
+            <td class="good">Secure</td>
+        </tr>
+        <tr>
+            <td>Sitemap</td>
+            <td>Present with 20+ URLs, proper priorities</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>robots.txt</td>
+            <td>Present, allows all crawling</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>Google Business Profile</td>
+            <td>Listed but 0 reviews, 0 rating</td>
+            <td class="bad">Critical</td>
+        </tr>
+        <tr>
+            <td>Citations</td>
+            <td>Not found on major directories</td>
+            <td class="bad">Missing</td>
+        </tr>
     </table>
 
     <h3>Performance Metrics</h3>
     <table>
-        <tr><th>Metric</th><th>Value</th><th>Target</th><th>Status</th></tr>
-        <tr><td>First Contentful Paint (FCP)</td><td>104ms</td><td>&lt;1800ms</td><td class="good">Excellent</td></tr>
-        <tr><td>Time to First Byte (TTFB)</td><td>2.6ms</td><td>&lt;800ms</td><td class="good">Excellent</td></tr>
-        <tr><td>DOM Content Loaded</td><td>88ms</td><td>&lt;2000ms</td><td class="good">Excellent</td></tr>
-        <tr><td>Full Page Load</td><td>96ms</td><td>&lt;3000ms</td><td class="good">Excellent</td></tr>
-        <tr><td>Mixed Content</td><td>0 issues</td><td>0</td><td class="good">Pass</td></tr>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Page Size (Homepage)</td>
+            <td>82 KB</td>
+            <td class="good">Good for static</td>
+        </tr>
+        <tr>
+            <td>TTFB (GitHub Pages CDN)</td>
+            <td>~200-400ms</td>
+            <td class="good">Fast</td>
+        </tr>
+        <tr>
+            <td>Images</td>
+            <td>4 images, all with alt text</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>External Scripts</td>
+            <td>Tailwind CDN, Font Awesome, Chatbot Widget</td>
+            <td class="warn">3 render-blocking</td>
+        </tr>
+        <tr>
+            <td>Mixed Content</td>
+            <td>None detected</td>
+            <td class="good">Clean</td>
+        </tr>
     </table>
 </div>
 
 <!-- PAGE 3: CRITICAL ISSUES -->
 <div class="content critical-issues">
     <h2>Critical Issues & Security Vulnerabilities</h2>
+    <p>These issues are preventing your agency from ranking and getting clients.</p>
 
     <div class="issue">
-        <h4>Missing Security Headers <span class="tag tag-high">High</span></h4>
-        <p>Site is missing critical HTTP security headers:</p>
-        <code>Missing: Content-Security-Policy, Strict-Transport-Security (HSTS), X-Frame-Options, X-XSS-Protection, X-Content-Type-Options</code>
-        <p><strong>Impact:</strong> Vulnerable to clickjacking, XSS attacks, and MIME-type sniffing.</p>
-        <div class="fix"><strong>Fix:</strong> Use Cloudflare (free) as a proxy to add security headers, or migrate to Netlify/Vercel which support _headers file.</div>
+        <h4>1. Google Business Profile Has 0 Reviews <span class="tag tag-high">High</span></h4>
+        <code>GBP: Seamlessflow.ai | Rating: 0.0 | Reviews: 0 | Categories: Marketing Agency, Service Establishment</code>
+        <p><strong>Impact:</strong> Google heavily weights review count and rating for local pack rankings. With 0 reviews, you won't appear in "marketing agency near me" or any local searches. Competitors with 20+ reviews will always outrank you.</p>
+        <div class="fix"><strong>Fix:</strong> Get 5 reviews in the first month. Ask friends, family, past colleagues. Even self-review your GBP. Focus on getting to 10+ reviews with 5-star ratings ASAP.</div>
     </div>
 
     <div class="issue">
-        <h4>Overly Permissive CORS Policy <span class="tag tag-high">High</span></h4>
-        <code>access-control-allow-origin: *</code>
-        <p><strong>Impact:</strong> Any website can make requests to your resources.</p>
-        <div class="fix"><strong>Fix:</strong> GitHub Pages default. Use Cloudflare to override with stricter policy if needed.</div>
+        <h4>2. No Citations on Major Directories <span class="tag tag-high">High</span></h4>
+        <code>Not found: Yelp, Yellow Pages, BBB, Apple Maps, Bing Places, Manta</code>
+        <p><strong>Impact:</strong> Citations are backlinks from business directories that tell Google your business is real and legitimate. With zero citations, Google has no third-party confirmation that SeamlessFlow.ai exists.</p>
+        <div class="fix"><strong>Fix:</strong> Submit to top 20 directories immediately: Yelp, Apple Maps, Bing Places, Yellow Pages, BBB, Manta, Hotfrog, Foursquare, Citysearch, etc. Use consistent NAP everywhere.</div>
+    </div>
+
+    <div class="issue">
+        <h4>3. Missing Security Headers <span class="tag tag-high">High</span></h4>
+        <code>Missing: Content-Security-Policy, Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, X-XSS-Protection</code>
+        <p><strong>Impact:</strong> For a cybersecurity agency, missing security headers is a credibility issue. Potential clients checking your site's security will see this. Also impacts trust signals for Google.</p>
+        <div class="fix"><strong>Fix:</strong> GitHub Pages doesn't support custom headers natively. Either: (1) Put Cloudflare in front for headers, or (2) Add meta-tag equivalents where possible, or (3) Migrate to Vercel/Netlify which support _headers files.</div>
     </div>
 
     <div class="warning">
-        <h4>Tailwind CSS CDN in Production <span class="tag tag-med">Medium</span></h4>
-        <code>Console: cdn.tailwindcss.com should not be used in production</code>
-        <p><strong>Impact:</strong> Slower load times, dependency on external CDN, not recommended by Tailwind.</p>
-        <div class="fix"><strong>Fix:</strong> Build Tailwind locally: npx tailwindcss -i input.css -o output.css --minify</div>
+        <h4>4. GBP Categories May Be Wrong <span class="tag tag-med">Medium</span></h4>
+        <code>Current: "Marketing agency" + "Service establishment"</code>
+        <p><strong>Impact:</strong> "Service establishment" is too generic. You need cannabis-specific and SEO-specific categories to rank for relevant searches.</p>
+        <div class="fix"><strong>Fix:</strong> Change primary category to "Internet marketing service" or "SEO agency". Add secondary: "Marketing agency", "Web design agency", "Business consultant". Remove "Service establishment".</div>
     </div>
 
     <div class="warning">
-        <h4>Google Analytics Without Cookie Consent <span class="tag tag-med">Medium</span></h4>
-        <code>_ga, _ga_B68C3RNBVD cookies set without consent banner</code>
-        <p><strong>Impact:</strong> GDPR/CCPA compliance issue.</p>
-        <div class="fix"><strong>Fix:</strong> Add cookie consent banner or switch to privacy-friendly analytics (Plausible, Fathom).</div>
+        <h4>5. Homepage is 82KB — Tailwind CDN is Heavy <span class="tag tag-med">Medium</span></h4>
+        <code>Total page: 82KB HTML + Tailwind CDN (~300KB) + Font Awesome (~100KB) = ~500KB+ total</code>
+        <p><strong>Impact:</strong> While the HTML itself is lean, loading full Tailwind CSS and Font Awesome CDNs means users download ~400KB of CSS they don't need. This slows mobile load times.</p>
+        <div class="fix"><strong>Fix:</strong> Use Tailwind CLI to purge unused CSS (82KB → ~15KB). Self-host Font Awesome with only the icons you use. Could cut total CSS by 80%.</div>
     </div>
 
     <div class="warning">
-        <h4>Deprecated Meta Tag <span class="tag tag-low">Low</span></h4>
-        <code>&lt;meta name="apple-mobile-web-app-capable"&gt; is deprecated</code>
-        <div class="fix"><strong>Fix:</strong> Replace with: &lt;meta name="mobile-web-app-capable" content="yes"&gt;</div>
+        <h4>6. No Google Search Console / Analytics Verified <span class="tag tag-med">Medium</span></h4>
+        <code>Google verification file found (googlef24fe0a0e8ba99b6.html) but no GA4 tracking detected</code>
+        <p><strong>Impact:</strong> You can't measure what you can't track. Without GA4, you have no idea where visitors come from, which pages they visit, or what converts.</p>
+        <div class="fix"><strong>Fix:</strong> Add GA4 tracking code to all pages. Set up Search Console and submit sitemap. Monitor indexing status weekly.</div>
     </div>
 </div>
 
@@ -230,34 +658,138 @@
 <div class="content on-page-seo">
     <h2>On-Page SEO Analysis</h2>
 
-    <h3>Homepage Elements</h3>
     <table>
-        <tr><th>Element</th><th>Current State</th><th>Status</th><th>Recommendation</th></tr>
-        <tr><td>Title Tag</td><td>"Local SEO Services & Business Automation | SeamlessFlow.ai" (58 chars)</td><td class="good">Optimal</td><td>Perfect length, keywords front-loaded</td></tr>
-        <tr><td>Meta Description</td><td>"Help service businesses get found online..." (152 chars)</td><td class="good">Optimal</td><td>Good length with CTA and pricing</td></tr>
-        <tr><td>H1 Tag</td><td>"Make Your Business #1 on Google"</td><td class="good">Pass</td><td>Single H1, compelling message</td></tr>
-        <tr><td>H2 Tags</td><td>6 H2s: Services, Industries, Results, Method, Why Us, Testimonials</td><td class="good">Excellent</td><td>Well-structured content hierarchy</td></tr>
-        <tr><td>Canonical URL</td><td>https://www.seamlessflow.ai/</td><td class="good">Set</td><td>Properly canonicalized</td></tr>
-        <tr><td>Open Graph</td><td>Title, Description, Image all set</td><td class="good">Complete</td><td>Social sharing optimized</td></tr>
-        <tr><td>Language</td><td>lang="en"</td><td class="good">Set</td><td>Proper language declaration</td></tr>
-        <tr><td>Images</td><td>1 image, all with alt text</td><td class="good">Pass</td><td>Consider adding more visual content</td></tr>
+        <tr>
+            <th style="width:20%">Element</th>
+            <th style="width:35%">Current State</th>
+            <th style="width:12%">Status</th>
+            <th style="width:33%">Recommendation</th>
+        </tr>
+        <tr>
+            <td><strong>Title Tag</strong></td>
+            <td>"Cannabis Dispensary SEO & Marketing Agency NYC | SeamlessFlow.ai" (65 chars)</td>
+            <td class="good">Good</td>
+            <td>Slightly long — trim to 60 chars max</td>
+        </tr>
+        <tr>
+            <td><strong>Meta Description</strong></td>
+            <td>"NYC's cannabis dispensary marketing agency. AI-powered SEO, Metrc compliance automation, and AI budtenders."</td>
+            <td class="good">Good</td>
+            <td>Add CTA: "Free audit. No contracts."</td>
+        </tr>
+        <tr>
+            <td><strong>H1 Tag</strong></td>
+            <td>"Make Your Dispensary #1 on Google Maps"</td>
+            <td class="good">Single H1</td>
+            <td>Strong — action-oriented with keyword</td>
+        </tr>
+        <tr>
+            <td><strong>Schema Markup</strong></td>
+            <td>LocalBusiness with address, phone, services</td>
+            <td class="good">Present</td>
+            <td>Add FAQPage schema to FAQ page</td>
+        </tr>
+        <tr>
+            <td><strong>Canonical URL</strong></td>
+            <td>https://www.seamlessflow.ai/</td>
+            <td class="good">Set</td>
+            <td>Good — consistent www version</td>
+        </tr>
+        <tr>
+            <td><strong>OG Tags</strong></td>
+            <td>Title, description, image, URL all set</td>
+            <td class="good">Complete</td>
+            <td>Good for social sharing</td>
+        </tr>
+        <tr>
+            <td><strong>Image Alt Text</strong></td>
+            <td>4 of 4 images have descriptive alt text</td>
+            <td class="good">100%</td>
+            <td>Excellent — all images accessible</td>
+        </tr>
+        <tr>
+            <td><strong>Internal Links</strong></td>
+            <td>26+ internal links across nav, body, footer</td>
+            <td class="good">Strong</td>
+            <td>Good internal link structure</td>
+        </tr>
+    </table>
+
+    <h3>Inner Page SEO (Sampled)</h3>
+    <table>
+        <tr>
+            <th>Page</th>
+            <th>Title</th>
+            <th>Meta Desc</th>
+            <th>H1 Count</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>local-seo.html</td>
+            <td class="good">✓ With keywords</td>
+            <td class="good">✓ Present</td>
+            <td class="good">1</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>pricing.html</td>
+            <td class="good">✓ With location</td>
+            <td class="good">✓ Present</td>
+            <td class="good">1</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>about.html</td>
+            <td class="good">✓ Branded</td>
+            <td class="good">✓ Present</td>
+            <td class="good">1</td>
+            <td class="good">Good</td>
+        </tr>
+        <tr>
+            <td>marketing-automation.html</td>
+            <td class="good">✓ Service-focused</td>
+            <td class="good">✓ Present</td>
+            <td class="good">1</td>
+            <td class="good">Good</td>
+        </tr>
     </table>
 
     <h3>Content Opportunities</h3>
     <div class="strength">
         <h4>Strong Content Foundation</h4>
         <ul>
-            <li><strong>8 Industry Pages:</strong> HVAC, Plumber, Electrician, Roofing, Garage Door, Cleaning, Pet Grooming, Auto Detailing</li>
-            <li><strong>11 Location Pages:</strong> Manhattan, Brooklyn, Queens, Bronx, Albany, Syracuse, Rochester, Pittsburgh, Philadelphia, Richmond, Norfolk</li>
-            <li><strong>12 Blog Posts:</strong> Industry-specific SEO guides</li>
+            <li>20+ pages covering services, locations, blog posts</li>
+            <li>7 NYC borough/city location pages for hyper-local targeting</li>
+            <li>2 published blog posts with more planned</li>
+            <li>Comprehensive FAQ page with structured answers</li>
         </ul>
     </div>
-
     <table>
-        <tr><th>Content Gap</th><th>Opportunity</th><th>Priority</th></tr>
-        <tr><td>Case Studies</td><td>Create detailed case study pages with metrics</td><td><span class="tag tag-high">High</span></td></tr>
-        <tr><td>FAQ Schema</td><td>Add FAQ schema to industry/service pages</td><td><span class="tag tag-med">Medium</span></td></tr>
-        <tr><td>Testimonial Pages</td><td>Dedicated page for each testimonial with schema</td><td><span class="tag tag-med">Medium</span></td></tr>
+        <tr>
+            <th>Missing Content</th>
+            <th>Why It Matters</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>Case Studies / Portfolio</td>
+            <td>No proof of results — visitors need social proof to trust you</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>Client Testimonials Page</td>
+            <td>Reviews on-site build trust before they even check GBP</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>More Blog Content</td>
+            <td>Only 2 posts. Need 10+ for topical authority on cannabis marketing</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>Comparison Pages</td>
+            <td>"SeamlessFlow vs [competitor]" pages capture high-intent traffic</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
     </table>
 </div>
 
@@ -267,48 +799,58 @@
 
     <div class="two-col">
         <div>
-            <h3>Core Pages (49 in Sitemap)</h3>
+            <h3>Core Pages Found</h3>
             <table>
-                <tr><th>Section</th><th>Pages</th></tr>
-                <tr><td>Homepage</td><td>1</td></tr>
-                <tr><td>Service Pages</td><td>5</td></tr>
-                <tr><td>Industry Pages</td><td>8</td></tr>
-                <tr><td>Location Pages</td><td>11</td></tr>
-                <tr><td>Blog Posts</td><td>12</td></tr>
-                <tr><td>Utility Pages</td><td>6</td></tr>
+                <tr><th>Page</th><th>Status</th></tr>
+                <tr><td>Homepage (index.html)</td><td class="good">Live</td></tr>
+                <tr><td>Local SEO</td><td class="good">Live</td></tr>
+                <tr><td>AI Budtender</td><td class="good">Live</td></tr>
+                <tr><td>Website Development</td><td class="good">Live</td></tr>
+                <tr><td>Cannabis AI Automation</td><td class="good">Live</td></tr>
+                <tr><td>Cannabis Solutions</td><td class="good">Live</td></tr>
+                <tr><td>GBP Optimization</td><td class="good">Live</td></tr>
+                <tr><td>Pricing</td><td class="good">Live</td></tr>
+                <tr><td>Free Audit</td><td class="good">Live</td></tr>
+                <tr><td>About</td><td class="good">Live</td></tr>
+                <tr><td>FAQ</td><td class="good">Live</td></tr>
+                <tr><td>Blog</td><td class="good">Live</td></tr>
+                <tr><td>Discovery Call</td><td class="good">Live</td></tr>
+                <tr><td>Contract Page</td><td class="good">Live</td></tr>
+                <tr><td>Case Studies</td><td class="bad">Missing</td></tr>
+                <tr><td>Testimonials</td><td class="bad">Missing</td></tr>
             </table>
         </div>
         <div>
+            <h3>Location Pages</h3>
+            <table>
+                <tr><th>Location</th><th>Status</th></tr>
+                <tr><td>Manhattan SEO</td><td class="good">Live</td></tr>
+                <tr><td>Brooklyn SEO</td><td class="good">Live</td></tr>
+                <tr><td>Queens SEO</td><td class="good">Live</td></tr>
+                <tr><td>Bronx SEO</td><td class="good">Live</td></tr>
+                <tr><td>Albany SEO</td><td class="good">Live</td></tr>
+                <tr><td>Syracuse SEO</td><td class="good">Live</td></tr>
+                <tr><td>Rochester SEO</td><td class="good">Live</td></tr>
+            </table>
+
             <h3>URL Structure</h3>
-            <div class="strength">
-                <h4>Clean URL Structure</h4>
-                <p>URLs are clean and descriptive:</p>
-                <ul>
-                    <li>/hvac-seo.html</li>
-                    <li>/brooklyn-seo.html</li>
-                    <li>/blog/hvac-seo-budget.html</li>
-                </ul>
-            </div>
+            <table>
+                <tr><th>Issue</th><th>Details</th></tr>
+                <tr><td>301 Redirect</td><td>seamlessflow.ai → www.seamlessflow.ai (good)</td></tr>
+                <tr><td>.html Extensions</td><td>All pages use .html — consider clean URLs if migrating</td></tr>
+                <tr><td>Sitemap Coverage</td><td>20+ URLs mapped with proper priorities</td></tr>
+            </table>
+
+            <h3>Schema Markup</h3>
+            <table>
+                <tr><th>Type</th><th>Status</th></tr>
+                <tr><td>LocalBusiness</td><td class="good">Present</td></tr>
+                <tr><td>PostalAddress</td><td class="good">Present</td></tr>
+                <tr><td>OfferCatalog</td><td class="good">Present</td></tr>
+                <tr><td>FAQPage</td><td class="bad">Missing on FAQ page</td></tr>
+            </table>
         </div>
     </div>
-
-    <h3>Internal Linking</h3>
-    <table>
-        <tr><th>Metric</th><th>Value</th><th>Assessment</th></tr>
-        <tr><td>Internal Links (Homepage)</td><td>93</td><td class="good">Excellent internal linking</td></tr>
-        <tr><td>External Links</td><td>0</td><td class="warn">Consider adding relevant outbound links</td></tr>
-        <tr><td>Broken Links</td><td>0 detected</td><td class="good">No issues</td></tr>
-    </table>
-
-    <h3>Schema Markup</h3>
-    <table>
-        <tr><th>Schema Type</th><th>Status</th><th>Recommendation</th></tr>
-        <tr><td>LocalBusiness</td><td class="good">Implemented</td><td>Good foundation</td></tr>
-        <tr><td>Organization</td><td class="warn">Not detected</td><td>Add for brand entity</td></tr>
-        <tr><td>Service</td><td class="warn">Not detected</td><td>Add to service pages</td></tr>
-        <tr><td>FAQ</td><td class="warn">Not detected</td><td>Add to FAQ page</td></tr>
-        <tr><td>Article</td><td class="warn">Not detected</td><td>Add to blog posts</td></tr>
-    </table>
 </div>
 
 <!-- PAGE 6: SECURITY AUDIT -->
@@ -317,31 +859,117 @@
 
     <h3>Security Header Analysis</h3>
     <table>
-        <tr><th>Header</th><th>Status</th><th>Risk</th><th>Purpose</th></tr>
-        <tr><td>HTTPS</td><td class="good">Enabled</td><td>-</td><td>Encrypted connection</td></tr>
-        <tr><td>Content-Security-Policy</td><td class="bad">Missing</td><td>High</td><td>Prevents XSS attacks</td></tr>
-        <tr><td>Strict-Transport-Security</td><td class="bad">Missing</td><td>High</td><td>Forces HTTPS</td></tr>
-        <tr><td>X-Frame-Options</td><td class="bad">Missing</td><td>Medium</td><td>Prevents clickjacking</td></tr>
-        <tr><td>X-Content-Type-Options</td><td class="bad">Missing</td><td>Medium</td><td>Prevents MIME sniffing</td></tr>
-        <tr><td>X-XSS-Protection</td><td class="bad">Missing</td><td>Low</td><td>Legacy XSS filter</td></tr>
+        <tr>
+            <th>Header</th>
+            <th>Status</th>
+            <th>Risk</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td>HTTPS</td>
+            <td class="good">✓ Enabled</td>
+            <td class="good">None</td>
+            <td>Encrypts data in transit</td>
+        </tr>
+        <tr>
+            <td>Content-Security-Policy</td>
+            <td class="bad">✗ Missing</td>
+            <td class="warn">Medium</td>
+            <td>Prevents XSS attacks</td>
+        </tr>
+        <tr>
+            <td>Strict-Transport-Security</td>
+            <td class="bad">✗ Missing</td>
+            <td class="warn">Medium</td>
+            <td>Forces HTTPS connections</td>
+        </tr>
+        <tr>
+            <td>X-Frame-Options</td>
+            <td class="bad">✗ Missing</td>
+            <td class="warn">Medium</td>
+            <td>Prevents clickjacking</td>
+        </tr>
+        <tr>
+            <td>X-Content-Type-Options</td>
+            <td class="bad">✗ Missing</td>
+            <td class="warn">Low</td>
+            <td>Prevents MIME sniffing</td>
+        </tr>
+        <tr>
+            <td>X-XSS-Protection</td>
+            <td class="bad">✗ Missing</td>
+            <td class="warn">Low</td>
+            <td>Legacy XSS protection</td>
+        </tr>
     </table>
+    <p><strong>Note:</strong> GitHub Pages doesn't support custom HTTP headers. This is a platform limitation, not a code issue. Migrate to Cloudflare (free), Vercel, or Netlify to add headers.</p>
 
     <h3>Vulnerability Scan</h3>
     <table>
-        <tr><th>Check</th><th>Result</th><th>Status</th></tr>
-        <tr><td>SSL Certificate</td><td>Valid (GitHub-managed)</td><td class="good">Pass</td></tr>
-        <tr><td>Mixed Content</td><td>0 HTTP resources on HTTPS</td><td class="good">Pass</td></tr>
-        <tr><td>Exposed .env file</td><td>Not found (404)</td><td class="good">Pass</td></tr>
-        <tr><td>Exposed .git folder</td><td>Not found (404)</td><td class="good">Pass</td></tr>
-        <tr><td>Admin panels</td><td>Not accessible</td><td class="good">Pass</td></tr>
-        <tr><td>Directory listing</td><td>Disabled</td><td class="good">Pass</td></tr>
+        <tr>
+            <th>Check</th>
+            <th>Status</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>SSL Certificate</td>
+            <td class="good">✓ Valid</td>
+            <td>Expires April 29, 2026 (79 days)</td>
+        </tr>
+        <tr>
+            <td>Mixed Content</td>
+            <td class="good">✓ Clean</td>
+            <td>No HTTP resources on HTTPS pages</td>
+        </tr>
+        <tr>
+            <td>.env Exposure</td>
+            <td class="good">✓ Not Found (404)</td>
+            <td>No sensitive files exposed</td>
+        </tr>
+        <tr>
+            <td>.git Exposure</td>
+            <td class="good">✓ Not Found (404)</td>
+            <td>Repository not exposed</td>
+        </tr>
+        <tr>
+            <td>Admin Panels</td>
+            <td class="good">✓ Not Found (404)</td>
+            <td>No admin endpoints accessible</td>
+        </tr>
+        <tr>
+            <td>Directory Listing</td>
+            <td class="good">✓ Disabled</td>
+            <td>GitHub Pages blocks directory listing</td>
+        </tr>
     </table>
 
     <h3>Third-Party Scripts</h3>
     <table>
-        <tr><th>Script</th><th>Purpose</th><th>Risk</th></tr>
-        <tr><td>cdn.tailwindcss.com</td><td>CSS Framework</td><td class="warn">Not production-ready</td></tr>
-        <tr><td>googletagmanager.com</td><td>Google Analytics 4</td><td class="good">Standard, needs consent</td></tr>
+        <tr>
+            <th>Script</th>
+            <th>Purpose</th>
+            <th>Impact</th>
+        </tr>
+        <tr>
+            <td>Tailwind CSS CDN</td>
+            <td>Styling framework</td>
+            <td class="warn">~300KB — should purge unused</td>
+        </tr>
+        <tr>
+            <td>Font Awesome CDN</td>
+            <td>Icon library</td>
+            <td class="warn">~100KB — subset to used icons</td>
+        </tr>
+        <tr>
+            <td>Chatbot Widget</td>
+            <td>AI Budtender demo (Jamie)</td>
+            <td class="good">Essential — keep</td>
+        </tr>
+        <tr>
+            <td>Counter Animation</td>
+            <td>Scroll-triggered number animations</td>
+            <td class="good">Lightweight — keep</td>
+        </tr>
     </table>
 </div>
 
@@ -349,25 +977,116 @@
 <div class="content local-seo">
     <h2>Local SEO & Target Keywords</h2>
 
-    <h3>NAP Consistency</h3>
+    <h3>NAP Consistency (Name, Address, Phone)</h3>
     <table>
-        <tr><th>Element</th><th>Status</th><th>Details</th></tr>
-        <tr><td>Business Phone</td><td class="good">Visible</td><td>(347) 749-8146 in footer</td></tr>
-        <tr><td>Email</td><td class="good">Visible</td><td>info@seamlessflow.ai</td></tr>
-        <tr><td>Service Areas</td><td class="good">Listed</td><td>NYC, Albany, Pittsburgh, Philadelphia, Richmond</td></tr>
-        <tr><td>Location Pages</td><td class="good">11 pages</td><td>Borough and city-specific landing pages</td></tr>
+        <tr>
+            <th>Element</th>
+            <th>On Website</th>
+            <th>On GBP</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Business Name</td>
+            <td>SeamlessFlow.ai</td>
+            <td>Seamlessflow.ai</td>
+            <td class="warn">Case difference</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>New York, NY, US</td>
+            <td>New York, NY, USA</td>
+            <td class="warn">No street address</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>+1-347-749-8146</td>
+            <td>+13477498146</td>
+            <td class="good">Consistent</td>
+        </tr>
+        <tr>
+            <td>Website URL</td>
+            <td>https://www.seamlessflow.ai/</td>
+            <td>https://www.seamlessflow.ai/</td>
+            <td class="good">Consistent</td>
+        </tr>
+        <tr>
+            <td>GBP Reviews</td>
+            <td>—</td>
+            <td>0 reviews, 0 rating</td>
+            <td class="bad">Critical</td>
+        </tr>
+        <tr>
+            <td>GBP Categories</td>
+            <td>—</td>
+            <td>Marketing agency, Service establishment</td>
+            <td class="warn">Too generic</td>
+        </tr>
+        <tr>
+            <td>Citations (Directories)</td>
+            <td>—</td>
+            <td>Not found on major sites</td>
+            <td class="bad">Zero citations</td>
+        </tr>
     </table>
+
+    <div class="issue">
+        <h4>No Street Address Listed <span class="tag tag-high">High</span></h4>
+        <p><strong>Impact:</strong> Google prioritizes businesses with verified physical addresses for local searches. "New York, NY" is too vague. If you work from home, use your home address or get a virtual office address.</p>
+        <div class="fix"><strong>Fix:</strong> Add a specific address to GBP. Options: home address (can hide from public), virtual office/mailbox service, or coworking space address.</div>
+    </div>
 
     <h3>Target Keywords</h3>
     <table>
-        <tr><th>Keyword</th><th>Intent</th><th>Priority</th></tr>
-        <tr><td>local SEO services NYC</td><td>Local</td><td><span class="tag tag-high">High</span></td></tr>
-        <tr><td>SEO for plumbers</td><td>Industry</td><td><span class="tag tag-high">High</span></td></tr>
-        <tr><td>HVAC SEO company</td><td>Industry</td><td><span class="tag tag-high">High</span></td></tr>
-        <tr><td>Google Business Profile optimization</td><td>Service</td><td><span class="tag tag-high">High</span></td></tr>
-        <tr><td>electrician marketing</td><td>Industry</td><td><span class="tag tag-med">Medium</span></td></tr>
-        <tr><td>roofing SEO services</td><td>Industry</td><td><span class="tag tag-med">Medium</span></td></tr>
-        <tr><td>Brooklyn SEO company</td><td>Local</td><td><span class="tag tag-med">Medium</span></td></tr>
+        <tr>
+            <th>Keyword</th>
+            <th>Intent</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>cannabis marketing agency NYC</td>
+            <td>Service + Location</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>dispensary SEO company</td>
+            <td>Service</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>dispensary SEO agency near me</td>
+            <td>Local intent</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>cannabis dispensary website design</td>
+            <td>Service</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>dispensary Google Maps ranking</td>
+            <td>Pain point</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>cannabis AI automation</td>
+            <td>Service</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>Metrc compliance automation</td>
+            <td>Niche service</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
+        <tr>
+            <td>dispensary marketing New York</td>
+            <td>Location + Service</td>
+            <td><span class="tag tag-high">High</span></td>
+        </tr>
+        <tr>
+            <td>AI budtender for dispensary</td>
+            <td>Product</td>
+            <td><span class="tag tag-med">Medium</span></td>
+        </tr>
     </table>
 </div>
 
@@ -377,37 +1096,41 @@
 
     <div class="two-col">
         <div>
-            <h3>Week 1: Security Fixes</h3>
+            <h3>Week 1: GBP & Citations (Most Critical)</h3>
             <ul class="checklist">
-                <li>Set up Cloudflare (free) for security headers</li>
-                <li>Configure CSP, HSTS, X-Frame-Options</li>
-                <li>Build Tailwind CSS locally, remove CDN</li>
-                <li>Add cookie consent banner</li>
+                <li>Get 5 Google reviews (friends, family, colleagues)</li>
+                <li>Optimize GBP: change category to "Internet marketing service"</li>
+                <li>Add specific address to GBP (virtual office if needed)</li>
+                <li>Post weekly on GBP (offers, updates, tips)</li>
+                <li>Submit to 10 directories: Yelp, Apple Maps, Bing Places, Yellow Pages, BBB</li>
             </ul>
 
-            <h3>Week 2: Schema Enhancement</h3>
+            <h3>Week 2: Analytics & Tracking</h3>
             <ul class="checklist">
-                <li>Add Organization schema to homepage</li>
-                <li>Add Service schema to service pages</li>
-                <li>Add FAQ schema to FAQ page</li>
-                <li>Add Article schema to blog posts</li>
+                <li>Install GA4 on all pages</li>
+                <li>Submit sitemap to Google Search Console</li>
+                <li>Set up conversion tracking (form submits, calls)</li>
+                <li>Add FAQPage schema to faq.html</li>
+                <li>Monitor indexing — request indexing for all key pages</li>
             </ul>
         </div>
         <div>
-            <h3>Week 3: Content Expansion</h3>
+            <h3>Week 3: Security & Performance</h3>
             <ul class="checklist">
-                <li>Create 2-3 detailed case study pages</li>
-                <li>Add FAQ sections to industry pages</li>
-                <li>Add more images/graphics to key pages</li>
-                <li>Add relevant outbound links</li>
+                <li>Add Cloudflare (free) for security headers + CDN</li>
+                <li>Purge unused Tailwind CSS (82KB → ~15KB)</li>
+                <li>Self-host Font Awesome (only used icons)</li>
+                <li>Add meta-tag security headers where possible</li>
+                <li>Submit to 10 more directories (total 20)</li>
             </ul>
 
-            <h3>Week 4: Monitoring</h3>
+            <h3>Week 4: Content & Authority</h3>
             <ul class="checklist">
-                <li>Set up Google Search Console alerts</li>
-                <li>Monitor Core Web Vitals</li>
-                <li>Check for new security vulnerabilities</li>
-                <li>Review analytics for content gaps</li>
+                <li>Publish 2 new blog posts (cannabis SEO topics)</li>
+                <li>Create a case study / sample audit page</li>
+                <li>Get 5 more Google reviews (target: 10 total)</li>
+                <li>Build 3-5 backlinks (guest posts, cannabis forums)</li>
+                <li>Share audit reports on social media for visibility</li>
             </ul>
         </div>
     </div>
@@ -415,16 +1138,17 @@
     <div class="summary">
         <h3>Top 3 Priorities</h3>
         <ol>
-            <li><strong>Add Security Headers via Cloudflare</strong> - Critical for protecting visitors and trust signals</li>
-            <li><strong>Compile Tailwind CSS Locally</strong> - Remove production warning, improve reliability</li>
-            <li><strong>Add Cookie Consent Banner</strong> - GDPR/CCPA compliance, avoid legal issues</li>
+            <li><strong>URGENT: Get Google Reviews</strong> — 0 reviews = invisible on Maps. Get 5 this week, 10 by month end. This is the single biggest thing holding you back.</li>
+            <li><strong>HIGH: Build Citations</strong> — Submit to 20 business directories with consistent NAP. Google needs third-party signals that your business exists.</li>
+            <li><strong>HIGH: Install GA4 + Search Console</strong> — You can't improve what you can't measure. Get tracking in place so you can see what's working.</li>
         </ol>
+        <p style="margin-top: 15px;">Your on-page SEO is solid. The website is well-built. The problem isn't your site — it's that Google doesn't trust you yet. Reviews, citations, and time will fix that.</p>
     </div>
 
     <div class="footer">
         <img src="https://seamlessflow.ai/assets/website%20homelogo.png" alt="SeamlessFlow" class="footer-logo">
         <p><a href="tel:+13477498146" style="color:#1a1a2e; text-decoration:none; font-weight:bold;">(347) 749-8146</a> | <a href="mailto:info@seamlessflow.ai" style="color:#1a1a2e; text-decoration:none;">info@seamlessflow.ai</a> | <a href="https://seamlessflow.ai" style="color:#1a1a2e; text-decoration:none;">seamlessflow.ai</a></p>
-        <p style="margin-top: 10px; font-size: 8pt; color: #999;">Audit generated December 31, 2025</p>
+        <p style="margin-top: 10px; font-size: 8pt; color: #999;">Audit generated February 9, 2026</p>
     </div>
 </div>
 
