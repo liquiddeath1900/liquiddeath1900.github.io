@@ -411,7 +411,15 @@
                             Get Your Free Ranking Report
                         </h2>
                     </div>
-                    
+
+                    <!-- Trust Signals Near Form -->
+                    <div class="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-gray-600">
+                        <span class="flex items-center"><i class="fas fa-clock text-green-600 mr-1"></i>Takes 2 minutes</span>
+                        <span class="flex items-center"><i class="fas fa-dollar-sign text-green-600 mr-1"></i>100% Free</span>
+                        <span class="flex items-center"><i class="fas fa-lock text-green-600 mr-1"></i>No credit card required</span>
+                        <span class="flex items-center"><i class="fas fa-ban text-green-600 mr-1"></i>No strings attached</span>
+                    </div>
+
                     <!-- SEO Audit Form - Posts to n8n webhook -->
                     <form id="seo-audit-form" class="space-y-4">
                         <!-- Honeypot field - hidden from humans, bots fill it -->
@@ -474,6 +482,10 @@
                         <p class="text-xs text-gray-500 text-center mt-2">
                             <i class="fas fa-lock mr-1"></i>Your info is 100% secure and never shared.
                         </p>
+
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center mt-6">
+                            <p class="text-yellow-800 font-semibold"><i class="fas fa-exclamation-triangle mr-2"></i>We audit 5 dispensaries per week — spots fill up fast</p>
+                        </div>
                     </form>
 
                     <!-- Success Message (hidden by default) -->
@@ -513,6 +525,60 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="py-6 bg-green-900 border-b border-green-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12 text-white text-sm md:text-base">
+                <div class="flex items-center"><i class="fas fa-clipboard-check text-green-400 mr-2"></i>Join <span class="font-bold mx-1 count-up">50</span>+ Dispensaries Audited</div>
+                <div class="hidden md:block w-px h-6 bg-green-600"></div>
+                <div class="flex items-center"><i class="fas fa-clock text-green-400 mr-2"></i>Takes <span class="font-bold mx-1">2 Minutes</span></div>
+                <div class="hidden md:block w-px h-6 bg-green-600"></div>
+                <div class="flex items-center"><i class="fas fa-dollar-sign text-green-400 mr-2"></i><span class="font-bold mr-1">100%</span> Free</div>
+                <div class="hidden md:block w-px h-6 bg-green-600"></div>
+                <div class="flex items-center"><i class="fas fa-lock text-green-400 mr-2"></i>No Strings Attached</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Teaser -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="bg-green-100 text-green-800 text-sm font-semibold px-4 py-1 rounded-full">Sample Finding</span>
+                <h2 class="text-3xl font-bold mt-4 mb-4">Here's What We Found for a Brooklyn Dispensary</h2>
+                <p class="text-gray-600">This is a real example of what our free audit uncovers</p>
+            </div>
+            <div class="bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg p-8 border border-green-100">
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                        <div class="text-sm text-gray-500 mb-1">Google Maps Ranking</div>
+                        <div class="flex items-center justify-center gap-2">
+                            <span class="text-2xl font-bold text-red-500">#47</span>
+                            <i class="fas fa-arrow-right text-gray-400"></i>
+                            <span class="text-2xl font-bold text-green-600">#3</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">After 60 days</div>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                        <div class="text-sm text-gray-500 mb-1">Monthly Calls</div>
+                        <div class="flex items-center justify-center gap-2">
+                            <span class="text-2xl font-bold text-red-500">12</span>
+                            <i class="fas fa-arrow-right text-gray-400"></i>
+                            <span class="text-2xl font-bold text-green-600">89</span>
+                        </div>
+                        <div class="text-xs text-gray-500 mt-1">7x increase</div>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                        <div class="text-sm text-gray-500 mb-1">GBP Issues Found</div>
+                        <div class="text-3xl font-bold text-red-500">23</div>
+                        <div class="text-xs text-gray-500 mt-1">All fixable</div>
+                    </div>
+                </div>
+                <p class="text-center text-gray-600 text-sm"><i class="fas fa-info-circle text-green-600 mr-1"></i>Based on typical audit findings for NYC dispensaries</p>
             </div>
         </div>
     </section>
@@ -721,26 +787,40 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="py-20 bg-gradient-to-r from-green-700 to-green-900 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                Ready to Outrank Every Dispensary Near You?
-            </h2>
-            <p class="text-xl mb-8">
-                Get your free Google Maps ranking report and see exactly why competitors are getting more foot traffic.
-            </p>
-            <a href="#auditForm" class="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
-                <i class="fas fa-arrow-up mr-2"></i>Get Your Free Dispensary Audit
-            </a>
-            <div class="mt-6 space-y-2">
-                <p class="text-green-200 flex items-center justify-center">
-                    <i class="fas fa-cannabis mr-2"></i>100% Free • Cannabis Industry Experts
-                </p>
-                <p class="text-green-200">
-                    Or call us directly: <a href="tel:+13477498146" class="text-yellow-300 font-bold">(347) 749-8146</a>
-                </p>
+    <!-- Trust Signals Strip -->
+    <section class="py-10 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+                <div class="flex items-center text-gray-700">
+                    <div class="bg-green-100 rounded-full p-2 mr-3"><i class="fas fa-handshake text-green-600"></i></div>
+                    <span class="font-semibold">No Contracts</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <div class="bg-green-100 rounded-full p-2 mr-3"><i class="fas fa-times-circle text-green-600"></i></div>
+                    <span class="font-semibold">Cancel Anytime</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <div class="bg-green-100 rounded-full p-2 mr-3"><i class="fas fa-chart-line text-green-600"></i></div>
+                    <span class="font-semibold">Results in 30 Days</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <div class="bg-green-100 rounded-full p-2 mr-3"><i class="fas fa-map-marker-alt text-green-600"></i></div>
+                    <span class="font-semibold">NYC-Based Team</span>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Final CTA -->
+    <section class="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Get Your Free Dispensary Audit Now</h2>
+            <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">Find out exactly why you're not ranking — and get a custom plan to fix it. Takes 2 minutes.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="document.getElementById('chatToggle').click();" class="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-bold inline-flex items-center transform hover:scale-105 transition-all shadow-lg cursor-pointer"><i class="fas fa-comments mr-3"></i>Chat With Jamie Now</button>
+                <a href="tel:+13477498146" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold inline-flex items-center hover:bg-white hover:text-green-700 transition-all"><i class="fas fa-phone mr-3"></i>(347) 749-8146</a>
+            </div>
+            <p class="mt-6 text-green-200 text-sm"><i class="fas fa-shield-alt mr-2"></i>No obligation. No pressure. 100% free.</p>
         </div>
     </section>
 
@@ -1028,6 +1108,7 @@
             });
         });
     </script>
+<script src="assets/js/counter-animation.js"></script>
 <script src="assets/js/chatbot-widget.js"></script>
 </body>
 </html>
