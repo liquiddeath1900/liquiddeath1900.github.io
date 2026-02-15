@@ -196,12 +196,22 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
                 <div class="flex items-center">
-                    <a href="index.html" class="flex items-center">
-                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10">
+                    <a href="index.html#home" class="flex items-center">
+                        <picture>
+                            <source srcset="assets/website-homelogo.webp" type="image/webp">
+                            <img src="assets/website homelogo.png"
+                                 alt="SeamlessFlow.ai"
+                                 class="h-8 sm:h-10"
+                                 width="280"
+                                 height="32"
+                                 fetchpriority="high"
+                                 decoding="async"
+                                 style="width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                        </picture>
                     </a>
                 </div>
                 <div class="hidden md:block">
@@ -258,9 +268,10 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
                 <div class="px-6 py-4 space-y-1">
-                    <a href="index.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-home mr-3 text-green-500"></i>Home
+                    <a href="index.html#home" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-home mr-3 text-blue-500"></i>Home
                     </a>
+                    
                     <!-- Services Collapsible -->
                     <div class="mobile-dropdown">
                         <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
@@ -282,31 +293,33 @@
                             </a>
                         </div>
                     </div>
+
                     <!-- Cannabis Solutions Direct Link -->
                     <a href="cannabis-industry-solutions.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
                         <i class="fas fa-cannabis mr-3 text-green-500"></i>Cannabis Solutions
                     </a>
+                    
                     <!-- Locations Collapsible -->
                     <div class="mobile-dropdown">
-                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
-                            <span><i class="fas fa-map-marked-alt mr-3 text-green-500"></i>Locations</span>
+                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                            <span><i class="fas fa-map-marked-alt mr-3 text-red-500"></i>Locations</span>
                             <i class="fas fa-chevron-right transition-transform duration-200"></i>
                         </button>
                         <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
                             <!-- New York State -->
                             <div class="mobile-dropdown">
-                                <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
-                                    <span><i class="fas fa-map-marker-alt mr-3 text-green-600"></i>New York</span>
+                                <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
+                                    <span><i class="fas fa-apple-alt mr-3 text-green-700"></i>New York</span>
                                     <i class="fas fa-chevron-right transition-transform duration-200"></i>
                                 </button>
                                 <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                                    <a href="manhattan-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Manhattan</a>
-                                    <a href="brooklyn-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Brooklyn</a>
-                                    <a href="queens-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Queens</a>
-                                    <a href="bronx-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Bronx</a>
-                                    <a href="albany-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Albany</a>
-                                    <a href="syracuse-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Syracuse</a>
-                                    <a href="rochester-seo.html" class="block text-gray-600 hover:text-green-600 hover:bg-green-50 py-1 px-4 rounded-lg transition-colors">Rochester</a>
+                                    <a href="manhattan-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Manhattan</a>
+                                    <a href="brooklyn-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Brooklyn</a>
+                                    <a href="queens-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Queens</a>
+                                    <a href="bronx-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Bronx</a>
+                                    <a href="albany-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Albany</a>
+                                    <a href="syracuse-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Syracuse</a>
+                                    <a href="rochester-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Rochester</a>
                                 </div>
                             </div>
                             <!-- Coming Soon States -->
@@ -321,11 +334,18 @@
                             </div>
                         </div>
                     </div>
-                    <a href="pricing.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-dollar-sign mr-3 text-green-500"></i>Pricing
+                    
+                    <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
                     </a>
-                    <a href="faq.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-question-circle mr-3 text-green-500"></i>FAQ
+                    <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    </a>
+                    <a href="index.html#results" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-cannabis mr-3 text-green-500"></i>Why Us
+                    </a>
+                    <a href="contract2.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
                     </a>
                     <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
                         <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
@@ -339,6 +359,7 @@
             </div>
         </div>
     </nav>
+
 
     <!-- Hero Section with Form -->
     <section class="hero-section pt-20">
@@ -826,17 +847,13 @@
 
     <!-- Footer -->
         <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+        <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
                 <div>
                     <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
                     <p class="text-gray-300 mb-4">Starting at $497/month - Cancel anytime</p>
                     <div class="space-y-2 text-sm">
-                        <div class="flex items-center text-green-400">
-                            <i class="fas fa-shield-alt mr-2"></i>
-                            <span>Cancel anytime</span>
-                        </div>
                         <div class="flex items-center text-green-400">
                             <i class="fas fa-handshake mr-2"></i>
                             <span>Cancel anytime</span>
@@ -858,18 +875,19 @@
                     <ul class="space-y-2 text-gray-300 text-sm">
                         <li><a href="local-seo.html" class="hover:text-white">Local SEO</a></li>
                         <li><a href="google-my-business-optimization.html" class="hover:text-white">GMB Optimization</a></li>
-                        <li><a href="seo-vs-paid-ads.html" class="hover:text-white">SEO vs Google Ads</a></li>
+                        <li><a href="cannabis-ai-automation.html" class="hover:text-white">Cannabis AI Automation</a></li>
                         <li><a href="website-development.html" class="hover:text-white">Website Development</a></li>
-                        <li><a href="marketing-automation.html" class="hover:text-white">Marketing Automation</a></li>
+                        <li><a href="marketing-automation.html" class="hover:text-white">AI Budtender</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-bold mb-4">Cannabis Resources</h4>
+                    <h4 class="font-bold mb-4">Resources</h4>
                     <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="cannabis-industry-solutions.html" class="hover:text-white">Cannabis SEO Solutions</a></li>
-                        <li><a href="local-seo.html" class="hover:text-white">Dispensary Local SEO</a></li>
-                        <li><a href="marketing-automation.html" class="hover:text-white">AI Budtender</a></li>
+                        <li><a href="blog.html" class="hover:text-white">Blog</a></li>
+                        <li><a href="#services" class="hover:text-white">Dispensary SEO Services</a></li>
+                        <li><a href="#why-us" class="hover:text-white">Why Choose Us</a></li>
+                        <li><a href="free-audit.html" class="hover:text-white">Free Dispensary Audit</a></li>
                         <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
                         <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
                     </ul>
@@ -877,7 +895,7 @@
 
                 <div>
                     <h4 class="font-bold mb-4">Service Areas</h4>
-                    <p class="text-xs text-gray-400 mb-2">Legal recreational cannabis states</p>
+                    <p class="text-xs text-gray-400 mb-2">Legal recreational cannabis states only</p>
                     <ul class="space-y-2 text-gray-300 text-sm">
                         <li><strong>NYC:</strong> Manhattan, Brooklyn, Queens, Bronx, Staten Island</li>
                         <li><strong>NY:</strong> Long Island, Westchester, Buffalo, Albany</li>
@@ -897,21 +915,21 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="border-t border-gray-700 pt-8 mt-8">
                 <div class="text-center text-gray-300 mb-4">
                     <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
                         <span class="flex items-center">
                             <i class="fas fa-cannabis mr-2 text-green-400"></i>
-                            NYC Cannabis SEO Experts
+                            NYC Cannabis Specialists
                         </span>
                         <span class="flex items-center">
-                            <i class="fas fa-chart-line mr-2 text-green-400"></i>
-                            Dispensary-Focused Marketing
+                            <i class="fas fa-map-marker-alt mr-2 text-green-400"></i>
+                            Local SEO Experts
                         </span>
                         <span class="flex items-center">
-                            <i class="fas fa-clock mr-2 text-yellow-400"></i>
-                            90-Day Results Guarantee
+                            <i class="fas fa-robot mr-2 text-purple-400"></i>
+                            AI-Powered Solutions
                         </span>
                     </div>
                 </div>
@@ -921,6 +939,7 @@
             </div>
         </div>
     </footer>
+
 
     <script>
         // Smooth scroll to form
@@ -1110,5 +1129,110 @@
     </script>
 <script src="assets/js/counter-animation.js"></script>
 <script src="assets/js/chatbot-widget.js"></script>
+        // Mobile menu toggle - Fixed for new CSS
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+                
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    // Close menu
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                } else if (mobileMenu) {
+                    // Open menu
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                }
+            });
+        }
+
+        // Mobile menu link clicks - close menu and scroll
+        document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu properly
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                
+                // Remove show class and active state
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                
+                // Scroll to section immediately
+                smoothScrollToSection(this.getAttribute('href'));
+            });
+        });
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+            }
+        });
+
+        // Mobile dropdown toggle functionality
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const dropdown = this.closest('.mobile-dropdown');
+                const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
+                const icon = this.querySelector('.fa-chevron-right');
+
+                // Toggle this dropdown
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+
+                    // Close all nested dropdowns
+                    content.querySelectorAll('.mobile-dropdown-content').forEach(nested => {
+                        nested.style.maxHeight = '0px';
+                    });
+                    content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => {
+                        nestedIcon.style.transform = 'rotate(0deg)';
+                    });
+                } else {
+                    // Calculate total height including nested content
+                    const calculateHeight = (element) => {
+                        let totalHeight = 0;
+                        Array.from(element.children).forEach(child => {
+                            totalHeight += child.offsetHeight;
+                            const nestedContent = child.querySelector('.mobile-dropdown-content');
+                            if (nestedContent && nestedContent.style.maxHeight && nestedContent.style.maxHeight !== '0px') {
+                                totalHeight += parseInt(nestedContent.style.maxHeight);
+                            }
+                        });
+                        return totalHeight;
+                    };
+
+                    content.style.maxHeight = calculateHeight(content) + 500 + 'px'; // Extra space for nested dropdowns
+                    if (icon) icon.style.transform = 'rotate(90deg)';
+
+                    // Update parent dropdown heights when nested dropdowns open
+                    const updateParentHeights = () => {
+                        let parent = dropdown.closest('.mobile-dropdown-content');
+                        while (parent) {
+                            const parentDropdown = parent.closest('.mobile-dropdown');
+                            if (parentDropdown) {
+                                parent.style.maxHeight = calculateHeight(parent) + 500 + 'px';
+                                parent = parentDropdown.closest('.mobile-dropdown-content');
+                            } else {
+                                break;
+                            }
+                        }
+                    };
+                    updateParentHeights();
+                }
+            });
+        });
+
 </body>
 </html>
