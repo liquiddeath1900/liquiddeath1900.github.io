@@ -669,7 +669,7 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+// Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburger = this;
@@ -738,42 +738,6 @@
         });
     </script>
 <script src="assets/js/chatbot-widget.js"></script>
-        // Mobile menu toggle - Fixed for new CSS
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburger = this;
-                
-                if (mobileMenu && mobileMenu.classList.contains('show')) {
-                    // Close menu
-                    mobileMenu.classList.remove('show');
-                    hamburger.classList.remove('active');
-                } else if (mobileMenu) {
-                    // Open menu
-                    mobileMenu.classList.add('show');
-                    hamburger.classList.add('active');
-                }
-            });
-        }
-
-        // Mobile menu link clicks - close menu and scroll
-        document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Close mobile menu properly
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburger = document.getElementById('mobile-menu-button');
-                
-                // Remove show class and active state
-                if (mobileMenu) mobileMenu.classList.remove('show');
-                if (hamburger) hamburger.classList.remove('active');
-                
-                // Scroll to section immediately
-                smoothScrollToSection(this.getAttribute('href'));
-            });
-        });
 
         // Hide mobile menu when clicking outside
         document.addEventListener('click', function(e) {
@@ -841,7 +805,8 @@
                     updateParentHeights();
                 }
             });
-        });
+</script>
+ });
 
 </body>
 </html>
