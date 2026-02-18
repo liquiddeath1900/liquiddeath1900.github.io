@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Dashboard | SeamlessFlow.ai</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <style>
+        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 50; }
+        #mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); z-index: 50; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: all 0.3s ease-out; }
+        #mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
+        .hamburger { cursor: pointer; width: 28px; height: 24px; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
+        .hamburger span { display: block; height: 3px; width: 100%; background: #374151; border-radius: 3px; transition: all 0.3s cubic-bezier(0.645,0.045,0.355,1); }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg); position: absolute; }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg); position: absolute; }
+        .score-card { transition: transform 0.2s; }
+        .score-card:hover { transform: translateY(-2px); }
+        .delta-up { color: #059669; }
+        .delta-down { color: #dc2626; }
+        .delta-stable { color: #6b7280; }
+        #auth-gate { backdrop-filter: blur(8px); }
+    </style>
+</head>
+<body class="bg-gray-50 pt-16">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <picture>
+                        <source srcset="assets/website-homelogo.webp" type="image/webp">
+                        <img src="assets/website homelogo.png" alt="SeamlessFlow.ai" class="h-8 sm:h-10" width="280" height="32" style="width: auto; object-fit: contain;">
+                    </picture>
+                </a>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                    <a href="index.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Home</a>
+                    <a href="dashboard.html" class="text-green-600 font-semibold px-3 py-2">Dashboard</a>
+                    <a href="contract2.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">Contact</a>
+                </div>
+            </div>
+            <div class="md:hidden absolute right-4">
+                <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+            <div class="px-6 py-4 space-y-1">
+                <a href="index.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium"><i class="fas fa-home mr-3 text-blue-500"></i>Home</a>
+                <a href="dashboard.html" class="block text-green-600 bg-green-50 py-3 px-4 rounded-lg font-medium"><i class="fas fa-chart-line mr-3 text-green-500"></i>Dashboard</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Auth Gate -->
+<div id="auth-gate" class="fixed inset-0 bg-gray-900/80 z-[100] flex items-center justify-center">
+    <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl">
+        <div class="text-center mb-6">
+            <i class="fas fa-lock text-4xl text-green-600 mb-3"></i>
+            <h2 class="text-xl font-bold text-gray-900">SEO Dashboard</h2>
+            <p class="text-gray-500 text-sm mt-1">Internal access only</p>
+        </div>
+        <form id="auth-form">
+            <input type="password" id="auth-password" placeholder="Enter access code"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
+            <button type="submit" class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                Access Dashboard
+            </button>
+            <p id="auth-error" class="text-red-500 text-sm text-center mt-2 hidden">Invalid access code</p>
+        </form>
+    </div>
+</div>
+
+<!-- Dashboard Content -->
+<div id="dashboard-content" class="hidden">
+
+    <!-- Header -->
+    <section class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900"><i class="fas fa-chart-line text-green-600 mr-2"></i>SEO Performance Dashboard</h1>
+                    <p class="text-gray-500 mt-1">seamlessflow.ai — Weekly tracking</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="flex bg-gray-100 rounded-lg p-1 text-sm" id="range-selector">
+                        <button onclick="setRange(7)" class="range-btn px-3 py-1 rounded-md text-gray-600 hover:bg-white">7D</button>
+                        <button onclick="setRange(30)" class="range-btn px-3 py-1 rounded-md text-gray-600 hover:bg-white">30D</button>
+                        <button onclick="setRange(90)" class="range-btn px-3 py-1 rounded-md text-gray-600 hover:bg-white">90D</button>
+                        <button onclick="setRange(365)" class="range-btn px-3 py-1 rounded-md bg-white text-gray-900 font-semibold shadow-sm">1Y</button>
+                    </div>
+                    <span id="last-audit-date" class="text-sm text-gray-500"></span>
+                    <span id="trend-badge" class="px-3 py-1 rounded-full text-sm font-semibold"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Score Cards -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Overall</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1" id="score-overall">--</p>
+                    <p class="text-sm mt-1" id="delta-overall"></p>
+                </div>
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Technical</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1" id="score-technical">--</p>
+                    <p class="text-sm mt-1" id="delta-technical"></p>
+                </div>
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Speed</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1" id="score-speed">--</p>
+                    <p class="text-sm mt-1" id="delta-speed"></p>
+                </div>
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Mobile</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1" id="score-mobile">--</p>
+                    <p class="text-sm mt-1" id="delta-mobile"></p>
+                </div>
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">On-Page</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1" id="score-onpage">--</p>
+                    <p class="text-sm mt-1" id="delta-onpage"></p>
+                </div>
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Security</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1" id="score-security">--</p>
+                    <p class="text-sm mt-1" id="delta-security"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Score Trends -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4"><i class="fas fa-chart-area text-green-600 mr-2"></i>Score Trends (12 Weeks)</h3>
+                    <canvas id="scores-chart" height="250"></canvas>
+                </div>
+                <!-- Core Web Vitals -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4"><i class="fas fa-tachometer-alt text-blue-600 mr-2"></i>Core Web Vitals</h3>
+                    <canvas id="cwv-chart" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights + Google Updates -->
+    <section class="pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Latest Insights -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Latest Insights</h3>
+                    <div id="insights-container">
+                        <p class="text-gray-400 text-sm">Loading...</p>
+                    </div>
+                </div>
+                <!-- Google Updates Timeline -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4"><i class="fab fa-google text-red-500 mr-2"></i>Google Algorithm Updates</h3>
+                    <div id="updates-container">
+                        <p class="text-gray-400 text-sm">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 SeamlessFlow.ai — Internal Dashboard</p>
+    </div>
+</footer>
+
+<script>
+// Config
+const SUPABASE_URL = 'https://ytwfjflhgengnxgfzghz.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0d2ZqZmxoZ2VuZ254Z2Z6Z2h6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4MzQ2OTgsImV4cCI6MjA4MTQxMDY5OH0.2hYFyS6eZjKxfnAAyfjZ4wUKRor6T9K_dB4jdIs81y8';
+const ACCESS_CODE = 'seamless2026';
+let currentRange = 365; // Default: 1 year
+let scoresChart = null;
+let cwvChart = null;
+
+// Auth
+const authGate = document.getElementById('auth-gate');
+const dashContent = document.getElementById('dashboard-content');
+const authForm = document.getElementById('auth-form');
+const authError = document.getElementById('auth-error');
+
+if (localStorage.getItem('sf_dash_auth') === 'true') {
+    authGate.classList.add('hidden');
+    dashContent.classList.remove('hidden');
+    loadDashboard();
+}
+
+authForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const pw = document.getElementById('auth-password').value;
+    if (pw === ACCESS_CODE) {
+        localStorage.setItem('sf_dash_auth', 'true');
+        authGate.classList.add('hidden');
+        dashContent.classList.remove('hidden');
+        loadDashboard();
+    } else {
+        authError.classList.remove('hidden');
+    }
+});
+
+// Supabase helper
+async function query(table, params = '') {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
+        headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+    });
+    return res.json();
+}
+
+// Delta display helper
+function deltaHTML(val) {
+    if (val == null) return '';
+    const cls = val > 0 ? 'delta-up' : val < 0 ? 'delta-down' : 'delta-stable';
+    const arrow = val > 0 ? '&#9650;' : val < 0 ? '&#9660;' : '&#9654;';
+    const sign = val > 0 ? '+' : '';
+    return `<span class="${cls}">${arrow} ${sign}${val}</span>`;
+}
+
+function setRange(days) {
+    currentRange = days;
+    // Update active button
+    document.querySelectorAll('.range-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-gray-900', 'font-semibold', 'shadow-sm');
+        btn.classList.add('text-gray-600');
+    });
+    event.target.classList.add('bg-white', 'text-gray-900', 'font-semibold', 'shadow-sm');
+    event.target.classList.remove('text-gray-600');
+    loadDashboard();
+}
+
+async function loadDashboard() {
+    // Calculate date range
+    const sinceDate = new Date(Date.now() - currentRange * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    const limit = currentRange <= 7 ? 7 : currentRange <= 30 ? 30 : currentRange <= 90 ? 13 : 52;
+
+    // Fetch audits within range
+    const audits = await query('audit_history',
+        `domain=eq.seamlessflow.ai&audit_date=gte.${sinceDate}&order=audit_date.desc&limit=${limit}`);
+
+    // Fetch latest insights
+    const insights = await query('weekly_insights',
+        'domain=eq.seamlessflow.ai&order=week_start.desc&limit=1');
+
+    // Fetch recent Google updates
+    const updates = await query('google_updates',
+        'order=detected_date.desc&limit=10');
+
+    // Populate score cards
+    if (audits.length > 0) {
+        const latest = audits[0];
+        const prev = audits.length > 1 ? audits[1] : null;
+
+        document.getElementById('score-overall').textContent = latest.overall_score || '--';
+        document.getElementById('score-technical').textContent = latest.technical_score || '--';
+        document.getElementById('score-speed').textContent = latest.speed_score || '--';
+        document.getElementById('score-mobile').textContent = latest.mobile_score || '--';
+        document.getElementById('score-onpage').textContent = latest.onpage_score || '--';
+        document.getElementById('score-security').textContent = latest.security_score || '--';
+
+        if (prev) {
+            document.getElementById('delta-overall').innerHTML = deltaHTML((latest.overall_score||0) - (prev.overall_score||0));
+            document.getElementById('delta-technical').innerHTML = deltaHTML((latest.technical_score||0) - (prev.technical_score||0));
+            document.getElementById('delta-speed').innerHTML = deltaHTML((latest.speed_score||0) - (prev.speed_score||0));
+            document.getElementById('delta-mobile').innerHTML = deltaHTML((latest.mobile_score||0) - (prev.mobile_score||0));
+            document.getElementById('delta-onpage').innerHTML = deltaHTML((latest.onpage_score||0) - (prev.onpage_score||0));
+            document.getElementById('delta-security').innerHTML = deltaHTML((latest.security_score||0) - (prev.security_score||0));
+        }
+
+        document.getElementById('last-audit-date').textContent = `Last audit: ${latest.audit_date}`;
+
+        const overallDelta = prev ? (latest.overall_score||0) - (prev.overall_score||0) : 0;
+        const badge = document.getElementById('trend-badge');
+        if (overallDelta > 2) {
+            badge.textContent = 'Trending Up';
+            badge.className = 'px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-700';
+        } else if (overallDelta < -2) {
+            badge.textContent = 'Trending Down';
+            badge.className = 'px-3 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-700';
+        } else {
+            badge.textContent = 'Stable';
+            badge.className = 'px-3 py-1 rounded-full text-sm font-semibold bg-gray-100 text-gray-700';
+        }
+    }
+
+    // Score trends chart
+    if (audits.length > 0) {
+        const reversed = [...audits].reverse();
+        const labels = reversed.map(a => {
+            const d = new Date(a.audit_date);
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        });
+
+        // Destroy existing charts before rebuilding
+        if (scoresChart) scoresChart.destroy();
+        if (cwvChart) cwvChart.destroy();
+
+        scoresChart = new Chart(document.getElementById('scores-chart'), {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [
+                    { label: 'Overall', data: reversed.map(a => a.overall_score), borderColor: '#059669', backgroundColor: 'rgba(5,150,105,0.1)', fill: true, tension: 0.3 },
+                    { label: 'Technical', data: reversed.map(a => a.technical_score), borderColor: '#2563eb', tension: 0.3 },
+                    { label: 'Speed', data: reversed.map(a => a.speed_score), borderColor: '#f59e0b', tension: 0.3 },
+                    { label: 'Mobile', data: reversed.map(a => a.mobile_score), borderColor: '#8b5cf6', tension: 0.3 }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { min: 0, max: 100, ticks: { stepSize: 20 } } }
+            }
+        });
+
+        // CWV chart
+        cwvChart = new Chart(document.getElementById('cwv-chart'), {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [
+                    { label: 'LCP (ms)', data: reversed.map(a => a.lcp_ms), borderColor: '#dc2626', tension: 0.3, yAxisID: 'y' },
+                    { label: 'FCP (ms)', data: reversed.map(a => a.fcp_ms), borderColor: '#f59e0b', tension: 0.3, yAxisID: 'y' },
+                    { label: 'TTFB (ms)', data: reversed.map(a => a.ttfb_ms), borderColor: '#2563eb', tension: 0.3, yAxisID: 'y' },
+                    { label: 'CLS', data: reversed.map(a => a.cls), borderColor: '#8b5cf6', tension: 0.3, yAxisID: 'y1' }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } },
+                scales: {
+                    y: { type: 'linear', position: 'left', title: { display: true, text: 'ms' } },
+                    y1: { type: 'linear', position: 'right', title: { display: true, text: 'CLS' }, min: 0, max: 0.5, grid: { drawOnChartArea: false } }
+                }
+            }
+        });
+    }
+
+    // Insights
+    const insightsContainer = document.getElementById('insights-container');
+    if (insights.length > 0) {
+        const i = insights[0];
+        let html = '';
+
+        if (i.top_wins && i.top_wins.length) {
+            html += '<div class="mb-4"><p class="text-xs uppercase tracking-wide text-green-600 font-semibold mb-2"><i class="fas fa-trophy mr-1"></i>Wins</p>';
+            i.top_wins.forEach(w => html += `<p class="text-sm text-gray-700 ml-4 mb-1">&#8226; ${w}</p>`);
+            html += '</div>';
+        }
+        if (i.critical_issues && i.critical_issues.length) {
+            html += '<div class="mb-4"><p class="text-xs uppercase tracking-wide text-red-600 font-semibold mb-2"><i class="fas fa-exclamation-triangle mr-1"></i>Issues</p>';
+            i.critical_issues.forEach(w => html += `<p class="text-sm text-gray-700 ml-4 mb-1">&#8226; ${w}</p>`);
+            html += '</div>';
+        }
+        if (i.recommended_tactics && i.recommended_tactics.length) {
+            html += '<div><p class="text-xs uppercase tracking-wide text-blue-600 font-semibold mb-2"><i class="fas fa-bullseye mr-1"></i>Recommended Tactics</p>';
+            i.recommended_tactics.forEach(w => html += `<p class="text-sm text-gray-700 ml-4 mb-1">&#8226; ${w}</p>`);
+            html += '</div>';
+        }
+
+        insightsContainer.innerHTML = html || '<p class="text-gray-400 text-sm">No insights yet. Run your first weekly audit.</p>';
+    } else {
+        insightsContainer.innerHTML = '<p class="text-gray-400 text-sm">No insights yet. Run your first weekly audit to see recommendations here.</p>';
+    }
+
+    // Google Updates
+    const updatesContainer = document.getElementById('updates-container');
+    if (updates.length > 0) {
+        let html = '<div class="space-y-3">';
+        updates.forEach(u => {
+            const date = new Date(u.detected_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            const severityClass = u.severity === 'major' ? 'bg-red-100 text-red-700' : u.severity === 'minor' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-600';
+            const typeIcon = u.update_type === 'core' ? 'fa-atom' : u.update_type === 'spam' ? 'fa-ban' : u.update_type === 'local' ? 'fa-map-marker-alt' : 'fa-info-circle';
+            html += `<div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50">
+                <div class="text-xs text-gray-400 whitespace-nowrap mt-1">${date}</div>
+                <div class="flex-1">
+                    <a href="${u.url || '#'}" target="_blank" class="text-sm font-medium text-gray-900 hover:text-green-600">${u.title}</a>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-xs ${severityClass} px-2 py-0.5 rounded-full"><i class="fas ${typeIcon} mr-1"></i>${u.update_type || 'update'}</span>
+                        <span class="text-xs text-gray-400">${u.source || ''}</span>
+                    </div>
+                </div>
+            </div>`;
+        });
+        html += '</div>';
+        updatesContainer.innerHTML = html;
+    } else {
+        updatesContainer.innerHTML = '<p class="text-gray-400 text-sm">No Google updates detected yet. The monitor checks daily.</p>';
+    }
+}
+
+// Mobile menu
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+if (mobileMenuButton) {
+    mobileMenuButton.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const open = mobileMenu.classList.contains('show');
+        mobileMenu.classList.toggle('show', !open);
+        this.classList.toggle('active', !open);
+    });
+}
+</script>
+</body>
+</html>
