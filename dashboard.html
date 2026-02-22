@@ -23,6 +23,18 @@
         .delta-down { color: #dc2626; }
         .delta-stable { color: #6b7280; }
         #auth-gate { backdrop-filter: blur(8px); }
+        .change-implemented { border-left: 3px solid #6b7280; }
+        .change-measured-positive { border-left: 3px solid #059669; }
+        .change-measured-negative { border-left: 3px solid #dc2626; }
+        .category-badge { font-size: 0.65rem; padding: 2px 8px; border-radius: 9999px; font-weight: 600; text-transform: uppercase; }
+        .cat-seo { background: #dcfce7; color: #166534; }
+        .cat-technical { background: #dbeafe; color: #1e40af; }
+        .cat-content { background: #fef3c7; color: #92400e; }
+        .cat-local { background: #e0e7ff; color: #3730a3; }
+        .cat-speed { background: #fce7f3; color: #9d174d; }
+        .rank-good { color: #059669; font-weight: 700; }
+        .rank-ok { color: #d97706; font-weight: 700; }
+        .rank-bad { color: #dc2626; font-weight: 700; }
     </style>
 </head>
 <body class="bg-gray-50 pt-16">
@@ -161,6 +173,109 @@
         </div>
     </section>
 
+    <!-- Local Search Visibility -->
+    <section class="pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-lg font-bold text-gray-900 mb-4"><i class="fas fa-map-marker-alt text-indigo-600 mr-2"></i>Local Search Visibility</h2>
+            <div id="local-no-data" class="hidden bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
+                <i class="fas fa-satellite-dish text-4xl text-gray-300 mb-3"></i>
+                <p class="text-gray-400">No Local Falcon scans yet. Run your first scan to see grid rankings here.</p>
+            </div>
+            <div id="local-data" class="hidden">
+                <!-- Summary cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Avg Rank</p>
+                        <p class="text-3xl font-bold mt-1" id="local-avg-rank">--</p>
+                        <p class="text-sm mt-1" id="local-avg-delta"></p>
+                    </div>
+                    <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Top 3 %</p>
+                        <p class="text-3xl font-bold text-green-600 mt-1" id="local-top3">--</p>
+                        <p class="text-sm mt-1" id="local-top3-delta"></p>
+                    </div>
+                    <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Top 10 %</p>
+                        <p class="text-3xl font-bold text-blue-600 mt-1" id="local-top10">--</p>
+                        <p class="text-sm mt-1" id="local-top10-delta"></p>
+                    </div>
+                    <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Keywords Tracked</p>
+                        <p class="text-3xl font-bold text-gray-900 mt-1" id="local-keywords-count">0</p>
+                    </div>
+                </div>
+                <!-- Keyword breakdown -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4">Keyword Rankings</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-200">
+                                    <th class="text-left py-2 text-gray-500 font-medium">Keyword</th>
+                                    <th class="text-left py-2 text-gray-500 font-medium">Location</th>
+                                    <th class="text-right py-2 text-gray-500 font-medium">Avg Rank</th>
+                                    <th class="text-right py-2 text-gray-500 font-medium">Top 3</th>
+                                    <th class="text-right py-2 text-gray-500 font-medium">Top 10</th>
+                                    <th class="text-right py-2 text-gray-500 font-medium">Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody id="local-keywords-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Changes Log -->
+    <section class="pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-lg font-bold text-gray-900 mb-4"><i class="fas fa-clipboard-list text-orange-500 mr-2"></i>Changes Log — Implement &rarr; Measure &rarr; Iterate</h2>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div id="changes-container">
+                    <p class="text-gray-400 text-sm">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funnel Metrics -->
+    <section class="pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-lg font-bold text-gray-900 mb-4"><i class="fas fa-funnel-dollar text-purple-600 mr-2"></i>Funnel Metrics</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Total Leads</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1" id="funnel-total">0</p>
+                </div>
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Qualified</p>
+                    <p class="text-3xl font-bold text-green-600 mt-1" id="funnel-qualified">0</p>
+                </div>
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Wants Call</p>
+                    <p class="text-3xl font-bold text-blue-600 mt-1" id="funnel-calls">0</p>
+                </div>
+                <div class="score-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <p class="text-xs text-gray-500 uppercase tracking-wide">Qualification Rate</p>
+                    <p class="text-3xl font-bold text-purple-600 mt-1" id="funnel-rate">0%</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4">Leads by Week</h3>
+                    <canvas id="leads-chart" height="200"></canvas>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4">Top Traffic Sources</h3>
+                    <div id="sources-container">
+                        <p class="text-gray-400 text-sm">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Insights + Google Updates -->
     <section class="pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -188,7 +303,7 @@
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p class="text-gray-400 text-sm">&copy; 2025 SeamlessFlow.ai — Internal Dashboard</p>
+        <p class="text-gray-400 text-sm">&copy; 2026 SeamlessFlow.ai — Internal Dashboard</p>
     </div>
 </footer>
 
@@ -260,17 +375,15 @@ async function loadDashboard() {
     const sinceDate = new Date(Date.now() - currentRange * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
     const limit = currentRange <= 7 ? 7 : currentRange <= 30 ? 30 : currentRange <= 90 ? 13 : 52;
 
-    // Fetch audits within range
-    const audits = await query('audit_history',
-        `domain=eq.seamlessflow.ai&audit_date=gte.${sinceDate}&order=audit_date.desc&limit=${limit}`);
-
-    // Fetch latest insights
-    const insights = await query('weekly_insights',
-        'domain=eq.seamlessflow.ai&order=week_start.desc&limit=1');
-
-    // Fetch recent Google updates
-    const updates = await query('google_updates',
-        'order=detected_date.desc&limit=10');
+    // Fetch all data in parallel
+    const [audits, insights, updates, localRankings, changes, leads] = await Promise.all([
+        query('audit_history', `domain=eq.seamlessflow.ai&audit_date=gte.${sinceDate}&order=audit_date.desc&limit=${limit}`),
+        query('weekly_insights', 'domain=eq.seamlessflow.ai&order=week_start.desc&limit=1'),
+        query('google_updates', 'order=detected_date.desc&limit=10'),
+        query('local_rankings', `domain=eq.seamlessflow.ai&order=scan_date.desc&limit=50`),
+        query('changes_log', `domain=eq.seamlessflow.ai&order=change_date.desc&limit=20`),
+        query('chatbot_leads', 'order=created_at.desc&limit=200')
+    ]);
 
     // Populate score cards
     if (audits.length > 0) {
@@ -362,6 +475,15 @@ async function loadDashboard() {
         });
     }
 
+    // === Local Search Visibility ===
+    renderLocalRankings(localRankings);
+
+    // === Changes Log ===
+    renderChangesLog(changes);
+
+    // === Funnel Metrics ===
+    renderFunnel(leads);
+
     // Insights
     const insightsContainer = document.getElementById('insights-container');
     if (insights.length > 0) {
@@ -412,6 +534,195 @@ async function loadDashboard() {
         updatesContainer.innerHTML = html;
     } else {
         updatesContainer.innerHTML = '<p class="text-gray-400 text-sm">No Google updates detected yet. The monitor checks daily.</p>';
+    }
+}
+
+// === Render: Local Rankings ===
+let leadsChart = null;
+function renderLocalRankings(data) {
+    const noData = document.getElementById('local-no-data');
+    const hasData = document.getElementById('local-data');
+    if (!data || data.length === 0) {
+        noData.classList.remove('hidden');
+        hasData.classList.add('hidden');
+        return;
+    }
+    noData.classList.add('hidden');
+    hasData.classList.remove('hidden');
+
+    // Get latest scan per keyword
+    const latestByKeyword = {};
+    const prevByKeyword = {};
+    data.forEach(r => {
+        if (!latestByKeyword[r.keyword]) {
+            latestByKeyword[r.keyword] = r;
+        } else if (!prevByKeyword[r.keyword]) {
+            prevByKeyword[r.keyword] = r;
+        }
+    });
+
+    const keywords = Object.keys(latestByKeyword);
+    const avgRanks = keywords.map(k => latestByKeyword[k].avg_rank).filter(v => v != null);
+    const top3s = keywords.map(k => latestByKeyword[k].top_3_pct).filter(v => v != null);
+    const top10s = keywords.map(k => latestByKeyword[k].top_10_pct).filter(v => v != null);
+
+    const overallAvg = avgRanks.length ? (avgRanks.reduce((a,b) => a + parseFloat(b), 0) / avgRanks.length).toFixed(1) : '--';
+    const overallTop3 = top3s.length ? (top3s.reduce((a,b) => a + parseFloat(b), 0) / top3s.length).toFixed(0) : '--';
+    const overallTop10 = top10s.length ? (top10s.reduce((a,b) => a + parseFloat(b), 0) / top10s.length).toFixed(0) : '--';
+
+    const rankEl = document.getElementById('local-avg-rank');
+    rankEl.textContent = overallAvg;
+    rankEl.className = 'text-3xl font-bold mt-1 ' + (overallAvg <= 3 ? 'rank-good' : overallAvg <= 10 ? 'rank-ok' : 'rank-bad');
+    document.getElementById('local-top3').textContent = overallTop3 + '%';
+    document.getElementById('local-top10').textContent = overallTop10 + '%';
+    document.getElementById('local-keywords-count').textContent = keywords.length;
+
+    // Deltas
+    const prevAvgs = keywords.map(k => prevByKeyword[k]?.avg_rank).filter(v => v != null);
+    if (prevAvgs.length && avgRanks.length) {
+        const prevOverall = prevAvgs.reduce((a,b) => a + parseFloat(b), 0) / prevAvgs.length;
+        const delta = (prevOverall - parseFloat(overallAvg)).toFixed(1); // lower rank is better, so invert
+        document.getElementById('local-avg-delta').innerHTML = deltaHTML(parseFloat(delta));
+    }
+
+    // Keyword table
+    const tbody = document.getElementById('local-keywords-table');
+    let rows = '';
+    keywords.forEach(k => {
+        const r = latestByKeyword[k];
+        const p = prevByKeyword[k];
+        const rankClass = r.avg_rank <= 3 ? 'rank-good' : r.avg_rank <= 10 ? 'rank-ok' : 'rank-bad';
+        let trend = '';
+        if (p && p.avg_rank != null && r.avg_rank != null) {
+            const d = parseFloat(p.avg_rank) - parseFloat(r.avg_rank);
+            trend = deltaHTML(parseFloat(d.toFixed(1)));
+        }
+        rows += `<tr class="border-b border-gray-100">
+            <td class="py-2 font-medium text-gray-900">${r.keyword}</td>
+            <td class="py-2 text-gray-500">${r.location}</td>
+            <td class="py-2 text-right ${rankClass}">${parseFloat(r.avg_rank).toFixed(1)}</td>
+            <td class="py-2 text-right">${r.top_3_pct != null ? r.top_3_pct + '%' : '--'}</td>
+            <td class="py-2 text-right">${r.top_10_pct != null ? r.top_10_pct + '%' : '--'}</td>
+            <td class="py-2 text-right">${trend}</td>
+        </tr>`;
+    });
+    tbody.innerHTML = rows;
+}
+
+// === Render: Changes Log ===
+function renderChangesLog(changes) {
+    const container = document.getElementById('changes-container');
+    if (!changes || changes.length === 0) {
+        container.innerHTML = '<p class="text-gray-400 text-sm">No changes logged yet. Start tracking what you implement!</p>';
+        return;
+    }
+    let html = '<div class="space-y-3">';
+    changes.forEach(c => {
+        const date = new Date(c.change_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const catClass = 'cat-' + (c.category || 'seo');
+        const borderClass = c.actual_impact
+            ? (c.actual_impact.toLowerCase().includes('positive') || c.actual_impact.includes('+') ? 'change-measured-positive' : 'change-measured-negative')
+            : 'change-implemented';
+        html += `<div class="p-3 rounded-lg bg-gray-50 ${borderClass}">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs text-gray-400">${date}</span>
+                <span class="category-badge ${catClass}">${c.category}</span>
+                ${c.status === 'measured' ? '<span class="category-badge bg-green-100 text-green-700">measured</span>' : ''}
+            </div>
+            <p class="text-sm font-medium text-gray-900">${c.description}</p>
+            ${c.expected_impact ? `<p class="text-xs text-gray-500 mt-1"><i class="fas fa-bullseye mr-1"></i>Expected: ${c.expected_impact}</p>` : ''}
+            ${c.actual_impact ? `<p class="text-xs mt-1 font-semibold ${borderClass === 'change-measured-positive' ? 'text-green-600' : 'text-red-600'}"><i class="fas fa-chart-line mr-1"></i>Actual: ${c.actual_impact}</p>` : ''}
+        </div>`;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// === Render: Funnel Metrics ===
+function renderFunnel(leads) {
+    const total = leads ? leads.length : 0;
+    const qualified = leads ? leads.filter(l => l.qualified).length : 0;
+    const wantsCalls = leads ? leads.filter(l => l.wants_call).length : 0;
+    const rate = total > 0 ? Math.round((qualified / total) * 100) : 0;
+
+    document.getElementById('funnel-total').textContent = total;
+    document.getElementById('funnel-qualified').textContent = qualified;
+    document.getElementById('funnel-calls').textContent = wantsCalls;
+    document.getElementById('funnel-rate').textContent = rate + '%';
+
+    // Leads by week chart
+    if (leads && leads.length > 0) {
+        const weekBuckets = {};
+        leads.forEach(l => {
+            const d = new Date(l.created_at);
+            const weekStart = new Date(d);
+            weekStart.setDate(d.getDate() - d.getDay());
+            const key = weekStart.toISOString().split('T')[0];
+            if (!weekBuckets[key]) weekBuckets[key] = { total: 0, qualified: 0 };
+            weekBuckets[key].total++;
+            if (l.qualified) weekBuckets[key].qualified++;
+        });
+
+        const sortedWeeks = Object.keys(weekBuckets).sort();
+        const labels = sortedWeeks.map(w => {
+            const d = new Date(w);
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        });
+
+        if (leadsChart) leadsChart.destroy();
+        leadsChart = new Chart(document.getElementById('leads-chart'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [
+                    { label: 'Total Leads', data: sortedWeeks.map(w => weekBuckets[w].total), backgroundColor: 'rgba(147,51,234,0.2)', borderColor: '#9333ea', borderWidth: 1 },
+                    { label: 'Qualified', data: sortedWeeks.map(w => weekBuckets[w].qualified), backgroundColor: 'rgba(5,150,105,0.3)', borderColor: '#059669', borderWidth: 1 }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+            }
+        });
+    }
+
+    // Traffic sources
+    const sourcesContainer = document.getElementById('sources-container');
+    if (leads && leads.length > 0) {
+        const sources = {};
+        leads.forEach(l => {
+            const src = l.source || l.page_url || 'Direct';
+            // Simplify source names
+            let label = 'Direct';
+            if (src.includes('chatbot') || src.includes('voiceflow')) label = 'Chatbot';
+            else if (src.includes('google') || src.includes('organic')) label = 'Organic Search';
+            else if (src.includes('instagram') || src.includes('ig')) label = 'Instagram';
+            else if (src.includes('facebook') || src.includes('fb')) label = 'Facebook';
+            else if (src.includes('linkedin')) label = 'LinkedIn';
+            else if (src.includes('contract') || src.includes('form')) label = 'Contact Form';
+            else if (src !== 'Direct') label = src;
+            sources[label] = (sources[label] || 0) + 1;
+        });
+
+        const sorted = Object.entries(sources).sort((a, b) => b[1] - a[1]);
+        let html = '<div class="space-y-3">';
+        sorted.forEach(([src, count]) => {
+            const pct = Math.round((count / total) * 100);
+            html += `<div>
+                <div class="flex justify-between text-sm mb-1">
+                    <span class="font-medium text-gray-900">${src}</span>
+                    <span class="text-gray-500">${count} (${pct}%)</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-purple-500 h-2 rounded-full" style="width: ${pct}%"></div>
+                </div>
+            </div>`;
+        });
+        html += '</div>';
+        sourcesContainer.innerHTML = html;
+    } else {
+        sourcesContainer.innerHTML = '<p class="text-gray-400 text-sm">No leads yet. Chatbot leads will appear here as they come in.</p>';
     }
 }
 
