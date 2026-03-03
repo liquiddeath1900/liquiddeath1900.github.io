@@ -2,145 +2,145 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://seamlessflow.ai/</loc>
+    <loc>https://www.seamlessflow.ai/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- Core Service Pages -->
   <url>
-    <loc>https://seamlessflow.ai/local-seo.html</loc>
+    <loc>https://www.seamlessflow.ai/local-seo.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/cannabis-industry-solutions.html</loc>
+    <loc>https://www.seamlessflow.ai/cannabis-industry-solutions.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/marketing-automation.html</loc>
+    <loc>https://www.seamlessflow.ai/marketing-automation.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/google-my-business-optimization.html</loc>
+    <loc>https://www.seamlessflow.ai/google-my-business-optimization.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/website-development.html</loc>
+    <loc>https://www.seamlessflow.ai/website-development.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- NY Location Pages (Legal Rec State) -->
   <url>
-    <loc>https://seamlessflow.ai/manhattan-seo.html</loc>
+    <loc>https://www.seamlessflow.ai/manhattan-seo.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/brooklyn-seo.html</loc>
+    <loc>https://www.seamlessflow.ai/brooklyn-seo.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/queens-seo.html</loc>
+    <loc>https://www.seamlessflow.ai/queens-seo.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/bronx-seo.html</loc>
+    <loc>https://www.seamlessflow.ai/bronx-seo.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/albany-seo.html</loc>
+    <loc>https://www.seamlessflow.ai/albany-seo.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/syracuse-seo.html</loc>
+    <loc>https://www.seamlessflow.ai/syracuse-seo.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/rochester-seo.html</loc>
+    <loc>https://www.seamlessflow.ai/rochester-seo.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://seamlessflow.ai/cannabis-ai-automation.html</loc>
+    <loc>https://www.seamlessflow.ai/cannabis-ai-automation.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/seo-vs-paid-ads.html</loc>
+    <loc>https://www.seamlessflow.ai/seo-vs-paid-ads.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Conversion Pages -->
   <url>
-    <loc>https://seamlessflow.ai/pricing.html</loc>
+    <loc>https://www.seamlessflow.ai/pricing.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/free-audit.html</loc>
+    <loc>https://www.seamlessflow.ai/free-audit.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/discovery-call.html</loc>
+    <loc>https://www.seamlessflow.ai/discovery-call.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/contract2.html</loc>
+    <loc>https://www.seamlessflow.ai/contract2.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Trust / Authority Pages -->
   <url>
-    <loc>https://seamlessflow.ai/about.html</loc>
+    <loc>https://www.seamlessflow.ai/about.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/faq.html</loc>
+    <loc>https://www.seamlessflow.ai/faq.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/blog.html</loc>
+    <loc>https://www.seamlessflow.ai/blog.html</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- AI Crawler Access -->
   <url>
-    <loc>https://seamlessflow.ai/llms.txt</loc>
+    <loc>https://www.seamlessflow.ai/llms.txt</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://seamlessflow.ai/privacy-policy.html</loc>
+    <loc>https://www.seamlessflow.ai/privacy-policy.html</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/terms-of-service.html</loc>
+    <loc>https://www.seamlessflow.ai/terms-of-service.html</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://seamlessflow.ai/cookies-policy.html</loc>
+    <loc>https://www.seamlessflow.ai/cookies-policy.html</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
