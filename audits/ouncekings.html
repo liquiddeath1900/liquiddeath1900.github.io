@@ -1020,28 +1020,38 @@ Content-Security-Policy, X-Frame-Options: DENY, X-XSS-Protection: 1; mode=block,
     </div>
 
     <h3>NAP Consistency (Name, Address, Phone)</h3>
+
+    <div class="issue">
+        <h4><span class="tag tag-high">Critical</span> 3 Different Addresses Found Across Sources</h4>
+        <p>Google uses NAP consistency as a core local ranking signal. Having 3 conflicting addresses causes Google to distrust your location data, severely hurting local pack visibility.</p>
+    </div>
+
     <table>
         <tr>
             <th>Element</th>
-            <th>On Website</th>
-            <th>On GBP</th>
+            <th>Website</th>
+            <th>Google Business Profile</th>
+            <th>MapQuest</th>
             <th>Status</th>
         </tr>
         <tr>
             <td>Business Name</td>
             <td>Ounce Kings</td>
             <td>Ounce Kings Cannabis Delivery Sacramento</td>
-            <td class="warn">Slightly different</td>
+            <td>Ounce Kings</td>
+            <td class="warn">GBP name differs</td>
         </tr>
         <tr>
             <td>Address</td>
-            <td>8880 Elder Creek Rd, Sacramento, CA</td>
+            <td>8880 Elder Creek Rd, Sacramento, CA 95828</td>
             <td>Lincoln, CA</td>
-            <td class="bad">MISMATCH</td>
+            <td>6720 Fruitridge Rd, Ste 100, Sacramento, CA 95820</td>
+            <td class="bad">3 DIFFERENT ADDRESSES</td>
         </tr>
         <tr>
             <td>Phone</td>
             <td>Not visible on homepage</td>
+            <td>(916) 912-4682</td>
             <td>(916) 912-4682</td>
             <td class="warn">Add phone to website</td>
         </tr>
@@ -1049,15 +1059,39 @@ Content-Security-Policy, X-Frame-Options: DENY, X-XSS-Protection: 1; mode=block,
             <td>Hours</td>
             <td>Mon-Sat 10AM-9PM, Sun 12PM-8PM</td>
             <td>Verify match</td>
+            <td>&mdash;</td>
             <td class="warn">Confirm identical</td>
         </tr>
         <tr>
             <td>Payment Methods</td>
             <td>Cash, Zelle</td>
             <td>&mdash;</td>
+            <td>&mdash;</td>
             <td class="good">Clearly stated on site</td>
         </tr>
     </table>
+
+    <h3>Web Presence &amp; Citations</h3>
+    <table>
+        <tr>
+            <th>Platform</th>
+            <th>Status</th>
+            <th>Reviews</th>
+            <th>Notes</th>
+        </tr>
+        <tr><td>Google Business Profile</td><td class="good">Active</td><td>5.0 (11 reviews)</td><td>SAB — address hidden but set to Lincoln, CA</td></tr>
+        <tr><td>Weedmaps (Elk Grove)</td><td class="good">Active</td><td>5-star</td><td>Separate listing per delivery zone</td></tr>
+        <tr><td>Weedmaps (Citrus Heights/Orangevale)</td><td class="good">Active</td><td>5-star</td><td>Separate listing per delivery zone</td></tr>
+        <tr><td>Weedmaps (Roseville)</td><td class="good">Active</td><td>5-star</td><td>Separate listing per delivery zone</td></tr>
+        <tr><td>Yelp</td><td class="warn">Minimal</td><td>&mdash;</td><td>Listed but low engagement</td></tr>
+        <tr><td>MapQuest</td><td class="bad">Wrong address</td><td>&mdash;</td><td>Shows 6720 Fruitridge Rd — needs correction</td></tr>
+        <tr><td>downtodeliver.com</td><td class="warn">Related domain</td><td>&mdash;</td><td>Appears connected to Ounce Kings branding</td></tr>
+    </table>
+
+    <div class="strength">
+        <h4>Cannabis License Verified</h4>
+        <p>California License C9-0000845-LIC — active delivery license. Confirm this matches current BCC records.</p>
+    </div>
 
     <h3>Service Area Coverage</h3>
     <table>
