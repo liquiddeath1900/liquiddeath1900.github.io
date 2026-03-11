@@ -10,13 +10,13 @@
     <!-- OG Meta Tags -->
     <meta property="og:title" content="Proposal for Ounce Kings — SeamlessFlow.ai">
     <meta property="og:description" content="Your custom Market Leader SEO package. Let's get Sacramento finding you first.">
-    <meta property="og:image" content="https://seamlessflow.ai/assets/website%20homelogo.png">
+    <meta property="og:image" content="https://seamlessflow.ai/assets/OG%20image.jpg">
     <meta property="og:url" content="https://seamlessflow.ai/offers/ouncekings.html">
     <meta property="og:type" content="website">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         *, *::before, *::after {
@@ -26,17 +26,21 @@
         }
 
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-card: #141414;
-            --bg-card-hover: #1a1a1a;
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --text-muted: #666;
-            --gold: #d4a843;
-            --gold-hover: #e6bd5a;
-            --gold-dim: rgba(212, 168, 67, 0.15);
-            --green: #2ecc71;
-            --border: #222;
+            --bg-primary: #ffffff;
+            --bg-soft: #f8f8f8;
+            --bg-card: #ffffff;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --brand-yellow: #FCDE0F;
+            --brand-yellow-hover: #ffe94a;
+            --brand-yellow-dim: rgba(252, 222, 15, 0.12);
+            --brand-yellow-border: rgba(252, 222, 15, 0.35);
+            --brand-dark: #111111;
+            --green: #16a34a;
+            --green-dim: rgba(22, 163, 74, 0.08);
+            --border: #e5e5e5;
+            --border-light: #f0f0f0;
             --radius: 12px;
         }
 
@@ -60,8 +64,9 @@
 
         /* Header */
         .header {
-            padding: 24px 0;
+            padding: 20px 0;
             border-bottom: 1px solid var(--border);
+            background: var(--bg-primary);
         }
 
         .header .container {
@@ -76,37 +81,40 @@
         }
 
         .header-tag {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         /* Hero */
         .hero {
-            padding: 60px 0 40px;
+            padding: 56px 0 40px;
             text-align: center;
         }
 
         .prepared-for {
-            font-size: 13px;
-            color: var(--gold);
+            font-size: 12px;
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
+            letter-spacing: 2.5px;
+            margin-bottom: 14px;
+            font-weight: 500;
         }
 
         .hero h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 12px;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 14px;
+            color: var(--brand-dark);
         }
 
         .hero .subtitle {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            max-width: 540px;
+            max-width: 520px;
             margin: 0 auto;
         }
 
@@ -127,7 +135,7 @@
 
         .highlight {
             color: var(--text-primary);
-            font-weight: 500;
+            font-weight: 600;
         }
 
         /* Section */
@@ -137,17 +145,19 @@
         }
 
         .section-label {
-            font-size: 12px;
-            color: var(--gold);
+            font-size: 11px;
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
+            letter-spacing: 2.5px;
+            margin-bottom: 6px;
+            font-weight: 600;
         }
 
         .section h2 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 24px;
+            color: var(--brand-dark);
         }
 
         /* Package Items */
@@ -155,7 +165,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
         }
 
         .package-item {
@@ -163,21 +173,22 @@
             align-items: flex-start;
             gap: 14px;
             padding: 18px 20px;
-            background: var(--bg-card);
+            background: var(--bg-soft);
             border-radius: var(--radius);
-            border: 1px solid var(--border);
-            transition: border-color 0.2s;
+            border: 1px solid var(--border-light);
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .package-item:hover {
-            border-color: #333;
+            border-color: var(--brand-yellow-border);
+            box-shadow: 0 2px 12px rgba(252, 222, 15, 0.08);
         }
 
         .check-icon {
             flex-shrink: 0;
-            width: 22px;
-            height: 22px;
-            background: var(--gold-dim);
+            width: 24px;
+            height: 24px;
+            background: var(--brand-yellow);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -186,8 +197,8 @@
         }
 
         .check-icon svg {
-            width: 12px;
-            height: 12px;
+            width: 13px;
+            height: 13px;
         }
 
         .package-item-text {
@@ -203,31 +214,33 @@
 
         /* Investment */
         .investment-card {
-            background: var(--bg-card);
-            border: 2px solid var(--gold);
+            background: var(--brand-dark);
             border-radius: var(--radius);
-            padding: 36px 28px;
+            padding: 40px 28px;
             text-align: center;
+            color: #ffffff;
         }
 
         .package-name {
-            font-size: 13px;
-            color: var(--gold);
+            font-size: 12px;
+            color: var(--brand-yellow);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .price {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 3.2rem;
+            font-weight: 800;
             margin-bottom: 4px;
+            color: #ffffff;
         }
 
         .price-period {
             font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 24px;
         }
 
         .terms-list {
@@ -235,47 +248,66 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 28px;
+            margin-bottom: 32px;
         }
 
         .terms-list li {
             font-size: 0.9rem;
-            color: var(--text-secondary);
+            color: rgba(255,255,255,0.7);
         }
 
         .terms-list li::before {
-            content: "✓ ";
-            color: var(--green);
+            content: "\2713  ";
+            color: var(--brand-yellow);
             font-weight: 700;
         }
 
         /* CTA Button */
         .cta-btn {
             display: inline-block;
-            background: var(--gold);
+            background: var(--brand-yellow);
             color: #000;
             font-size: 1.1rem;
             font-weight: 700;
             padding: 18px 48px;
             border-radius: 60px;
             text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
             letter-spacing: 0.5px;
+            box-shadow: rgba(255, 255, 255, 0.2) 4px 4px 0px 0px;
         }
 
         .cta-btn:hover {
-            background: var(--gold-hover);
+            background: var(--brand-yellow-hover);
             transform: translateY(-1px);
+            box-shadow: rgba(255, 255, 255, 0.25) 4px 6px 0px 0px;
         }
 
         .cta-btn:active {
             transform: translateY(0);
+            box-shadow: rgba(255, 255, 255, 0.15) 2px 2px 0px 0px;
         }
 
         .cta-note {
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.45);
             margin-top: 14px;
+        }
+
+        /* Bottom CTA button (on light bg) */
+        .bottom-cta .cta-btn {
+            background: var(--brand-dark);
+            color: var(--brand-yellow);
+            box-shadow: rgba(0, 0, 0, 0.15) 4px 4px 0px 0px;
+        }
+
+        .bottom-cta .cta-btn:hover {
+            background: #222;
+            box-shadow: rgba(0, 0, 0, 0.2) 4px 6px 0px 0px;
+        }
+
+        .bottom-cta .cta-note {
+            color: var(--text-muted);
         }
 
         /* Add-ons */
@@ -285,8 +317,8 @@
         }
 
         .addon-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background: var(--bg-soft);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius);
             padding: 24px;
         }
@@ -295,6 +327,7 @@
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 8px;
+            color: var(--text-primary);
         }
 
         .addon-card p {
@@ -306,8 +339,8 @@
 
         .addon-price {
             font-size: 0.85rem;
-            color: var(--gold);
-            font-weight: 600;
+            color: var(--brand-dark);
+            font-weight: 700;
         }
 
         /* Onboarding Steps */
@@ -327,14 +360,14 @@
             flex-shrink: 0;
             width: 40px;
             height: 40px;
-            background: var(--gold-dim);
+            background: var(--brand-yellow);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1rem;
-            color: var(--gold);
+            color: #000;
         }
 
         .step-content h3 {
@@ -351,7 +384,7 @@
 
         /* Bottom CTA */
         .bottom-cta {
-            padding: 60px 0;
+            padding: 56px 0;
             text-align: center;
             border-top: 1px solid var(--border);
         }
@@ -387,8 +420,9 @@
         }
 
         .questions a {
-            color: var(--gold);
+            color: var(--brand-dark);
             text-decoration: none;
+            font-weight: 600;
         }
 
         .questions a:hover {
@@ -419,7 +453,7 @@
         /* Responsive */
         @media (min-width: 640px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.6rem;
             }
 
             .addon-grid {
@@ -437,7 +471,7 @@
             }
 
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
 
             .price {
@@ -493,55 +527,55 @@
             <ul class="package-list">
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
                     <span class="package-item-text"><strong>Google Business Profile optimization</strong> — We fix and fully optimize your GBP so Sacramento customers actually find you when they search for cannabis delivery.</span>
                 </li>
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
                     <span class="package-item-text"><strong>25-30 directory listings</strong> — We get your business listed on the directories that matter: Google, Yelp, Facebook, Bing, Apple Maps, Weedmaps, and more.</span>
                 </li>
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
-                    <span class="package-item-text"><strong>NAP cleanup</strong> — We make sure your business name, address, and phone number are consistent everywhere online. This is how Google learns to trust your location.</span>
+                    <span class="package-item-text"><strong>NAP cleanup</strong> — We make sure your business name, address, and phone number are consistent everywhere online. Right now there are 3 different addresses floating around — that's confusing Google.</span>
                 </li>
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
                     <span class="package-item-text"><strong>Review generation system</strong> — We set up a system that makes it easy for your happy customers to leave 5-star reviews. More reviews = higher rankings = more orders.</span>
                 </li>
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
                     <span class="package-item-text"><strong>Cannabis-specific keyword research</strong> — We target the exact terms Sacramento customers use to find delivery services in your area.</span>
                 </li>
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
                     <span class="package-item-text"><strong>Competitor monitoring</strong> — We keep an eye on what your competition is doing and adjust your strategy to stay ahead.</span>
                 </li>
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
-                    <span class="package-item-text"><strong>Bi-weekly strategy calls</strong> — Every two weeks, we hop on a call to walk you through what we've done, what's working, and what's next. No guesswork.</span>
+                    <span class="package-item-text"><strong>Bi-weekly strategy calls</strong> — Every two weeks, we hop on a call to walk you through what we've done, what's working, and what's next.</span>
                 </li>
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
                     <span class="package-item-text"><strong>Dedicated account manager</strong> — You get a direct line to someone who knows your business. No support tickets, no waiting.</span>
                 </li>
                 <li class="package-item">
                     <span class="check-icon">
-                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </span>
                     <span class="package-item-text"><strong>Monthly ranking reports</strong> — Clear, visual reports showing exactly where you rank, how much you've improved, and where we're going next.</span>
                 </li>
@@ -557,8 +591,8 @@
 
             <div class="investment-card">
                 <p class="package-name">Market Leader Package</p>
-                <p class="price">$997<span style="font-size: 1rem; font-weight: 400; color: var(--text-secondary);">/mo</span></p>
-                <p class="price-period">Billed monthly</p>
+                <p class="price">$997<span style="font-size: 1rem; font-weight: 400; color: rgba(255,255,255,0.5);">/mo</span></p>
+                <p class="price-period">Billed monthly &middot; Sacramento location</p>
 
                 <ul class="terms-list">
                     <li>Month-to-month — no long-term contract</li>
@@ -566,7 +600,7 @@
                     <li>Service starts as soon as you pay</li>
                 </ul>
 
-                <a href="https://www.paypal.com/ncp/payment/AU3Z8VA4DM3GY" class="cta-btn" target="_blank" rel="noopener">Pay Now — $997</a>
+                <a href="https://www.paypal.com/ncp/payment/XJ89XYSMZFQ6G" class="cta-btn" id="payBtn" target="_blank" rel="noopener">Pay Now — $997</a>
                 <p class="cta-note">Secure payment via PayPal. You can pay with any credit or debit card.</p>
             </div>
         </div>
@@ -630,7 +664,7 @@
         <div class="container">
             <h2>Ready to dominate Sacramento?</h2>
             <p>Let's get Ounce Kings ranking where it belongs.</p>
-            <a href="https://www.paypal.com/ncp/payment/AU3Z8VA4DM3GY" class="cta-btn" target="_blank" rel="noopener">Pay Now — $997</a>
+            <a href="https://www.paypal.com/ncp/payment/XJ89XYSMZFQ6G" class="cta-btn" target="_blank" rel="noopener">Pay Now — $997</a>
             <p class="cta-note">Secure payment via PayPal. You can pay with any credit or debit card.</p>
         </div>
     </section>
