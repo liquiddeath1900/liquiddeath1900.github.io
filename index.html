@@ -599,13 +599,18 @@
             <a href="contract2.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                 <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
             </a>
-            <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
+            <div class="pt-4 border-t border-gray-100 mt-4 space-y-3">
                 <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
                     <i class="fas fa-search mr-2"></i>Get Free Audit
                 </a>
-                <a href="tel:+13477498146" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
-                    <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
-                </a>
+                <div class="flex justify-center items-center gap-6 pt-2">
+                    <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-pink-500 transition-colors" aria-label="Instagram">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@SeamlessflowSEO" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-red-500 transition-colors" aria-label="YouTube">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -1544,14 +1549,17 @@
                 const hamburger = this;
                 const overlay = document.getElementById('mobile-overlay');
 
+                const chatToggle = document.querySelector('.chat-toggle');
                 if (mobileMenu && mobileMenu.classList.contains('show')) {
                     mobileMenu.classList.remove('show');
                     hamburger.classList.remove('active');
                     if (overlay) overlay.classList.remove('show');
+                    if (chatToggle) chatToggle.style.display = '';
                 } else if (mobileMenu) {
                     mobileMenu.classList.add('show');
                     hamburger.classList.add('active');
                     if (overlay) overlay.classList.add('show');
+                    if (chatToggle) chatToggle.style.display = 'none';
                 }
             });
         }
@@ -1566,6 +1574,8 @@
                 if (mobileMenu) mobileMenu.classList.remove('show');
                 if (hamburger) hamburger.classList.remove('active');
                 if (overlay) overlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
             });
         }
 
@@ -1592,6 +1602,8 @@
                 mobileMenu.classList.remove('show');
                 mobileButton.classList.remove('active');
                 if (overlay) overlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
             }
         });
 
