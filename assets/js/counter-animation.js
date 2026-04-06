@@ -9,8 +9,8 @@
 
     // Parse number from text (handles $, B, K, M, %, +, commas)
     function parseNumber(text) {
-        const cleaned = text.replace(/[$,+%BMK]/gi, '').trim();
-        return parseFloat(cleaned) || 0;
+        const cleaned = text.replace(/[$,+%BMK\-]/gi, '').trim();
+        return Math.abs(parseFloat(cleaned)) || 0;
     }
 
     // Get the format parts (prefix, suffix, decimals)
@@ -25,8 +25,8 @@
     // Format number back to original style
     function formatNumber(num, format) {
         let result = format.decimals > 0
-            ? num.toFixed(format.decimals)
-            : Math.round(num).toString();
+            ? Math.abs(num).toFixed(format.decimals)
+            : Math.round(Math.abs(num)).toString();
 
         if (format.hasComma) {
             result = result.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
