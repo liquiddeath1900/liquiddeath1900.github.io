@@ -56,53 +56,54 @@
         }
 
         /* Mobile Menu */
-        #mobile-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            z-index: 50;
-            transform: translateY(-10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease-out;
-        }
-
-        #mobile-menu.show {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
+        /* ===== MOBILE MENU - Premium slide-in ===== */
+#mobile-menu {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: 85%; max-width: 380px;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    box-shadow: -8px 0 32px rgba(0,0,0,0.15);
+    z-index: 70;
+    transform: translateX(100%);
+    opacity: 1; visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+    overflow-y: auto;
+    padding-top: 16px;
+}
+#mobile-menu.show {
+    transform: translateX(0);
+    visibility: visible;
+}
+/* Mobile menu overlay */
+.mobile-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15,23,42,0.5); z-index: 50;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.mobile-overlay.show {
+    opacity: 1; visibility: visible;
+}
 
         .hamburger {
-            cursor: pointer;
-            width: 28px;
-            height: 24px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: #374151;
-            border-radius: 3px;
-            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-
-        .hamburger.active { gap: 0; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg); position: absolute; }
-        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg); position: absolute; }
-
-        .section-padding { padding: 60px 0; }
+    cursor: pointer; width: 28px; height: 24px;
+    position: relative; z-index: 80;
+    transition: all 0.3s ease;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center; gap: 6px;
+    background: none; border: none; padding: 0;
+}
+.hamburger span {
+    display: block; height: 2px; width: 100%;
+    background: #374151; border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    position: relative;
+}
+.hamburger.active { gap: 0; }
+.hamburger.active span { position: absolute; top: 50%; left: 0; }
+.hamburger.active span:nth-child(1) { transform: translateY(-50%) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; transform: translateY(-50%) scaleX(0); }
+.hamburger.active span:nth-child(3) { transform: translateY(-50%) rotate(-45deg); }.section-padding { padding: 60px 0; }
 
         /* Chatbot CTA Button */
         .chat-cta-btn {
@@ -407,10 +408,12 @@
             100% { transform: scale(1.5); opacity: 0; }
         }
     </style>
+<link rel="stylesheet" href="assets/css/chatbot-widget.css">
 </head>
 <body>
     <!-- Navigation Bar (matches index.html) -->
-        <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="mobile-overlay" id="mobile-overlay"></div>
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-[60]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
                 <div class="flex items-center">
@@ -481,7 +484,17 @@
                 </div>
             </div>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+            
+        </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+        <div class="flex justify-end px-6 pt-5 pb-2">
+            <button id="mobile-menu-close" aria-label="Close menu" style="background:none;border:none;cursor:pointer;padding:8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+                </svg>
+            </button>
+        </div>
                 <div class="px-6 py-4 space-y-1">
                     <a href="index.html#home" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                         <i class="fas fa-home mr-3 text-blue-500"></i>Home
@@ -565,19 +578,20 @@
                     <a href="contract2.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                         <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
                     </a>
-                    <div class="pt-4 border-t border-gray-100 mt-4 space-y-2">
-                        <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
-                            <i class="fas fa-search mr-2"></i>Get Free Audit
-                        </a>
-                        <a href="tel:+13477498146" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg block text-center font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
-                            <i class="fas fa-phone mr-2"></i>Call (347) 749-8146
-                        </a>
-                    </div>
+                                <div class="pt-4 border-t border-gray-100 mt-4 space-y-3">
+                <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                    <i class="fas fa-search mr-2"></i>Get Free Audit
+                </a>
+                <div class="flex justify-center items-center gap-6 pt-2">
+                    <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-pink-500 transition-colors" aria-label="Instagram">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@SeamlessflowSEO" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-red-500 transition-colors" aria-label="YouTube">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
                 </div>
+            </div></div>
             </div>
-        </div>
-    </nav>
-
 
     <!-- Hero Section - Chatbot First -->
     <section class="hero-section">
@@ -906,7 +920,6 @@
         </div>
     </footer>
 
-
     <script>
         var submitted = false;
 
@@ -952,335 +965,108 @@
             });
         }
 
-
-
     </script>
 
-<script>
-// Mobile menu toggle
-        const btn = document.getElementById('mobile-menu-button');
-        if (btn) {
-            btn.addEventListener('click', function() {
-                const menu = document.getElementById('mobile-menu');
-                if (menu) {
-                    menu.classList.toggle('show');
-                    this.classList.toggle('active');
-                }
-            });
+<script src="assets/js/chatbot-widget.js"></script>
+    <script>
+// Mobile menu toggle - Premium slide-in
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+if (mobileMenuButton) {
+    mobileMenuButton.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = this;
+        const overlay = document.getElementById('mobile-overlay');
+        const chatToggle = document.querySelector('.chat-toggle');
+        if (mobileMenu && mobileMenu.classList.contains('show')) {
+            mobileMenu.classList.remove('show');
+            hamburger.classList.remove('active');
+            if (overlay) overlay.classList.remove('show');
+            if (chatToggle) chatToggle.style.display = '';
+        } else if (mobileMenu) {
+            mobileMenu.classList.add('show');
+            hamburger.classList.add('active');
+            if (overlay) overlay.classList.add('show');
+            if (chatToggle) chatToggle.style.display = 'none';
         }
+    });
+}
 
-        // Mobile dropdown toggles
-        document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const icon = this.querySelector('i:last-child');
+// Mobile menu close button
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.getElementById('mobile-menu-button');
+        const overlay = document.getElementById('mobile-overlay');
+        if (mobileMenu) mobileMenu.classList.remove('show');
+        if (hamburger) hamburger.classList.remove('active');
+        if (overlay) overlay.classList.remove('show');
+        const chatToggle = document.querySelector('.chat-toggle');
+        if (chatToggle) chatToggle.style.display = '';
+    });
+}
 
-                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                    content.style.maxHeight = '0px';
-                    if (icon) icon.style.transform = 'rotate(0deg)';
-                } else {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    if (icon) icon.style.transform = 'rotate(90deg)';
-                }
-            });
-        });
+// Overlay click closes menu
+const mobileOverlay = document.getElementById('mobile-overlay');
+if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.getElementById('mobile-menu-button');
+        if (mobileMenu) mobileMenu.classList.remove('show');
+        if (hamburger) hamburger.classList.remove('active');
+        mobileOverlay.classList.remove('show');
+        const chatToggle = document.querySelector('.chat-toggle');
+        if (chatToggle) chatToggle.style.display = '';
+    });
+}
 
-        // Form accordion toggle
-        const formToggle = document.getElementById('formToggle');
-        const formSection = document.getElementById('formSection');
-        if (formToggle && formSection) {
-            formToggle.addEventListener('click', function() {
-                this.classList.toggle('open');
-                formSection.classList.toggle('open');
-            });
+// Mobile menu link clicks - close menu
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.getElementById('mobile-menu-button');
+        const overlay = document.getElementById('mobile-overlay');
+        if (mobileMenu) mobileMenu.classList.remove('show');
+        if (hamburger) hamburger.classList.remove('active');
+        if (overlay) overlay.classList.remove('show');
+        const chatToggle = document.querySelector('.chat-toggle');
+        if (chatToggle) chatToggle.style.display = '';
+    });
+});
+
+// Hide mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileButton = document.getElementById('mobile-menu-button');
+    const overlay = document.getElementById('mobile-overlay');
+    if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+        mobileMenu.classList.remove('show');
+        mobileButton.classList.remove('active');
+        if (overlay) overlay.classList.remove('show');
+        const chatToggle = document.querySelector('.chat-toggle');
+        if (chatToggle) chatToggle.style.display = '';
+    }
+});
+
+// Mobile dropdown toggle functionality
+document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const dropdown = this.closest('.mobile-dropdown');
+        const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
+        const icon = this.querySelector('.fa-chevron-right');
+        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            content.style.maxHeight = '0px';
+            if (icon) icon.style.transform = 'rotate(0deg)';
+            content.querySelectorAll('.mobile-dropdown-content').forEach(nested => { nested.style.maxHeight = '0px'; });
+            content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => { nestedIcon.style.transform = 'rotate(0deg)'; });
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            if (icon) icon.style.transform = 'rotate(90deg)';
         }
-
-        // ============================================
-        // CHATBOT - GPCT QUALIFICATION FUNNEL
-        // ============================================
-        const WEBHOOK_URL = 'https://seamlessflow1.app.n8n.cloud/webhook/chatbot-lead';
-
-        const chatState = {
-            step: 0,
-            bypassAttempts: 0,
-            qualified: false,
-            data: {
-                goal: '',
-                businessType: '',
-                challenge: '',
-                timeline: '',
-                teamSize: '',
-                email: '',
-                wantsCall: false
-            },
-            transcript: []
-        };
-
-        const bypassPatterns = [
-            /skip/i, /next/i, /later/i, /don't want/i, /no thanks/i,
-            /not now/i, /pass/i, /nevermind/i, /forget it/i,
-            /just tell me/i, /can you just/i, /i just want/i,
-            /^no$/i, /^nah$/i, /^nope$/i, /why do you need/i
-        ];
-
-        const bypassResponses = [
-            "I get it - no one likes forms. But these questions help me figure out if we can actually help you. What's your main goal right now?",
-            "Fair enough! Just trying to make sure I connect you with the right info. What are you trying to achieve?",
-            "No pressure at all. I just want to make sure I'm not wasting your time. What's the main thing you're working on?"
-        ];
-
-        const conversationFlow = [
-            { message: "Hey! I'm Jamie. What are you looking to improve today?", field: 'goal', quickReplies: ["Get more customers (SEO)", "Automate my business (AI/Bots)", "Need an AI Budtender", "Protect my business (Security)"], required: true, validateAs: 'goal' },
-            { message: "Nice. What type of cannabis business are you?", field: 'businessType', quickReplies: ["Dispensary / Retailer", "Cultivator / Grower", "Processor / Manufacturer", "Distributor / Delivery"], required: true, validateAs: 'businessType' },
-            { message: "Got it. What's the biggest thing holding you back?", field: 'challenge', quickReplies: [], required: true, validateAs: 'challenge' },
-            { message: "How soon are you looking to fix this?", field: 'timeline', quickReplies: ["ASAP - it's urgent", "Next 30 days", "Next few months", "Just researching"], required: true, validateAs: 'timeline' },
-            { message: "Quick one - how big is your team?", field: 'teamSize', quickReplies: ["Just me", "2-5 people", "6-20 people", "20+ people"], required: true, validateAs: 'teamSize' },
-            { message: "Almost done! What's the best email to reach you?", field: 'email', placeholder: "your@email.com", required: true, validateAs: 'email' },
-            { message: "", field: 'wantsCall', quickReplies: ["Email me first", "Let's do a quick call"], required: true, validateAs: 'cta' }
-        ];
-
-        const challengesByGoal = {
-            seo: ["Competitors outranking us", "Not showing on Google Maps", "Bad or few reviews", "Website doesn't convert"],
-            automation: ["Too much manual work", "Compliance paperwork overwhelming", "Can't keep up with orders", "Staff doing tasks bots could do"],
-            budtender: ["Staff can't answer all product questions", "Inconsistent recommendations", "Customers overwhelmed by choices", "High turnover / training costs"],
-            security: ["Worried about data breaches", "Compliance / audit concerns", "Don't know our vulnerabilities", "Need to protect customer data"]
-        };
-
-        const ctaByGoal = {
-            seo: "Perfect! Want a free visibility audit on a quick call, or should I email you first?",
-            automation: "Perfect! Want to discuss automation options on a quick call, or email first?",
-            budtender: "Perfect! Want a quick AI Budtender demo call, or should I email you info first?",
-            security: "Perfect! Want a free security assessment call, or should I email you first?"
-        };
-
-        function getGoalType(goalText) {
-            const g = goalText.toLowerCase();
-            if (g.includes('seo') || g.includes('customer')) return 'seo';
-            if (g.includes('automate') || g.includes('bot')) return 'automation';
-            if (g.includes('budtender')) return 'budtender';
-            if (g.includes('security') || g.includes('protect')) return 'security';
-            return 'seo';
-        }
-
-        const validators = {
-            goal: (text) => text.length >= 2 ? null : "Just tap one of the options!",
-            businessType: (text) => text.length >= 2 ? null : "What type of business are you?",
-            challenge: (text) => text.length >= 2 ? null : "What's the main thing holding you back?",
-            timeline: (text) => text.length >= 2 ? null : "Just give me a rough idea of timing.",
-            teamSize: (text) => text.length >= 1 ? null : "How big is your team?",
-            email: (text) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text.trim()) ? null : "I need a valid email to send the report!",
-            cta: (text) => null
-        };
-
-        const chatToggle = document.getElementById('chatToggle');
-        const chatWindow = document.getElementById('chatWindow');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const chatSend = document.getElementById('chatSend');
-        const chatClose = document.getElementById('chatClose');
-        const heroChatBtn = document.getElementById('hero-chat-btn');
-
-        function openChat() {
-            chatWindow.classList.add('active');
-            chatToggle.classList.add('hidden');
-            if (chatState.step === 0 && chatState.transcript.length === 0) {
-                setTimeout(() => startConversation(), 500);
-            }
-            chatInput.focus();
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'chat_opened', { 'event_category': 'engagement' });
-            }
-        }
-
-        chatToggle.addEventListener('click', openChat);
-        heroChatBtn.addEventListener('click', openChat);
-
-        chatClose.addEventListener('click', () => {
-            chatWindow.classList.remove('active');
-            chatToggle.classList.remove('hidden');
-        });
-
-        function startConversation() {
-            const first = conversationFlow[0];
-            addBotMessage(first.message, first.quickReplies);
-            logTranscript('bot', first.message);
-            chatInput.placeholder = first.placeholder || 'Type or select...';
-        }
-
-        function logTranscript(sender, message) {
-            chatState.transcript.push({ sender, message, timestamp: new Date().toISOString() });
-        }
-
-        function isBypassAttempt(text) {
-            return bypassPatterns.some(p => p.test(text.trim()));
-        }
-
-        function addBotMessage(text, quickReplies = null) {
-            const typing = document.createElement('div');
-            typing.className = 'typing-indicator';
-            typing.innerHTML = '<span></span><span></span><span></span>';
-            chatMessages.appendChild(typing);
-            scrollToBottom();
-
-            setTimeout(() => {
-                typing.remove();
-                const msg = document.createElement('div');
-                msg.className = 'message bot';
-                msg.textContent = text;
-                chatMessages.appendChild(msg);
-
-                if (quickReplies && quickReplies.length > 0) {
-                    const replies = document.createElement('div');
-                    replies.className = 'quick-replies';
-                    quickReplies.forEach(reply => {
-                        const btn = document.createElement('button');
-                        btn.className = 'quick-reply';
-                        btn.textContent = reply;
-                        btn.addEventListener('click', () => handleUserInput(reply));
-                        replies.appendChild(btn);
-                    });
-                    chatMessages.appendChild(replies);
-                }
-                scrollToBottom();
-            }, 800);
-        }
-
-        function addUserMessage(text) {
-            const msg = document.createElement('div');
-            msg.className = 'message user';
-            msg.textContent = text;
-            chatMessages.appendChild(msg);
-            scrollToBottom();
-        }
-
-        function handleUserInput(text) {
-            if (!text.trim()) return;
-
-            const currentStep = conversationFlow[chatState.step];
-            addUserMessage(text);
-            logTranscript('user', text);
-
-            if (currentStep.required && isBypassAttempt(text)) {
-                chatState.bypassAttempts++;
-                const response = bypassResponses[Math.min(chatState.bypassAttempts - 1, bypassResponses.length - 1)];
-                setTimeout(() => { addBotMessage(response); logTranscript('bot', response); }, 500);
-                chatInput.value = '';
-                return;
-            }
-
-            const validator = validators[currentStep.validateAs];
-            const error = validator ? validator(text) : null;
-            if (error && currentStep.required) {
-                setTimeout(() => { addBotMessage(error); logTranscript('bot', error); }, 500);
-                chatInput.value = '';
-                return;
-            }
-
-            const qr = chatMessages.querySelector('.quick-replies');
-            if (qr) qr.remove();
-
-            if (currentStep.field === 'wantsCall') {
-                chatState.data.wantsCall = text.toLowerCase().includes('call');
-            } else {
-                chatState.data[currentStep.field] = text.trim();
-            }
-
-            if (currentStep.field === 'goal') {
-                const goalType = getGoalType(text);
-                chatState.goalType = goalType;
-                conversationFlow[2].quickReplies = challengesByGoal[goalType];
-                conversationFlow[6].message = ctaByGoal[goalType];
-
-                if (goalType === 'budtender') {
-                    chatState.data.businessType = 'Dispensary / Retailer';
-                    chatState.step = 2;
-                    chatState.bypassAttempts = 0;
-                    chatInput.value = '';
-                    const nextStep = conversationFlow[chatState.step];
-                    setTimeout(() => {
-                        addBotMessage("Perfect - dispensary it is! " + nextStep.message, nextStep.quickReplies);
-                        logTranscript('bot', "Perfect - dispensary it is! " + nextStep.message);
-                        chatInput.placeholder = nextStep.placeholder || 'Type or select...';
-                    }, 500);
-                    return;
-                }
-            }
-
-            chatState.step++;
-            chatState.bypassAttempts = 0;
-            chatInput.value = '';
-
-            if (chatState.step >= conversationFlow.length) {
-                submitLead();
-                return;
-            }
-
-            const nextStep = conversationFlow[chatState.step];
-            setTimeout(() => {
-                addBotMessage(nextStep.message, nextStep.quickReplies);
-                logTranscript('bot', nextStep.message);
-                chatInput.placeholder = nextStep.placeholder || 'Type or select...';
-            }, 500);
-        }
-
-        async function submitLead() {
-            const sendingMsg = "Got it! Sending this over to the team now...";
-            addBotMessage(sendingMsg);
-            logTranscript('bot', sendingMsg);
-
-            const urgentTimelines = ['asap', 'urgent', '30 days', 'next 30'];
-            chatState.qualified = urgentTimelines.some(t => chatState.data.timeline.toLowerCase().includes(t));
-
-            const payload = {
-                ...chatState.data,
-                qualified: chatState.qualified,
-                source: 'website_chatbot_contact_page',
-                timestamp: new Date().toISOString(),
-                page_url: window.location.href,
-                transcript: chatState.transcript,
-                transcript_text: chatState.transcript.map(t => `[${t.sender.toUpperCase()}] ${t.message}`).join('\n'),
-                bypass_attempts: chatState.bypassAttempts,
-                is_mobile: window.innerWidth <= 768
-            };
-
-            try {
-                await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                let finalMsg = chatState.data.wantsCall
-                    ? `Perfect! Check your email at ${chatState.data.email} - you'll get a link to book a time. Talk soon!`
-                    : `You're all set! We'll send insights to ${chatState.data.email}. Keep an eye on your inbox!`;
-
-                setTimeout(() => { addBotMessage(finalMsg); logTranscript('bot', finalMsg); }, 1500);
-
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'lead_captured', { 'event_category': 'conversion', 'event_label': chatState.qualified ? 'qualified' : 'unqualified' });
-                }
-            } catch (error) {
-                console.error('Webhook error:', error);
-                setTimeout(() => { addBotMessage("Thanks! We got your info and will be in touch soon."); }, 1500);
-            }
-
-            chatInput.disabled = true;
-            chatSend.disabled = true;
-            chatInput.placeholder = 'Conversation complete';
-        }
-
-        chatSend.addEventListener('click', () => handleUserInput(chatInput.value));
-        chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleUserInput(chatInput.value); });
-
-        function scrollToBottom() {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+    });
+});
     </script>
-
-
-        </scr
-</script>
-ipt>
-
 </body>
 </html>
