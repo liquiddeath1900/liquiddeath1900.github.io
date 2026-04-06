@@ -120,180 +120,319 @@
     
     <!-- CRITICAL CSS - Inline for fastest render -->
     <style>
-        /* Critical above-the-fold styles - optimized for LCP */
-        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 50; }
-        .hero-section { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
-        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; aspect-ratio: 16/9; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: -1; }
-        /* Critical button styles to prevent FOUC */
-        .btn-primary { background-color: #2563eb; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: background-color 0.3s; }
-        .btn-primary:hover { background-color: #1d4ed8; }
-        .btn-secondary { background-color: transparent; color: white; border: 2px solid white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s; }
-        .btn-secondary:hover { background-color: white; color: #2563eb; }
-        /* End critical CSS */
-        
-        .section-padding {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        
-        .section-subtitle {
-            font-size: 1.25rem;
-            text-align: center;
-            color: #4b5563;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        /* ===== PREMIUM DESIGN SYSTEM ===== */
+        :root {
+            --primary: #16a34a;
+            --primary-dark: #15803d;
+            --primary-light: #22c55e;
+            --accent: #0ea5e9;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --surface: #f8fafc;
+            --text: #334155;
+            --text-dim: #64748b;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+            --shadow-glow: 0 0 40px rgba(22,163,74,0.3);
         }
 
-        /* Mobile Menu - Fixed positioning */
-        #mobile-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            z-index: 50;
-            transform: translateY(-10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease-out;
+        /* Subtle grain texture overlay for depth */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
         }
-        
+
+        /* ===== NAVIGATION - Glass morphism ===== */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+            z-index: 50;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        nav.scrolled {
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        nav a, nav button { transition: color 0.2s, transform 0.2s; }
+        nav .hidden.md\\:block a:hover, nav .hidden.md\\:block button:hover { transform: translateY(-1px); }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            position: relative; min-height: 100vh; display: flex;
+            align-items: center; color: white; overflow: hidden;
+        }
+        .hero-video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: -2; aspect-ratio: 16/9;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.6) 50%, rgba(22,163,74,0.3) 100%);
+            z-index: -1;
+        }
+        /* Gradient mesh accent orbs */
+        .hero-section::before {
+            content: ''; position: absolute;
+            width: 600px; height: 600px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(22,163,74,0.2) 0%, transparent 70%);
+            top: -200px; right: -100px; z-index: -1;
+            animation: float-orb 8s ease-in-out infinite;
+        }
+        .hero-section::after {
+            content: ''; position: absolute;
+            width: 400px; height: 400px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+            bottom: -100px; left: -50px; z-index: -1;
+            animation: float-orb 10s ease-in-out infinite reverse;
+        }
+        @keyframes float-orb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.1); }
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #86efac 50%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* CTA shimmer animation */
+        .btn-shimmer {
+            position: relative; overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: ''; position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        /* ===== BUTTONS - Premium ===== */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white; padding: 14px 28px; border-radius: var(--radius);
+            text-decoration: none; font-weight: 700; display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(22,163,74,0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(22,163,74,0.4);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1); color: white;
+            border: 2px solid rgba(255,255,255,0.4); padding: 14px 28px;
+            border-radius: var(--radius); text-decoration: none;
+            font-weight: 600; display: inline-block;
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.95); color: var(--primary-dark);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+        }
+
+        /* ===== SECTION SYSTEM - 8px grid ===== */
+        .section-padding { padding: 96px 0; }
+        .section-title {
+            font-size: 2.75rem; font-weight: 800; text-align: center;
+            margin-bottom: 1rem; letter-spacing: -0.025em; line-height: 1.15;
+        }
+        .section-subtitle {
+            font-size: 1.2rem; text-align: center; color: var(--text-dim);
+            margin-bottom: 3rem; max-width: 600px;
+            margin-left: auto; margin-right: auto; line-height: 1.6;
+        }
+
+        /* ===== MOBILE MENU - Premium slide-in ===== */
+        #mobile-menu {
+            position: fixed; top: 0; right: 0; bottom: 0;
+            width: 85%; max-width: 380px;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            box-shadow: -8px 0 32px rgba(0,0,0,0.15);
+            z-index: 60;
+            transform: translateX(100%);
+            opacity: 1; visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+            overflow-y: auto;
+            padding-top: 80px;
+        }
         #mobile-menu.show {
-            transform: translateY(0);
-            opacity: 1;
+            transform: translateX(0);
             visibility: visible;
         }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Mobile menu overlay */
+        .mobile-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15,23,42,0.5); z-index: 55;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
         }
-        
-                /* Hamburger Animation - Improved */
-        .hamburger {
-            cursor: pointer;
-            width: 28px;
-            height: 24px;
-            position: relative;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
+        .mobile-overlay.show {
+            opacity: 1; visibility: visible;
         }
 
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer; width: 28px; height: 24px;
+            position: relative; z-index: 70;
+            transition: all 0.3s ease;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 6px;
+        }
         .hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: #374151;
-            border-radius: 3px;
+            display: block; height: 2px; width: 100%;
+            background: #374151; border-radius: 2px;
             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
             position: relative;
         }
+        .hamburger.active { gap: 0; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg); position: absolute; }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg); position: absolute; }
 
-        .hamburger.active {
-            gap: 0;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg);
-            position: absolute;
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg);
-            position: absolute;
-        }
-        
-        
+        /* ===== CARDS - Premium hover ===== */
         .service-card, .benefit-card {
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
         }
-        
         .service-card:hover, .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
         }
-        
+
+        /* Gradient icon containers */
+        .icon-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            width: 56px; height: 56px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(22,163,74,0.25);
+        }
+        .icon-gradient i { color: white; }
+        .icon-gradient-purple {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.25);
+        }
+        .icon-gradient-orange {
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            box-shadow: 0 4px 12px rgba(249,115,22,0.25);
+        }
+
+        /* ===== ANIMATIONS ===== */
         @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
         .animate-fade-in {
             animation: fade-in 0.8s ease-out forwards;
             opacity: 0;
         }
-        
-        .phone-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2563eb;
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0; transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+        .reveal.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Count-up animation flash */
+        .count-up-animated {
+            transition: color 0.3s;
+        }
+
+        .phone-number {
+            font-size: 1.5rem; font-weight: bold; color: var(--primary);
+        }
         .urgency-badge {
             background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
+            color: white; padding: 4px 12px; border-radius: 20px;
+            font-size: 0.875rem; font-weight: 600;
+            display: inline-block; margin-bottom: 1rem;
         }
-        
         .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.875rem;
-            color: #059669;
-            margin-top: 1rem;
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.875rem; color: #059669; margin-top: 1rem;
         }
-        
-        /* Responsive adjustments */
+
+        /* Trust bar in hero */
+        .hero-trust-bar {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 24px; margin-top: 32px; padding: 16px 24px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+        }
+        .hero-trust-bar span {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        .hero-trust-bar i {
+            color: var(--primary-light); font-size: 0.9rem;
+        }
+
+        /* ===== WHY-US CARDS - Glass effect ===== */
+        #why-us .bg-white {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(22,163,74,0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #why-us .bg-white:hover {
+            background: rgba(255,255,255,1);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(22,163,74,0.15);
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .hero-section h1 {
-                font-size: 2.5rem !important;
-            }
-            
-            .hero-section p {
-                font-size: 1.125rem !important;
-            }
+            .section-title { font-size: 2rem; }
+            .section-padding { padding: 64px 0; }
+            .hero-section h1 { font-size: 2.25rem !important; }
+            .hero-section p { font-size: 1rem !important; }
+            .hero-trust-bar { gap: 16px; padding: 12px 16px; }
+            .hero-trust-bar span { font-size: 0.75rem; }
+        }
+        @media (min-width: 1024px) {
+            .section-title { font-size: 3.25rem; }
         }
     </style>
 <link rel="stylesheet" href="assets/css/chatbot-widget.css">
 </head>
 <body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+    <nav class="fixed top-0 w-full z-50" id="main-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
                 <div class="flex items-center">
@@ -351,7 +490,7 @@
                         </div>
                         <a href="pricing.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Pricing</a>
                         <a href="faq.html" class="text-gray-900 hover:text-green-600 px-3 py-2">FAQ</a>
-                        <a href="contract2.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">Contact</a>
+                        <a href="contract2.html" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden absolute right-4">
@@ -362,8 +501,8 @@
                     </button>
                 </div>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+            <!-- Mobile Menu - Premium slide-in -->
+            <div id="mobile-menu" class="md:hidden">
                 <div class="px-6 py-4 space-y-1">
                     <a href="#home" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                         <i class="fas fa-home mr-3 text-blue-500"></i>Home
@@ -470,33 +609,83 @@
         
         <div class="hero-overlay"></div>
         
-        <div class="hero-content h-full flex items-center justify-center">
-            <div class="text-center px-4 max-w-6xl mx-auto">
-                
-                <h1 class="text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-4 sm:mb-6 animate-fade-in leading-tight" style="animation-delay: 0.2s;">
-                    Make Your Dispensary #1 on Google Maps
-                </h1>
+        <div class="hero-content h-full flex items-center w-full">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                    <!-- Left: Text content -->
+                    <div class="text-left lg:text-left text-center">
+                        <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold bg-white/10 border border-white/20 backdrop-blur-sm text-green-300 mb-6">
+                                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                                NYC Cannabis Marketing Specialists
+                            </span>
+                        </div>
 
-                <p class="text-lg sm:text-xl md:text-2xl text-gray-200 mb-4 sm:mb-6 animate-fade-in max-w-4xl mx-auto leading-relaxed px-2" style="animation-delay: 0.4s;">
-                    AI-Powered Local SEO, Metrc Compliance & 24/7 AI Budtenders for NYC Dispensaries
-                </p>
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-fade-in leading-[1.1] tracking-tight" style="animation-delay: 0.2s;">
+                            Make Your Dispensary <span class="gradient-text">#1 on Google Maps</span>
+                        </h1>
 
-                <p class="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 animate-fade-in max-w-3xl mx-auto px-2" style="animation-delay: 0.5s;">
-                    Outrank competitors. Automate compliance. Sell more cannabis.
-                </p>
+                        <p class="text-lg sm:text-xl text-gray-300 mb-6 animate-fade-in max-w-xl leading-relaxed" style="animation-delay: 0.4s;">
+                            AI-Powered Local SEO, Metrc Compliance & 24/7 AI Budtenders for NYC Dispensaries
+                        </p>
 
-                <div class="text-center animate-fade-in space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center sm:items-center" style="animation-delay: 0.6s;">
-                    <a href="free-audit.html" class="btn-primary text-white px-6 sm:px-10 py-4 sm:py-5 rounded-lg text-lg sm:text-xl font-bold inline-block transform hover:scale-105 transition-all">
-                        <i class="fas fa-cannabis mr-2 sm:mr-3"></i>Get Free Dispensary Audit
-                    </a>
-                    <a href="#services" class="btn-secondary text-white px-6 sm:px-8 py-4 sm:py-5 rounded-lg text-base sm:text-lg font-semibold inline-block transform hover:scale-105 transition-all">
-                        <i class="fas fa-robot mr-2"></i>See AI Solutions
-                    </a>
-                </div>
+                        <p class="text-base text-gray-400 mb-8 animate-fade-in max-w-lg" style="animation-delay: 0.5s;">
+                            Outrank competitors. Automate compliance. Sell more cannabis.
+                        </p>
 
-                <div class="trust-badge animate-fade-in justify-center" style="animation-delay: 0.8s;">
-                    <i class="fas fa-leaf"></i>
-                    <span>NYC Cannabis Marketing Specialists</span>
+                        <div class="animate-fade-in flex flex-col sm:flex-row gap-4 lg:justify-start justify-center" style="animation-delay: 0.6s;">
+                            <a href="free-audit.html" class="btn-primary btn-shimmer text-white px-8 py-4 rounded-xl text-lg font-bold inline-flex items-center justify-center">
+                                <i class="fas fa-cannabis mr-3"></i>Get Free Dispensary Audit
+                            </a>
+                            <a href="https://calendly.com/seamlessflow" target="_blank" rel="noopener noreferrer" class="btn-secondary text-white px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center">
+                                <i class="fas fa-calendar-check mr-2"></i>Book a Free Strategy Call
+                            </a>
+                        </div>
+
+                        <div class="hero-trust-bar animate-fade-in lg:justify-start mt-8" style="animation-delay: 0.8s;">
+                            <span><i class="fas fa-shield-alt"></i> Trusted by Dispensaries in NY &amp; CA</span>
+                            <span><i class="fas fa-chart-line"></i> Results in 30 Days</span>
+                            <span><i class="fas fa-handshake"></i> Cancel Anytime</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Visual element (visible on desktop) -->
+                    <div class="hidden lg:flex items-center justify-center animate-fade-in" style="animation-delay: 0.8s;">
+                        <div class="relative">
+                            <!-- Glowing stat cards -->
+                            <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 space-y-6 max-w-sm">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
+                                        <i class="fas fa-arrow-up text-green-400 text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-extrabold text-white">300%</div>
+                                        <div class="text-sm text-gray-400">Avg Traffic Increase</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-blue-400 text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-extrabold text-white">#1</div>
+                                        <div class="text-sm text-gray-400">Google Maps Ranking</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                                        <i class="fas fa-clock text-purple-400 text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-extrabold text-white">24/7</div>
+                                        <div class="text-sm text-gray-400">AI Budtender Active</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Decorative glow behind card -->
+                            <div class="absolute -inset-4 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-3xl blur-2xl -z-10"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -505,8 +694,8 @@
     <!-- Pain Points Section - MOVED UP FOR BETTER FUNNEL -->
     <section id="pain-points" class="section-padding bg-green-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">The Problems Every NYC Dispensary Faces</h2>
-            <p class="section-subtitle">Sound familiar? You're not alone.</p>
+            <h2 class="section-title reveal">The Problems Every NYC Dispensary Faces</h2>
+            <p class="section-subtitle reveal reveal-delay-1">Sound familiar? You're not alone.</p>
 
             <div class="bg-white rounded-xl shadow-xl overflow-hidden">
                 <div class="md:flex">
@@ -574,9 +763,9 @@
     <section id="expected-results" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="bg-green-100 text-green-800 text-sm font-semibold px-4 py-1 rounded-full">What To Expect</span>
-                <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-4">What Results Look Like</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Typical outcomes for dispensaries using our SEO and automation services</p>
+                <span class="bg-green-100 text-green-800 text-sm font-semibold px-4 py-1 rounded-full reveal">What To Expect</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-4 reveal reveal-delay-1">What Results Look Like</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto reveal reveal-delay-2">Typical outcomes for dispensaries using our SEO and automation services</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
@@ -650,8 +839,8 @@
     <!-- Services Section -->
     <section id="services" class="section-padding bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Everything NYC dispensaries need to rank higher and sell more</p>
+            <h2 class="section-title reveal">Our Services</h2>
+            <p class="section-subtitle reveal reveal-delay-1">Everything NYC dispensaries need to rank higher and sell more</p>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- LOCAL SEO SERVICES - FIRST PRIORITY -->
@@ -665,8 +854,8 @@
                         </div>
                     </div>
                     <div class="p-8">
-                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fas fa-map-marked-alt text-green-600 text-2xl"></i>
+                        <div class="icon-gradient mb-6">
+                            <i class="fas fa-map-marked-alt text-2xl"></i>
                         </div>
 
                         <div class="mb-6">
@@ -715,8 +904,8 @@
                     <!-- AI Budtender Card -->
                     <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-purple-400">
                         <div class="p-8">
-                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                                <i class="fas fa-robot text-purple-600 text-2xl"></i>
+                            <div class="icon-gradient icon-gradient-purple mb-6">
+                                <i class="fas fa-robot text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-bold mb-4">AI Budtender</h3>
                             <p class="text-gray-600 text-sm mb-4">24/7 chatbot trained on YOUR strains, products & pricing</p>
@@ -744,8 +933,8 @@
                     <!-- Compliance & Operations Card -->
                     <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden border-2 border-orange-400">
                         <div class="p-8">
-                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
-                                <i class="fas fa-clipboard-check text-orange-600 text-2xl"></i>
+                            <div class="icon-gradient icon-gradient-orange mb-6">
+                                <i class="fas fa-clipboard-check text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-bold mb-4">Compliance & Operations</h3>
                             <p class="text-gray-600 text-sm mb-4">Automate the boring stuff so you can focus on sales</p>
@@ -778,7 +967,7 @@
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 reveal">
                     <i class="fas fa-map-marked-alt text-green-600 mr-2"></i>Live NYC Dispensary Rankings
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -877,10 +1066,10 @@
     <section class="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 reveal">
                     The 30-Day SeamlessFlow Method
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto reveal reveal-delay-1">
                     Our proven process delivers measurable improvements every single week - no more waiting months for results
                 </p>
             </div>
@@ -1035,8 +1224,8 @@
     <!-- Why Choose Us Section - Consolidated -->
     <section id="why-us" class="section-padding bg-green-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Why Dispensaries Choose Us</h2>
-            <p class="section-subtitle">NYC's cannabis marketing specialists</p>
+            <h2 class="section-title reveal">Why Dispensaries Choose Us</h2>
+            <p class="section-subtitle reveal reveal-delay-1">NYC's cannabis marketing specialists</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-green-500">
@@ -1103,9 +1292,12 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Dominate Your Market?</h2>
+    <section class="py-20 bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white relative overflow-hidden">
+        <!-- Decorative orbs -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 reveal tracking-tight">Ready to Dominate Your Market?</h2>
             <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
                 Stop losing customers to competitors. Let's talk about getting your dispensary to #1 on Google.
             </p>
@@ -1114,6 +1306,9 @@
                 <button onclick="document.getElementById('chatToggle').click();" class="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-bold inline-flex items-center transform hover:scale-105 transition-all shadow-lg cursor-pointer">
                     <i class="fas fa-comments mr-3"></i>Chat With Jamie Now
                 </button>
+                <a href="https://calendly.com/seamlessflow" target="_blank" rel="noopener noreferrer" class="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-bold inline-flex items-center transform hover:scale-105 transition-all shadow-lg">
+                    <i class="fas fa-calendar-check mr-3"></i>Book a Free Strategy Call
+                </a>
                 <a href="tel:+13477498146" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold inline-flex items-center hover:bg-white hover:text-green-700 transition-all">
                     <i class="fas fa-phone mr-3"></i>(347) 749-8146
                 </a>
@@ -1126,7 +1321,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-950 text-white py-16 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
                 <div>
@@ -1212,8 +1407,13 @@
                         </span>
                     </div>
                 </div>
+                <div class="flex justify-center gap-6 mb-4">
+                    <a href="https://linkedin.com/company/seamlessflow" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="https://x.com/seamlessflowai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-x-twitter text-xl"></i></a>
+                </div>
                 <div class="text-center text-gray-400 text-sm">
-                    <p>&copy; 2025 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+                    <p>&copy; 2026 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
                 </div>
             </div>
         </div>
@@ -1291,21 +1491,22 @@
             });
         });
 
-        // Mobile menu toggle - Fixed for new CSS
+        // Mobile menu toggle - Premium slide-in
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         if (mobileMenuButton) {
             mobileMenuButton.addEventListener('click', function() {
                 const mobileMenu = document.getElementById('mobile-menu');
                 const hamburger = this;
-                
+                const overlay = document.getElementById('mobile-overlay');
+
                 if (mobileMenu && mobileMenu.classList.contains('show')) {
-                    // Close menu
                     mobileMenu.classList.remove('show');
                     hamburger.classList.remove('active');
+                    if (overlay) overlay.classList.remove('show');
                 } else if (mobileMenu) {
-                    // Open menu
                     mobileMenu.classList.add('show');
                     hamburger.classList.add('active');
+                    if (overlay) overlay.classList.add('show');
                 }
             });
         }
@@ -1314,16 +1515,12 @@
         document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                // Close mobile menu properly
                 const mobileMenu = document.getElementById('mobile-menu');
                 const hamburger = document.getElementById('mobile-menu-button');
-                
-                // Remove show class and active state
+                const overlay = document.getElementById('mobile-overlay');
                 if (mobileMenu) mobileMenu.classList.remove('show');
                 if (hamburger) hamburger.classList.remove('active');
-                
-                // Scroll to section immediately
+                if (overlay) overlay.classList.remove('show');
                 smoothScrollToSection(this.getAttribute('href'));
             });
         });
@@ -1332,10 +1529,11 @@
         document.addEventListener('click', function(e) {
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileButton = document.getElementById('mobile-menu-button');
-            
+            const overlay = document.getElementById('mobile-overlay');
             if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
                 mobileMenu.classList.remove('show');
                 mobileButton.classList.remove('active');
+                if (overlay) overlay.classList.remove('show');
             }
         });
 
@@ -1396,13 +1594,83 @@
             });
         });
 
+        // === PREMIUM: Nav glass effect on scroll ===
+        const mainNav = document.getElementById('main-nav');
+        if (mainNav) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 40) {
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
+            }, { passive: true });
+        }
+
+        // === PREMIUM: Mobile overlay toggle ===
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                mobileOverlay.classList.remove('show');
+            });
+        }
+
+        // === PREMIUM: Scroll reveal with Intersection Observer ===
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // === PREMIUM: Count-up animation on scroll ===
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.count-up').forEach(counter => {
+                        const text = counter.textContent.trim();
+                        const match = text.match(/^([<>$]?)(\d+(?:\.\d+)?)(.*)$/);
+                        if (!match) return;
+                        const prefix = match[1], target = parseFloat(match[2]), suffix = match[3];
+                        const isFloat = text.includes('.');
+                        const duration = 1600;
+                        const start = performance.now();
+                        counter.classList.add('count-up-animated');
+                        const animate = (now) => {
+                            const elapsed = now - start;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = eased * target;
+                            counter.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+                            if (progress < 1) requestAnimationFrame(animate);
+                            else counter.textContent = prefix + (isFloat ? target.toFixed(1) : target) + suffix;
+                        };
+                        requestAnimationFrame(animate);
+                    });
+                    countObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.count-up').forEach(el => {
+            const section = el.closest('section') || el.closest('div');
+            if (section && !section.dataset.countObserved) {
+                section.dataset.countObserved = 'true';
+                countObserver.observe(section);
+            }
+        });
+
         // Lazy load hero video after page load
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('hero-video');
             if (video) {
                 const source = video.querySelector('source[data-src]');
                 if (source) {
-                    // Load video after a short delay to prioritize other content
                     setTimeout(() => {
                         source.src = source.dataset.src;
                         video.load();
