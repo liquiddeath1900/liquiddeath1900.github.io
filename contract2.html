@@ -906,6 +906,8 @@
         var submitted = false;
 
         // Form submission handler
+        const N8N_LEAD_WEBHOOK = 'https://seamlessflow1.app.n8n.cloud/webhook/lead-intake';
+
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
@@ -915,6 +917,27 @@
                     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
                     submitBtn.disabled = true;
                 }
+
+                // Send to n8n lead intake (non-blocking, Google Forms still submits normally)
+                try {
+                    fetch(N8N_LEAD_WEBHOOK, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: document.getElementById('fullName')?.value || '',
+                            business_name: document.getElementById('businessName')?.value || '',
+                            email: document.getElementById('email')?.value || '',
+                            phone: document.getElementById('phone')?.value || '',
+                            business_type: document.getElementById('businessType')?.value || '',
+                            location: document.getElementById('location')?.value || '',
+                            website: '',
+                            message: 'Contact form submission'
+                        })
+                    }).catch(err => console.warn('Lead webhook error (non-critical):', err));
+                } catch (err) {
+                    console.warn('Lead webhook setup error:', err);
+                }
+
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'form_submit', {
                         'event_category': 'engagement',
@@ -924,7 +947,6 @@
             });
         }
 
-        <script>
 
 
         
