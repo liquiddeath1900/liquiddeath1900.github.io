@@ -144,4 +144,10 @@
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
+  <url>
+    <loc>https://www.seamlessflow.ai/security-audits.html</loc>
+    <lastmod>2026-04-06</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
