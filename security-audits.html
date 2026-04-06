@@ -24,38 +24,62 @@
     <meta property="og:description" content="Professional security audits for cannabis dispensaries and startups. Protect patient data, POS systems, and web applications. Reports starting at $99.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.seamlessflow.ai/security-audits.html">
-    <meta property="og:image" content="https://seamlessflow.ai/assets/website homelogo.png">
+    <meta property="og:image" content="https://www.seamlessflow.ai/assets/website-homelogo.webp">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cannabis Dispensary Security Audits | SeamlessFlow.ai">
     <meta name="twitter:description" content="Professional security audits for cannabis dispensaries and startups. Protect patient data, POS systems, and web applications. Reports starting at $99.">
-    <meta name="twitter:image" content="https://seamlessflow.ai/assets/website homelogo.png">
+    <meta name="twitter:image" content="https://www.seamlessflow.ai/assets/website-homelogo.webp">
 
-    <!-- Schema.org Service markup -->
+    <!-- Consolidated Schema.org markup -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Cannabis Dispensary Security Audits",
+    "description": "Professional security audits for cannabis dispensaries and startups. Protect patient data, POS systems, and web applications. Reports starting at $99.",
+    "url": "https://www.seamlessflow.ai/security-audits.html",
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "SeamlessFlow.ai",
+        "url": "https://www.seamlessflow.ai"
+    },
+    "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "SeamlessFlow.ai", "item": "https://www.seamlessflow.ai/"},
+            {"@type": "ListItem", "position": 2, "name": "Security Audits", "item": "https://www.seamlessflow.ai/security-audits.html"}
+        ]
+    },
+    "mainEntity": {
         "@type": "Service",
         "name": "Cannabis Dispensary Security Audits",
         "description": "Professional security audits for cannabis dispensaries and startups. Protect patient data, POS systems, and web applications.",
         "url": "https://www.seamlessflow.ai/security-audits.html",
+        "serviceType": "Security Audit",
         "provider": {
             "@type": "ProfessionalService",
             "name": "SeamlessFlow.ai",
             "url": "https://www.seamlessflow.ai",
-            "logo": "https://seamlessflow.ai/assets/website homelogo.png",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.seamlessflow.ai/assets/website-homelogo.webp",
+                "width": 280,
+                "height": 32
+            },
             "areaServed": ["New York", "New Jersey", "Connecticut", "Massachusetts"],
             "telephone": "+13477498146",
             "email": "info@seamlessflow.ai"
         },
-        "serviceType": "Security Audit",
         "offers": [
             {
                 "@type": "Offer",
                 "name": "Starter Security Audit",
                 "price": "99.00",
                 "priceCurrency": "USD",
+                "url": "https://www.seamlessflow.ai/security-audits.html#pricing",
+                "availability": "https://schema.org/OnlineOnly",
                 "description": "1 target, full vulnerability scan, professional PDF report, 48-hour delivery"
             },
             {
@@ -63,67 +87,31 @@
                 "name": "Pro Security Audit",
                 "price": "249.00",
                 "priceCurrency": "USD",
+                "url": "https://www.seamlessflow.ai/security-audits.html#pricing",
+                "availability": "https://schema.org/OnlineOnly",
                 "description": "3 repos + 2 URLs, deep vulnerability scan, priority support, 24-hour delivery"
             },
             {
                 "@type": "Offer",
                 "name": "Business Security Audit",
-                "price": "499.00",
-                "priceCurrency": "USD",
-                "description": "Unlimited targets, monthly recurring scans, compliance documentation"
-            }
-        ]
-    }
-    </script>
-
-    <!-- FAQPage Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What does a security audit include?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Our security audits include port scanning and service detection, SSL/TLS configuration analysis, security headers checks, exposed file detection, static code analysis with Semgrep, dependency vulnerability audits, secret detection, and a professional PDF report with remediation steps."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How long does an audit take?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Starter audits are delivered within 48 hours. Pro audits are delivered within 24 hours. Business plan clients receive monthly recurring scans on a set schedule."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this only for cannabis businesses?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No. While we specialize in cannabis dispensary security, our audits work for any web application, SaaS product, or startup. We also serve developers and agencies looking for white-label security reports."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I use the report for compliance?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. Our professional PDF reports are designed to support compliance requirements. Business plan clients receive additional compliance documentation suitable for regulatory submissions, investor due diligence, and SOC 2 readiness assessments."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What if you find a critical vulnerability?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "If we discover a critical vulnerability during your audit, we notify you immediately via email before the full report is complete. Pro and Business plan clients receive priority remediation support to help fix critical issues fast."
+                "url": "https://www.seamlessflow.ai/security-audits.html#pricing",
+                "availability": "https://schema.org/OnlineOnly",
+                "description": "Unlimited targets, monthly recurring scans, compliance documentation",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "499.00",
+                    "priceCurrency": "USD",
+                    "unitCode": "MON",
+                    "referenceQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": 1,
+                        "unitCode": "MON"
+                    }
                 }
             }
         ]
     }
+}
     </script>
 
     <meta name="description" content="Professional security audits for cannabis dispensaries and startups. Protect patient data, POS systems, and web applications. Reports starting at $99.">
@@ -228,17 +216,6 @@
             position: absolute;
         }
     </style>
-<link rel="stylesheet" href="assets/css/chatbot-widget.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "SeamlessFlow.ai", "item": "https://www.seamlessflow.ai/"},
-    {"@type": "ListItem", "position": 2, "name": "Security Audits", "item": "https://www.seamlessflow.ai/security-audits.html"}
-  ]
-}
-</script>
 </head>
 <body>
     <!-- Navigation -->
@@ -420,9 +397,10 @@
             <p class="text-xl md:text-2xl mb-4">
                 AI-Powered Vulnerability Scanning. Expert Human Review.
             </p>
-            <p class="text-lg mb-8 max-w-3xl mx-auto">
-                Identify threats to your patient data, POS systems, and web applications before attackers do. Comprehensive reports with actionable remediation steps.
+            <p class="text-lg mb-4 max-w-3xl mx-auto">
+                Every cannabis dispensary security audit we deliver identifies threats to your patient data, POS systems, and web applications before attackers do. Comprehensive reports with actionable remediation steps. Our security audits complement our <a href="local-seo.html" class="text-green-200 underline hover:text-white">dispensary SEO services</a> — because a secure site ranks better.
             </p>
+            <p class="text-green-200 text-sm mt-2">Last updated: April 2026</p>
             <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center sm:items-center">
                 <a href="#pricing" class="bg-white hover:bg-gray-100 text-green-800 px-8 py-4 rounded-lg text-lg font-bold inline-block transform hover:scale-105 transition-all">
                     Get Your Security Audit
@@ -453,7 +431,7 @@
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">What We Scan</h2>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">What Our Cannabis Security Audit Covers</h2>
                 <p class="text-xl text-gray-600">Comprehensive security checks across your entire attack surface</p>
             </div>
 
@@ -477,7 +455,7 @@
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-shield-alt text-green-500 mr-3 mt-1"></i>
-                            <span>Security headers check (CSP, HSTS, X-Frame-Options)</span>
+                            <span>Security headers check (Content Security Policy (CSP), HSTS, X-Frame-Options)</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-file-alt text-green-500 mr-3 mt-1"></i>
@@ -485,7 +463,7 @@
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-exchange-alt text-green-500 mr-3 mt-1"></i>
-                            <span>CORS misconfiguration</span>
+                            <span>CORS misconfiguration (a flaw that lets unauthorized websites access your data)</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-fingerprint text-green-500 mr-3 mt-1"></i>
@@ -505,7 +483,7 @@
                     <ul class="space-y-3 text-gray-600">
                         <li class="flex items-start">
                             <i class="fas fa-bug text-green-500 mr-3 mt-1"></i>
-                            <span>Static code analysis (Semgrep)</span>
+                            <span>Static code analysis (automated code review for security flaws) with Semgrep</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-box-open text-green-500 mr-3 mt-1"></i>
@@ -532,6 +510,92 @@
             </div>
 
             <p class="text-center text-gray-500 text-sm mt-8"><i class="fas fa-info-circle mr-1"></i> Reports powered by ShieldCheck</p>
+        </div>
+    </section>
+
+    <!-- Common Dispensary Vulnerabilities -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Common Cannabis Dispensary Vulnerabilities We Find</h2>
+                <p class="text-xl text-gray-600">Our cannabis dispensary security audits consistently uncover these critical cybersecurity issues</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Patient Data Exposure -->
+                <div class="feature-card bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user-shield text-red-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Patient Data Exposure</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Many dispensaries using platforms like Dutchie or Jane have misconfigured integrations that leak patient records and purchase history. We've seen everything from exposed API endpoints to default admin credentials on patient management portals.</p>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">What we check:</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li><i class="fas fa-check text-red-400 mr-2"></i>HIPAA-adjacent data handling</li>
+                        <li><i class="fas fa-check text-red-400 mr-2"></i>API endpoint security</li>
+                        <li><i class="fas fa-check text-red-400 mr-2"></i>Access control policies</li>
+                        <li><i class="fas fa-check text-red-400 mr-2"></i>Session management</li>
+                    </ul>
+                </div>
+
+                <!-- POS System Vulnerabilities -->
+                <div class="feature-card bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-cash-register text-orange-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">POS System Vulnerabilities</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Point-of-sale systems in dispensaries often run outdated software with known CVEs. We regularly find open ports, unpatched terminals, and POS admin panels accessible from the public internet — any of which could let an attacker intercept transactions or steal financial data.</p>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">What we check:</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Network port exposure</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Software version auditing</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Admin panel access controls</li>
+                        <li><i class="fas fa-check text-orange-400 mr-2"></i>Payment data encryption</li>
+                    </ul>
+                </div>
+
+                <!-- Seed-to-Sale Platform Risks -->
+                <div class="feature-card bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-leaf text-green-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Seed-to-Sale Platform Risks</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Metrc and BioTrack integrations frequently expose API keys in public code repositories or client-side JavaScript. A leaked seed-to-sale API key could allow manipulation of compliance records — putting your license at risk.</p>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">What we check:</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>API key exposure in public repos</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Metrc/BioTrack integration security</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Compliance data integrity</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Access logging</li>
+                    </ul>
+                </div>
+
+                <!-- Website & Online Ordering Flaws -->
+                <div class="feature-card bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-globe text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Website & Online Ordering Flaws</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Dispensary websites commonly lack basic cybersecurity protections like security headers, SSL hardening, and CORS configuration. Missing these basics makes your site vulnerable to cross-site scripting (XSS), clickjacking, and data interception — especially dangerous when handling age verification and delivery addresses.</p>
+                    <p class="text-sm font-semibold text-gray-700 mb-2">What we check:</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Security header presence (CSP, HSTS, X-Frame-Options)</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>SSL/TLS strength</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>CORS policy, exposed .env files</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Outdated JavaScript dependencies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-center text-gray-500 text-sm mt-10">We check against the <a href="https://owasp.org" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">OWASP Top 10</a> vulnerabilities and align our cybersecurity methodology with the <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:underline">NIST Cybersecurity Framework</a>.</p>
         </div>
     </section>
 
@@ -575,7 +639,7 @@
                             </li>
                         </ul>
                         <a href="contract2.html" class="block text-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all">
-                            Get Started
+                            Start My $99 Audit
                         </a>
                     </div>
                 </div>
@@ -616,7 +680,7 @@
                             </li>
                         </ul>
                         <a href="contract2.html" class="block text-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">
-                            Get Started
+                            Get the Pro Audit
                         </a>
                     </div>
                 </div>
@@ -656,7 +720,7 @@
                             </li>
                         </ul>
                         <a href="contract2.html" class="block text-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-all">
-                            Contact Us
+                            Contact for Business Plan
                         </a>
                     </div>
                 </div>
@@ -668,7 +732,7 @@
     <section id="how-it-works" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">How It Works</h2>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">How Our Dispensary Security Audit Works</h2>
                 <p class="text-xl text-gray-600">Four simple steps to a more secure business</p>
             </div>
 
@@ -727,7 +791,7 @@
                         <i class="fas fa-cannabis text-green-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Cannabis & Dispensary</h3>
-                    <p class="text-gray-600">Protect patient data, POS systems, seed-to-sale tracking platforms, and online ordering portals from security threats.</p>
+                    <p class="text-gray-600">Protect patient data, POS systems, seed-to-sale tracking platforms, and online ordering portals from security threats. Pairs with our <a href="cannabis-industry-solutions.html" class="text-green-600 hover:underline">full cannabis industry solutions</a> for complete digital protection.</p>
                 </div>
 
                 <!-- Startups -->
@@ -789,7 +853,7 @@
                         <i class="fas fa-chevron-down transform transition-transform" id="faq3-icon"></i>
                     </button>
                     <div id="faq3" class="mt-4 text-gray-600 hidden">
-                        <p>No. While we specialize in cannabis dispensary security and understand the unique compliance requirements of the industry, our audits work for any web application, SaaS product, or startup. We also serve developers and agencies looking for white-label security reports for their own clients.</p>
+                        <p>No. While we specialize in cannabis dispensary cybersecurity and understand the unique compliance requirements of the industry, our audits work for any web application, SaaS product, or startup. We also serve developers and agencies looking for white-label security reports for their own clients. Learn more in our <a href="blog.html" class="text-green-600 hover:underline">industry insights blog</a>.</p>
                     </div>
                 </div>
 
@@ -800,7 +864,7 @@
                         <i class="fas fa-chevron-down transform transition-transform" id="faq4-icon"></i>
                     </button>
                     <div id="faq4" class="mt-4 text-gray-600 hidden">
-                        <p>Yes. Our professional PDF reports are designed to support compliance requirements. Business plan clients receive additional compliance documentation suitable for regulatory submissions, investor due diligence, and SOC 2 readiness assessments.</p>
+                        <p>Yes. Our professional PDF reports are designed to support cybersecurity compliance requirements. Business plan clients receive additional compliance documentation suitable for regulatory submissions, investor due diligence, and SOC 2 readiness assessments.</p>
                     </div>
                 </div>
 
