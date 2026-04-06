@@ -1029,13 +1029,29 @@
             }
 
             try {
+                // Send to existing SEO audit webhook
                 const response = await fetch('https://seamlessflow1.app.n8n.cloud/webhook/seo-audit-webhook', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });
+
+                // Also send to lead intake webhook (non-blocking)
+                const N8N_LEAD_WEBHOOK = 'https://seamlessflow1.app.n8n.cloud/webhook/lead-intake';
+                fetch(N8N_LEAD_WEBHOOK, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: formData.business_name,
+                        business_name: formData.business_name,
+                        email: formData.email,
+                        phone: formData.phone,
+                        business_type: formData.business_type,
+                        location: formData.service_area,
+                        website: formData.website_url,
+                        message: 'Free audit request'
+                    })
+                }).catch(err => console.warn('Lead webhook error (non-critical):', err));
 
                 if (response.ok) {
                     // Hide form, show success
