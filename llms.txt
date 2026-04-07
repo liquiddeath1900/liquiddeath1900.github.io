@@ -25,13 +25,20 @@ Complete GBP setup and optimization including category selection, service area c
 - **Connecticut:** Hartford, New Haven, Stamford
 - **Massachusetts:** Boston, Worcester, Springfield
 
+## Pricing
+- All plans are priced per location
+- **Starter** — Starting at $497/month per location: GBP optimization, on-page SEO, cannabis keyword research, 10-15 directory listings, NAP audit, competitor analysis, monthly geo-grid ranking reports
+- **Growth** — Starting at $997/month per location: Everything in Starter plus AI Budtender chatbot, 25-30 directory listings, GBP posts, review generation, strain/product pages, bi-weekly strategy calls
+- **Custom** — Tailored packages for multi-location SEO, website development, Metrc compliance automation, security audits, and advanced automation workflows
+- Add-ons available: Website Development (from $2,500), Security Audits (from $99), AI Budtender standalone (from $497/mo), Voice Agents, Marketing Automation, Review Management, Content Creation
+
 ## Key Facts
 - NYC-based agency specializing exclusively in licensed cannabis businesses
 - No long-term contracts — month-to-month services, cancel anytime
-- 30-day results guarantee on all SEO packages
-- Uses geo-grid ranking reports (Local Falcon) for transparent performance tracking
-- AI-first approach: budtender chatbots, compliance automation, marketing workflows
-- Starting at $497/month for single-location dispensaries
+- 30-day satisfaction guarantee on all packages
+- Uses geo-grid ranking reports (Local Falcon, BrightLocal) for transparent performance tracking
+- AI-first approach: budtender chatbots, compliance automation, marketing workflows, voice agents
+- Cannabis-only agency — every tool and strategy is built for dispensaries
 
 ## Contact
 - Website: https://www.seamlessflow.ai

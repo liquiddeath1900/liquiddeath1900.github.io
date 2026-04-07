@@ -474,19 +474,14 @@
                 <span class="price">$497/month</span>
             </div>
             <div class="service-option">
-                <input type="checkbox" id="seoMarketLeader" data-group="seo">
-                <span class="flex-1">Market Leader - Competitive dominance</span>
+                <input type="checkbox" id="seoGrowth" data-group="seo">
+                <span class="flex-1">Growth - Competitive dominance</span>
                 <span class="price">$997/month</span>
             </div>
             <div class="service-option">
-                <input type="checkbox" id="seoCityDomination" data-group="seo">
-                <span class="flex-1">City Domination - Full market control</span>
-                <span class="price">$1,497/month</span>
-            </div>
-            <div class="service-option">
-                <input type="checkbox" id="seoRegional" data-group="seo">
-                <span class="flex-1">Regional Domination - Multi-city expansion</span>
-                <span class="price">$3,500/month</span>
+                <input type="checkbox" id="seoCustom" data-group="seo">
+                <span class="flex-1">Custom - Tailored strategy for your market</span>
+                <span class="price">Custom pricing</span>
             </div>
 
             <h3 style="margin-top: 24px;">Web Design & Automation</h3>
@@ -498,9 +493,9 @@
             </div>
             <input type="number" id="websiteDevPrice" placeholder="Adjust price if needed" class="custom-price-input hidden" value="2500">
             <div class="service-option">
-                <input type="checkbox" id="marketingAutomation">
-                <span class="flex-1">Marketing Automation Platform</span>
-                <span class="price">$1,500/month</span>
+                <input type="checkbox" id="aiBudtender">
+                <span class="flex-1">AI Budtender - Conversational AI for dispensaries</span>
+                <span class="price">$497/month</span>
             </div>
             <div class="service-option">
                 <input type="checkbox" id="businessAutomation">
@@ -509,28 +504,12 @@
             </div>
             <input type="number" id="businessAutomationPrice" placeholder="Enter monthly price" class="custom-price-input hidden">
 
-            <h3 style="margin-top: 24px;">Advanced Automation Packages</h3>
-            <p style="color: #6b7280; font-size: 14px; margin-bottom: 12px;">Select ONE package (mutually exclusive)</p>
-            <div class="service-option">
-                <input type="checkbox" id="foundationPackage" data-group="automation">
-                <span class="flex-1">Foundation Package - Essential automation suite</span>
-                <span class="price">$1,500/mo + setup</span>
-            </div>
-            <input type="number" id="foundationSetupFee" placeholder="Setup fee (default $4,500)" class="custom-price-input hidden" value="4500">
-            <div class="service-option">
-                <input type="checkbox" id="growthPackage" data-group="automation">
-                <span class="flex-1">Growth Package - Advanced automation & AI</span>
-                <span class="price">$3,000/mo + setup</span>
-            </div>
-            <input type="number" id="growthSetupFee" placeholder="Setup fee (default $7,500)" class="custom-price-input hidden" value="7500">
-            <div class="service-option">
-                <input type="checkbox" id="enterprisePackage" data-group="automation">
-                <span class="flex-1">Enterprise Package - Full automation transformation</span>
-                <span class="price">Custom monthly + $15,000 setup</span>
-            </div>
-            <div id="enterprisePricing" class="hidden" style="margin-left: 32px; margin-top: 8px;">
-                <input type="number" id="enterpriseMonthlyFee" placeholder="Enter monthly fee" style="margin-bottom: 8px;" value="6000">
-                <input type="number" id="enterpriseSetupFee" placeholder="Setup fee (default $15,000)" value="15000">
+            <!-- Custom SEO tier pricing -->
+            <input type="number" id="seoCustomPrice" placeholder="Enter Custom tier monthly price" class="custom-price-input hidden">
+
+            <!-- Custom tier setup fee (shown only for Custom SEO tier) -->
+            <div id="customSetupFeeSection" class="hidden" style="margin-top: 8px;">
+                <input type="number" id="customSetupFee" placeholder="Setup fee (if applicable)" class="custom-price-input" value="0">
             </div>
         </div>
 
@@ -670,8 +649,7 @@
             });
 
             // Price inputs
-            ['websiteDevPrice', 'businessAutomationPrice', 'foundationSetupFee',
-             'growthSetupFee', 'enterpriseMonthlyFee', 'enterpriseSetupFee'].forEach(id => {
+            ['websiteDevPrice', 'businessAutomationPrice', 'seoCustomPrice', 'customSetupFee'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.addEventListener('input', () => { calculatePricing(); saveToLocalStorage(); });
             });
@@ -704,10 +682,14 @@
             const priceInputMap = {
                 'websiteDev': 'websiteDevPrice',
                 'businessAutomation': 'businessAutomationPrice',
-                'foundationPackage': 'foundationSetupFee',
-                'growthPackage': 'growthSetupFee',
-                'enterprisePackage': 'enterprisePricing'
+                'seoCustom': 'seoCustomPrice'
             };
+
+            // Show/hide custom setup fee section for Custom SEO tier
+            const customSetupSection = document.getElementById('customSetupFeeSection');
+            if (customSetupSection) {
+                customSetupSection.classList.toggle('hidden', !document.getElementById('seoCustom').checked);
+            }
 
             if (priceInputMap[serviceId]) {
                 const inputId = priceInputMap[serviceId];
@@ -726,9 +708,8 @@
 
         function updateTerritoryVisibility() {
             const isSEOSelected = document.getElementById('seoStarter').checked ||
-                                  document.getElementById('seoMarketLeader').checked ||
-                                  document.getElementById('seoCityDomination').checked ||
-                                  document.getElementById('seoRegional').checked;
+                                  document.getElementById('seoGrowth').checked ||
+                                  document.getElementById('seoCustom').checked;
 
             document.getElementById('territorySection').classList.toggle('hidden', !isSEOSelected);
         }
@@ -752,31 +733,19 @@
 
             // SEO services
             if (document.getElementById('seoStarter').checked) monthly += 497;
-            if (document.getElementById('seoMarketLeader').checked) monthly += 997;
-            if (document.getElementById('seoCityDomination').checked) monthly += 1497;
-            if (document.getElementById('seoRegional').checked) monthly += 3500;
+            if (document.getElementById('seoGrowth').checked) monthly += 997;
+            if (document.getElementById('seoCustom').checked) {
+                monthly += parseFloat(document.getElementById('seoCustomPrice').value) || 0;
+                oneTime += parseFloat(document.getElementById('customSetupFee').value) || 0;
+            }
 
             // Web Design & Automation
             if (document.getElementById('websiteDev').checked) {
                 oneTime += parseFloat(document.getElementById('websiteDevPrice').value) || 2500;
             }
-            if (document.getElementById('marketingAutomation').checked) monthly += 1500;
+            if (document.getElementById('aiBudtender').checked) monthly += 497;
             if (document.getElementById('businessAutomation').checked) {
                 monthly += parseFloat(document.getElementById('businessAutomationPrice').value) || 0;
-            }
-
-            // Advanced Packages
-            if (document.getElementById('foundationPackage').checked) {
-                monthly += 1500;
-                oneTime += parseFloat(document.getElementById('foundationSetupFee').value) || 4500;
-            }
-            if (document.getElementById('growthPackage').checked) {
-                monthly += 3000;
-                oneTime += parseFloat(document.getElementById('growthSetupFee').value) || 7500;
-            }
-            if (document.getElementById('enterprisePackage').checked) {
-                monthly += parseFloat(document.getElementById('enterpriseMonthlyFee').value) || 6000;
-                oneTime += parseFloat(document.getElementById('enterpriseSetupFee').value) || 15000;
             }
 
             const firstPayment = monthly + oneTime;
@@ -803,21 +772,15 @@
                 industryOther: document.getElementById('industryOther').value,
                 services: {
                     seoStarter: document.getElementById('seoStarter').checked,
-                    seoMarketLeader: document.getElementById('seoMarketLeader').checked,
-                    seoCityDomination: document.getElementById('seoCityDomination').checked,
-                    seoRegional: document.getElementById('seoRegional').checked,
+                    seoGrowth: document.getElementById('seoGrowth').checked,
+                    seoCustom: document.getElementById('seoCustom').checked,
+                    seoCustomPrice: document.getElementById('seoCustomPrice').value,
+                    customSetupFee: document.getElementById('customSetupFee').value,
                     websiteDev: document.getElementById('websiteDev').checked,
                     websiteDevPrice: document.getElementById('websiteDevPrice').value,
-                    marketingAutomation: document.getElementById('marketingAutomation').checked,
+                    aiBudtender: document.getElementById('aiBudtender').checked,
                     businessAutomation: document.getElementById('businessAutomation').checked,
-                    businessAutomationPrice: document.getElementById('businessAutomationPrice').value,
-                    foundationPackage: document.getElementById('foundationPackage').checked,
-                    foundationSetupFee: document.getElementById('foundationSetupFee').value,
-                    growthPackage: document.getElementById('growthPackage').checked,
-                    growthSetupFee: document.getElementById('growthSetupFee').value,
-                    enterprisePackage: document.getElementById('enterprisePackage').checked,
-                    enterpriseMonthlyFee: document.getElementById('enterpriseMonthlyFee').value,
-                    enterpriseSetupFee: document.getElementById('enterpriseSetupFee').value
+                    businessAutomationPrice: document.getElementById('businessAutomationPrice').value
                 },
                 territory: {
                     primaryCity: document.getElementById('primaryCity').value,
@@ -909,10 +872,8 @@
 
             // Reset defaults
             document.getElementById('websiteDevPrice').value = '2500';
-            document.getElementById('foundationSetupFee').value = '4500';
-            document.getElementById('growthSetupFee').value = '7500';
-            document.getElementById('enterpriseMonthlyFee').value = '6000';
-            document.getElementById('enterpriseSetupFee').value = '15000';
+            document.getElementById('seoCustomPrice').value = '';
+            document.getElementById('customSetupFee').value = '0';
             document.getElementById('contractType').value = 'month-to-month';
             document.getElementById('paymentDueDay').value = '1st';
             document.getElementById('industry').value = '';
@@ -957,9 +918,8 @@
 
         function buildContractHTML(pricing) {
             const isSEOSelected = document.getElementById('seoStarter').checked ||
-                                  document.getElementById('seoMarketLeader').checked ||
-                                  document.getElementById('seoCityDomination').checked ||
-                                  document.getElementById('seoRegional').checked;
+                                  document.getElementById('seoGrowth').checked ||
+                                  document.getElementById('seoCustom').checked;
 
             const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -1031,9 +991,9 @@
                 `;
             }
 
-            if (document.getElementById('seoMarketLeader').checked) {
+            if (document.getElementById('seoGrowth').checked) {
                 html += `
-                    <h3>Market Leader Package ($997/month)</h3>
+                    <h3>Growth Package ($997/month)</h3>
                     <p style="font-style: italic; color: #6B7280; margin-bottom: 8px;">Full deliverables included:</p>
                     <ul>
                         <li>Google Business Profile full optimization</li>
@@ -1049,61 +1009,28 @@
                         <li>Bi-weekly check-ins (email or call)</li>
                         <li>Detailed monthly report</li>
                         <li>Email support (24-48 hour response)</li>
-                    </ul>
-                `;
-            }
-
-            if (document.getElementById('seoCityDomination').checked) {
-                html += `
-                    <h3>City Domination Package ($1,497/month)</h3>
-                    <p style="font-style: italic; color: #6B7280; margin-bottom: 8px;">Full deliverables included:</p>
-                    <ul>
-                        <li>Google Business Profile full optimization</li>
-                        <li>On-page SEO fixes (titles, meta descriptions, H1s on top 5 pages)</li>
-                        <li>Local keyword research (10-20 keywords)</li>
-                        <li>40-50+ directory listings (all tiers including niche industry directories)</li>
-                        <li>NAP consistency audit AND cleanup (fixing inconsistencies)</li>
-                        <li>Google Search Console + Analytics setup</li>
-                        <li>Competitor snapshot + ongoing monitoring</li>
-                        <li>2-4 location or service pages per month</li>
-                        <li>4-8 Google Business Profile posts per month</li>
-                        <li>Review generation system + request templates</li>
-                        <li>1 blog post or local content piece per month</li>
-                        <li>Basic link building (1-2 local backlinks per month)</li>
-                        <li>Full technical SEO audit + fixes (site speed, schema markup, indexing issues)</li>
-                        <li>Geo-grid rank tracking (Local Falcon-style reports showing your rankings across the city)</li>
-                        <li>Monthly strategy call (30-45 min)</li>
-                        <li>Bi-weekly performance reports</li>
-                        <li>Priority email support (same-day response)</li>
                         <li>Borough/District Limited Exclusivity (2-4 clients per industry in protected territory)</li>
                     </ul>
                 `;
             }
 
-            if (document.getElementById('seoRegional').checked) {
+            if (document.getElementById('seoCustom').checked) {
+                const customPrice = document.getElementById('seoCustomPrice').value;
+                const customSetup = document.getElementById('customSetupFee').value;
+                const priceDisplay = customPrice ? '$' + parseFloat(customPrice).toLocaleString() + '/month' : 'Custom pricing';
+                const setupDisplay = customSetup && parseFloat(customSetup) > 0 ? ' + $' + parseFloat(customSetup).toLocaleString() + ' setup' : '';
                 html += `
-                    <h3>Regional Domination Package ($3,500/month)</h3>
-                    <p style="font-style: italic; color: #6B7280; margin-bottom: 8px;">Full deliverables included:</p>
+                    <h3>Custom Package (${priceDisplay}${setupDisplay})</h3>
+                    <p style="font-style: italic; color: #6B7280; margin-bottom: 8px;">Tailored deliverables based on your specific needs:</p>
                     <ul>
-                        <li>Google Business Profile full optimization + multi-location management</li>
-                        <li>On-page SEO fixes across all target markets</li>
-                        <li>Multi-city keyword research (for each target market)</li>
-                        <li>40-50+ directory listings per market (all tiers including niche industry directories)</li>
-                        <li>NAP consistency audit AND cleanup across all locations</li>
-                        <li>Google Search Console + Analytics setup with custom dashboard</li>
-                        <li>Competitor snapshot + ongoing monitoring across all markets</li>
-                        <li>5-10 city landing pages (built during Month 1-2 setup)</li>
-                        <li>4-6 new location pages per month (ongoing)</li>
-                        <li>8+ Google Business Profile posts per month across locations</li>
-                        <li>Review generation system + request templates</li>
-                        <li>2-4 blog posts per month</li>
-                        <li>Regional backlink building (2-4 links per month including local publications)</li>
+                        <li>Everything in Growth Package, plus:</li>
+                        <li>Custom strategy tailored to your market and goals</li>
+                        <li>Multi-city or regional keyword research</li>
+                        <li>40-50+ directory listings (all tiers including niche industry directories)</li>
                         <li>Full technical SEO audit + fixes (site speed, schema markup, indexing issues)</li>
-                        <li>Geo-grid rank tracking across all target cities</li>
-                        <li>PR support (press releases, local media outreach)</li>
-                        <li>App Store Optimization — Google Play & Apple App Store (if applicable)</li>
+                        <li>Geo-grid rank tracking across target areas</li>
+                        <li>Advanced content strategy and link building</li>
                         <li>Weekly or bi-weekly strategy calls</li>
-                        <li>Weekly performance reports</li>
                         <li>Priority email + phone support (same-day response)</li>
                         <li>Borough/District Limited Exclusivity (2-4 clients per industry in protected territory)</li>
                     </ul>
@@ -1129,18 +1056,18 @@
                 `;
             }
 
-            if (document.getElementById('marketingAutomation').checked) {
+            if (document.getElementById('aiBudtender').checked) {
                 html += `
-                    <h3>Marketing Automation Platform ($1,500/month)</h3>
+                    <h3>AI Budtender ($497/month)</h3>
                     <ul>
-                        <li>Email marketing automation setup and management</li>
-                        <li>CRM integration and data synchronization</li>
-                        <li>Lead nurturing workflows and drip campaigns</li>
-                        <li>Automated follow-up sequences</li>
-                        <li>Customer segmentation and targeting</li>
-                        <li>Performance tracking and analytics reporting</li>
-                        <li>A/B testing and optimization</li>
-                        <li>Monthly campaign strategy and planning</li>
+                        <li>Conversational AI chatbot for your dispensary website</li>
+                        <li>Product recommendations based on customer preferences</li>
+                        <li>Strain information and effects guidance</li>
+                        <li>Menu integration and real-time inventory awareness</li>
+                        <li>Customer engagement and lead capture</li>
+                        <li>Performance tracking and conversation analytics</li>
+                        <li>Monthly optimization and training updates</li>
+                        <li>Integration with existing POS/menu systems</li>
                     </ul>
                 `;
             }
@@ -1161,58 +1088,6 @@
                 `;
             }
 
-            // Advanced Automation Packages
-            if (document.getElementById('foundationPackage').checked) {
-                const setup = document.getElementById('foundationSetupFee').value || '4500';
-                html += `
-                    <h3>Foundation Package ($1,500/month + $${setup} setup)</h3>
-                    <ul>
-                        <li>Core business automation infrastructure setup</li>
-                        <li>Email and SMS automation campaigns</li>
-                        <li>Basic AI chatbot implementation</li>
-                        <li>CRM setup and integration</li>
-                        <li>Workflow documentation and training materials</li>
-                        <li>Monthly optimization and support</li>
-                        <li>2 hours of consulting per month</li>
-                    </ul>
-                `;
-            }
-
-            if (document.getElementById('growthPackage').checked) {
-                const setup = document.getElementById('growthSetupFee').value || '7500';
-                html += `
-                    <h3>Growth Package ($3,000/month + $${setup} setup)</h3>
-                    <ul>
-                        <li>Everything in Foundation Package, plus:</li>
-                        <li>Advanced AI integration (GPT-powered tools and workflows)</li>
-                        <li>Multi-channel automation (email, SMS, social media)</li>
-                        <li>Custom API integrations and webhooks</li>
-                        <li>Advanced analytics and reporting dashboards</li>
-                        <li>Dedicated automation specialist</li>
-                        <li>Bi-weekly strategy and optimization calls</li>
-                        <li>5 hours of consulting per month</li>
-                    </ul>
-                `;
-            }
-
-            if (document.getElementById('enterprisePackage').checked) {
-                const monthly = document.getElementById('enterpriseMonthlyFee').value || '6000';
-                const setup = document.getElementById('enterpriseSetupFee').value || '15000';
-                html += `
-                    <h3>Enterprise Package ($${monthly}/month + $${setup} setup)</h3>
-                    <ul>
-                        <li>Everything in Growth Package, plus:</li>
-                        <li>Enterprise-grade automation architecture</li>
-                        <li>Custom AI model training and deployment</li>
-                        <li>Full-scale digital transformation consulting</li>
-                        <li>Unlimited workflow and integration development</li>
-                        <li>24/7 priority support with dedicated team</li>
-                        <li>White-glove onboarding and implementation</li>
-                        <li>Quarterly business review and strategic planning</li>
-                        <li>Unlimited consulting hours</li>
-                    </ul>
-                `;
-            }
 
             html += '</div>';
             return html;
@@ -1224,24 +1099,21 @@
                 ? document.getElementById('industryOther').value
                 : document.getElementById('industry').value;
 
-            // Determine exclusivity level based on tier - ONLY City Domination and Regional get borough exclusivity
+            // Determine exclusivity level based on tier - Growth and Custom get borough exclusivity
             let exclusivityLevel = '';
             let exclusivityDescription = '';
             if (document.getElementById('seoStarter').checked) {
                 exclusivityLevel = 'No Territory Exclusivity';
                 exclusivityDescription = 'The Starter tier does not include territory exclusivity protection. Service Provider may accept other clients in the same industry and territory.';
-            } else if (document.getElementById('seoMarketLeader').checked) {
-                exclusivityLevel = 'No Territory Exclusivity';
-                exclusivityDescription = 'The Market Leader tier does not include territory exclusivity protection. Service Provider may accept other clients in the same industry and territory.';
-            } else if (document.getElementById('seoCityDomination').checked) {
+            } else if (document.getElementById('seoGrowth').checked) {
                 exclusivityLevel = 'Borough/District Limited Exclusivity';
-                exclusivityDescription = 'City Domination tier includes Borough/District Limited Exclusivity: Service Provider will limit clients to 2-4 per industry within Client\'s protected borough or district. This is NOT full exclusivity but provides meaningful competitive protection.';
-            } else if (document.getElementById('seoRegional').checked) {
-                exclusivityLevel = 'Borough/District Limited Exclusivity (Regional Scale)';
-                exclusivityDescription = 'Regional Domination tier includes Borough/District Limited Exclusivity across all target markets: Service Provider will limit clients to 2-4 per industry within each protected borough or district. This is NOT full exclusivity but provides meaningful competitive protection across your entire region.';
+                exclusivityDescription = 'Growth tier includes Borough/District Limited Exclusivity: Service Provider will limit clients to 2-4 per industry within Client\'s protected borough or district. This is NOT full exclusivity but provides meaningful competitive protection.';
+            } else if (document.getElementById('seoCustom').checked) {
+                exclusivityLevel = 'Borough/District Limited Exclusivity (Custom Scale)';
+                exclusivityDescription = 'Custom tier includes Borough/District Limited Exclusivity across all target markets: Service Provider will limit clients to 2-4 per industry within each protected borough or district. This is NOT full exclusivity but provides meaningful competitive protection across your entire region.';
             }
 
-            const hasExclusivity = document.getElementById('seoCityDomination').checked || document.getElementById('seoRegional').checked;
+            const hasExclusivity = document.getElementById('seoGrowth').checked || document.getElementById('seoCustom').checked;
 
             return `
                 <div class="section">
@@ -1256,7 +1128,7 @@
                     <h3>2.2 Exclusivity Level</h3>
                     <p><strong>${exclusivityLevel}</strong></p>
                     <p>${exclusivityDescription}</p>
-                    ${!hasExclusivity ? '<p style="margin-top: 8px;"><em>Note: Exclusivity protection is available with City Domination ($1,497/month) and Regional Domination ($3,500/month) tiers only.</em></p>' : ''}
+                    ${!hasExclusivity ? '<p style="margin-top: 8px;"><em>Note: Exclusivity protection is available with Growth ($997/month) and Custom tiers only.</em></p>' : ''}
 
                     ${hasExclusivity ? `
                         <h3>2.3 First Right of Refusal</h3>
@@ -1365,13 +1237,10 @@
             if (document.getElementById('seoStarter').checked) {
                 reportingFrequency = 'Monthly performance reports will be provided via email';
                 strategyCalls = 'Email support with 24-48 hour response time';
-            } else if (document.getElementById('seoMarketLeader').checked) {
+            } else if (document.getElementById('seoGrowth').checked) {
                 reportingFrequency = 'Detailed monthly performance reports will be provided via email';
                 strategyCalls = 'Bi-weekly check-ins available (email or call)';
-            } else if (document.getElementById('seoCityDomination').checked) {
-                reportingFrequency = 'Bi-weekly performance reports will be provided via email';
-                strategyCalls = 'Monthly strategy call (30-45 minutes) included';
-            } else if (document.getElementById('seoRegional').checked) {
+            } else if (document.getElementById('seoCustom').checked) {
                 reportingFrequency = 'Weekly performance reports will be provided via email with custom analytics dashboard access';
                 strategyCalls = 'Weekly or bi-weekly strategy calls included';
             }
