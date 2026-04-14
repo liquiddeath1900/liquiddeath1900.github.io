@@ -427,6 +427,16 @@
         @media (min-width: 1024px) {
             .section-title { font-size: 3.25rem; }
         }
+        /* Delay Jamie chatbot until user engages (scroll past hero OR timer) */
+        /* Selector has higher specificity than external chatbot-widget.css mobile override */
+        .chat-toggle {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        body:not(.chat-ready) .chat-toggle {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+        }
     </style>
 <link rel="stylesheet" href="assets/css/chatbot-widget.css">
 </head>
@@ -1666,6 +1676,23 @@
                 if (chatToggle) chatToggle.style.display = '';
             });
         }
+
+        // Delay Jamie reveal until user engages (scroll past hero OR dwell timer)
+        (function revealJamieOnEngagement() {
+            const isMobile = window.matchMedia('(max-width: 767px)').matches;
+            const scrollThreshold = isMobile ? 500 : 800;
+            const timerDelay = isMobile ? 10000 : 15000;
+            let revealed = false;
+            const reveal = () => {
+                if (revealed) return;
+                revealed = true;
+                document.body.classList.add('chat-ready');
+                window.removeEventListener('scroll', onScroll);
+            };
+            const onScroll = () => { if (window.scrollY >= scrollThreshold) reveal(); };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            setTimeout(reveal, timerDelay);
+        })();
 
         // === PREMIUM: Scroll reveal with Intersection Observer ===
         const revealObserver = new IntersectionObserver((entries) => {
