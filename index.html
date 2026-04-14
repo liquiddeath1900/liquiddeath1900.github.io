@@ -1739,18 +1739,34 @@
             }
         });
 
-        // Lazy load hero video after page load
+        // Lazy load hero video after page load, then force autoplay (mobile needs explicit play())
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('hero-video');
-            if (video) {
-                const source = video.querySelector('source[data-src]');
-                if (source) {
-                    setTimeout(() => {
-                        source.src = source.dataset.src;
-                        video.load();
-                    }, 100);
+            if (!video) return;
+            const source = video.querySelector('source[data-src]');
+            if (!source) return;
+
+            video.muted = true;
+            video.playsInline = true;
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
+
+            const tryPlay = () => {
+                const p = video.play();
+                if (p && typeof p.catch === 'function') {
+                    p.catch(() => {
+                        // iOS sometimes blocks until first touch; retry on first interaction
+                        const resume = () => { video.play().catch(() => {}); };
+                        document.addEventListener('touchstart', resume, { once: true, passive: true });
+                        document.addEventListener('click', resume, { once: true });
+                    });
                 }
-            }
+            };
+
+            source.src = source.dataset.src;
+            video.load();
+            if (video.readyState >= 2) tryPlay();
+            else video.addEventListener('loadeddata', tryPlay, { once: true });
         });
     </script>
 
