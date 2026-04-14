@@ -7,8 +7,8 @@
 
 const LF_API_KEY = 'e1f852bd19131d0be43892072caf7de8';
 const CAMPAIGN_KEY = 'aec26b9aaa8f068';
-const SUPABASE_URL = 'https://ytwfjflhgengnxgfzghz.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0d2ZqZmxoZ2VuZ254Z2Z6Z2h6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4MzQ2OTgsImV4cCI6MjA4MTQxMDY5OH0.2hYFyS6eZjKxfnAAyfjZ4wUKRor6T9K_dB4jdIs81y8';
+const SUPABASE_URL = 'https://lpzijtmbdowcshomyenk.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwemlqdG1iZG93Y3Nob215ZW5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwNTM4MDgsImV4cCI6MjA4OTYyOTgwOH0.2GN7eyC8rutMuHrVOc_2e2meMLu1S5YoNViV1zFgzX4';
 const MCP_BASE = 'https://mcp.localfalcon.com';
 const DOMAIN = 'seamlessflow.ai';
 
@@ -196,7 +196,7 @@ async function main() {
 
             console.log(`Parsed ${rows.length} scans, saving to Supabase...`);
             console.log('Sample row:', JSON.stringify(rows[0]).slice(0, 300));
-            const res = await fetch(`${SUPABASE_URL}/rest/v1/local_rankings`, {
+            const res = await fetch(`${SUPABASE_URL}/rest/v1/sf_local_rankings`, {
               method: 'POST',
               headers: {
                 'apikey': SUPABASE_KEY,

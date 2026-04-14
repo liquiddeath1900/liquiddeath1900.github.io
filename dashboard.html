@@ -309,8 +309,8 @@
 
 <script>
 // Config
-const SUPABASE_URL = 'https://ytwfjflhgengnxgfzghz.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0d2ZqZmxoZ2VuZ254Z2Z6Z2h6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4MzQ2OTgsImV4cCI6MjA4MTQxMDY5OH0.2hYFyS6eZjKxfnAAyfjZ4wUKRor6T9K_dB4jdIs81y8';
+const SUPABASE_URL = 'https://lpzijtmbdowcshomyenk.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwemlqdG1iZG93Y3Nob215ZW5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwNTM4MDgsImV4cCI6MjA4OTYyOTgwOH0.2GN7eyC8rutMuHrVOc_2e2meMLu1S5YoNViV1zFgzX4';
 const ACCESS_CODE = 'seamless2026';
 let currentRange = 365; // Default: 1 year
 let scoresChart = null;
@@ -377,12 +377,12 @@ async function loadDashboard() {
 
     // Fetch all data in parallel
     const [audits, insights, updates, localRankings, changes, leads] = await Promise.all([
-        query('audit_history', `domain=eq.seamlessflow.ai&audit_date=gte.${sinceDate}&order=audit_date.desc&limit=${limit}`),
-        query('weekly_insights', 'domain=eq.seamlessflow.ai&order=week_start.desc&limit=1'),
-        query('google_updates', 'order=detected_date.desc&limit=10'),
-        query('local_rankings', `domain=eq.seamlessflow.ai&order=scan_date.desc&limit=50`),
-        query('changes_log', `domain=eq.seamlessflow.ai&order=change_date.desc&limit=20`),
-        query('chatbot_leads', 'order=created_at.desc&limit=200')
+        query('sf_audit_history', `domain=eq.seamlessflow.ai&audit_date=gte.${sinceDate}&order=audit_date.desc&limit=${limit}`),
+        query('sf_weekly_insights', 'domain=eq.seamlessflow.ai&order=week_start.desc&limit=1'),
+        query('sf_google_updates', 'order=detected_date.desc&limit=10'),
+        query('sf_local_rankings', `domain=eq.seamlessflow.ai&order=scan_date.desc&limit=50`),
+        query('sf_changes_log', `domain=eq.seamlessflow.ai&order=change_date.desc&limit=20`),
+        query('sf_chatbot_leads', 'order=created_at.desc&limit=200')
     ]);
 
     // Populate score cards
