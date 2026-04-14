@@ -1677,21 +1677,21 @@
             });
         }
 
-        // Delay Jamie reveal until user engages (scroll past hero OR dwell timer)
-        (function revealJamieOnEngagement() {
+        // Gate Jamie visibility by scroll position — hidden at hero, shown past it.
+        // Keeps Jamie visible if chat window is open (don't yank it while user is chatting).
+        (function gateJamieByScroll() {
             const isMobile = window.matchMedia('(max-width: 767px)').matches;
-            const scrollThreshold = isMobile ? 500 : 800;
-            const timerDelay = isMobile ? 10000 : 15000;
-            let revealed = false;
-            const reveal = () => {
-                if (revealed) return;
-                revealed = true;
-                document.body.classList.add('chat-ready');
-                window.removeEventListener('scroll', onScroll);
+            const threshold = isMobile ? 500 : 800;
+            const update = () => {
+                const chatOpen = document.querySelector('.chat-window.active');
+                if (window.scrollY >= threshold || chatOpen) {
+                    document.body.classList.add('chat-ready');
+                } else {
+                    document.body.classList.remove('chat-ready');
+                }
             };
-            const onScroll = () => { if (window.scrollY >= scrollThreshold) reveal(); };
-            window.addEventListener('scroll', onScroll, { passive: true });
-            setTimeout(reveal, timerDelay);
+            update();
+            window.addEventListener('scroll', update, { passive: true });
         })();
 
         // === PREMIUM: Scroll reveal with Intersection Observer ===
