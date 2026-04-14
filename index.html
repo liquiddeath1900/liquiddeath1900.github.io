@@ -1473,40 +1473,11 @@
         </div>
     </footer>
 
-    <!-- Hidden iframe for Google Forms -->
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
     <!-- JavaScript -->
     <script>
-        // Form submission handling - Let form submit naturally to Google Forms
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                // Show loading state briefly
-                const submitBtn = e.target.querySelector('button[type="submit"]');
-                if (submitBtn) {
-                    const originalText = submitBtn.innerHTML;
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
-                    submitBtn.disabled = true;
-                }
-                
-                // Track conversion
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        'event_category': 'engagement',
-                        'event_label': 'seo_analysis_request'
-                    });
-                }
-                
-                // Form will submit naturally to Google Forms
-                // Success message will be handled by Google Forms redirect
-            });
-        }
-
         // Calendar booking function
         function openCalendarBooking() {
-            // Redirect to contact page since contact form is now on separate page
-            window.location.href = 'contact.html';
+            window.location.href = 'contract2.html';
         }
 
         // Smooth scrolling function (shared by desktop and mobile)
