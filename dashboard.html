@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEO Dashboard | SeamlessFlow.ai</title>
     <meta name="robots" content="noindex, nofollow">
+    <style id="auth-hide">body{visibility:hidden}</style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/supabase-auth.js"></script>
+    <script src="js/auth-guard.js"></script>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <style>
-        nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 50; }
+        nav#main-nav { position: fixed; top: 0; width: 100%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 50; }
         #mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); z-index: 50; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: all 0.3s ease-out; }
         #mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
         .hamburger { cursor: pointer; width: 28px; height: 24px; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
@@ -22,7 +27,6 @@
         .delta-up { color: #059669; }
         .delta-down { color: #dc2626; }
         .delta-stable { color: #6b7280; }
-        #auth-gate { backdrop-filter: blur(8px); }
         .change-implemented { border-left: 3px solid #6b7280; }
         .change-measured-positive { border-left: 3px solid #059669; }
         .change-measured-negative { border-left: 3px solid #dc2626; }
@@ -35,12 +39,19 @@
         .rank-good { color: #059669; font-weight: 700; }
         .rank-ok { color: #d97706; font-weight: 700; }
         .rank-bad { color: #dc2626; font-weight: 700; }
+        .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .tab-pane { animation: fadeIn 0.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-gray-50 pt-16">
 
 <!-- Nav -->
-<nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+<nav id="main-nav" class="fixed top-0 w-full bg-white shadow-lg z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
             <div class="flex items-center">
@@ -56,6 +67,7 @@
                     <a href="index.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Home</a>
                     <a href="dashboard.html" class="text-green-600 font-semibold px-3 py-2">Dashboard</a>
                     <a href="contract2.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">Contact</a>
+                    <button type="button" class="auth-signout hidden text-gray-500 hover:text-red-600 px-3 py-2 text-sm" title="Sign out"><i class="fas fa-sign-out-alt mr-1"></i>Sign out</button>
                 </div>
             </div>
             <div class="md:hidden absolute right-4">
@@ -68,32 +80,36 @@
             <div class="px-6 py-4 space-y-1">
                 <a href="index.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium"><i class="fas fa-home mr-3 text-blue-500"></i>Home</a>
                 <a href="dashboard.html" class="block text-green-600 bg-green-50 py-3 px-4 rounded-lg font-medium"><i class="fas fa-chart-line mr-3 text-green-500"></i>Dashboard</a>
+                <button type="button" class="auth-signout hidden w-full text-left text-gray-700 hover:text-red-600 hover:bg-red-50 py-3 px-4 rounded-lg font-medium"><i class="fas fa-sign-out-alt mr-3 text-gray-500"></i>Sign out</button>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Auth Gate -->
-<div id="auth-gate" class="fixed inset-0 bg-gray-900/80 z-[100] flex items-center justify-center">
-    <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl">
-        <div class="text-center mb-6">
-            <i class="fas fa-lock text-4xl text-green-600 mb-3"></i>
-            <h2 class="text-xl font-bold text-gray-900">SEO Dashboard</h2>
-            <p class="text-gray-500 text-sm mt-1">Internal access only</p>
-        </div>
-        <form id="auth-form">
-            <input type="password" id="auth-password" placeholder="Enter access code"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
-            <button type="submit" class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
-                Access Dashboard
-            </button>
-            <p id="auth-error" class="text-red-500 text-sm text-center mt-2 hidden">Invalid access code</p>
-        </form>
-    </div>
-</div>
+<!-- Dashboard Content (visibility gated by auth-guard.js — login.html handles sign-in) -->
+<div id="dashboard-content">
 
-<!-- Dashboard Content -->
-<div id="dashboard-content" class="hidden">
+    <!-- Tab Navigation -->
+    <div class="bg-white border-b sticky top-16 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex gap-1 overflow-x-auto scrollbar-hide -mb-px" id="tab-nav" aria-label="Dashboard sections">
+                <button data-tab="today"       class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-bolt mr-1.5"></i>Today</button>
+                <button data-tab="pipeline"    class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-funnel-dollar mr-1.5"></i>Pipeline <span id="badge-pipeline" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
+                <button data-tab="competitors" class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-chess-knight mr-1.5"></i>Competitors <span id="badge-competitors" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
+                <button data-tab="keywords"    class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-key mr-1.5"></i>Keywords <span id="badge-keywords" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
+                <button data-tab="content"     class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-file-alt mr-1.5"></i>Content <span id="badge-content" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
+                <button data-tab="leads"       class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-comments mr-1.5"></i>CNTEMUP Leads <span id="badge-leads" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
+                <button data-tab="actions"     class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-tasks mr-1.5"></i>Actions <span id="badge-actions" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
+                <button data-tab="seo"         class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-chart-line mr-1.5"></i>SEO Site</button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Sync status banner -->
+    <div id="sync-banner" class="hidden bg-amber-50 border-b border-amber-200 text-amber-900 text-xs px-4 py-2 text-center"></div>
+
+    <!-- TAB: SEO Site (existing content) -->
+    <div id="tab-seo" class="tab-pane hidden">
 
     <!-- Header -->
     <section class="bg-white border-b">
@@ -298,6 +314,196 @@
         </div>
     </section>
 
+    </div><!-- /tab-seo -->
+
+    <!-- TAB: Today -->
+    <div id="tab-today" class="tab-pane hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div id="today-summary" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-3"><i class="fas fa-fire text-red-500 mr-2"></i>Stale Action Items <span class="text-xs font-normal text-gray-400">(>5 days open)</span></h3>
+                    <div id="today-stale"><p class="text-gray-400 text-sm">Loading…</p></div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-3"><i class="fas fa-chess-knight text-purple-600 mr-2"></i>Latest Competitor Moves</h3>
+                    <div id="today-competitors"><p class="text-gray-400 text-sm">Loading…</p></div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-3"><i class="fas fa-user-plus text-green-600 mr-2"></i>Latest Prospects</h3>
+                    <div id="today-prospects"><p class="text-gray-400 text-sm">Loading…</p></div>
+                </div>
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-3"><i class="fas fa-comments text-blue-600 mr-2"></i>Hot CNTEMUP Threads</h3>
+                    <div id="today-leads"><p class="text-gray-400 text-sm">Loading…</p></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: Pipeline (Prospects + Outreach) -->
+    <div id="tab-pipeline" class="tab-pane hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex items-center gap-3 mb-4">
+                <h2 class="text-lg font-bold text-gray-900">Prospect Pipeline</h2>
+                <input id="pipeline-search" type="search" placeholder="Search name, location, angle…" class="flex-1 max-w-xs px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
+                <select id="pipeline-status-filter" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white">
+                    <option value="">All statuses</option>
+                </select>
+            </div>
+            <div id="pipeline-count" class="text-xs text-gray-500 mb-3"></div>
+            <!-- Mobile: stacked cards -->
+            <div id="pipeline-cards" class="md:hidden space-y-3"></div>
+            <!-- Desktop: table -->
+            <div class="hidden md:block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-gray-50 text-gray-500 text-xs uppercase">
+                            <tr>
+                                <th class="text-left px-4 py-2.5">Business</th>
+                                <th class="text-left px-4 py-2.5 hidden md:table-cell">Location</th>
+                                <th class="text-center px-4 py-2.5">Score</th>
+                                <th class="text-center px-4 py-2.5">Status</th>
+                                <th class="text-left px-4 py-2.5 hidden lg:table-cell">Found</th>
+                                <th class="text-left px-4 py-2.5">Angle</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pipeline-tbody" class="divide-y divide-gray-100"></tbody>
+                    </table>
+                </div>
+            </div>
+            <h2 class="text-lg font-bold text-gray-900 mt-8 mb-3">Outreach Drafts <span class="text-sm font-normal text-gray-500" id="outreach-count"></span></h2>
+            <!-- Mobile: stacked cards -->
+            <div id="outreach-cards" class="md:hidden space-y-3"></div>
+            <!-- Desktop: table -->
+            <div class="hidden md:block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-gray-50 text-gray-500 text-xs uppercase">
+                            <tr>
+                                <th class="text-left px-4 py-2.5">Date</th>
+                                <th class="text-left px-4 py-2.5">Business</th>
+                                <th class="text-center px-4 py-2.5">Channel</th>
+                                <th class="text-center px-4 py-2.5">Status</th>
+                                <th class="text-left px-4 py-2.5">Draft</th>
+                            </tr>
+                        </thead>
+                        <tbody id="outreach-tbody" class="divide-y divide-gray-100"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: Competitors -->
+    <div id="tab-competitors" class="tab-pane hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="competitors-summary"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-3">
+                        <h2 class="text-lg font-bold text-gray-900">Tracked Agencies</h2>
+                        <input id="competitors-search" type="search" placeholder="Search agency…" class="flex-1 max-w-xs px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
+                        <select id="competitors-threat-filter" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white">
+                            <option value="">All threats</option>
+                            <option value="HIGH">High only</option>
+                            <option value="MEDIUM">Medium</option>
+                            <option value="LOW">Low</option>
+                        </select>
+                    </div>
+                    <!-- Mobile: stacked cards -->
+                    <div id="competitors-cards" class="md:hidden space-y-3"></div>
+                    <!-- Desktop: table -->
+                    <div class="hidden md:block bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead class="bg-gray-50 text-gray-500 text-xs uppercase">
+                                    <tr>
+                                        <th class="text-left px-4 py-2.5">Agency</th>
+                                        <th class="text-center px-4 py-2.5">Threat</th>
+                                        <th class="text-center px-4 py-2.5"># Moves</th>
+                                        <th class="text-left px-4 py-2.5 hidden md:table-cell">Last Seen</th>
+                                        <th class="text-left px-4 py-2.5">Latest</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="competitors-tbody" class="divide-y divide-gray-100"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">Activity Feed (last 90d)</h2>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 max-h-[600px] overflow-y-auto">
+                        <div id="competitors-feed" class="divide-y divide-gray-100"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: Keywords -->
+    <div id="tab-keywords" class="tab-pane hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="keywords-summary"></div>
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+                <h2 class="text-lg font-bold text-gray-900">Keyword Trends</h2>
+                <select id="keywords-status-filter" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white">
+                    <option value="">All statuses</option>
+                    <option value="top10">In top 10 now</option>
+                    <option value="dropped">Was top 10, dropped</option>
+                    <option value="climber">Climbers</option>
+                    <option value="faller">Fallers</option>
+                </select>
+                <input id="keywords-search" type="search" placeholder="Search keyword…" class="flex-1 max-w-xs px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
+                <span id="keywords-count" class="text-xs text-gray-500 ml-auto"></span>
+            </div>
+            <div id="keywords-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </section>
+    </div>
+
+    <!-- TAB: Content -->
+    <div id="tab-content" class="tab-pane hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex items-center gap-3 mb-4">
+                <h2 class="text-lg font-bold text-gray-900">Content Queue</h2>
+                <select id="content-site-filter" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white">
+                    <option value="">Both sites</option>
+                    <option value="SeamlessFlow">SeamlessFlow only</option>
+                    <option value="CNTEMUP">CNTEMUP only</option>
+                </select>
+                <select id="content-difficulty-filter" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white">
+                    <option value="">All difficulties</option>
+                </select>
+            </div>
+            <div id="content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </section>
+    </div>
+
+    <!-- TAB: CNTEMUP Leads -->
+    <div id="tab-leads" class="tab-pane hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex items-center gap-3 mb-4">
+                <h2 class="text-lg font-bold text-gray-900">CNTEMUP Inbound Threads</h2>
+                <select id="leads-urgency-filter" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white">
+                    <option value="">All urgencies</option>
+                </select>
+                <input id="leads-search" type="search" placeholder="Search…" class="flex-1 max-w-xs px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
+            </div>
+            <div id="leads-list" class="space-y-3"></div>
+        </section>
+    </div>
+
+    <!-- TAB: Actions -->
+    <div id="tab-actions" class="tab-pane hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="actions-summary"></div>
+            <h2 class="text-lg font-bold text-gray-900 mb-3">Open Action Items <span class="text-sm font-normal text-gray-500">(sorted by days carried)</span></h2>
+            <div id="actions-open" class="space-y-2 mb-8"></div>
+            <h2 class="text-lg font-bold text-gray-900 mb-3">Expired / Closed (recent)</h2>
+            <div id="actions-closed" class="space-y-2"></div>
+        </section>
+    </div>
+
 </div>
 
 <!-- Footer -->
@@ -308,43 +514,22 @@
 </footer>
 
 <script>
-// Config
-const SUPABASE_URL = 'https://lpzijtmbdowcshomyenk.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwemlqdG1iZG93Y3Nob215ZW5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwNTM4MDgsImV4cCI6MjA4OTYyOTgwOH0.2GN7eyC8rutMuHrVOc_2e2meMLu1S5YoNViV1zFgzX4';
-const ACCESS_CODE = 'seamless2026';
+// Config: SUPABASE_URL + SUPABASE_ANON_KEY come from js/supabase-config.js
+// Auth is enforced by js/auth-guard.js (loaded in <head>). Unauthorized users are redirected to login.html before this script runs.
+const SUPABASE_KEY = SUPABASE_ANON_KEY;
 let currentRange = 365; // Default: 1 year
 let scoresChart = null;
 let cwvChart = null;
 
-// Auth
-const authGate = document.getElementById('auth-gate');
-const dashContent = document.getElementById('dashboard-content');
-const authForm = document.getElementById('auth-form');
-const authError = document.getElementById('auth-error');
+// SEO tab data is loaded lazily — only when user activates that tab (see command-center JS below).
+let _seoLoaded = false;
 
-if (localStorage.getItem('sf_dash_auth') === 'true') {
-    authGate.classList.add('hidden');
-    dashContent.classList.remove('hidden');
-    loadDashboard();
-}
-
-authForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const pw = document.getElementById('auth-password').value;
-    if (pw === ACCESS_CODE) {
-        localStorage.setItem('sf_dash_auth', 'true');
-        authGate.classList.add('hidden');
-        dashContent.classList.remove('hidden');
-        loadDashboard();
-    } else {
-        authError.classList.remove('hidden');
-    }
-});
-
-// Supabase helper
+// Supabase REST helper — passes the user's session JWT so RLS policies apply.
 async function query(table, params = '') {
+    const session = await getSession();
+    const token = session?.access_token || SUPABASE_KEY;
     const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
-        headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+        headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${token}` }
     });
     return res.json();
 }
@@ -736,6 +921,568 @@ if (mobileMenuButton) {
         this.classList.toggle('active', !open);
     });
 }
+
+// ============================================================
+// COMMAND CENTER — Multi-tab UI, JSON-backed (data/*.json)
+// ============================================================
+
+const cc = {
+    cache: {},
+    rendered: new Set(),
+    keywordsChart: null,
+
+    async load(name) {
+        if (this.cache[name]) return this.cache[name];
+        const res = await fetch(`data/${name}.json`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`fetch data/${name}.json → ${res.status}`);
+        const json = await res.json();
+        this.cache[name] = json;
+        return json;
+    },
+
+    activate(name) {
+        if (!name || !document.getElementById(`tab-${name}`)) name = 'today';
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
+        document.getElementById(`tab-${name}`).classList.remove('hidden');
+        document.querySelectorAll('.tab-btn').forEach(b => {
+            const active = b.dataset.tab === name;
+            b.classList.toggle('text-green-700', active);
+            b.classList.toggle('border-green-600', active);
+            b.classList.toggle('text-gray-600', !active);
+            b.classList.toggle('border-transparent', !active);
+        });
+        if (!this.rendered.has(name)) {
+            this.rendered.add(name);
+            this.render(name).catch(err => {
+                console.error(`render ${name} failed:`, err);
+                const pane = document.getElementById(`tab-${name}`);
+                if (pane) pane.insertAdjacentHTML('afterbegin',
+                    `<div class="max-w-7xl mx-auto px-4 py-4"><div class="bg-red-50 border border-red-200 text-red-800 text-sm rounded-lg px-4 py-3">Failed to load tab data: ${escapeHtml(err.message)}</div></div>`);
+            });
+        }
+    },
+
+    async render(name) {
+        switch (name) {
+            case 'today':       return this.renderToday();
+            case 'pipeline':    return this.renderPipeline();
+            case 'competitors': return this.renderCompetitors();
+            case 'keywords':    return this.renderKeywords();
+            case 'content':     return this.renderContent();
+            case 'leads':       return this.renderLeads();
+            case 'actions':     return this.renderActions();
+            case 'seo':
+                if (!_seoLoaded && typeof loadDashboard === 'function') {
+                    _seoLoaded = true;
+                    loadDashboard();
+                }
+                return;
+        }
+    },
+
+    // ----- TODAY -----
+    async renderToday() {
+        const [summary, items, comps, prospects, leads] = await Promise.all([
+            this.load('summary'), this.load('action_items'),
+            this.load('competitor_activity'), this.load('prospects'), this.load('cntemup_leads')
+        ]);
+
+        const stat = (label, val, sub='') => `
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <p class="text-xs text-gray-500 uppercase tracking-wide">${label}</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">${val}</p>
+                ${sub ? `<p class="text-xs text-gray-500 mt-1">${sub}</p>` : ''}
+            </div>`;
+        document.getElementById('today-summary').innerHTML = [
+            stat('Prospects',       summary.counts.prospects,            `${summary.highlights.prospects_by_status.new || 0} new`),
+            stat('Competitors',     summary.counts.competitors_tracked,  `${summary.highlights.high_threat_competitors} HIGH threat`),
+            stat('Open Actions',    summary.counts.action_items_open,    `${summary.counts.action_items_stale} stale (>5d)`),
+            stat('CNTEMUP Leads',   summary.counts.cntemup_leads,        `${summary.highlights.hot_cntemup_leads} hot`),
+        ].join('');
+
+        // Stale items
+        const stale = items.filter(a => a.status === 'open' && (a.carried_days || 0) > 5).slice(0, 8);
+        document.getElementById('today-stale').innerHTML = stale.length === 0
+            ? '<p class="text-sm text-gray-500">No stale items. 🎉</p>'
+            : stale.map(a => `<div class="py-2 border-b border-gray-100 last:border-0 flex items-start gap-2 text-sm">
+                <span class="px-1.5 py-0.5 rounded text-[10px] font-semibold ${(a.carried_days||0) > 10 ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-800'}">${a.carried_days || 0}d</span>
+                <span class="text-gray-800">${escapeHtml(a.content.slice(0, 220))}</span>
+              </div>`).join('');
+
+        // Competitor moves (last 7)
+        const recentComps = comps.slice(0, 7);
+        document.getElementById('today-competitors').innerHTML = recentComps.length === 0
+            ? '<p class="text-sm text-gray-500">No recent activity.</p>'
+            : recentComps.map(c => `<div class="py-2 border-b border-gray-100 last:border-0 text-sm">
+                <div class="flex flex-wrap items-center gap-2 mb-0.5">
+                  ${threatBadge(c.threat_level)}
+                  <span class="font-semibold text-gray-900">${escapeHtml(c.agency_name)}</span>
+                  ${c.source_url ? sourceLink(c.source_url, hostname(c.source_url) + ' ↗') : ''}
+                  <span class="text-xs text-gray-400 ml-auto">${c.date || ''}</span>
+                </div>
+                <p class="text-xs text-gray-600 line-clamp-2">${escapeHtml((c.detail || '').slice(0, 200))}</p>
+              </div>`).join('');
+
+        // Latest prospects (top 6 by score then date)
+        const topProspects = prospects.slice(0, 6);
+        document.getElementById('today-prospects').innerHTML = topProspects.map(p => `
+            <div class="py-2 border-b border-gray-100 last:border-0 text-sm">
+                <div class="flex items-center gap-2 mb-0.5">
+                    ${scoreBadge(p.qualification_score)}
+                    <span class="font-semibold text-gray-900">${escapeHtml(p.business_name)}</span>
+                    <span class="text-xs text-gray-400 ml-auto">${p.found_date || ''}</span>
+                </div>
+                <p class="text-xs text-gray-600 line-clamp-1">${escapeHtml(p.location || '')}</p>
+            </div>`).join('');
+
+        // Hot leads (top 6 by urgency then date)
+        const hotLeads = leads.slice(0, 6);
+        document.getElementById('today-leads').innerHTML = hotLeads.length === 0
+            ? '<p class="text-sm text-gray-500">No leads tracked yet.</p>'
+            : hotLeads.map(l => `<div class="py-2 border-b border-gray-100 last:border-0 text-sm">
+                <div class="flex items-center gap-2 mb-0.5">
+                    ${urgencyBadge(l.urgency)}
+                    <span class="font-semibold text-gray-900">${escapeHtml(l.platform || '')} ${l.user_handle ? '· ' + escapeHtml(l.user_handle) : ''}</span>
+                    <span class="text-xs text-gray-400 ml-auto">${l.found_date || ''}</span>
+                </div>
+                <p class="text-xs text-gray-600 line-clamp-2">${escapeHtml((l.post_text || '').slice(0, 180))}</p>
+              </div>`).join('');
+    },
+
+    // ----- PIPELINE -----
+    async renderPipeline() {
+        const [prospects, outreach] = await Promise.all([this.load('prospects'), this.load('outreach')]);
+
+        const statuses = [...new Set(prospects.map(p => p.status || 'new'))];
+        const statusFilter = document.getElementById('pipeline-status-filter');
+        statusFilter.innerHTML = '<option value="">All statuses</option>' + statuses.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('');
+
+        const renderRows = () => {
+            const q = document.getElementById('pipeline-search').value.toLowerCase().trim();
+            const sf = statusFilter.value;
+            const filtered = prospects.filter(p => {
+                if (sf && (p.status || 'new') !== sf) return false;
+                if (!q) return true;
+                return (p.business_name || '').toLowerCase().includes(q)
+                    || (p.location || '').toLowerCase().includes(q)
+                    || (p.outreach_angle || '').toLowerCase().includes(q);
+            });
+            document.getElementById('pipeline-count').textContent = `${filtered.length} of ${prospects.length} prospects`;
+            document.getElementById('pipeline-tbody').innerHTML = filtered.map(p => `
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-3 align-top">
+                        <div class="font-semibold text-gray-900">${escapeHtml(p.business_name)}</div>
+                        ${p.website ? `<a href="${escapeAttr(p.website)}" target="_blank" rel="noopener" class="text-xs text-green-600 hover:underline">${escapeHtml(p.website)}</a>` : ''}
+                    </td>
+                    <td class="px-4 py-3 align-top text-gray-600 text-xs hidden md:table-cell">${escapeHtml(p.location || '—')}</td>
+                    <td class="px-4 py-3 align-top text-center">${scoreBadge(p.qualification_score)}</td>
+                    <td class="px-4 py-3 align-top text-center"><span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-gray-100 text-gray-700">${escapeHtml(p.status || 'new')}</span></td>
+                    <td class="px-4 py-3 align-top text-xs text-gray-500 hidden lg:table-cell">${p.found_date || ''}</td>
+                    <td class="px-4 py-3 align-top text-xs text-gray-700 max-w-md"><div class="line-clamp-3">${escapeHtml(p.outreach_angle || '—')}</div></td>
+                </tr>`).join('');
+            // Mobile card layout — same data, stacked for small screens
+            document.getElementById('pipeline-cards').innerHTML = filtered.map(p => `
+                <article class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <div class="flex items-start justify-between gap-2 mb-2">
+                        <div class="min-w-0 flex-1">
+                            <div class="font-semibold text-gray-900 break-words">${escapeHtml(p.business_name)}</div>
+                            ${p.website ? `<a href="${escapeAttr(p.website)}" target="_blank" rel="noopener" class="text-xs text-green-600 hover:underline break-all">${escapeHtml(p.website)}</a>` : ''}
+                        </div>
+                        <div class="flex-shrink-0">${scoreBadge(p.qualification_score)}</div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5 mb-2">
+                        <span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-gray-100 text-gray-700">${escapeHtml(p.status || 'new')}</span>
+                        ${p.location ? `<span class="text-[11px] text-gray-500"><i class="fas fa-map-marker-alt mr-1 text-gray-400"></i>${escapeHtml(p.location)}</span>` : ''}
+                        ${p.found_date ? `<span class="text-[11px] text-gray-400 ml-auto">${escapeHtml(p.found_date)}</span>` : ''}
+                    </div>
+                    ${p.outreach_angle ? `<div class="text-xs text-gray-700 leading-snug"><span class="font-semibold text-gray-500 uppercase text-[10px] tracking-wide">Angle:</span> ${escapeHtml(p.outreach_angle)}</div>` : ''}
+                </article>`).join('');
+        };
+        document.getElementById('pipeline-search').addEventListener('input', renderRows);
+        statusFilter.addEventListener('change', renderRows);
+        renderRows();
+
+        document.getElementById('outreach-count').textContent = `(${outreach.length} drafts)`;
+        const outreachLimited = outreach.slice(0, 100);
+        document.getElementById('outreach-tbody').innerHTML = outreachLimited.map(o => `
+            <tr class="hover:bg-gray-50">
+                <td class="px-4 py-3 align-top text-xs text-gray-500">${o.draft_date || ''}</td>
+                <td class="px-4 py-3 align-top font-semibold text-gray-900">${escapeHtml(o.business_name || '—')}</td>
+                <td class="px-4 py-3 align-top text-center"><span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-blue-100 text-blue-800">${escapeHtml(o.channel || '')}</span></td>
+                <td class="px-4 py-3 align-top text-center"><span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-gray-100 text-gray-700">${escapeHtml(o.status || 'drafted')}</span></td>
+                <td class="px-4 py-3 align-top text-xs text-gray-500 break-all">${escapeHtml(o.draft_path || '—')}</td>
+            </tr>`).join('');
+        document.getElementById('outreach-cards').innerHTML = outreachLimited.map(o => `
+            <article class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <div class="flex items-start justify-between gap-2 mb-2">
+                    <div class="font-semibold text-gray-900 break-words flex-1 min-w-0">${escapeHtml(o.business_name || '—')}</div>
+                    <span class="text-[11px] text-gray-400 flex-shrink-0">${escapeHtml(o.draft_date || '')}</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-blue-100 text-blue-800">${escapeHtml(o.channel || '')}</span>
+                    <span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-gray-100 text-gray-700">${escapeHtml(o.status || 'drafted')}</span>
+                </div>
+                ${o.draft_path ? `<div class="text-[11px] text-gray-500 break-all"><span class="font-semibold text-gray-500 uppercase text-[10px] tracking-wide">Draft:</span> ${escapeHtml(o.draft_path)}</div>` : ''}
+            </article>`).join('');
+    },
+
+    // ----- COMPETITORS -----
+    async renderCompetitors() {
+        const [comps, feed] = await Promise.all([this.load('competitors'), this.load('competitor_activity')]);
+        const stat = (label, val, color='gray') => `
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <p class="text-xs text-gray-500 uppercase tracking-wide">${label}</p>
+                <p class="text-3xl font-bold text-${color}-600 mt-1">${val}</p>
+            </div>`;
+        const high = comps.filter(c => (c.latest_threat_level || '').toUpperCase() === 'HIGH').length;
+        const med = comps.filter(c => (c.latest_threat_level || '').toUpperCase() === 'MEDIUM').length;
+        const activeWeek = comps.filter(c => c.last_seen && (Date.now() - new Date(c.last_seen).getTime()) < 7*86400000).length;
+        document.getElementById('competitors-summary').innerHTML = [
+            stat('Total Tracked', comps.length, 'gray'),
+            stat('HIGH Threat',   high,         'red'),
+            stat('MEDIUM Threat', med,          'amber'),
+            stat('Active 7d',     activeWeek,   'green'),
+        ].join('');
+
+        const search = document.getElementById('competitors-search');
+        const threatF = document.getElementById('competitors-threat-filter');
+        const renderRows = () => {
+            const q = search.value.toLowerCase().trim();
+            const tf = threatF.value.toUpperCase();
+            const rows = comps.filter(c => {
+                if (tf && (c.latest_threat_level || '').toUpperCase() !== tf) return false;
+                if (!q) return true;
+                return (c.agency_name || '').toLowerCase().includes(q)
+                    || (c.latest_detail || '').toLowerCase().includes(q);
+            });
+            document.getElementById('competitors-tbody').innerHTML = rows.map(c => `
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-3 align-top font-semibold text-gray-900">${escapeHtml(c.agency_name)}</td>
+                    <td class="px-4 py-3 align-top text-center">${threatBadge(c.latest_threat_level)}</td>
+                    <td class="px-4 py-3 align-top text-center font-semibold">${c.activity_count}</td>
+                    <td class="px-4 py-3 align-top text-xs text-gray-500 hidden md:table-cell">${c.last_seen || ''}</td>
+                    <td class="px-4 py-3 align-top text-xs text-gray-700 max-w-md"><div class="line-clamp-2">${escapeHtml((c.latest_detail || '').slice(0, 240))}</div></td>
+                </tr>`).join('');
+            // Mobile card layout
+            document.getElementById('competitors-cards').innerHTML = rows.map(c => `
+                <article class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <div class="flex items-start justify-between gap-2 mb-2">
+                        <div class="font-semibold text-gray-900 break-words flex-1 min-w-0">${escapeHtml(c.agency_name)}</div>
+                        <div class="flex-shrink-0">${threatBadge(c.latest_threat_level)}</div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3 text-[11px] text-gray-500 mb-2">
+                        <span><span class="font-semibold text-gray-700">${c.activity_count}</span> moves</span>
+                        ${c.last_seen ? `<span>Last seen ${escapeHtml(c.last_seen)}</span>` : ''}
+                    </div>
+                    ${c.latest_detail ? `<div class="text-xs text-gray-700 leading-snug"><span class="font-semibold text-gray-500 uppercase text-[10px] tracking-wide">Latest:</span> ${escapeHtml((c.latest_detail || '').slice(0, 280))}</div>` : ''}
+                </article>`).join('');
+        };
+        search.addEventListener('input', renderRows);
+        threatF.addEventListener('change', renderRows);
+        renderRows();
+
+        document.getElementById('competitors-feed').innerHTML = feed.map(f => `
+            <div class="p-3 hover:bg-gray-50">
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                    ${threatBadge(f.threat_level)}
+                    <span class="font-semibold text-gray-900 text-sm">${escapeHtml(f.agency_name)}</span>
+                    <span class="text-xs text-gray-400 ml-auto">${f.date || ''}</span>
+                </div>
+                <p class="text-xs text-gray-700 mb-1">${escapeHtml((f.detail || '').slice(0, 280))}</p>
+                ${f.source_url ? `<div>${sourceLink(f.source_url, hostname(f.source_url) + ' ↗')}</div>` : ''}
+            </div>`).join('');
+    },
+
+    // ----- KEYWORDS -----
+    async renderKeywords() {
+        const keywords = await this.load('keywords');
+        const stat = (label, val, color='gray') => `
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <p class="text-xs text-gray-500 uppercase tracking-wide">${label}</p>
+                <p class="text-3xl font-bold text-${color}-600 mt-1">${val}</p>
+            </div>`;
+        const top10 = keywords.filter(k => k.in_top10_now).length;
+        const climbers = keywords.filter(k => (k.delta || 0) > 0).length;
+        const fallers = keywords.filter(k => (k.delta || 0) < 0).length;
+        document.getElementById('keywords-summary').innerHTML = [
+            stat('Tracked',     keywords.length, 'gray'),
+            stat('In Top 10',   top10,           'green'),
+            stat('Climbers',    climbers,        'green'),
+            stat('Fallers',     fallers,         'red'),
+        ].join('');
+
+        const status = document.getElementById('keywords-status-filter');
+        const search = document.getElementById('keywords-search');
+        const render = () => {
+            const q = search.value.toLowerCase().trim();
+            const s = status.value;
+            const filtered = keywords.filter(k => {
+                if (q && !k.keyword.toLowerCase().includes(q)) return false;
+                if (s === 'top10' && !k.in_top10_now) return false;
+                if (s === 'dropped' && (!k.in_top10_ever || k.in_top10_now)) return false;
+                if (s === 'climber' && !((k.delta || 0) > 0)) return false;
+                if (s === 'faller' && !((k.delta || 0) < 0)) return false;
+                return true;
+            });
+            document.getElementById('keywords-count').textContent = `${filtered.length} of ${keywords.length}`;
+            document.getElementById('keywords-grid').innerHTML = filtered.map(k => keywordCard(k)).join('');
+        };
+        status.addEventListener('change', render);
+        search.addEventListener('input', render);
+        render();
+    },
+
+    // ----- CONTENT -----
+    async renderContent() {
+        const ideas = await this.load('content_ideas');
+        const diffs = [...new Set(ideas.map(i => i.difficulty).filter(Boolean))];
+        const diffFilter = document.getElementById('content-difficulty-filter');
+        diffFilter.innerHTML = '<option value="">All difficulties</option>' + diffs.map(d => `<option value="${escapeHtml(d)}">${escapeHtml(d)}</option>`).join('');
+
+        const siteFilter = document.getElementById('content-site-filter');
+        const render = () => {
+            const s = siteFilter.value;
+            const d = diffFilter.value;
+            const filtered = ideas.filter(i => (!s || i.site === s) && (!d || i.difficulty === d));
+            document.getElementById('content-grid').innerHTML = filtered.map(i => `
+                <article class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex flex-col">
+                    <div class="flex flex-wrap items-center gap-1.5 mb-2">
+                        <span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full ${i.site === 'SeamlessFlow' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}">${escapeHtml(i.site)}</span>
+                        ${i.difficulty ? `<span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-gray-100 text-gray-700">${escapeHtml(i.difficulty)}</span>` : ''}
+                        ${i.content_type ? `<span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-purple-100 text-purple-800">${escapeHtml(i.content_type)}</span>` : ''}
+                        <span class="text-[10px] text-gray-400 ml-auto">${i.week_of || ''}</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 leading-snug mb-2">${escapeHtml(i.title)}</h3>
+                    ${i.target_keyword ? `<p class="text-xs text-gray-500 mb-2"><span class="font-semibold">Target:</span> ${escapeHtml(i.target_keyword)}</p>` : ''}
+                    ${i.link_from ? `<p class="text-xs text-gray-500 mb-2"><span class="font-semibold">Link from:</span> ${escapeHtml(i.link_from)}</p>` : ''}
+                    ${i.why_now ? `<p class="text-xs text-gray-700 line-clamp-4 flex-1"><span class="font-semibold">Why now:</span> ${escapeHtml(i.why_now)}</p>` : ''}
+                    ${sourceList(i.sources)}
+                    <span class="mt-3 inline-block text-[10px] uppercase font-semibold text-gray-400">${escapeHtml(i.status || 'idea')}</span>
+                </article>`).join('');
+        };
+        siteFilter.addEventListener('change', render);
+        diffFilter.addEventListener('change', render);
+        render();
+    },
+
+    // ----- LEADS -----
+    async renderLeads() {
+        const leads = await this.load('cntemup_leads');
+        const urgencies = [...new Set(leads.map(l => l.urgency).filter(Boolean))];
+        const uFilter = document.getElementById('leads-urgency-filter');
+        uFilter.innerHTML = '<option value="">All urgencies</option>' + urgencies.map(u => `<option value="${escapeHtml(u)}">${escapeHtml(u)}</option>`).join('');
+
+        const search = document.getElementById('leads-search');
+        const render = () => {
+            const u = uFilter.value;
+            const q = search.value.toLowerCase().trim();
+            const filtered = leads.filter(l => {
+                if (u && l.urgency !== u) return false;
+                if (!q) return true;
+                return (l.post_text || '').toLowerCase().includes(q)
+                    || (l.user_handle || '').toLowerCase().includes(q)
+                    || (l.region || '').toLowerCase().includes(q);
+            });
+            document.getElementById('leads-list').innerHTML = filtered.map(l => `
+                <article class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-2 mb-2 flex-wrap">
+                        ${urgencyBadge(l.urgency)}
+                        <span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-blue-100 text-blue-800">${escapeHtml(l.platform || '')}</span>
+                        ${l.region ? `<span class="px-2 py-0.5 text-[10px] uppercase font-semibold rounded-full bg-gray-100 text-gray-700">${escapeHtml(l.region)}</span>` : ''}
+                        <span class="font-semibold text-gray-900 text-sm">${escapeHtml(l.user_handle || '')}</span>
+                        <span class="text-xs text-gray-400 ml-auto">${l.found_date || ''}</span>
+                        ${l.post_url ? `<a href="${escapeAttr(l.post_url)}" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Open ↗</a>` : ''}
+                    </div>
+                    <p class="text-sm text-gray-800 mb-2">${escapeHtml(l.post_text || '')}</p>
+                    ${l.suggested_response ? `<details class="text-xs text-gray-700"><summary class="cursor-pointer font-semibold text-gray-500 hover:text-gray-900">Suggested response</summary><div class="mt-2 p-3 bg-gray-50 rounded-lg whitespace-pre-wrap">${escapeHtml(l.suggested_response)}</div></details>` : ''}
+                </article>`).join('');
+        };
+        uFilter.addEventListener('change', render);
+        search.addEventListener('input', render);
+        render();
+    },
+
+    // ----- ACTIONS -----
+    async renderActions() {
+        const items = await this.load('action_items');
+        const open = items.filter(a => a.status === 'open');
+        const closed = items.filter(a => a.status !== 'open');
+        const stat = (label, val, color='gray') => `
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <p class="text-xs text-gray-500 uppercase tracking-wide">${label}</p>
+                <p class="text-3xl font-bold text-${color}-600 mt-1">${val}</p>
+            </div>`;
+        const stale = open.filter(a => (a.carried_days || 0) > 5).length;
+        const veryStale = open.filter(a => (a.carried_days || 0) > 10).length;
+        document.getElementById('actions-summary').innerHTML = [
+            stat('Open',           open.length,   'gray'),
+            stat('Stale (>5d)',    stale,         'amber'),
+            stat('Critical (>10d)',veryStale,     'red'),
+            stat('Closed / Expired', closed.length, 'gray'),
+        ].join('');
+
+        const renderItem = (a) => `
+            <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100 flex items-start gap-3">
+                <span class="px-2 py-0.5 text-[10px] font-bold rounded-full ${
+                    (a.carried_days||0) > 10 ? 'bg-red-100 text-red-700'
+                  : (a.carried_days||0) > 5 ? 'bg-amber-100 text-amber-800'
+                  : 'bg-gray-100 text-gray-700'}">${a.carried_days || 0}d</span>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm text-gray-800">${escapeHtml(a.content)}</p>
+                    <p class="text-xs text-gray-400 mt-1">Created ${a.created_date || '—'} · ${escapeHtml(a.status)}</p>
+                </div>
+            </div>`;
+        document.getElementById('actions-open').innerHTML = open.sort((a, b) => (b.carried_days||0) - (a.carried_days||0)).map(renderItem).join('');
+        document.getElementById('actions-closed').innerHTML = closed.slice(0, 30).map(renderItem).join('');
+    },
+};
+
+// Helpers
+function escapeHtml(str) {
+    if (str == null) return '';
+    return String(str).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+}
+function escapeAttr(str) { return escapeHtml(str); }
+function threatBadge(level) {
+    const t = (level || '').toUpperCase();
+    const cls = t === 'HIGH' ? 'bg-red-100 text-red-700'
+              : t === 'MEDIUM' ? 'bg-amber-100 text-amber-800'
+              : t === 'LOW' ? 'bg-gray-100 text-gray-600'
+              : 'bg-gray-100 text-gray-500';
+    return `<span class="px-2 py-0.5 text-[10px] uppercase font-bold rounded-full ${cls}">${escapeHtml(t || '—')}</span>`;
+}
+function urgencyBadge(u) {
+    const v = (u || '').toLowerCase();
+    const cls = v === 'hot' ? 'bg-red-100 text-red-700'
+              : v === 'warm' ? 'bg-amber-100 text-amber-800'
+              : v === 'cold' ? 'bg-blue-100 text-blue-800'
+              : 'bg-gray-100 text-gray-500';
+    return `<span class="px-2 py-0.5 text-[10px] uppercase font-bold rounded-full ${cls}">${escapeHtml(v || '—')}</span>`;
+}
+function scoreBadge(score) {
+    if (score == null) return '<span class="text-xs text-gray-400">—</span>';
+    const cls = score >= 8 ? 'bg-red-100 text-red-700'
+              : score >= 6 ? 'bg-amber-100 text-amber-800'
+              : score >= 4 ? 'bg-blue-100 text-blue-800'
+              : 'bg-gray-100 text-gray-600';
+    return `<span class="px-2 py-0.5 text-xs font-bold rounded-full ${cls}">${score}</span>`;
+}
+function sourceLink(url, label = 'Open ↗') {
+    if (!url) return '';
+    return `<a href="${escapeAttr(url)}" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline whitespace-nowrap">${escapeHtml(label)}</a>`;
+}
+function sourceList(sources) {
+    if (!sources || !sources.length) return '';
+    return `<div class="mt-3 pt-3 border-t border-gray-100 flex flex-wrap gap-1.5">
+        ${sources.map(s => `<a href="${escapeAttr(s.url)}" target="_blank" rel="noopener"
+            class="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+            title="${escapeAttr(s.url)}">
+            <i class="fas fa-external-link-alt text-[8px]"></i>${escapeHtml(s.label || 'source')}
+        </a>`).join('')}
+    </div>`;
+}
+function hostname(url) {
+    try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; }
+}
+
+// SVG sparkline for rank-over-time. points = [{date, position}], lower position = better.
+// We invert (so up = better rank). Nulls render as gaps.
+function sparkline(points, { width = 220, height = 56, padding = 4 } = {}) {
+    const pts = points.filter(p => p.position !== null && p.position !== undefined);
+    if (pts.length < 2) {
+        return `<div class="text-[10px] text-gray-400 italic h-[${height}px] flex items-center">Insufficient data</div>`;
+    }
+    const w = width, h = height;
+    const positions = pts.map(p => p.position);
+    const minP = Math.min(...positions);
+    const maxP = Math.max(...positions);
+    const range = Math.max(1, maxP - minP);
+    const stepX = (w - padding*2) / (pts.length - 1);
+
+    const coords = pts.map((p, i) => {
+        const x = padding + i * stepX;
+        // invert: lower rank (better) goes higher on chart
+        const y = padding + ((p.position - minP) / range) * (h - padding*2);
+        return { x, y, p: p.position, date: p.date };
+    });
+
+    const path = coords.map((c, i) => (i === 0 ? 'M' : 'L') + c.x.toFixed(1) + ',' + c.y.toFixed(1)).join(' ');
+    const area = path + ` L${coords[coords.length-1].x.toFixed(1)},${(h-padding).toFixed(1)} L${coords[0].x.toFixed(1)},${(h-padding).toFixed(1)} Z`;
+
+    // Color: green if last < first (improved rank = lower number), red if worse, gray flat
+    const first = pts[0].position;
+    const last = pts[pts.length - 1].position;
+    const color = last < first ? '#16a34a' : last > first ? '#dc2626' : '#6b7280';
+    const fill = color + '15';
+
+    const dots = coords.map(c => `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="2" fill="${color}"><title>${c.date}: #${c.p}</title></circle>`).join('');
+
+    return `<svg viewBox="0 0 ${w} ${h}" class="w-full" preserveAspectRatio="none" style="height:${h}px;">
+        <path d="${area}" fill="${fill}" />
+        <path d="${path}" fill="none" stroke="${color}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+        ${dots}
+    </svg>`;
+}
+
+function keywordCard(k) {
+    const deltaPill = k.delta === null
+        ? '<span class="text-xs text-gray-400">no Δ</span>'
+        : k.delta > 0 ? `<span class="text-sm font-bold text-green-600">▲ ${k.delta}</span>`
+        : k.delta < 0 ? `<span class="text-sm font-bold text-red-600">▼ ${Math.abs(k.delta)}</span>`
+        : '<span class="text-sm font-bold text-gray-500">→ 0</span>';
+    const statusLine = k.in_top10_now ? '<span class="text-xs font-semibold text-green-700">In top 10</span>'
+        : k.in_top10_ever ? '<span class="text-xs text-amber-700">Dropped from top 10</span>'
+        : '<span class="text-xs text-gray-500">Unranked</span>';
+    const dateRange = k.points && k.points.length ? `${k.points[0].date} → ${k.points[k.points.length-1].date}` : '';
+    return `
+        <article class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex flex-col gap-2">
+            <div class="flex items-start justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                    <h3 class="text-sm font-bold text-gray-900 leading-snug break-words">${escapeHtml(k.keyword)}</h3>
+                    <p class="text-[10px] uppercase tracking-wide text-gray-400 mt-0.5">${escapeHtml(k.site)}</p>
+                </div>
+                ${deltaPill}
+            </div>
+            <div class="flex items-baseline gap-3 text-sm">
+                <div><span class="text-gray-400 text-xs">First</span> <span class="font-semibold ${k.first_position && k.first_position <= 10 ? 'text-green-700' : 'text-gray-700'}">#${k.first_position ?? '—'}</span></div>
+                <div><span class="text-gray-400 text-xs">Now</span> <span class="font-bold text-lg ${k.in_top10_now ? 'text-green-600' : 'text-gray-700'}">#${k.latest_position ?? '—'}</span></div>
+                <div class="ml-auto">${statusLine}</div>
+            </div>
+            ${sparkline(k.points || [])}
+            <div class="flex items-center justify-between text-[10px] text-gray-400">
+                <span>${dateRange}</span>
+                <span>${(k.points || []).filter(p => p.position !== null).length} data points</span>
+            </div>
+        </article>`;
+}
+
+// Wire tab buttons + initial activation
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => { location.hash = '#' + btn.dataset.tab; });
+});
+window.addEventListener('hashchange', () => cc.activate(location.hash.slice(1)));
+
+// Load summary up front (for badges + sync banner), then activate initial tab
+cc.load('summary').then(s => {
+    const setBadge = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    setBadge('badge-pipeline',    s.counts.prospects);
+    setBadge('badge-competitors', s.counts.competitors_tracked);
+    setBadge('badge-keywords',    s.counts.keywords_tracked);
+    setBadge('badge-content',     s.counts.content_ideas);
+    setBadge('badge-leads',       s.counts.cntemup_leads);
+    setBadge('badge-actions',     s.counts.action_items_open);
+
+    if (s.latest_pipeline_run) {
+        const ageDays = Math.floor((Date.now() - new Date(s.latest_pipeline_run + 'T00:00:00').getTime()) / 86400000);
+        if (ageDays > 1) {
+            const banner = document.getElementById('sync-banner');
+            banner.innerHTML = `<i class="fas fa-exclamation-triangle mr-1"></i>Pipeline last ran <b>${s.latest_pipeline_run}</b> — ${ageDays} days ago. LM may be offline.`;
+            banner.classList.remove('hidden');
+        }
+    }
+}).catch(err => console.error('summary load failed', err));
+
+cc.activate(location.hash.slice(1) || 'today');
 </script>
 </body>
 </html>

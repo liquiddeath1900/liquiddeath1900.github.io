@@ -1,0 +1,14 @@
+# Local dashboard data export — contains private prospect/competitor/lead intel.
+# Never push to public GitHub Pages repo.
+data/
+
+# Claude Code project-local config
+.claude/
+
+# macOS
+.DS_Store
+
+# Python build artifacts
+__pycache__/
+*.pyc
+.venv/
