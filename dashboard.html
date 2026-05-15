@@ -98,6 +98,7 @@
                 <button data-tab="competitors" class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-chess-knight mr-1.5"></i>Competitors <span id="badge-competitors" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
                 <button data-tab="keywords"    class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-key mr-1.5"></i>Keywords <span id="badge-keywords" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
                 <button data-tab="content"     class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-file-alt mr-1.5"></i>Content <span id="badge-content" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
+                <button data-tab="briefs"      class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-bullhorn mr-1.5"></i>Briefs <span id="badge-briefs" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
                 <button data-tab="leads"       class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-comments mr-1.5"></i>CNTEMUP Leads <span id="badge-leads" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
                 <button data-tab="actions"     class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-tasks mr-1.5"></i>Actions <span id="badge-actions" class="ml-1 text-xs bg-gray-100 px-1.5 py-0.5 rounded"></span></button>
                 <button data-tab="seo"         class="tab-btn whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-600 hover:text-green-700 hover:border-green-300"><i class="fas fa-chart-line mr-1.5"></i>SEO Site</button>
@@ -476,6 +477,23 @@
                 </select>
             </div>
             <div id="content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </section>
+    </div>
+
+    <!-- TAB: Briefs (content angles from data, ready for /content-shoot expansion) -->
+    <div id="tab-briefs" class="tab-pane hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 rounded-xl p-4 mb-5 text-sm">
+                <p class="text-gray-700"><strong class="text-green-700"><i class="fas fa-bullhorn mr-1"></i>Reel + YouTube briefs</strong> generated from real pipeline data. Voice locked to Tom Scott + Johnny Harris + Morgan Housel hybrid. Not full scripts — pick a brief and feed it to <code class="bg-white px-1 rounded">/content-shoot</code> to expand.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+                <select id="briefs-type-filter" class="px-3 py-1.5 text-sm border border-gray-300 rounded-lg bg-white">
+                    <option value="">All types</option>
+                </select>
+                <input id="briefs-search" type="search" placeholder="Search hook, topic…" class="flex-1 max-w-xs px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
+                <span id="briefs-count" class="text-xs text-gray-500 ml-auto"></span>
+            </div>
+            <div id="briefs-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
         </section>
     </div>
 
@@ -931,11 +949,40 @@ const cc = {
     rendered: new Set(),
     keywordsChart: null,
 
+    // All reads go through Supabase REST with the user's JWT.
+    // RLS (is_sf_owner) returns [] unless the JWT's email is in the SF allowlist.
+    tables: {
+        prospects:           { table: 'sf_dashboard_prospects',           query: 'select=*&order=qualification_score.desc.nullslast,found_date.desc' },
+        competitors:         { table: 'sf_dashboard_competitors',         query: 'select=*&order=last_seen.desc' },
+        competitor_activity: { table: 'sf_dashboard_competitor_activity', query: 'select=*&order=date.desc' },
+        keywords:            { table: 'sf_dashboard_keywords',            query: 'select=*&order=in_top10_now.desc,delta.desc.nullslast' },
+        action_items:        { table: 'sf_dashboard_action_items',        query: 'select=*&order=status.asc,carried_days.desc.nullslast,created_date.desc' },
+        cntemup_leads:       { table: 'sf_dashboard_cntemup_leads',       query: 'select=*&order=found_date.desc' },
+        outreach:            { table: 'sf_dashboard_outreach',            query: 'select=*&order=draft_date.desc' },
+        content_ideas:       { table: 'sf_dashboard_content_ideas',       query: 'select=*&order=week_of.desc.nullslast' },
+        content_briefs:      { table: 'sf_dashboard_content_briefs',      query: 'select=*&order=weight.desc.nullslast' },
+        summary:             { table: 'sf_dashboard_summary',             query: 'select=value&key=eq.main' },
+    },
+
     async load(name) {
         if (this.cache[name]) return this.cache[name];
-        const res = await fetch(`data/${name}.json`, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`fetch data/${name}.json → ${res.status}`);
-        const json = await res.json();
+        const spec = this.tables[name];
+        if (!spec) throw new Error(`Unknown data source: ${name}`);
+        const session = await getSession();
+        const token = session?.access_token || SUPABASE_ANON_KEY;
+        const url = `${SUPABASE_URL}/rest/v1/${spec.table}?${spec.query}`;
+        const res = await fetch(url, {
+            headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${token}` },
+            cache: 'no-store',
+        });
+        if (!res.ok) {
+            const body = await res.text();
+            throw new Error(`fetch ${spec.table} → ${res.status}: ${body.slice(0, 200)}`);
+        }
+        let json = await res.json();
+        if (name === 'summary') {
+            json = (json[0] && json[0].value) ? json[0].value : { counts: {}, highlights: {} };
+        }
         this.cache[name] = json;
         return json;
     },
@@ -969,6 +1016,7 @@ const cc = {
             case 'competitors': return this.renderCompetitors();
             case 'keywords':    return this.renderKeywords();
             case 'content':     return this.renderContent();
+            case 'briefs':      return this.renderBriefs();
             case 'leads':       return this.renderLeads();
             case 'actions':     return this.renderActions();
             case 'seo':
@@ -1265,6 +1313,40 @@ const cc = {
         render();
     },
 
+    // ----- BRIEFS -----
+    async renderBriefs() {
+        const briefs = await this.load('content_briefs');
+        const types = [...new Set(briefs.map(b => b.type).filter(Boolean))];
+        const typeFilter = document.getElementById('briefs-type-filter');
+        const typeLabels = {
+            audit_pattern:       'Audit Pattern (stat-based)',
+            competitor_counter:  'Competitor Counter',
+            keyword_movement:    'Keyword Movement',
+            reddit_response:     'Reddit Response',
+            stale_opportunity:   'Stale-Task Opportunity',
+        };
+        typeFilter.innerHTML = '<option value="">All types</option>' +
+            types.map(t => `<option value="${escapeHtml(t)}">${escapeHtml(typeLabels[t] || t)}</option>`).join('');
+
+        const search = document.getElementById('briefs-search');
+        const render = () => {
+            const t = typeFilter.value;
+            const q = search.value.toLowerCase().trim();
+            const filtered = briefs.filter(b => {
+                if (t && b.type !== t) return false;
+                if (!q) return true;
+                return (b.title || '').toLowerCase().includes(q)
+                    || (b.hook || '').toLowerCase().includes(q)
+                    || (b.youtube_angle || '').toLowerCase().includes(q);
+            });
+            document.getElementById('briefs-count').textContent = `${filtered.length} of ${briefs.length} briefs`;
+            document.getElementById('briefs-grid').innerHTML = filtered.map(b => briefCard(b)).join('');
+        };
+        typeFilter.addEventListener('change', render);
+        search.addEventListener('input', render);
+        render();
+    },
+
     // ----- LEADS -----
     async renderLeads() {
         const leads = await this.load('cntemup_leads');
@@ -1424,6 +1506,68 @@ function sparkline(points, { width = 220, height = 56, padding = 4 } = {}) {
     </svg>`;
 }
 
+function briefCard(b) {
+    const typeColors = {
+        audit_pattern:      'bg-emerald-100 text-emerald-800',
+        competitor_counter: 'bg-red-100 text-red-800',
+        keyword_movement:   'bg-blue-100 text-blue-800',
+        reddit_response:    'bg-purple-100 text-purple-800',
+        stale_opportunity:  'bg-amber-100 text-amber-800',
+    };
+    const typeLabels = {
+        audit_pattern:      'Audit pattern',
+        competitor_counter: 'Counter-narrative',
+        keyword_movement:   'Keyword move',
+        reddit_response:    'Reddit thread',
+        stale_opportunity:  'Stale task',
+    };
+    const typeCls = typeColors[b.type] || 'bg-gray-100 text-gray-700';
+    const typeLabel = typeLabels[b.type] || b.type || 'brief';
+
+    const outlineHtml = (b.reel_outline || []).map(line => {
+        const trimmed = String(line).trim();
+        let marker = '·', cls = 'text-gray-700';
+        if (trimmed.startsWith('>')) { marker = '▶'; cls = 'text-green-700 font-semibold'; }
+        else if (trimmed.startsWith('o')) { marker = '○'; cls = 'text-gray-600'; }
+        else if (trimmed.startsWith('*')) { marker = '★'; cls = 'text-amber-700 font-semibold'; }
+        const text = trimmed.replace(/^[>o*]\s*/, '');
+        return `<li class="flex gap-2 leading-snug"><span class="${cls} flex-shrink-0 w-4 text-center">${marker}</span><span class="text-gray-800">${escapeHtml(text)}</span></li>`;
+    }).join('');
+
+    const cuesHtml = (b.delivery_cues || []).map(c =>
+        `<li class="text-[11px] text-gray-500 italic">${escapeHtml(c)}</li>`).join('');
+
+    return `
+        <article class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex flex-col">
+            <div class="flex flex-wrap items-center gap-1.5 mb-3">
+                <span class="px-2 py-0.5 text-[10px] uppercase font-bold rounded-full ${typeCls}">${escapeHtml(typeLabel)}</span>
+                ${b.weight ? `<span class="text-[10px] uppercase font-semibold text-gray-400">weight ${b.weight}</span>` : ''}
+                <button class="ml-auto text-[10px] text-gray-400 hover:text-green-600" onclick="navigator.clipboard.writeText(this.closest('article').innerText); this.textContent='copied'; setTimeout(()=>this.textContent='copy',1500);" title="Copy brief to clipboard">copy</button>
+            </div>
+            <h3 class="font-bold text-gray-900 text-base leading-tight mb-2">${escapeHtml(b.title || '—')}</h3>
+            <div class="mb-3">
+                <p class="text-[10px] uppercase font-semibold text-gray-400 mb-1">Hook (read first)</p>
+                <p class="text-sm text-gray-800 italic leading-snug">"${escapeHtml(b.hook || '')}"</p>
+            </div>
+            <div class="mb-3">
+                <p class="text-[10px] uppercase font-semibold text-gray-400 mb-1">Reel outline <span class="font-normal lowercase text-gray-400">(▶ mandatory · ○ optional · ★ land)</span></p>
+                <ul class="text-sm space-y-1">${outlineHtml}</ul>
+            </div>
+            ${b.youtube_angle ? `
+            <details class="mb-3">
+                <summary class="text-[10px] uppercase font-semibold text-gray-400 mb-1 cursor-pointer hover:text-green-700">YouTube extended angle</summary>
+                <p class="text-sm text-gray-700 mt-2 leading-snug">${escapeHtml(b.youtube_angle)}</p>
+            </details>` : ''}
+            ${cuesHtml ? `<details class="mb-3"><summary class="text-[10px] uppercase font-semibold text-gray-400 cursor-pointer hover:text-green-700">Delivery cues</summary><ul class="mt-2 space-y-1">${cuesHtml}</ul></details>` : ''}
+            ${b.examples ? `<details class="mb-3"><summary class="text-[10px] uppercase font-semibold text-gray-400 cursor-pointer hover:text-green-700">Examples / supporting copy</summary><p class="text-xs text-gray-600 mt-2 whitespace-pre-wrap">${escapeHtml(b.examples)}</p></details>` : ''}
+            <div class="mt-auto pt-3 border-t border-gray-100 text-[10px] text-gray-400 space-y-1">
+                <div><span class="font-semibold text-gray-500">Why now:</span> ${escapeHtml(b.why_now || '—')}</div>
+                <div><span class="font-semibold text-gray-500">Data:</span> ${escapeHtml(b.data_pull || '—')}</div>
+            </div>
+            ${sourceList(b.sources)}
+        </article>`;
+}
+
 function keywordCard(k) {
     const deltaPill = k.delta === null
         ? '<span class="text-xs text-gray-400">no Δ</span>'
@@ -1469,6 +1613,7 @@ cc.load('summary').then(s => {
     setBadge('badge-competitors', s.counts.competitors_tracked);
     setBadge('badge-keywords',    s.counts.keywords_tracked);
     setBadge('badge-content',     s.counts.content_ideas);
+    setBadge('badge-briefs',      s.counts.content_briefs || '');
     setBadge('badge-leads',       s.counts.cntemup_leads);
     setBadge('badge-actions',     s.counts.action_items_open);
 
