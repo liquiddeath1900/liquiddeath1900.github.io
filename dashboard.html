@@ -41,6 +41,14 @@
         .rank-bad { color: #dc2626; font-weight: 700; }
         .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
+        /* Desktop: show a thin scrollbar so users know more tabs exist and can drag */
+        @media (hover: hover) and (pointer: fine) {
+            #tab-nav { scrollbar-width: thin; -ms-overflow-style: auto; scrollbar-color: #d1d5db transparent; }
+            #tab-nav::-webkit-scrollbar { display: block; height: 6px; }
+            #tab-nav::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+            #tab-nav::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+            #tab-nav::-webkit-scrollbar-track { background: transparent; }
+        }
         .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
         .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
@@ -1605,6 +1613,19 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => { location.hash = '#' + btn.dataset.tab; });
 });
 window.addEventListener('hashchange', () => cc.activate(location.hash.slice(1)));
+
+// Desktop: convert vertical mouse-wheel into horizontal scroll on the tab nav
+// (trackpads already do horizontal — this fixes mice with vertical-only wheels)
+(() => {
+    const nav = document.getElementById('tab-nav');
+    if (!nav) return;
+    nav.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return; // already horizontal
+        if (nav.scrollWidth <= nav.clientWidth) return;       // nothing to scroll
+        e.preventDefault();
+        nav.scrollLeft += e.deltaY;
+    }, { passive: false });
+})();
 
 // Load summary up front (for badges + sync banner), then activate initial tab
 cc.load('summary').then(s => {
