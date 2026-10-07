@@ -112,7 +112,7 @@ about_main = f'''    <main id="home">
         <section class="pt-32 pb-20 bg-gray-950 text-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="text-blue-400 font-semibold uppercase tracking-wider text-sm">About us</span>
-                <h1 class="text-4xl sm:text-5xl font-extrabold mt-3 mb-5">Over 10 years creating content.<br class="hidden sm:block"> Now we're putting it to work for you.</h1>
+                <h1 class="text-4xl sm:text-5xl font-extrabold mt-3 mb-5">Over 10 years of social media experience.<br class="hidden sm:block"> Now we're putting it to work for you.</h1>
                 <p class="text-lg text-gray-300 max-w-2xl mx-auto">SeamlessFlow is a brand growth agency based in New York City. We make content that shows the world how good you are, and we keep making it until the customers come.</p>
             </div>
         </section>
@@ -125,7 +125,7 @@ about_main = f'''    <main id="home">
                 <div class="md:col-span-3 reveal">
                     <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">The founder</span>
                     <h2 class="text-3xl font-extrabold text-gray-900 mt-2 mb-4">Victorious Mota</h2>
-                    <p class="text-gray-700 leading-relaxed mb-4">I've been making content for over 10 years. Planning it, filming it, editing it, and figuring out what makes people stop scrolling and actually pay attention.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">I've spent over 10 years in social media, learning what makes people stop scrolling and actually pay attention.</p>
                     <p class="text-gray-700 leading-relaxed mb-4">Along the way I learned that great businesses don't lose to better businesses. They lose to the ones people have heard of. So I built SeamlessFlow to fix that: a team that handles the whole process, from the plan to the post to the ads, so owners can focus on doing great work.</p>
                     <p class="text-gray-700 leading-relaxed">Every client gets the same thing I'd want for my own brand: a clear plan, content that feels real, and honest numbers every month.</p>
                 </div>
@@ -154,7 +154,7 @@ about_main = f'''    <main id="home">
 
         <section class="section-padding bg-white">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-                <div class="reveal"><div class="text-5xl font-extrabold text-blue-600">10+</div><p class="text-gray-600 mt-2">Years making content</p></div>
+                <div class="reveal"><div class="text-5xl font-extrabold text-blue-600">10+</div><p class="text-gray-600 mt-2">Years in social media</p></div>
                 <div class="reveal"><div class="text-5xl font-extrabold text-blue-600">NYC</div><p class="text-gray-600 mt-2">Based, and we travel</p></div>
                 <div class="reveal"><div class="text-5xl font-extrabold text-blue-600">5</div><p class="text-gray-600 mt-2">Platforms: Instagram, Facebook, TikTok, YouTube, Google</p></div>
             </div>
@@ -162,5 +162,5 @@ about_main = f'''    <main id="home">
 ''' + CTA.replace("{h}", "Let's build your brand.").replace("{p}", "Start with a 30-minute discovery call. We'll audit where you stand and show you the plan.") + "    </main>\n"
 
 page("about.html", "About SeamlessFlow | Brand Growth Agency in NYC",
-     "Over 10 years of making content. SeamlessFlow is a NYC brand growth agency that plans, films, posts, and runs ads to bring in customers.",
+     "Over 10 years of social media experience. SeamlessFlow is a NYC brand growth agency that plans, films, posts, and runs ads to bring in customers.",
      about_main)
