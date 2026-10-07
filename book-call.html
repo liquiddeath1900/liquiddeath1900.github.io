@@ -576,7 +576,7 @@
             <section id="step-1">
                 <div class="text-center mb-8">
                     <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">Book your discovery call</h1>
-                    <p class="text-gray-600 text-lg">30 minutes. We learn about your business and what you want out of it, then tell you which package fits and why.</p>
+                    <p class="text-gray-600 text-lg">30 minutes. We learn about your business and what you want out of it, audit where your accounts stand, then tell you which package fits and why.</p>
                 </div>
 
                 <form id="discovery-form" class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 space-y-5" novalidate>
@@ -602,6 +602,18 @@
                         <span class="text-sm font-semibold text-gray-800">Instagram, TikTok, or website</span>
                         <input name="social_url" type="text" maxlength="300" placeholder="@yourbusiness" class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none">
                     </label>
+                    <fieldset>
+                        <legend class="text-sm font-semibold text-gray-800">Which of these do you already have set up?</legend>
+                        <p class="text-xs text-gray-500 mb-2">Check all that apply. We audit each one before the call.</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <label class="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-700 cursor-pointer hover:border-blue-300"><input type="checkbox" name="accounts" value="Google Business Profile" class="w-4 h-4 accent-blue-600">Google Business Profile</label>
+                            <label class="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-700 cursor-pointer hover:border-blue-300"><input type="checkbox" name="accounts" value="Instagram" class="w-4 h-4 accent-blue-600">Instagram</label>
+                            <label class="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-700 cursor-pointer hover:border-blue-300"><input type="checkbox" name="accounts" value="Facebook" class="w-4 h-4 accent-blue-600">Facebook</label>
+                            <label class="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-700 cursor-pointer hover:border-blue-300"><input type="checkbox" name="accounts" value="TikTok" class="w-4 h-4 accent-blue-600">TikTok</label>
+                            <label class="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-700 cursor-pointer hover:border-blue-300"><input type="checkbox" name="accounts" value="YouTube" class="w-4 h-4 accent-blue-600">YouTube</label>
+                            <label class="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-700 cursor-pointer hover:border-blue-300"><input type="checkbox" name="accounts" value="Website" class="w-4 h-4 accent-blue-600">Website</label>
+                        </div>
+                    </fieldset>
                     <label class="block">
                         <span class="text-sm font-semibold text-gray-800">What do you want your content to do? *</span>
                         <select name="goal" required class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-3 text-base bg-white focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none">
@@ -666,6 +678,7 @@
                     <ul class="text-left max-w-md mx-auto space-y-3 text-gray-700">
                         <li class="flex gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>What a great month would look like for you (calls, sales, bookings)</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Who your best customers are and how they find you today</li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Links to your Google profile and social accounts so we can audit them</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Any accounts or videos you like the look of</li>
                     </ul>
                     <a href="/" class="inline-block mt-8 text-blue-700 font-semibold underline">Back to home</a>
@@ -734,7 +747,7 @@
             const params = new URLSearchParams({
                 name: lead.name,
                 email: lead.email,
-                a1: [lead.business_name, lead.social_url, 'Goal: ' + lead.goal, 'Start: ' + lead.timeline, 'Package: ' + lead.package_interest, 'Phone: ' + lead.phone].filter(Boolean).join(' | '),
+                a1: [lead.business_name, lead.social_url, 'Goal: ' + lead.goal, 'Start: ' + lead.timeline, 'Package: ' + lead.package_interest, 'Has: ' + lead.accounts, 'Phone: ' + lead.phone].filter(Boolean).join(' | '),
                 hide_gdpr_banner: '1'
             });
             const url = CALENDLY_URL + '?' + params.toString();
@@ -771,6 +784,7 @@
                 goal: fd.get('goal') || '',
                 timeline: fd.get('timeline') || '',
                 package_interest: fd.get('package_interest') || '',
+                accounts: fd.getAll('accounts').join(', ') || 'None',
                 source: 'book-call'
             };
             if (!lead.name || !lead.business_name || !lead.phone || !lead.goal || !lead.timeline) {
@@ -800,7 +814,7 @@
                     <div class="space-y-2 text-sm">
                         <div class="flex items-center text-blue-400">
                             <i class="fas fa-bolt mr-2"></i>
-                            <span>First shoot in as little as 7 days</span>
+                            <span>Results in as little as 7 days</span>
                         </div>
                         <div class="flex items-center text-blue-400">
                             <i class="fas fa-phone mr-2"></i>
