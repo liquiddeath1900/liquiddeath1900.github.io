@@ -191,6 +191,102 @@
         @media (prefers-reduced-motion: reduce) {
             .reel-col, .reel-card .bar i, .reel-card .heart, .rec b { animation: none; }
         }
+        /* ---- Social-feed sections: How it works = profile, First 30 = stories ---- */
+        .ig-profile { background: #fff; border: 1px solid #e5e7eb; border-radius: 28px; padding: 28px; box-shadow: 0 20px 60px rgba(15,23,42,0.06); }
+        .ig-head { display: flex; align-items: center; gap: 22px; padding-bottom: 22px; border-bottom: 1px solid #f1f5f9; }
+        .ig-avatar { width: 84px; height: 84px; border-radius: 50%; padding: 3px; background: conic-gradient(from 200deg, #1d4ed8, #0ea5e9, #6366f1, #22d3ee, #1d4ed8); flex-shrink: 0; }
+        .ig-avatar span { display: flex; width: 100%; height: 100%; border-radius: 50%; border: 3px solid #fff; background: linear-gradient(160deg, #0f172a, #2563eb); color: #fff; align-items: center; justify-content: center; font-weight: 800; font-size: 22px; }
+        .ig-handle { font-weight: 700; color: #0f172a; font-size: 18px; display: flex; align-items: center; gap: 6px; }
+        .ig-handle .fa-circle-check { color: #3b82f6; font-size: 15px; }
+        .ig-stats { display: flex; gap: 22px; margin-top: 6px; color: #475569; font-size: 14px; }
+        .ig-stats b { color: #0f172a; }
+        .ig-label { display: flex; align-items: center; gap: 10px; margin: 24px 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; }
+        .ig-label::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
+        .ig-hl-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .ig-hl { text-align: center; }
+        .ig-hl-ring { width: 76px; height: 76px; margin: 0 auto 10px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #1d4ed8, #22d3ee); }
+        .ig-hl-ring span { display: flex; width: 100%; height: 100%; border-radius: 50%; border: 3px solid #fff; background: #eff6ff; color: #1d4ed8; align-items: center; justify-content: center; font-size: 24px; }
+        .ig-hl h3 { font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+        .ig-hl p { color: #4b5563; font-size: 14px; line-height: 1.5; }
+        .ig-tabs { display: flex; justify-content: center; gap: 40px; border-top: 1px solid #e5e7eb; margin-top: 28px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; }
+        .ig-tabs span { padding-top: 12px; margin-top: -1px; }
+        .ig-tabs .on { color: #0f172a; border-top: 2px solid #0f172a; }
+        .ig-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 14px; border-radius: 14px; overflow: hidden; }
+        .ig-post { position: relative; aspect-ratio: 4/5; color: #fff; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+        .ig-post::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.55)); }
+        .ig-post > * { position: relative; }
+        .ig-post .bg-ic { position: absolute; top: 14px; left: 14px; font-size: 44px; opacity: 0.22; }
+        .ig-post .kind { position: absolute; top: 12px; right: 12px; font-size: 15px; opacity: 0.95; }
+        .ig-post .num { font-size: 12px; font-weight: 800; letter-spacing: 0.08em; opacity: 0.85; }
+        .ig-post h3 { font-weight: 800; font-size: 17px; line-height: 1.2; margin: 2px 0 4px; }
+        .ig-post p { font-size: 13px; line-height: 1.4; color: rgba(255,255,255,0.88); }
+        .ig-post .hover { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 22px; background: rgba(15,23,42,0.55); font-weight: 700; opacity: 0; transition: opacity .2s; }
+        .ig-post:hover .hover { opacity: 1; }
+        .ig-post.loop { background: #f8fafc; color: #0f172a; align-items: center; justify-content: center; text-align: center; }
+        .ig-post.loop::before { display: none; }
+        .ig-post.loop i { color: #2563eb; font-size: 26px; margin-bottom: 10px; }
+        .ig-post.loop .spin { animation: igSpin 3s linear infinite; }
+        @keyframes igSpin { to { transform: rotate(360deg); } }
+
+        .feed-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        .ig-post > .feed-vid { position: absolute; }
+        .ig-post::before { z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.85)) !important; }
+        .ig-post > *:not(.feed-vid) { z-index: 2; }
+        .ig-post .hover { z-index: 3; }
+        .story::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 22%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.75) 100%); }
+        .story > *:not(.feed-vid) { position: relative; z-index: 2; }
+        .stories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .story { position: relative; aspect-ratio: 9/16; border-radius: 22px; overflow: hidden; color: #fff; padding: 16px 18px 18px; display: flex; flex-direction: column; box-shadow: 0 18px 40px rgba(15,23,42,0.18); }
+        .story-bars { display: flex; gap: 4px; }
+        .story-bars i { flex: 1; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.3); overflow: hidden; position: relative; }
+        .story-bars i.done { background: #fff; }
+        .story-bars i.now::after { content: ''; position: absolute; inset: 0; background: #fff; transform-origin: left; transform: scaleX(0); }
+        .stories.visible .story-bars i.now::after { animation: storyFill 1.6s linear forwards; }
+        .stories.visible .story:nth-child(2) .story-bars i.now::after { animation-delay: .4s; }
+        .stories.visible .story:nth-child(3) .story-bars i.now::after { animation-delay: .8s; }
+        .stories.visible .story:nth-child(4) .story-bars i.now::after { animation-delay: 1.2s; }
+        @keyframes storyFill { to { transform: scaleX(1); } }
+        .story-top { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 13px; font-weight: 600; }
+        .story-top .av { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; background: #0f172a; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; }
+        .story-top em { font-style: normal; opacity: 0.7; font-weight: 500; }
+        .story-body { margin-top: auto; margin-bottom: auto; padding-top: 18px; }
+        .story-wk { display: inline-block; background: #fff; color: #0f172a; font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 8px; transform: rotate(-3deg); margin-bottom: 12px; }
+        .story h3 { font-weight: 800; font-size: 22px; line-height: 1.15; margin-bottom: 10px; }
+        .story p { font-size: 14px; line-height: 1.45; color: rgba(255,255,255,0.92); }
+        .story-reply { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+        .story-reply span { flex: 1; border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; padding: 8px 14px; font-size: 12px; color: rgba(255,255,255,0.75); }
+        .dm { display: flex; align-items: flex-end; gap: 10px; max-width: 640px; margin: 28px auto 0; }
+        .dm .av { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(160deg, #0f172a, #2563eb); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .dm p { background: #f1f5f9; color: #334155; border-radius: 20px 20px 20px 6px; padding: 12px 16px; font-size: 14px; line-height: 1.5; }
+        .dm small { display: block; color: #94a3b8; font-size: 11px; margin-top: 6px; }
+
+        @media (max-width: 1023px) {
+            .ig-grid { grid-template-columns: repeat(2, 1fr); }
+            .stories { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -16px; padding: 4px 16px 12px; scrollbar-width: none; }
+            .stories::-webkit-scrollbar { display: none; }
+            .story { flex: 0 0 72%; max-width: 280px; scroll-snap-align: center; }
+        }
+        @media (max-width: 640px) {
+            .ig-profile { padding: 18px; border-radius: 22px; }
+            .ig-head { gap: 14px; }
+            .ig-avatar { width: 64px; height: 64px; }
+            .ig-avatar span { font-size: 17px; }
+            .ig-stats { gap: 14px; font-size: 13px; }
+            .ig-hl-row { grid-template-columns: 1fr; gap: 16px; }
+            .ig-hl { display: flex; gap: 14px; text-align: left; align-items: flex-start; }
+            .ig-hl-ring { width: 60px; height: 60px; margin: 0; flex-shrink: 0; }
+            .ig-hl-ring span { font-size: 19px; }
+            .ig-tabs { gap: 24px; }
+            .ig-post { padding: 12px; }
+            .ig-post h3 { font-size: 15px; }
+            .ig-post p { font-size: 12px; }
+            .ig-post .bg-ic { font-size: 34px; }
+            .ig-post::before { background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.88)) !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .ig-post.loop .spin, .stories.visible .story-bars i.now::after { animation: none; }
+            .story-bars i.now::after { transform: scaleX(1); }
+        }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(90deg, rgba(11,17,32,0.96) 0%, rgba(11,17,32,0.82) 42%, rgba(11,17,32,0.15) 100%);
@@ -733,7 +829,7 @@
         </div>
     </section>
 
-    <!-- How it works -->
+    <!-- How it works (styled as a social profile: setup = highlights, monthly cycle = post grid) -->
     <section id="how" class="section-padding bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
@@ -741,104 +837,74 @@
                 <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">Set up once. Then we go to work every month.</h2>
                 <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">We get to know your business, audit everything you have, and map out your brand one time. After that, the same cycle runs every month, and each one gets sharper from what the last one taught us.</p>
             </div>
-
-            <div class="reveal flex items-center gap-3 mb-5">
-                <span class="bg-gray-900 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Once, at the start</span>
-                <span class="h-px flex-1 bg-gray-200"></span>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">01</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Discovery call</h3>
-                    <p class="text-gray-600 text-sm">Who you are, who buys from you, what you want to happen and how fast. Then we recommend the package that fits.</p>
+            <div class="ig-profile reveal">
+                <div class="ig-head">
+                    <div class="ig-avatar" aria-hidden="true"><span>YB</span></div>
+                    <div>
+                        <div class="ig-handle">yourbusiness <i class="fas fa-circle-check" aria-hidden="true"></i></div>
+                        <div class="ig-stats"><span><b>3</b> setup steps</span><span><b>7</b> every month</span><span><b>1</b> plan</span></div>
+                    </div>
                 </div>
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">02</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Full brand audit</h3>
-                    <p class="text-gray-600 text-sm">Google Business Profile, Instagram, Facebook, TikTok, YouTube. Are they set up right, active, working for you? We find every gap before we start.</p>
+                <div class="ig-label">Once, at the start</div>
+                <div class="ig-hl-row">
+                    <div class="ig-hl"><div class="ig-hl-ring"><span><i class="fas fa-phone"></i></span></div><div><h3>Discovery call</h3><p>Who you are, who buys from you, what you want to happen and how fast. Then we recommend the package that fits.</p></div></div>
+                    <div class="ig-hl"><div class="ig-hl-ring"><span><i class="fas fa-magnifying-glass"></i></span></div><div><h3>Full brand audit</h3><p>Google Business Profile, Instagram, Facebook, TikTok, YouTube. Are they set up right, active, working for you? We find every gap before we start.</p></div></div>
+                    <div class="ig-hl"><div class="ig-hl-ring"><span><i class="fas fa-map"></i></span></div><div><h3>Brand roadmap</h3><p>Where your brand is going and how we get there, built on what the audit found. Every month runs off this plan.</p></div></div>
                 </div>
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">03</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Brand roadmap</h3>
-                    <p class="text-gray-600 text-sm">Where your brand is going and how we get there, built on what the audit found. Every month runs off this plan.</p>
-                </div>
-            </div>
-
-            <div class="reveal flex items-center gap-3 mb-5">
-                <span class="bg-blue-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full"><i class="fas fa-sync-alt mr-1"></i>Every month</span>
-                <span class="h-px flex-1 bg-blue-200"></span>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">04</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Content plan for the month</h3>
-                    <p class="text-gray-600 text-sm">Every video mapped out before filming.</p>
-                </div>
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">05</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Scripts + shot list</h3>
-                    <p class="text-gray-600 text-sm">What to say and every shot, ready before shoot day.</p>
-                </div>
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">06</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Shoot day</h3>
-                    <p class="text-gray-600 text-sm">Scripts in hand, cameras rolling. You talk, we direct.</p>
-                </div>
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">07</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Edit</h3>
-                    <p class="text-gray-600 text-sm">Cut, captioned, and built to keep people watching.</p>
-                </div>
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">08</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Post</h3>
-                    <p class="text-gray-600 text-sm">On schedule, every platform. Plus a story shot list for you.</p>
-                </div>
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">09</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Watch the numbers</h3>
-                    <p class="text-gray-600 text-sm">Views, watch time, and the calls they bring in.</p>
-                </div>
-                <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-blue-600 font-extrabold text-sm mb-2">10</div>
-                    <h3 class="font-bold text-gray-900 mb-2">Ads on what works</h3>
-                    <p class="text-gray-600 text-sm">Ad money only goes behind videos already performing.</p>
-                </div>
-                <div class="reveal rounded-2xl p-6 border-2 border-dashed border-blue-200 flex flex-col items-center justify-center text-center">
-                    <i class="fas fa-redo text-blue-600 text-2xl mb-3"></i>
-                    <p class="font-bold text-gray-900">Next month starts from what worked</p>
+                <div class="ig-tabs" aria-hidden="true"><span class="on"><i class="fas fa-table-cells mr-1"></i> Every month</span><span><i class="fas fa-clapperboard mr-1"></i> Reels</span></div>
+                <div class="ig-grid">
+                    <div class="ig-post g2"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/plan.jpg" data-src="assets/feed/plan.mp4" aria-hidden="true"></video><i class="fas fa-images kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">04</div><h3>Content plan for the month</h3><p>Every video mapped out before filming.</p></div>
+                    <div class="ig-post g1"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/scripts.jpg" data-src="assets/feed/scripts.mp4" aria-hidden="true"></video><i class="fas fa-images kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">05</div><h3>Scripts + shot list</h3><p>What to say and every shot, ready before shoot day.</p></div>
+                    <div class="ig-post g3"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/shoot.jpg" data-src="assets/feed/shoot.mp4" aria-hidden="true"></video><i class="fas fa-clapperboard kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">06</div><h3>Shoot day</h3><p>Scripts in hand, cameras rolling. You talk, we direct.</p></div>
+                    <div class="ig-post g5"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/edit.jpg" data-src="assets/feed/edit.mp4" aria-hidden="true"></video><i class="fas fa-clapperboard kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">07</div><h3>Edit</h3><p>Cut, captioned, and built to keep people watching.</p></div>
+                    <div class="ig-post g4"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/post.jpg" data-src="assets/feed/post.mp4" aria-hidden="true"></video><i class="fas fa-clapperboard kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">08</div><h3>Post</h3><p>On schedule, every platform. Plus a story shot list for you.</p></div>
+                    <div class="ig-post g2"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/numbers.jpg" data-src="assets/feed/numbers.mp4" aria-hidden="true"></video><i class="fas fa-images kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">09</div><h3>Watch the numbers</h3><p>Views, watch time, and the calls they bring in.</p></div>
+                    <div class="ig-post g1"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/ads.jpg" data-src="assets/feed/ads.mp4" aria-hidden="true"></video><i class="fas fa-clapperboard kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">10</div><h3>Ads on what works</h3><p>Ad money only goes behind videos already performing.</p></div>
+                    <div class="ig-post loop"><i class="fas fa-rotate-right spin" aria-hidden="true"></i><h3>Next month starts from what worked</h3></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- First 30 days -->
-    <section id="first-30" class="section-padding bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- First 30 days (styled as stories, one per week) -->
+    <section id="first-30" class="section-padding bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
                 <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">Fast start</span>
                 <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">What happens in your first 30 days</h2>
                 <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">You want to see things moving. The faster we get you onboarded, the faster the first videos go out and the sooner we know what to put money behind.</p>
             </div>
-            <div class="space-y-4">
-                <div class="reveal flex gap-5 items-start bg-gray-50 rounded-2xl p-6">
-                    <div class="shrink-0 w-24 text-blue-700 font-extrabold">Week 1</div>
-                    <div><h3 class="font-bold text-gray-900 mb-1">Discovery call, audit, roadmap</h3><p class="text-gray-600 text-sm">We learn your goals, audit every account you have, fix or set up what's missing, and plan the full month of content.</p></div>
+            <div class="stories reveal">
+                <div class="story g2">
+                    <video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk1.jpg" data-src="assets/feed/wk1.mp4" aria-hidden="true"></video>
+                    <div class="story-bars" aria-hidden="true"><i class="now"></i><i></i><i></i><i></i></div>
+                    <div class="story-top" aria-hidden="true"><span class="av">SF</span>seamlessflow <em>· day 1</em></div>
+                    <div class="story-body"><span class="story-wk">Week 1</span><h3>Discovery call, audit, roadmap</h3><p>We learn your goals, audit every account you have, fix or set up what's missing, and plan the full month of content.</p></div>
+                    <div class="story-reply" aria-hidden="true"><span>Send message</span><i class="fas fa-heart"></i><i class="fas fa-paper-plane"></i></div>
                 </div>
-                <div class="reveal flex gap-5 items-start bg-gray-50 rounded-2xl p-6">
-                    <div class="shrink-0 w-24 text-blue-700 font-extrabold">Week 2</div>
-                    <div><h3 class="font-bold text-gray-900 mb-1">Shoot day</h3><p class="text-gray-600 text-sm">Scripts in hand, we film the month's videos. Higher packages move faster.</p></div>
+                <div class="story g1">
+                    <video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk2.jpg" data-src="assets/feed/wk2.mp4" aria-hidden="true"></video>
+                    <div class="story-bars" aria-hidden="true"><i class="done"></i><i class="now"></i><i></i><i></i></div>
+                    <div class="story-top" aria-hidden="true"><span class="av">SF</span>seamlessflow <em>· day 8</em></div>
+                    <div class="story-body"><span class="story-wk">Week 2</span><h3>Shoot day</h3><p>Scripts in hand, we film the month's videos. Higher packages move faster.</p></div>
+                    <div class="story-reply" aria-hidden="true"><span>Send message</span><i class="fas fa-heart"></i><i class="fas fa-paper-plane"></i></div>
                 </div>
-                <div class="reveal flex gap-5 items-start bg-gray-50 rounded-2xl p-6">
-                    <div class="shrink-0 w-24 text-blue-700 font-extrabold">Week 3</div>
-                    <div><h3 class="font-bold text-gray-900 mb-1">Videos go live</h3><p class="text-gray-600 text-sm">Edited videos start posting on schedule. You get your story shot list and talking points.</p></div>
+                <div class="story g3">
+                    <video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk3.jpg" data-src="assets/feed/wk3.mp4" aria-hidden="true"></video>
+                    <div class="story-bars" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="now"></i><i></i></div>
+                    <div class="story-top" aria-hidden="true"><span class="av">SF</span>seamlessflow <em>· day 15</em></div>
+                    <div class="story-body"><span class="story-wk">Week 3</span><h3>Videos go live</h3><p>Edited videos start posting on schedule. You get your story shot list and talking points.</p></div>
+                    <div class="story-reply" aria-hidden="true"><span>Send message</span><i class="fas fa-heart"></i><i class="fas fa-paper-plane"></i></div>
                 </div>
-                <div class="reveal flex gap-5 items-start bg-gray-50 rounded-2xl p-6">
-                    <div class="shrink-0 w-24 text-blue-700 font-extrabold">Week 4</div>
-                    <div><h3 class="font-bold text-gray-900 mb-1">First ads + first report</h3><p class="text-gray-600 text-sm">The videos that pull ahead get ad money behind them. You get a report showing what worked and what next month looks like.</p></div>
+                <div class="story g5">
+                    <video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk4.jpg" data-src="assets/feed/wk4.mp4" aria-hidden="true"></video>
+                    <div class="story-bars" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i></div>
+                    <div class="story-top" aria-hidden="true"><span class="av">SF</span>seamlessflow <em>· day 22</em></div>
+                    <div class="story-body"><span class="story-wk">Week 4</span><h3>First ads + first report</h3><p>The videos that pull ahead get ad money behind them. You get a report showing what worked and what next month looks like.</p></div>
+                    <div class="story-reply" aria-hidden="true"><span>Send message</span><i class="fas fa-heart"></i><i class="fas fa-paper-plane"></i></div>
                 </div>
             </div>
-            <p class="text-center text-gray-500 text-sm mt-6 reveal">Leads build month over month as we learn what your customers respond to. We agree on the number that matters to you on day one and report against it.</p>
+            <div class="dm reveal"><span class="av" aria-hidden="true">SF</span><p>Leads build month over month as we learn what your customers respond to. We agree on the number that matters to you on day one and report against it.<small>Seen</small></p></div>
         </div>
     </section>
 
@@ -1338,6 +1404,24 @@
         });
     </script>
 
+
+    <!-- Feed clips: load + play only while on screen; posters only for reduced motion -->
+    <script>
+    (function () {
+        const vids = document.querySelectorAll('.feed-vid');
+        if (!vids.length || !('IntersectionObserver' in window)) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(({ target: v, isIntersecting }) => {
+                if (isIntersecting) {
+                    if (!v.src) v.src = v.dataset.src;
+                    v.play().catch(() => {});
+                } else if (v.src) v.pause();
+            });
+        }, { rootMargin: '200px 0px' });
+        vids.forEach(v => io.observe(v));
+    })();
+    </script>
     <!-- Case Study Stats Animation (Lazy Load) -->
     <script>
         // Animated counters + bar charts with Intersection Observer
