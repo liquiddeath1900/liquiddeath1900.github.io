@@ -93,9 +93,9 @@
     <style>
         /* ===== PREMIUM DESIGN SYSTEM ===== */
         :root {
-            --primary: #16a34a;
-            --primary-dark: #15803d;
-            --primary-light: #22c55e;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
             --accent: #0ea5e9;
             --dark: #0f172a;
             --dark-mid: #1e293b;
@@ -108,7 +108,7 @@
             --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
             --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
             --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
-            --shadow-glow: 0 0 40px rgba(22,163,74,0.3);
+            --shadow-glow: 0 0 40px rgba(37,99,235,0.3);
         }
 
         /* Subtle grain texture overlay for depth */
@@ -151,14 +151,14 @@
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.6) 50%, rgba(22,163,74,0.3) 100%);
+            background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.6) 50%, rgba(37,99,235,0.3) 100%);
             z-index: -1;
         }
         /* Gradient mesh accent orbs */
         .hero-section::before {
             content: ''; position: absolute;
             width: 600px; height: 600px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(22,163,74,0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
             top: -200px; right: -100px; z-index: -1;
             animation: float-orb 8s ease-in-out infinite;
         }
@@ -176,7 +176,7 @@
 
         /* Gradient text effect */
         .gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #86efac 50%, #22c55e 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -203,11 +203,11 @@
             color: white; padding: 14px 28px; border-radius: var(--radius);
             text-decoration: none; font-weight: 700; display: inline-block;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 16px rgba(22,163,74,0.3);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.3);
         }
         .btn-primary:hover {
             transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 24px rgba(22,163,74,0.4);
+            box-shadow: 0 8px 24px rgba(37,99,235,0.4);
         }
         .btn-secondary {
             background: rgba(255,255,255,0.1); color: white;
@@ -301,7 +301,7 @@
             background: linear-gradient(135deg, var(--primary), var(--accent));
             width: 56px; height: 56px; border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 12px rgba(22,163,74,0.25);
+            box-shadow: 0 4px 12px rgba(37,99,235,0.25);
         }
         .icon-gradient i { color: white; }
         .icon-gradient-purple {
@@ -351,7 +351,7 @@
         }
         .trust-badge {
             display: flex; align-items: center; gap: 8px;
-            font-size: 0.875rem; color: #059669; margin-top: 1rem;
+            font-size: 0.875rem; color: #0284c7; margin-top: 1rem;
         }
 
         /* Trust bar in hero */
@@ -376,14 +376,14 @@
         #why-us .bg-white {
             background: rgba(255,255,255,0.8);
             backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(22,163,74,0.08);
+            border: 1px solid rgba(37,99,235,0.08);
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
         #why-us .bg-white:hover {
             background: rgba(255,255,255,1);
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-            border-color: rgba(22,163,74,0.15);
+            border-color: rgba(37,99,235,0.15);
         }
 
         /* ===== RESPONSIVE ===== */
@@ -426,35 +426,35 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <div class="relative group">
-                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
                                 Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
                             <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>Google SEO (add-on)</a>
-                                <a href="google-my-business-optimization.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-store mr-2 text-green-500"></i>Google Business Profile</a>
-                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-bolt mr-2 text-green-500"></i>Lead Automation</a>
-                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-laptop-code mr-2 text-green-500"></i>Website Build</a>
-                                <a href="security-audits.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-shield-alt mr-2 text-green-500"></i>Security Audits</a>
+                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>Google SEO (add-on)</a>
+                                <a href="google-my-business-optimization.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-store mr-2 text-blue-500"></i>Google Business Profile</a>
+                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-bolt mr-2 text-blue-500"></i>Lead Automation</a>
+                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-laptop-code mr-2 text-blue-500"></i>Website Build</a>
+                                <a href="security-audits.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-shield-alt mr-2 text-blue-500"></i>Security Audits</a>
                             </div>
                         </div>
-                        <a href="#how" class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center"><i class="fas fa-video mr-1 text-green-500"></i>How It Works</a>
+                        <a href="#how" class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center"><i class="fas fa-video mr-1 text-blue-500"></i>How It Works</a>
                         <div class="relative group">
-                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
                                 Locations <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
                             <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                                 <div class="relative group/ny">
-                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 flex items-center justify-between">
-                                        <span><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>New York</span> <i class="fas fa-chevron-right text-xs"></i>
+                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                        <span><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>New York</span> <i class="fas fa-chevron-right text-xs"></i>
                                     </button>
                                     <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/ny:opacity-100 group-hover/ny:visible transition-all duration-200 z-50">
-                                        <a href="manhattan-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Manhattan</a>
-                                        <a href="brooklyn-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Brooklyn</a>
-                                        <a href="queens-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Queens</a>
-                                        <a href="bronx-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Bronx</a>
-                                        <a href="albany-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Albany</a>
-                                        <a href="syracuse-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Syracuse</a>
-                                        <a href="rochester-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Rochester</a>
+                                        <a href="manhattan-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Manhattan</a>
+                                        <a href="brooklyn-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Brooklyn</a>
+                                        <a href="queens-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Queens</a>
+                                        <a href="bronx-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Bronx</a>
+                                        <a href="albany-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Albany</a>
+                                        <a href="syracuse-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Syracuse</a>
+                                        <a href="rochester-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Rochester</a>
                                     </div>
                                 </div>
                                 <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>New Jersey - Coming Soon</div>
@@ -462,10 +462,10 @@
                                 <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Massachusetts - Coming Soon</div>
                             </div>
                         </div>
-                        <a href="pricing.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Packages</a>
-                        <a href="faq.html" class="text-gray-900 hover:text-green-600 px-3 py-2">FAQ</a>
-                        <a href="login.html" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium">Login</a>
-                        <a href="book-call.html" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all">Book a Call</a>
+                        <a href="pricing.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Packages</a>
+                        <a href="faq.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
+                        <a href="login.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">Login</a>
+                        <a href="book-call.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all">Book a Call</a>
                     </div>
                 </div>
                 <div class="md:hidden absolute right-4" style="z-index: 80;">
@@ -489,39 +489,39 @@
             </button>
         </div>
         <div class="px-6 py-4 space-y-1">
-                <a href="login.html" class="block text-gray-500 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium text-sm border-b border-gray-100 mb-2"><i class="fas fa-sign-in-alt mr-3 text-gray-400"></i>Login</a>
+                <a href="login.html" class="block text-gray-500 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium text-sm border-b border-gray-100 mb-2"><i class="fas fa-sign-in-alt mr-3 text-gray-400"></i>Login</a>
             <a href="#home" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                 <i class="fas fa-home mr-3 text-blue-500"></i>Home
             </a>
 
             <!-- Services Collapsible -->
             <div class="mobile-dropdown">
-                <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
-                    <span><i class="fas fa-cogs mr-3 text-green-500"></i>Services</span>
+                <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                    <span><i class="fas fa-cogs mr-3 text-blue-500"></i>Services</span>
                     <i class="fas fa-chevron-right transition-transform duration-200"></i>
                 </button>
                 <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                    <a href="local-seo.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-map-marker-alt mr-3 text-green-500"></i>Google SEO (add-on)
+                    <a href="local-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Google SEO (add-on)
                     </a>
-                    <a href="google-my-business-optimization.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-store mr-3 text-green-500"></i>Google Business Profile
+                    <a href="google-my-business-optimization.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-store mr-3 text-blue-500"></i>Google Business Profile
                     </a>
-                    <a href="marketing-automation.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-bolt mr-3 text-green-500"></i>Lead Automation
+                    <a href="marketing-automation.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-bolt mr-3 text-blue-500"></i>Lead Automation
                     </a>
-                    <a href="website-development.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-laptop-code mr-3 text-green-500"></i>Website Build
+                    <a href="website-development.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-laptop-code mr-3 text-blue-500"></i>Website Build
                     </a>
-                    <a href="security-audits.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-shield-alt mr-3 text-green-500"></i>Security Audits
+                    <a href="security-audits.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-shield-alt mr-3 text-blue-500"></i>Security Audits
                     </a>
                 </div>
             </div>
 
             <!-- How It Works Direct Link -->
-            <a href="#how" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                <i class="fas fa-video mr-3 text-green-500"></i>How It Works
+            <a href="#how" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-video mr-3 text-blue-500"></i>How It Works
             </a>
 
             <!-- Locations Collapsible -->
@@ -534,7 +534,7 @@
                     <!-- New York State -->
                     <div class="mobile-dropdown">
                         <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
-                            <span><i class="fas fa-apple-alt mr-3 text-green-700"></i>New York</span>
+                            <span><i class="fas fa-apple-alt mr-3 text-blue-700"></i>New York</span>
                             <i class="fas fa-chevron-right transition-transform duration-200"></i>
                         </button>
                         <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
@@ -566,8 +566,8 @@
             <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                 <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
             </a>
-            <a href="#first-30" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                <i class="fas fa-calendar-alt mr-3 text-green-500"></i>First 30 Days
+            <a href="#first-30" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-calendar-alt mr-3 text-blue-500"></i>First 30 Days
             </a>
             <a href="book-call.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                 <i class="fas fa-calendar-check mr-3 text-red-500"></i>Book a Call
@@ -607,8 +607,8 @@
                 <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                     <div class="text-center lg:text-left">
                         <div class="animate-fade-in" style="animation-delay: 0.1s;">
-                            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold bg-white/10 border border-white/20 backdrop-blur-sm text-green-300 mb-6">
-                                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold bg-white/10 border border-white/20 backdrop-blur-sm text-blue-300 mb-6">
+                                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
                                 Done-for-you content &amp; ads
                             </span>
                         </div>
@@ -640,13 +640,13 @@
                     <!-- Right: first 30 days at a glance (desktop) -->
                     <div class="hidden lg:flex items-center justify-center animate-fade-in" style="animation-delay: 0.8s;">
                         <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 max-w-sm w-full">
-                            <div class="text-sm font-semibold text-green-300 uppercase tracking-wider mb-5">Your first 30 days</div>
+                            <div class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-5">Your first 30 days</div>
                             <ol class="space-y-5">
-                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-green-500/20 flex items-center justify-center text-green-300 font-bold">1</span><div><div class="font-bold text-white">Discovery call</div><div class="text-sm text-gray-400">We learn who you are and what you want</div></div></li>
-                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-green-500/20 flex items-center justify-center text-green-300 font-bold">2</span><div><div class="font-bold text-white">Roadmap + month planned</div><div class="text-sm text-gray-400">Every video mapped before we film</div></div></li>
-                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-green-500/20 flex items-center justify-center text-green-300 font-bold">3</span><div><div class="font-bold text-white">Shoot day</div><div class="text-sm text-gray-400">Scripts in hand, we film everything</div></div></li>
-                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-green-500/20 flex items-center justify-center text-green-300 font-bold">4</span><div><div class="font-bold text-white">Videos go live</div><div class="text-sm text-gray-400">Edited, captioned, posted on schedule</div></div></li>
-                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-green-500/20 flex items-center justify-center text-green-300 font-bold">5</span><div><div class="font-bold text-white">Ads on the winners</div><div class="text-sm text-gray-400">We push what's already working</div></div></li>
+                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">1</span><div><div class="font-bold text-white">Discovery call</div><div class="text-sm text-gray-400">We learn who you are and what you want</div></div></li>
+                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">2</span><div><div class="font-bold text-white">Roadmap + month planned</div><div class="text-sm text-gray-400">Every video mapped before we film</div></div></li>
+                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">3</span><div><div class="font-bold text-white">Shoot day</div><div class="text-sm text-gray-400">Scripts in hand, we film everything</div></div></li>
+                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">4</span><div><div class="font-bold text-white">Videos go live</div><div class="text-sm text-gray-400">Edited, captioned, posted on schedule</div></div></li>
+                                <li class="flex gap-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-300 font-bold">5</span><div><div class="font-bold text-white">Ads on the winners</div><div class="text-sm text-gray-400">We push what's already working</div></div></li>
                             </ol>
                         </div>
                     </div>
@@ -664,17 +664,17 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="reveal bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                    <i class="fas fa-hourglass-half text-2xl text-green-600 mb-4"></i>
+                    <i class="fas fa-hourglass-half text-2xl text-blue-600 mb-4"></i>
                     <h3 class="font-bold text-lg text-gray-900 mb-2">No time to plan</h3>
                     <p class="text-gray-600">Coming up with ideas every week is a job of its own. Most owners post when they remember, then go quiet for a month.</p>
                 </div>
                 <div class="reveal bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                    <i class="fas fa-video text-2xl text-green-600 mb-4"></i>
+                    <i class="fas fa-video text-2xl text-blue-600 mb-4"></i>
                     <h3 class="font-bold text-lg text-gray-900 mb-2">Not sure what to say</h3>
                     <p class="text-gray-600">Standing in front of a camera with no script feels awkward, and it shows in the video.</p>
                 </div>
                 <div class="reveal bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                    <i class="fas fa-question text-2xl text-green-600 mb-4"></i>
+                    <i class="fas fa-question text-2xl text-blue-600 mb-4"></i>
                     <h3 class="font-bold text-lg text-gray-900 mb-2">No idea what's working</h3>
                     <p class="text-gray-600">Boosting random posts burns money. Without someone watching the numbers, you're guessing.</p>
                 </div>
@@ -686,48 +686,48 @@
     <section id="how" class="section-padding bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
-                <span class="text-green-600 font-semibold uppercase tracking-wider text-sm">How it works</span>
+                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">How it works</span>
                 <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">One loop. Every month. Better each time.</h2>
                 <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">We start by learning your business. Then we plan, film, post, watch the numbers, and put ad money behind what works. Each month we use what we learned to make the next one better.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-green-600 font-extrabold text-sm mb-2">01</div>
+                    <div class="text-blue-600 font-extrabold text-sm mb-2">01</div>
                     <h3 class="font-bold text-gray-900 mb-2">Discovery call</h3>
                     <p class="text-gray-600 text-sm">Who you are, who buys from you, what you want to happen and how fast. Then we recommend the package that fits.</p>
                 </div>
                 <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-green-600 font-extrabold text-sm mb-2">02</div>
+                    <div class="text-blue-600 font-extrabold text-sm mb-2">02</div>
                     <h3 class="font-bold text-gray-900 mb-2">Brand roadmap + monthly plan</h3>
                     <p class="text-gray-600 text-sm">Where your brand is going, and every video for the month mapped out before anyone picks up a camera.</p>
                 </div>
                 <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-green-600 font-extrabold text-sm mb-2">03</div>
+                    <div class="text-blue-600 font-extrabold text-sm mb-2">03</div>
                     <h3 class="font-bold text-gray-900 mb-2">Scripts + shot list</h3>
                     <p class="text-gray-600 text-sm">We write what you say and plan every shot. You walk into shoot day knowing exactly what to do.</p>
                 </div>
                 <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-green-600 font-extrabold text-sm mb-2">04</div>
+                    <div class="text-blue-600 font-extrabold text-sm mb-2">04</div>
                     <h3 class="font-bold text-gray-900 mb-2">Shoot day</h3>
                     <p class="text-gray-600 text-sm">We come to you and film the whole month's videos. You talk, we direct.</p>
                 </div>
                 <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-green-600 font-extrabold text-sm mb-2">05</div>
+                    <div class="text-blue-600 font-extrabold text-sm mb-2">05</div>
                     <h3 class="font-bold text-gray-900 mb-2">Edit</h3>
                     <p class="text-gray-600 text-sm">Cut, captioned, and built to keep people watching past the first few seconds.</p>
                 </div>
                 <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-green-600 font-extrabold text-sm mb-2">06</div>
+                    <div class="text-blue-600 font-extrabold text-sm mb-2">06</div>
                     <h3 class="font-bold text-gray-900 mb-2">Post</h3>
                     <p class="text-gray-600 text-sm">We upload on a schedule. For stories, you get a short shot list and talking points to film on your phone.</p>
                 </div>
                 <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-green-600 font-extrabold text-sm mb-2">07</div>
+                    <div class="text-blue-600 font-extrabold text-sm mb-2">07</div>
                     <h3 class="font-bold text-gray-900 mb-2">Watch the numbers</h3>
                     <p class="text-gray-600 text-sm">Views, watch time, saves, sends, and the calls and messages that come from them.</p>
                 </div>
                 <div class="reveal bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                    <div class="text-green-600 font-extrabold text-sm mb-2">08</div>
+                    <div class="text-blue-600 font-extrabold text-sm mb-2">08</div>
                     <h3 class="font-bold text-gray-900 mb-2">Ads on what works</h3>
                     <p class="text-gray-600 text-sm">We only spend ad money on videos that already did well on their own, so your budget goes behind proven content.</p>
                 </div>
@@ -739,25 +739,25 @@
     <section id="first-30" class="section-padding bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
-                <span class="text-green-600 font-semibold uppercase tracking-wider text-sm">Fast start</span>
+                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">Fast start</span>
                 <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">What happens in your first 30 days</h2>
                 <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">You want to see things moving. The faster we get you onboarded, the faster the first videos go out and the sooner we know what to put money behind.</p>
             </div>
             <div class="space-y-4">
                 <div class="reveal flex gap-5 items-start bg-gray-50 rounded-2xl p-6">
-                    <div class="shrink-0 w-24 text-green-700 font-extrabold">Week 1</div>
+                    <div class="shrink-0 w-24 text-blue-700 font-extrabold">Week 1</div>
                     <div><h3 class="font-bold text-gray-900 mb-1">Discovery, roadmap, month planned</h3><p class="text-gray-600 text-sm">Discovery call, brand roadmap, the full month of content planned, scripts written, shoot day booked.</p></div>
                 </div>
                 <div class="reveal flex gap-5 items-start bg-gray-50 rounded-2xl p-6">
-                    <div class="shrink-0 w-24 text-green-700 font-extrabold">Week 2</div>
+                    <div class="shrink-0 w-24 text-blue-700 font-extrabold">Week 2</div>
                     <div><h3 class="font-bold text-gray-900 mb-1">Shoot day</h3><p class="text-gray-600 text-sm">We film. Full Service clients shoot within 7 days of signing, Growth within 10, Launch within 14.</p></div>
                 </div>
                 <div class="reveal flex gap-5 items-start bg-gray-50 rounded-2xl p-6">
-                    <div class="shrink-0 w-24 text-green-700 font-extrabold">Week 3</div>
+                    <div class="shrink-0 w-24 text-blue-700 font-extrabold">Week 3</div>
                     <div><h3 class="font-bold text-gray-900 mb-1">Videos go live</h3><p class="text-gray-600 text-sm">Edited videos start posting on schedule. You get your story shot list and talking points.</p></div>
                 </div>
                 <div class="reveal flex gap-5 items-start bg-gray-50 rounded-2xl p-6">
-                    <div class="shrink-0 w-24 text-green-700 font-extrabold">Week 4</div>
+                    <div class="shrink-0 w-24 text-blue-700 font-extrabold">Week 4</div>
                     <div><h3 class="font-bold text-gray-900 mb-1">First ads + first report</h3><p class="text-gray-600 text-sm">The videos that pull ahead get ad money behind them. You get a report showing what worked and what next month looks like.</p></div>
                 </div>
             </div>
@@ -773,10 +773,10 @@
                 <p class="text-gray-300 max-w-2xl mx-auto text-lg">Content gets people to call. How you treat them decides whether they come back and tell their friends.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-user-check text-green-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Show up on shoot day</h3><p class="text-gray-400 text-sm">A few hours a month. We bring the plan and the gear.</p></div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-comment-dots text-green-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Say what we wrote</h3><p class="text-gray-400 text-sm">Put it in your own words if you want. We'll coach you through it.</p></div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-mobile-alt text-green-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Film your stories</h3><p class="text-gray-400 text-sm">Quick phone clips from the shot list and talking points we send you.</p></div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-star text-green-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Do great work, get the review</h3><p class="text-gray-400 text-sm">Take care of every customer and ask the happy ones for a Google review. That's what keeps the growth going.</p></div>
+                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-user-check text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Show up on shoot day</h3><p class="text-gray-400 text-sm">A few hours a month. We bring the plan and the gear.</p></div>
+                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-comment-dots text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Say what we wrote</h3><p class="text-gray-400 text-sm">Put it in your own words if you want. We'll coach you through it.</p></div>
+                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-mobile-alt text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Film your stories</h3><p class="text-gray-400 text-sm">Quick phone clips from the shot list and talking points we send you.</p></div>
+                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-star text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Do great work, get the review</h3><p class="text-gray-400 text-sm">Take care of every customer and ask the happy ones for a Google review. That's what keeps the growth going.</p></div>
             </div>
         </div>
     </section>
@@ -785,7 +785,7 @@
     <section id="packages" class="section-padding bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
-                <span class="text-green-600 font-semibold uppercase tracking-wider text-sm">Packages</span>
+                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">Packages</span>
                 <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">Pick how fast you want to move</h2>
                 <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">Every package runs the full loop. Higher tiers get you filmed sooner, with more videos, better gear, and more of your marketing handled.</p>
             </div>
@@ -795,26 +795,26 @@
                     <div class="mt-3 mb-1"><span class="text-4xl font-extrabold text-gray-900">$2,400</span><span class="text-gray-500">/mo</span></div>
                     <p class="text-sm text-gray-500 mb-5">First shoot within 14 days</p>
                     <ul class="space-y-2 text-gray-700 text-sm flex-1">
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>8 videos a month</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Half-day shoot, iPhone + gimbal</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Roadmap, monthly plan, all scripts</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Posting on Instagram, Facebook, TikTok</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Boost your top 1–2 videos</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Monthly report</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>8 videos a month</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Half-day shoot, iPhone + gimbal</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Roadmap, monthly plan, all scripts</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Posting on Instagram, Facebook, TikTok</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Boost your top 1–2 videos</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Monthly report</li>
                     </ul>
                 </div>
-                <div class="reveal bg-white rounded-2xl p-7 border-2 border-green-600 shadow-lg flex flex-col relative">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Most popular</span>
+                <div class="reveal bg-white rounded-2xl p-7 border-2 border-blue-600 shadow-lg flex flex-col relative">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Most popular</span>
                     <h3 class="font-bold text-xl text-gray-900">Growth</h3>
                     <div class="mt-3 mb-1"><span class="text-4xl font-extrabold text-gray-900">$3,900</span><span class="text-gray-500">/mo</span></div>
                     <p class="text-sm text-gray-500 mb-5">First shoot within 10 days</p>
                     <ul class="space-y-2 text-gray-700 text-sm flex-1">
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>12 videos a month</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Full-day shoot, camera, lights, mics</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Everything in Launch</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>We answer comments and DMs</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Ad campaigns on your best videos</li>
-                        <li><i class="fas fa-check text-green-600 mr-2"></i>Report every two weeks</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>12 videos a month</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Full-day shoot, camera, lights, mics</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Everything in Launch</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>We answer comments and DMs</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Ad campaigns on your best videos</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Report every two weeks</li>
                     </ul>
                 </div>
                 <div class="reveal bg-gray-900 text-white rounded-2xl p-7 flex flex-col">
@@ -822,16 +822,16 @@
                     <div class="mt-3 mb-1"><span class="text-4xl font-extrabold">$6,500</span><span class="text-gray-400">/mo</span></div>
                     <p class="text-sm text-gray-400 mb-5">First shoot within 7 days</p>
                     <ul class="space-y-2 text-gray-200 text-sm flex-1">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>20+ videos a month</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Two shoot days, full pro production</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Everything in Growth</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Ads on Instagram, Facebook + TikTok</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Google SEO + Business Profile + reviews</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Weekly report + strategy call</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>20+ videos a month</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Two shoot days, full pro production</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Everything in Growth</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Ads on Instagram, Facebook + TikTok</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Google SEO + Business Profile + reviews</li>
+                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Weekly report + strategy call</li>
                     </ul>
                 </div>
             </div>
-            <p class="text-center text-gray-500 text-sm mt-6">Ad spend is paid by you, straight to the platform. <a href="pricing.html" class="text-green-700 font-semibold underline">Full package details</a></p>
+            <p class="text-center text-gray-500 text-sm mt-6">Ad spend is paid by you, straight to the platform. <a href="pricing.html" class="text-blue-700 font-semibold underline">Full package details</a></p>
         </div>
     </section>
 
@@ -839,21 +839,21 @@
     <section id="addons" class="section-padding bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
-                <span class="text-green-600 font-semibold uppercase tracking-wider text-sm">Add-ons</span>
+                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">Add-ons</span>
                 <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">Need more? Add it on.</h2>
                 <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">Content brings people in. These make sure you catch every one of them.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <a href="local-seo.html" class="reveal block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-green-300 transition-colors"><i class="fas fa-map-marker-alt text-green-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Google SEO + Business Profile</h3><p class="text-gray-600 text-sm">Show up when people search for what you do nearby. Included in Full Service.</p></a>
-                <a href="marketing-automation.html" class="reveal block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-green-300 transition-colors"><i class="fas fa-bolt text-green-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Lead follow-up automation</h3><p class="text-gray-600 text-sm">Missed-call text back and automatic follow-ups so no lead goes cold.</p></a>
-                <a href="cannabis-ai-automation.html" class="reveal block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-green-300 transition-colors"><i class="fas fa-robot text-green-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">AI chat assistant</h3><p class="text-gray-600 text-sm">Answers questions and books calls on your site, day or night.</p></a>
-                <a href="website-development.html" class="reveal block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-green-300 transition-colors"><i class="fas fa-laptop-code text-green-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Website build</h3><p class="text-gray-600 text-sm">A fast, mobile-first site built to turn viewers into calls.</p></a>
+                <a href="local-seo.html" class="reveal block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-300 transition-colors"><i class="fas fa-map-marker-alt text-blue-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Google SEO + Business Profile</h3><p class="text-gray-600 text-sm">Show up when people search for what you do nearby. Included in Full Service.</p></a>
+                <a href="marketing-automation.html" class="reveal block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-300 transition-colors"><i class="fas fa-bolt text-blue-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Lead follow-up automation</h3><p class="text-gray-600 text-sm">Missed-call text back and automatic follow-ups so no lead goes cold.</p></a>
+                <a href="cannabis-ai-automation.html" class="reveal block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-300 transition-colors"><i class="fas fa-robot text-blue-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">AI chat assistant</h3><p class="text-gray-600 text-sm">Answers questions and books calls on your site, day or night.</p></a>
+                <a href="website-development.html" class="reveal block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-300 transition-colors"><i class="fas fa-laptop-code text-blue-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Website build</h3><p class="text-gray-600 text-sm">A fast, mobile-first site built to turn viewers into calls.</p></a>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white relative overflow-hidden">
+    <section class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Let's find out what you want to build.</h2>
             <p class="text-lg text-gray-300 mb-8">30 minutes. We learn about your business and what you want out of it, then tell you which package fits and why.</p>
@@ -872,11 +872,11 @@
                     <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
                     <p class="text-gray-300 mb-4">Done-for-you content &amp; ads. You talk, we handle the rest.</p>
                     <div class="space-y-2 text-sm">
-                        <div class="flex items-center text-green-400">
+                        <div class="flex items-center text-blue-400">
                             <i class="fas fa-bolt mr-2"></i>
                             <span>First shoot in as little as 7 days</span>
                         </div>
-                        <div class="flex items-center text-green-400">
+                        <div class="flex items-center text-blue-400">
                             <i class="fas fa-phone mr-2"></i>
                             <span>(347) 749-8146</span>
                         </div>
@@ -939,11 +939,11 @@
                 <div class="text-center text-gray-300 mb-4">
                     <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
                         <span class="flex items-center">
-                            <i class="fas fa-video mr-2 text-green-400"></i>
+                            <i class="fas fa-video mr-2 text-blue-400"></i>
                             Shoot, Edit, Post, Ads
                         </span>
                         <span class="flex items-center">
-                            <i class="fas fa-pen mr-2 text-green-400"></i>
+                            <i class="fas fa-pen mr-2 text-blue-400"></i>
                             Scripts Written For You
                         </span>
                         <span class="flex items-center">
