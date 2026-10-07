@@ -35,6 +35,8 @@ GROUPS = [
    "One round per video is included. Most changes are small because the scripts are approved before we film."),
   ("Who posts, and do you need my password?",
    "We post for you. Where the platform allows it, we ask to be added as a partner or manager instead of using your password. You always stay the owner of your accounts."),
+  ("Will you reply to comments and DMs for me?",
+   "On Growth and Full Service, yes. During onboarding we build a reply guide with you: approved answers to the questions you get most. We handle those replies, and Full Service adds auto-replies where the platform allows it. Anything that needs your expertise, like quotes or technical questions, gets sent straight to you so no lead slips through. You're the expert, so you always get the final word."),
   ("Do I own the content?",
    "Yes. Once paid, the final videos are yours to use for your business. Raw footage is available on request for a fee."),
  ]),

@@ -21,6 +21,7 @@ TERMS = [
        "A brand roadmap and a monthly content plan",
        "Scripts, shot lists, and story talking points",
        "Shoot days, editing, and posting",
+       "Comment and DM replies using answers you approve, and auto-replies where platforms allow (by package)",
        "Analytics tracking and reporting",
        "Paid ads on content that is already performing",
        "Add-ons such as Google SEO, Google Business Profile work, lead follow-up automation, AI chat assistants, websites, and security audits"]),
@@ -51,6 +52,7 @@ TERMS = [
        "Give us the account access we need, and keep your accounts in good standing",
        "Give us accurate information about your business, offers, and pricing",
        "Review content when we send it (see Approvals below)",
+       "Help us build your reply guide, and answer the questions only you can, like quotes and technical advice. We send those to you as soon as they come in.",
        "Take care of your customers and ask them for reviews. We can grow your reach. How you treat the people who show up is on you."]),
  ]),
  ("Shoot days", [
