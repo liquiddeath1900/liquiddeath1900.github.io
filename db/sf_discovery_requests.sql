@@ -12,12 +12,13 @@ create table if not exists public.sf_discovery_requests (
   goal text not null check (char_length(goal) <= 100),
   timeline text not null check (char_length(timeline) <= 100),
   package_interest text check (char_length(package_interest) <= 100),
+  accounts text check (char_length(accounts) <= 200),
   source text check (char_length(source) <= 50),
   status text not null default 'new'
 );
 alter table public.sf_discovery_requests enable row level security;
 revoke all on public.sf_discovery_requests from anon, authenticated;
-grant insert (name, business_name, email, phone, social_url, goal, timeline, package_interest, source)
+grant insert (name, business_name, email, phone, social_url, goal, timeline, package_interest, accounts, source)
   on public.sf_discovery_requests to anon;
 create policy "anon can submit discovery request"
   on public.sf_discovery_requests for insert to anon with check (status = 'new');
