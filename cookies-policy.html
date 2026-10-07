@@ -1,116 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B68C3RNBVD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B68C3RNBVD');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <!-- Favicon Setup -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#007bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="SeamlessFlow">
+
     <!-- PERFORMANCE OPTIMIZATIONS -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <meta name="description" content="SeamlessFlow.ai Cookies Policy - Learn about how we use cookies to improve your experience">
-<link rel="canonical" href="https://www.seamlessflow.ai/cookies-policy.html">
-    <title>Cookies Policy - SeamlessFlow.ai</title>
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Cookies Policy - SeamlessFlow.ai">
-    <meta property="og:description" content="SeamlessFlow.ai Cookies Policy - Learn about how we use cookies to improve your experience">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Priority preloads for LCP optimization -->
+    <link rel="preload" as="image" href="assets/website-homelogo.webp" type="image/webp" fetchpriority="high">
+    
+    
+    <!-- Font preload for layout shift prevention -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical font files to prevent FOIT/FOUT -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Cookies Policy | SeamlessFlow</title>
+    <meta name="description" content="The cookies and similar tools seamlessflow.ai uses and how to control them.">
+    <meta name="keywords" content="content marketing agency NYC, social media content agency, short form video agency, done for you content, reels production NYC, social media management and ads">
+    <meta property="og:title" content="Cookies Policy | SeamlessFlow">
+    <meta property="og:description" content="The cookies and similar tools seamlessflow.ai uses and how to control them.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seamlessflow.ai/cookies-policy.html">
-    <meta property="og:image" content="https://seamlessflow.ai/assets/website homelogo.png">
-
-    <!-- Twitter Card Meta Tags -->
+    <meta property="og:url" content="https://www.seamlessflow.ai/cookies-policy">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cookies Policy - SeamlessFlow.ai">
-    <meta name="twitter:description" content="SeamlessFlow.ai Cookies Policy - Learn about how we use cookies to improve your experience">
-    <meta name="twitter:image" content="https://seamlessflow.ai/assets/website homelogo.png">
+    <meta property="og:image" content="https://www.seamlessflow.ai/assets/imagetaglogo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://www.seamlessflow.ai/assets/imagetaglogo.jpg">
 
-    <!-- External Dependencies -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.seamlessflow.ai/cookies-policy">
+
+
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <!-- Load Tailwind CSS immediately (site depends on it) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Styles -->
+    
+    <!-- CRITICAL CSS - Inline for fastest render -->
     <style>
+        /* ===== PREMIUM DESIGN SYSTEM ===== */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --accent: #0ea5e9;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --surface: #f8fafc;
+            --text: #334155;
+            --text-dim: #64748b;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+            --shadow-glow: 0 0 40px rgba(37,99,235,0.3);
+        }
+
+        /* Subtle grain texture overlay for depth */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* ===== NAVIGATION - Glass morphism ===== */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+            z-index: 60;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        nav.scrolled {
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        nav a, nav button { transition: color 0.2s, transform 0.2s; }
+        nav .hidden.md\\:block a:hover, nav .hidden.md\\:block button:hover { transform: translateY(-1px); }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            position: relative; min-height: 100vh; display: flex;
+            align-items: center; color: white; overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero-video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: -2; aspect-ratio: 16/9;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.6) 50%, rgba(37,99,235,0.3) 100%);
+            z-index: -1;
+        }
+        /* Gradient mesh accent orbs */
+        .hero-section::before {
+            content: ''; position: absolute;
+            width: 600px; height: 600px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
+            top: -200px; right: -100px; z-index: -1;
+            animation: float-orb 8s ease-in-out infinite;
+        }
+        .hero-section::after {
+            content: ''; position: absolute;
+            width: 400px; height: 400px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+            bottom: -100px; left: -50px; z-index: -1;
+            animation: float-orb 10s ease-in-out infinite reverse;
+        }
+        @keyframes float-orb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.1); }
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* CTA shimmer animation */
+        .btn-shimmer {
+            position: relative; overflow: hidden;
+            isolation: isolate; transform: translateZ(0); /* own GPU layer: no repaint flicker over the animated hero */
+        }
+        .btn-shimmer::after {
+            content: ''; position: absolute; pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            will-change: transform;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            40%, 100% { transform: translateX(200%); }
+        }
+        @media (prefers-reduced-motion: reduce) { .btn-shimmer::after { animation: none; } }
+
+        /* ===== BUTTONS - Premium ===== */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white; padding: 14px 28px; border-radius: var(--radius);
+            text-decoration: none; font-weight: 700; display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1); color: white;
+            border: 2px solid rgba(255,255,255,0.4); padding: 14px 28px;
+            border-radius: var(--radius); text-decoration: none;
+            font-weight: 600; display: inline-block;
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.95); color: var(--primary-dark);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+        }
+
+        /* ===== SECTION SYSTEM - 8px grid ===== */
+        .section-padding { padding: 96px 0; }
+        .section-title {
+            font-size: 2.75rem; font-weight: 800; text-align: center;
+            margin-bottom: 1rem; letter-spacing: -0.025em; line-height: 1.15;
+        }
+        .section-subtitle {
+            font-size: 1.2rem; text-align: center; color: var(--text-dim);
+            margin-bottom: 3rem; max-width: 600px;
+            margin-left: auto; margin-right: auto; line-height: 1.6;
+        }
+
         /* ===== MOBILE MENU - Premium slide-in ===== */
-#mobile-menu {
-    position: fixed; top: 0; right: 0; bottom: 0;
-    width: 85%; max-width: 380px;
-    background: rgba(255,255,255,0.98);
-    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-    box-shadow: -8px 0 32px rgba(0,0,0,0.15);
-    z-index: 70;
-    transform: translateX(100%);
-    opacity: 1; visibility: hidden;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
-    overflow-y: auto;
-    padding-top: 16px;
-}
-#mobile-menu.show {
-    transform: translateX(0);
-    visibility: visible;
-}
-/* Mobile menu overlay */
-.mobile-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(15,23,42,0.5); z-index: 50;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-}
-.mobile-overlay.show {
-    opacity: 1; visibility: visible;
-}
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
+        #mobile-menu {
+            position: fixed; top: 0; right: 0; bottom: 0;
+            width: 85%; max-width: 380px;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            box-shadow: -8px 0 32px rgba(0,0,0,0.15);
+            z-index: 70;
+            transform: translateX(100%);
+            opacity: 1; visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+            overflow-y: auto;
+            padding-top: 16px;
+        }
+        #mobile-menu.show {
+            transform: translateX(0);
+            visibility: visible;
+        }
+        /* Mobile menu overlay */
+        .mobile-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15,23,42,0.5); z-index: 50;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .mobile-overlay.show {
+            opacity: 1; visibility: visible;
+        }
+
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer; width: 28px; height: 24px;
+            position: relative; z-index: 80;
+            transition: all 0.3s ease;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 6px;
+            background: none; border: none; padding: 0;
+        }
+        .hamburger span {
+            display: block; height: 2px; width: 100%;
+            background: #374151; border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            position: relative;
+        }
+        .hamburger.active { gap: 0; }
+        .hamburger.active span { position: absolute; top: 50%; left: 0; }
+        .hamburger.active span:nth-child(1) { transform: translateY(-50%) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateY(-50%) scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: translateY(-50%) rotate(-45deg); }
+
+        /* ===== CARDS - Premium hover ===== */
+        .service-card, .benefit-card {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        .service-card:hover, .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Gradient icon containers */
+        .icon-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            width: 56px; height: 56px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+        }
+        .icon-gradient i { color: white; }
+        .icon-gradient-purple {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.25);
+        }
+        .icon-gradient-orange {
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            box-shadow: 0 4px 12px rgba(249,115,22,0.25);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-                /* Hamburger Animation - Improved */
-        .hamburger {
-    cursor: pointer; width: 28px; height: 24px;
-    position: relative; z-index: 80;
-    transition: all 0.3s ease;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center; gap: 6px;
-    background: none; border: none; padding: 0;
-}
-.hamburger span {
-    display: block; height: 2px; width: 100%;
-    background: #374151; border-radius: 2px;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    position: relative;
-}
-.hamburger.active { gap: 0; }
-.hamburger.active span { position: absolute; top: 50%; left: 0; }
-.hamburger.active span:nth-child(1) { transform: translateY(-50%) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; transform: translateY(-50%) scaleX(0); }
-.hamburger.active span:nth-child(3) { transform: translateY(-50%) rotate(-45deg); }/* Add any custom styles that can't be handled by Tailwind */
-        .prose {
-            max-width: 65ch;
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-out forwards;
+            opacity: 0;
         }
-        
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0; transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Count-up animation flash */
+        .count-up-animated {
+            transition: color 0.3s;
+        }
+
+        .phone-number {
+            font-size: 1.5rem; font-weight: bold; color: var(--primary);
+        }
+        .urgency-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white; padding: 4px 12px; border-radius: 20px;
+            font-size: 0.875rem; font-weight: 600;
+            display: inline-block; margin-bottom: 1rem;
+        }
+        .trust-badge {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.875rem; color: #0284c7; margin-top: 1rem;
+        }
+
+        /* Trust bar in hero */
+        .hero-trust-bar {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 24px; margin-top: 32px; padding: 16px 24px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+        }
+        .hero-trust-bar span {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        .hero-trust-bar i {
+            color: var(--primary-light); font-size: 0.9rem;
+        }
+
+        /* ===== WHY-US CARDS - Glass effect ===== */
+        #why-us .bg-white {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(37,99,235,0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #why-us .bg-white:hover {
+            background: rgba(255,255,255,1);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(37,99,235,0.15);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .section-title { font-size: 2rem; }
+            .section-padding { padding: 64px 0; }
+            .hero-section h1 { font-size: 2.25rem !important; }
+            .hero-section p { font-size: 1rem !important; }
+            .hero-trust-bar { gap: 16px; padding: 12px 16px; }
+            .hero-trust-bar span { font-size: 0.75rem; }
+        }
+        @media (min-width: 1024px) {
+            .section-title { font-size: 3.25rem; }
         }
     </style>
-<link rel="stylesheet" href="assets/css/chatbot-widget.css">
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-        <div class="mobile-overlay" id="mobile-overlay"></div>
-    <nav class="fixed top-0 w-full bg-white shadow-lg z-[60]">
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Navigation Bar -->
+<!-- NAV:START -->
+    <nav class="fixed top-0 w-full z-[60]" id="main-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
+            <div class="flex justify-center xl:justify-between items-center h-16 pr-16 xl:pr-0">
                 <div class="flex items-center">
-                    <a href="index.html#home" class="flex items-center">
+                    <a href="/" class="flex items-center">
                         <picture>
                             <source srcset="assets/website-homelogo.webp" type="image/webp">
                             <img src="assets/website homelogo.png"
@@ -124,52 +399,45 @@
                         </picture>
                     </a>
                 </div>
-                <div class="hidden md:block">
+                <div class="hidden xl:block">
                     <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="/#how" class="text-gray-900 hover:text-blue-600 px-3 py-2">How It Works</a>
                         <div class="relative group">
-                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
-                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Industries <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
-                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>Dispensary Local SEO</a>
-                                <a href="google-my-business-optimization.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-store mr-2 text-green-500"></i>GBP Optimization</a>
-                                <a href="ai-budtender.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-robot mr-2 text-green-500"></i>AI Budtender</a>
-                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-laptop-code mr-2 text-green-500"></i>Dispensary Websites</a>
-                                <a href="security-audits.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-shield-alt mr-2 text-green-500"></i>Security Audits</a>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="industries.html#roofing" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-home mr-2 text-blue-500"></i>Roofing</a>
+                                <a href="industries.html#hvac" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-fan mr-2 text-blue-500"></i>HVAC</a>
+                                <a href="industries.html#plumbing" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-wrench mr-2 text-blue-500"></i>Plumbing</a>
+                                <a href="industries.html#electrical" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-plug mr-2 text-blue-500"></i>Electrical</a>
+                                <a href="industries.html#remodeling" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-hammer mr-2 text-blue-500"></i>Remodeling + Contractors</a>
+                                <a href="industries.html#junk-removal" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-truck-pickup mr-2 text-blue-500"></i>Junk Removal</a>
+                                <a href="industries.html#moving" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-truck-moving mr-2 text-blue-500"></i>Moving</a>
+                                <a href="industries.html#landscaping" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-leaf mr-2 text-blue-500"></i>Landscaping</a>
+                                <a href="industries.html" class="block px-4 py-2 mt-1 border-t border-gray-100 text-blue-700 font-semibold hover:bg-blue-50">See all industries <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
                             </div>
                         </div>
-                        <a href="cannabis-industry-solutions.html" class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center"><i class="fas fa-cannabis mr-1 text-green-500"></i>Cannabis Solutions</a>
+                        <a href="/#packages" class="text-gray-900 hover:text-blue-600 px-3 py-2">Packages</a>
                         <div class="relative group">
-                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
-                                Locations <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Add-Ons <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
-                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <div class="relative group/ny">
-                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 flex items-center justify-between">
-                                        <span><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>New York</span> <i class="fas fa-chevron-right text-xs"></i>
-                                    </button>
-                                    <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/ny:opacity-100 group-hover/ny:visible transition-all duration-200 z-50">
-                                        <a href="manhattan-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Manhattan</a>
-                                        <a href="brooklyn-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Brooklyn</a>
-                                        <a href="queens-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Queens</a>
-                                        <a href="bronx-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Bronx</a>
-                                        <a href="albany-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Albany</a>
-                                        <a href="syracuse-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Syracuse</a>
-                                        <a href="rochester-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Rochester</a>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>New Jersey - Coming Soon</div>
-                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Connecticut - Coming Soon</div>
-                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Massachusetts - Coming Soon</div>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="/#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>Google SEO</a>
+                                <a href="/#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-store mr-2 text-blue-500"></i>Google Business Profile</a>
+                                <a href="/#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-bolt mr-2 text-blue-500"></i>Lead Follow-Up Automation</a>
+                                <a href="/#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-robot mr-2 text-blue-500"></i>AI Chat Assistant</a>
+                                <a href="/#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-laptop-code mr-2 text-blue-500"></i>Website Build</a>
+                                <a href="/#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-shield-alt mr-2 text-blue-500"></i>Security Audits</a>
                             </div>
                         </div>
-                        <a href="pricing.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Pricing</a>
-                        <a href="faq.html" class="text-gray-900 hover:text-green-600 px-3 py-2">FAQ</a>
-                        <a href="login.html" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium">Login</a>
-                        <a href="contract2.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">Contact</a>
+                        <a href="about.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">About</a>
+                        <a href="login.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">Login</a>
+                        <a href="book-call.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all">Book a Call</a>
                     </div>
                 </div>
-                <div class="md:hidden absolute right-4">
+                <div class="xl:hidden absolute right-4" style="z-index: 80;">
                     <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
                         <span></span>
                         <span></span>
@@ -177,11 +445,11 @@
                     </button>
                 </div>
             </div>
-            <!-- Mobile Menu -->
-            
         </div>
     </nav>
-    <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+
+    <!-- Mobile Menu - Premium slide-in (outside nav to avoid z-index stacking context) -->
+    <div id="mobile-menu" class="xl:hidden">
         <div class="flex justify-end px-6 pt-5 pb-2">
             <button id="mobile-menu-close" aria-label="Close menu" style="background:none;border:none;cursor:pointer;padding:8px;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round">
@@ -189,94 +457,91 @@
                 </svg>
             </button>
         </div>
-                <div class="px-6 py-4 space-y-1">
-                <a href="login.html" class="block text-gray-500 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium text-sm border-b border-gray-100 mb-2"><i class="fas fa-sign-in-alt mr-3 text-gray-400"></i>Login</a>
-                    <a href="index.html#home" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-home mr-3 text-blue-500"></i>Home
+        <div class="px-6 py-4 space-y-1">
+            <a href="login.html" class="block text-gray-500 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium text-sm border-b border-gray-100 mb-2"><i class="fas fa-sign-in-alt mr-3 text-gray-400"></i>Login</a>
+            <a href="/" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-home mr-3 text-blue-500"></i>Home
+            </a>
+            <a href="/#how" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-video mr-3 text-blue-500"></i>How It Works
+            </a>
+            <!-- Industries Collapsible -->
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                    <span><i class="fas fa-briefcase mr-3 text-blue-500"></i>Industries</span>
+                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                </button>
+                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                    <a href="industries.html#roofing" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-home mr-3 text-blue-500"></i>Roofing
                     </a>
-                    
-                    <!-- Services Collapsible -->
-                    <div class="mobile-dropdown">
-                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
-                            <span><i class="fas fa-cogs mr-3 text-green-500"></i>Services</span>
-                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
-                        </button>
-                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                            <a href="local-seo.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-map-marker-alt mr-3 text-green-500"></i>Dispensary Local SEO
-                            </a>
-                            <a href="google-my-business-optimization.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-store mr-3 text-green-500"></i>GBP Optimization
-                            </a>
-                            <a href="ai-budtender.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-robot mr-3 text-green-500"></i>AI Budtender
-                            </a>
-                            <a href="website-development.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-laptop-code mr-3 text-green-500"></i>Dispensary Websites
-                            </a>
-                            <a href="security-audits.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-shield-alt mr-3 text-green-500"></i>Security Audits
-                            </a>
-                        </div>
-                    </div>
+                    <a href="industries.html#hvac" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-fan mr-3 text-blue-500"></i>HVAC
+                    </a>
+                    <a href="industries.html#plumbing" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-wrench mr-3 text-blue-500"></i>Plumbing
+                    </a>
+                    <a href="industries.html#electrical" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-plug mr-3 text-blue-500"></i>Electrical
+                    </a>
+                    <a href="industries.html#remodeling" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-hammer mr-3 text-blue-500"></i>Remodeling + Contractors
+                    </a>
+                    <a href="industries.html#junk-removal" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-truck-pickup mr-3 text-blue-500"></i>Junk Removal
+                    </a>
+                    <a href="industries.html#moving" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-truck-moving mr-3 text-blue-500"></i>Moving
+                    </a>
+                    <a href="industries.html#landscaping" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-leaf mr-3 text-blue-500"></i>Landscaping
+                    </a>
+                    <a href="industries.html" class="block text-blue-700 font-semibold hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">See all industries</a>
+                </div>
+            </div>
+            <a href="/#packages" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-layer-group mr-3 text-blue-500"></i>Packages
+            </a>
 
-                    <!-- Cannabis Solutions Direct Link -->
-                    <a href="cannabis-industry-solutions.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-cannabis mr-3 text-green-500"></i>Cannabis Solutions
+            <!-- Add-Ons Collapsible -->
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                    <span><i class="fas fa-plus-circle mr-3 text-blue-500"></i>Add-Ons</span>
+                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                </button>
+                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                    <a href="/#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Google SEO
                     </a>
-                    
-                    <!-- Locations Collapsible -->
-                    <div class="mobile-dropdown">
-                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
-                            <span><i class="fas fa-map-marked-alt mr-3 text-red-500"></i>Locations</span>
-                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
-                        </button>
-                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                            <!-- New York State -->
-                            <div class="mobile-dropdown">
-                                <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
-                                    <span><i class="fas fa-apple-alt mr-3 text-green-700"></i>New York</span>
-                                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
-                                </button>
-                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                                    <a href="manhattan-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Manhattan</a>
-                                    <a href="brooklyn-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Brooklyn</a>
-                                    <a href="queens-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Queens</a>
-                                    <a href="bronx-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Bronx</a>
-                                    <a href="albany-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Albany</a>
-                                    <a href="syracuse-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Syracuse</a>
-                                    <a href="rochester-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Rochester</a>
-                                </div>
-                            </div>
-                            <!-- Coming Soon States -->
-                            <div class="text-gray-400 py-2 px-4 text-sm">
-                                <i class="fas fa-clock mr-2"></i>New Jersey - Coming Soon
-                            </div>
-                            <div class="text-gray-400 py-2 px-4 text-sm">
-                                <i class="fas fa-clock mr-2"></i>Connecticut - Coming Soon
-                            </div>
-                            <div class="text-gray-400 py-2 px-4 text-sm">
-                                <i class="fas fa-clock mr-2"></i>Massachusetts - Coming Soon
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                    <a href="/#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-store mr-3 text-blue-500"></i>Google Business Profile
                     </a>
-                    <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    <a href="/#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-bolt mr-3 text-blue-500"></i>Lead Follow-Up Automation
                     </a>
-                    <a href="index.html#results" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-cannabis mr-3 text-green-500"></i>Why Us
+                    <a href="/#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-robot mr-3 text-blue-500"></i>AI Chat Assistant
                     </a>
-                    <a href="contract2.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
+                    <a href="/#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-laptop-code mr-3 text-blue-500"></i>Website Build
                     </a>
-                                <div class="pt-4 border-t border-gray-100 mt-4 space-y-3">
-                <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
-                    <i class="fas fa-search mr-2"></i>Get Free Audit
+                    <a href="/#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-shield-alt mr-3 text-blue-500"></i>Security Audits
+                    </a>
+                </div>
+            </div>
+
+            <a href="about.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-user mr-3 text-blue-500"></i>About
+            </a>
+            <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-question-circle mr-3 text-blue-500"></i>FAQ
+            </a>
+            <div class="pt-4 border-t border-gray-100 mt-4 space-y-3">
+                <a href="book-call.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transition-all">
+                    <i class="fas fa-calendar-check mr-2"></i>Book a Discovery Call
                 </a>
+                <a href="tel:+13477498146" class="block text-center text-gray-700 font-semibold py-2"><i class="fas fa-phone mr-2"></i>(347) 749-8146</a>
                 <div class="flex justify-center items-center gap-6 pt-2">
                     <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-pink-500 transition-colors" aria-label="Instagram">
                         <i class="fab fa-instagram text-xl"></i>
@@ -285,681 +550,80 @@
                         <i class="fab fa-youtube text-xl"></i>
                     </a>
                 </div>
-            </div></div>
-            </div>
-
-    <!-- Mobile Navigation Menu (hidden by default) -->
-    <div class="hidden md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 transition duration-150">Home</a>
-            <a href="index.html#services" class="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 transition duration-150">Services</a>
-            <a href="index.html#benefits" class="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 transition duration-150">Benefits</a>
-            <a href="index.html#pricing" class="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-600 transition duration-150">Solutions</a>
-            <a href="index.html#contact" class="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700 transition duration-150">Get Started</a>
-        </div>
-    </div>
-<script src="assets/js/chatbot-widget.js"></script>
-        
-
-    <script>
-// Mobile menu toggle - Premium slide-in
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-if (mobileMenuButton) {
-    mobileMenuButton.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = this;
-        const overlay = document.getElementById('mobile-overlay');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (mobileMenu && mobileMenu.classList.contains('show')) {
-            mobileMenu.classList.remove('show');
-            hamburger.classList.remove('active');
-            if (overlay) overlay.classList.remove('show');
-            if (chatToggle) chatToggle.style.display = '';
-        } else if (mobileMenu) {
-            mobileMenu.classList.add('show');
-            hamburger.classList.add('active');
-            if (overlay) overlay.classList.add('show');
-            if (chatToggle) chatToggle.style.display = 'none';
-        }
-    });
-}
-
-// Mobile menu close button
-const mobileMenuClose = document.getElementById('mobile-menu-close');
-if (mobileMenuClose) {
-    mobileMenuClose.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = document.getElementById('mobile-menu-button');
-        const overlay = document.getElementById('mobile-overlay');
-        if (mobileMenu) mobileMenu.classList.remove('show');
-        if (hamburger) hamburger.classList.remove('active');
-        if (overlay) overlay.classList.remove('show');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (chatToggle) chatToggle.style.display = '';
-    });
-}
-
-// Overlay click closes menu
-const mobileOverlay = document.getElementById('mobile-overlay');
-if (mobileOverlay) {
-    mobileOverlay.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = document.getElementById('mobile-menu-button');
-        if (mobileMenu) mobileMenu.classList.remove('show');
-        if (hamburger) hamburger.classList.remove('active');
-        mobileOverlay.classList.remove('show');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (chatToggle) chatToggle.style.display = '';
-    });
-}
-
-// Mobile menu link clicks - close menu
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = document.getElementById('mobile-menu-button');
-        const overlay = document.getElementById('mobile-overlay');
-        if (mobileMenu) mobileMenu.classList.remove('show');
-        if (hamburger) hamburger.classList.remove('active');
-        if (overlay) overlay.classList.remove('show');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (chatToggle) chatToggle.style.display = '';
-    });
-});
-
-// Hide mobile menu when clicking outside
-document.addEventListener('click', function(e) {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileButton = document.getElementById('mobile-menu-button');
-    const overlay = document.getElementById('mobile-overlay');
-    if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
-        mobileMenu.classList.remove('show');
-        mobileButton.classList.remove('active');
-        if (overlay) overlay.classList.remove('show');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (chatToggle) chatToggle.style.display = '';
-    }
-});
-
-// Mobile dropdown toggle functionality
-document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const dropdown = this.closest('.mobile-dropdown');
-        const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
-        const icon = this.querySelector('.fa-chevron-right');
-        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-            content.style.maxHeight = '0px';
-            if (icon) icon.style.transform = 'rotate(0deg)';
-            content.querySelectorAll('.mobile-dropdown-content').forEach(nested => { nested.style.maxHeight = '0px'; });
-            content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => { nestedIcon.style.transform = 'rotate(0deg)'; });
-        } else {
-            content.style.maxHeight = content.scrollHeight + 'px';
-            if (icon) icon.style.transform = 'rotate(90deg)';
-        }
-    });
-});
-    </script>
-</body>
-</html>
-<!-- Cookie Consent Banner -->
-<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50 shadow-lg hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="text-sm text-gray-700">
-            We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
-            <a href="#cookie-policy" class="text-blue-600 hover:text-blue-700">Learn more</a>
-        </div>
-        <div class="flex gap-4">
-            <button onclick="manageCookies()" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition duration-150">
-                Manage Preferences
-            </button>
-            <button onclick="acceptCookies()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">
-                Accept All
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Cookie Preferences Modal -->
-<div id="cookie-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50" aria-labelledby="cookie-preferences" aria-modal="true">
-    <div class="min-h-screen px-4 text-center">
-        <!-- Modal position helper -->
-        <div class="inline-block h-screen align-middle"></div>
-        
-        <!-- Modal panel -->
-        <div class="inline-block w-full max-w-2xl p-6 my-8 text-left align-middle bg-white rounded-lg shadow-xl transform transition-all">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-semibold text-gray-900" id="cookie-preferences">Cookie Preferences</h3>
-                <button onclick="closeCookieModal()" class="text-gray-400 hover:text-gray-500 transition duration-150">
-                    <span class="sr-only">Close</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-            <div class="space-y-6">
-                <!-- Essential Cookies -->
-                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div class="pr-4">
-                        <h4 class="text-lg font-semibold text-gray-900">Essential Cookies</h4>
-                        <p class="text-sm text-gray-600 mt-1">Required for basic website functionality. Cannot be disabled.</p>
-                    </div>
-                    <div class="flex items-center">
-                        <input type="checkbox" checked disabled class="h-4 w-4 text-blue-600 rounded border-gray-300">
-                    </div>
-                </div>
-
-                <!-- Analytics Cookies -->
-                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div class="pr-4">
-                        <h4 class="text-lg font-semibold text-gray-900">Analytics Cookies</h4>
-                        <p class="text-sm text-gray-600 mt-1">Help us improve our website through anonymous usage data.</p>
-                    </div>
-                    <div class="flex items-center">
-                        <input type="checkbox" id="analytics-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
-                    </div>
-                </div>
-
-                <!-- Functionality Cookies -->
-                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div class="pr-4">
-                        <h4 class="text-lg font-semibold text-gray-900">Functionality Cookies</h4>
-                        <p class="text-sm text-gray-600 mt-1">Remember your preferences and settings.</p>
-                    </div>
-                    <div class="flex items-center">
-                        <input type="checkbox" id="functionality-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
-                    </div>
-                </div>
-
-                <!-- Marketing Cookies -->
-                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div class="pr-4">
-                        <h4 class="text-lg font-semibold text-gray-900">Marketing Cookies</h4>
-                        <p class="text-sm text-gray-600 mt-1">Used for personalized advertising and content.</p>
-                    </div>
-                    <div class="flex items-center">
-                        <input type="checkbox" id="marketing-cookies" class="h-4 w-4 text-blue-600 rounded border-gray-300">
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8 flex justify-end gap-4">
-                <button onclick="closeCookieModal()" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500 transition duration-150">
-                    Cancel
-                </button>
-                <button onclick="savePreferences()" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-150">
-                    Save Preferences
-                </button>
             </div>
         </div>
     </div>
-</div>
+    <!-- NAV:END -->
 
-<!-- Cookie Management Script -->
-<script>
-    const cookiePreferences = {
-        essential: true, // Always true
-        analytics: false,
-        functionality: false,
-        marketing: false
-    };
-
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedPreferences = localStorage.getItem('cookiePreferences');
-        if (!savedPreferences) {
-            showCookieBanner();
-        } else {
-            applyCookiePreferences(JSON.parse(savedPreferences));
-        }
-    });
-
-    function showCookieBanner() {
-        document.getElementById('cookie-banner').classList.remove('hidden');
-    }
-
-    function acceptCookies() {
-        cookiePreferences.analytics = true;
-        cookiePreferences.functionality = true;
-        cookiePreferences.marketing = true;
-        saveCookiePreferences();
-        hideCookieBanner();
-    }
-
-    function manageCookies() {
-        hideCookieBanner();
-        const modal = document.getElementById('cookie-modal');
-        modal.classList.remove('hidden');
-        
-        // Load current preferences
-        const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
-        document.getElementById('analytics-cookies').checked = savedPreferences.analytics || false;
-        document.getElementById('functionality-cookies').checked = savedPreferences.functionality || false;
-        document.getElementById('marketing-cookies').checked = savedPreferences.marketing || false;
-    }
-
-    function closeCookieModal() {
-        document.getElementById('cookie-modal').classList.add('hidden');
-    }
-
-    function hideCookieBanner() {
-        document.getElementById('cookie-banner').classList.add('hidden');
-    }
-
-    function savePreferences() {
-        cookiePreferences.analytics = document.getElementById('analytics-cookies').checked;
-        cookiePreferences.functionality = document.getElementById('functionality-cookies').checked;
-        cookiePreferences.marketing = document.getElementById('marketing-cookies').checked;
-        
-        saveCookiePreferences();
-        closeCookieModal();
-    }
-
-    function saveCookiePreferences() {
-        localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
-        applyCookiePreferences(cookiePreferences);
-    }
-
-    function applyCookiePreferences(preferences) {
-        // Analytics cookies
-        if (preferences.analytics) {
-            enableAnalytics();
-        } else {
-            disableAnalytics();
-        }
-        
-        // Functionality cookies
-        if (preferences.functionality) {
-            enableFunctionality();
-        } else {
-            disableFunctionality();
-        }
-        
-        // Marketing cookies
-        if (preferences.marketing) {
-            enableMarketing();
-        } else {
-            disableMarketing();
-        }
-    }
-
-    // Cookie type management functions
-    function enableAnalytics() {
-        // Implement your analytics initialization here
-        console.log('Analytics enabled');
-    }
-
-    function disableAnalytics() {
-        // Implement your analytics cleanup here
-        console.log('Analytics disabled');
-    }
-
-    function enableFunctionality() {
-        // Implement functionality cookies here
-        console.log('Functionality cookies enabled');
-    }
-
-    function disableFunctionality() {
-        // Remove functionality cookies
-        console.log('Functionality cookies disabled');
-    }
-
-    function enableMarketing() {
-        // Implement marketing cookies here
-        console.log('Marketing enabled');
-    }
-
-    function disableMarketing() {
-        // Remove marketing cookies
-        console.log('Marketing disabled');
-    }
-
-    // Close modal on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeCookieModal();
-        }
-    });
-</script>
-<!-- Main Content Section -->
-<div class="pt-24 pb-16 px-4 mx-auto max-w-screen-xl">
-<div class="bg-white p-8 rounded-lg shadow">
-    <div class="max-w-3xl mx-auto">
-        <!-- Page Header -->
-        <header class="mb-12">
-            <h1 class="text-4xl font-bold mb-2">Cookies Policy</h1>
-            <p class="text-gray-600">Last Updated: December 8, 2024</p>
-        </header>
-
-        <!-- Main Content -->
-        <div class="space-y-12">
-
-            <!-- Introduction -->
-            <section id="introduction" class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">1. Introduction</h2>
-                <div class="prose text-gray-700">
-                    <p>
-                        This Cookies Policy explains how SeamlessFlow.ai ("we," "us," or "our") uses cookies and
-                        similar technologies across our AI-driven business automation platform, Digital Twin services,
-                        and integrated solutions.
-                    </p>
-                </div>
-            </section>
-
-            <!-- What Are Cookies -->
-            <section class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">2. What Are Cookies</h2>
-                <div class="prose text-gray-700">
-                    <p>
-                        Cookies are small text files placed on your device to store data that can be recalled by a web
-                        server in the domain that placed the cookie. We use cookies and similar technologies for various
-                        purposes, including:
-                    </p>
-                    <ul class="list-disc ml-6 space-y-2 mt-4">
-                        <li>Enhancing platform functionality</li>
-                        <li>Improving AI service delivery</li>
-                        <li>Analyzing usage patterns</li>
-                        <li>Personalizing user experience</li>
-                        <li>Securing our services</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Types of Cookies -->
-            <section id="types-of-cookies" class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">3. Types of Cookies We Use</h2>
-
-                <h3 class="text-xl font-semibold mb-2">3.1 Essential Platform Cookies</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Authentication and security cookies</li>
-                    <li>Platform functionality cookies</li>
-                    <li>Session management cookies</li>
-                    <li>Load balancing cookies</li>
-                    <li>Service delivery cookies</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">3.2 AI and Automation Cookies</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>AI model preference cookies</li>
-                    <li>Automation workflow cookies</li>
-                    <li>Platform configuration cookies</li>
-                    <li>Performance optimization cookies</li>
-                    <li>Integration cookies</li>
-                    <li>Digital Twin session cookies</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">3.3 Analytics and Performance</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Usage tracking cookies</li>
-                    <li>Performance monitoring cookies</li>
-                    <li>Error logging cookies</li>
-                    <li>Pattern analysis cookies</li>
-                    <li>AI learning cookies</li>
-                    <li>Testing and optimization cookies</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">3.4 Personalization Cookies</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>User preferences</li>
-                    <li>Language settings</li>
-                    <li>Platform customization</li>
-                    <li>AI interaction history</li>
-                    <li>Feature access cookies</li>
-                    <li>Workflow preferences</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">3.5 Marketing and Communication</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>Campaign tracking cookies</li>
-                    <li>Attribution cookies</li>
-                    <li>Conversion tracking</li>
-                    <li>Audience segmentation</li>
-                    <li>Performance measurement</li>
-                    <li>ROI analysis cookies</li>
-                </ul>
-            </section>
-
-            <!-- Third-Party Services -->
-            <section class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">4. Third-Party Services</h2>
-
-                <h3 class="text-xl font-semibold mb-2">4.1 Analytics Services</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Google Analytics</li>
-                    <li>HubSpot Analytics</li>
-                    <li>Custom analytics tools</li>
-                    <li>Performance monitoring services</li>
-                    <li>Usage tracking tools</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">4.2 AI Service Providers</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Claude platform cookies</li>
-                    <li>Make.com tracking</li>
-                    <li>Integration partner cookies</li>
-                    <li>AI model performance cookies</li>
-                    <li>Usage analytics cookies</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">4.3 Platform Services</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>AWS services cookies</li>
-                    <li>Payment processor cookies</li>
-                    <li>Security service cookies</li>
-                    <li>Integration partner cookies</li>
-                    <li>Support system cookies</li>
-                </ul>
-            </section>
-
-            <!-- Cookie Management -->
-            <section id="cookie-management" class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">5. Cookie Management</h2>
-
-                <h3 class="text-xl font-semibold mb-2">5.1 Control Options</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Browser settings management</li>
-                    <li>Platform preference controls</li>
-                    <li>Opt-out mechanisms</li>
-                    <li>Consent management</li>
-                    <li>Privacy controls</li>
-                    <li>Cookie blocking options</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">5.2 Impact of Blocking</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>Service functionality limitations</li>
-                    <li>Platform performance impacts</li>
-                    <li>AI capability restrictions</li>
-                    <li>Analytics accuracy effects</li>
-                    <li>Personalization limitations</li>
-                    <li>User experience impacts</li>
-                </ul>
-            </section>
-
-            <!-- Data Protection and Privacy -->
-            <section class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">6. Data Protection and Privacy</h2>
-
-                <h3 class="text-xl font-semibold mb-2">6.1 Cookie Security</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Encryption standards</li>
-                    <li>Access controls</li>
-                    <li>Data retention limits</li>
-                    <li>Security monitoring</li>
-                    <li>Compliance measures</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">6.2 Data Usage</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>Purpose limitations</li>
-                    <li>Processing restrictions</li>
-                    <li>Sharing limitations</li>
-                    <li>Retention periods</li>
-                    <li>Deletion procedures</li>
-                </ul>
-            </section>
-
-            <!-- Updates and Changes -->
-            <section class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">7. Updates and Changes</h2>
-
-                <h3 class="text-xl font-semibold mb-2">7.1 Policy Updates</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Regular review process</li>
-                    <li>Notification methods</li>
-                    <li>Implementation timelines</li>
-                    <li>User communication</li>
-                    <li>Compliance updates</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">7.2 User Rights</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>Control options</li>
-                    <li>Preference management</li>
-                    <li>Opt-out rights</li>
-                    <li>Data access rights</li>
-                    <li>Deletion rights</li>
-                </ul>
-            </section>
-
-            <!-- Compliance Framework -->
-            <section class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">8. Compliance Framework</h2>
-
-                <h3 class="text-xl font-semibold mb-2">8.1 Regulatory Compliance</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>GDPR compliance</li>
-                    <li>CCPA compliance</li>
-                    <li>ePrivacy compliance</li>
-                    <li>Industry standards</li>
-                    <li>Local regulations</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">8.2 Technical Compliance</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>Security standards</li>
-                    <li>Implementation requirements</li>
-                    <li>Documentation requirements</li>
-                    <li>Audit procedures</li>
-                    <li>Monitoring systems</li>
-                </ul>
-            </section>
-
-            <!-- Contact Information -->
-            <section id="contact-us" class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">9. Contact Information</h2>
-                <p class="text-gray-700 mb-4">For any questions about our use of cookies, please contact us at:</p>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>Email: <a href="mailto:info@seamlessflow.ai" class="text-blue-600 hover:underline">info@seamlessflow.ai</a></li>
-                    <li>Website: <a href="https://www.seamlessflow.ai/privacy" class="text-blue-600 hover:underline">www.seamlessflow.ai/privacy</a></li>
-                    <li>Address: New York, New York</li>
-                </ul>
-            </section>
-
-            <!-- Cookie Categories and Duration -->
-            <section class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">10. Cookie Categories and Duration</h2>
-
-                <h3 class="text-xl font-semibold mb-2">10.1 Session Cookies</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Duration: Browser session only</li>
-                    <li>Purpose: Essential functionality</li>
-                    <li>Impact: Critical for service operation</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">10.2 Persistent Cookies</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
-                    <li>Duration: Specified expiry date</li>
-                    <li>Purpose: Enhanced functionality</li>
-                    <li>Impact: Improved user experience</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold mb-2">10.3 AI Learning Cookies</h3>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>Duration: As required for AI operations</li>
-                    <li>Purpose: Service optimization</li>
-                    <li>Impact: Enhanced AI performance</li>
-                </ul>
-            </section>
-
-            <!-- Regular Updates -->
-            <section class="scroll-mt-24">
-                <h2 class="text-2xl font-semibold mb-4">11. Regular Updates</h2>
-                <p class="text-gray-700 mb-4">This policy is regularly reviewed and updated to reflect:</p>
-                <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                    <li>New features and services</li>
-                    <li>Technology changes</li>
-                    <li>Regulatory requirements</li>
-                    <li>Industry best practices</li>
-                    <li>User feedback</li>
-                </ul>
-                <p class="text-gray-700 mt-4">Last Review Date: December 8, 2024</p>
-                <p class="text-gray-700">Next Scheduled Review: March 8, 2025</p>
-            </section>
-
+    <main id="home" class="pt-28 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Cookies Policy</h1>
+            <p class="text-gray-500 mb-8">Last updated: October 2026</p>
+            <div role="navigation" aria-label="On this page" class="bg-gray-50 border border-gray-100 rounded-2xl p-6 mb-4">
+                <p class="font-bold text-gray-900 mb-3">On this page</p>
+                <ol class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-sm text-gray-600"><li><a href="#s1" class="hover:text-blue-700">1. What cookies are</a></li><li><a href="#s2" class="hover:text-blue-700">2. Cookies and similar tools we use</a></li><li><a href="#s3" class="hover:text-blue-700">3. Third-party cookies</a></li><li><a href="#s4" class="hover:text-blue-700">4. Your choices</a></li><li><a href="#s5" class="hover:text-blue-700">5. Changes</a></li><li><a href="#s6" class="hover:text-blue-700">6. Contact</a></li></ol>
+            </div>
+            <h2 id="s1" class="text-2xl font-bold text-gray-900 mt-12 mb-4">1. What cookies are</h2><p class="text-gray-700 leading-relaxed mb-4">Cookies are small files a website stores in your browser. Some are needed for the site to work. Others help us understand how people use it.</p><h2 id="s2" class="text-2xl font-bold text-gray-900 mt-12 mb-4">2. Cookies and similar tools we use</h2><div class="overflow-x-auto mb-4"><table class="w-full text-sm text-left text-gray-700 border border-gray-200 rounded-lg"><thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b">Tool</th><th class="p-3 border-b">What it does</th><th class="p-3 border-b">Type</th></tr></thead><tbody><tr><td class="p-3 border-b font-semibold">Google Analytics (_ga, _ga_*)</td><td class="p-3 border-b">Counts visits and shows which pages people use</td><td class="p-3 border-b">Analytics</td></tr><tr><td class="p-3 border-b font-semibold">Calendly</td><td class="p-3 border-b">Runs the booking calendar on our Book a Call page</td><td class="p-3 border-b">Third-party, needed to book</td></tr><tr><td class="p-3 border-b font-semibold">Supabase (browser storage)</td><td class="p-3 border-b">Keeps clients signed in on the client login</td><td class="p-3 border-b">Essential</td></tr><tr><td class="p-3 font-semibold">Font and style libraries</td><td class="p-3">Load icons and styles from public CDNs. They don't set cookies, but your browser connects to their servers.</td><td class="p-3">Essential</td></tr></tbody></table></div><h2 id="s3" class="text-2xl font-bold text-gray-900 mt-12 mb-4">3. Third-party cookies</h2><p class="text-gray-700 leading-relaxed mb-4">Calendly and Google set their own cookies under their own privacy policies. We don't control them. You can read <a href="https://calendly.com/privacy" class="text-blue-700 underline" target="_blank" rel="noopener noreferrer">Calendly's privacy notice</a> and <a href="https://policies.google.com/privacy" class="text-blue-700 underline" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>.</p><h2 id="s4" class="text-2xl font-bold text-gray-900 mt-12 mb-4">4. Your choices</h2><p class="text-gray-700 leading-relaxed mb-4">You can block or delete cookies in your browser settings. The site will still work, but the booking calendar may not load if third-party cookies are blocked. In that case, call us at <a href="tel:+13477498146" class="text-blue-700 underline">(347) 749-8146</a> to book.</p><p class="text-gray-700 leading-relaxed mb-4">To opt out of Google Analytics on every site, you can use <a href="https://tools.google.com/dlpage/gaoptout" class="text-blue-700 underline" target="_blank" rel="noopener noreferrer">Google's opt-out add-on</a>.</p><h2 id="s5" class="text-2xl font-bold text-gray-900 mt-12 mb-4">5. Changes</h2><p class="text-gray-700 leading-relaxed mb-4">If we add or remove tools, we will update this page and the date at the top.</p><h2 id="s6" class="text-2xl font-bold text-gray-900 mt-12 mb-4">6. Contact</h2><p class="text-gray-700 leading-relaxed mb-4">Questions? Email <a href="mailto:info@seamlessflow.ai" class="text-blue-700 underline">info@seamlessflow.ai</a>.</p>
         </div>
-    </div>
-</div>
-</div>
-<!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    </main>
+
+<!-- FOOTER:START -->
+    <footer class="bg-gray-950 text-white py-16 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
                 <div>
                     <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
-                    <p class="text-gray-300 mb-4">Starting at $497/month - Cancel anytime</p>
+                    <p class="text-gray-300 mb-4">Brand growth through content that makes a difference.</p>
                     <div class="space-y-2 text-sm">
-                        <div class="flex items-center text-green-400">
-                            <i class="fas fa-handshake mr-2"></i>
-                            <span>Cancel anytime</span>
+                        <div class="flex items-center text-blue-400">
+                            <i class="fas fa-bolt mr-2"></i>
+                            <span>Results in as little as 7 days</span>
                         </div>
-                        <div class="flex items-center text-green-400">
+                        <div class="flex items-center text-blue-400">
                             <i class="fas fa-phone mr-2"></i>
                             <span>(347) 749-8146</span>
                         </div>
                     </div>
                     <div class="mt-6">
-                        <a href="free-audit.html" class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-lg font-bold text-sm inline-block transition-colors">
-                            <i class="fas fa-search mr-2"></i>Free Ranking Check
+                        <a href="book-call.html" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-bold text-sm inline-block transition-colors">
+                            <i class="fas fa-calendar-check mr-2"></i>Book a Discovery Call
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="font-bold mb-4">Services</h4>
+                    <h4 class="font-bold mb-4">What We Do</h4>
                     <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="local-seo.html" class="hover:text-white">Local SEO</a></li>
-                        <li><a href="google-my-business-optimization.html" class="hover:text-white">GMB Optimization</a></li>
-                        <li><a href="cannabis-ai-automation.html" class="hover:text-white">Cannabis AI Automation</a></li>
-                        <li><a href="website-development.html" class="hover:text-white">Website Development</a></li>
-                        <li><a href="ai-budtender.html" class="hover:text-white">AI Budtender</a></li>
-                        <li><a href="security-audits.html" class="hover:text-white">Security Audits</a></li>
+                        <li><a href="/#how" class="hover:text-white">Discovery Call + Brand Audit</a></li>
+                        <li><a href="/#how" class="hover:text-white">Content Plans + Scripts</a></li>
+                        <li><a href="/#how" class="hover:text-white">Shoot Days + Editing</a></li>
+                        <li><a href="/#how" class="hover:text-white">Posting + Analytics</a></li>
+                        <li><a href="/#how" class="hover:text-white">Ads on Proven Content</a></li>
+                        <li><a href="/#first-30" class="hover:text-white">Your First 30 Days</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-bold mb-4">Resources</h4>
+                    <h4 class="font-bold mb-4">Add-Ons</h4>
                     <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="blog.html" class="hover:text-white">Blog</a></li>
-                        <li><a href="#services" class="hover:text-white">Dispensary SEO Services</a></li>
-                        <li><a href="#why-us" class="hover:text-white">Why Choose Us</a></li>
-                        <li><a href="free-audit.html" class="hover:text-white">Free Dispensary Audit</a></li>
-                        <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+                        <li><a href="/#addons" class="hover:text-white">Google SEO</a></li>
+                        <li><a href="/#addons" class="hover:text-white">Google Business Profile</a></li>
+                        <li><a href="/#addons" class="hover:text-white">Lead Follow-Up Automation</a></li>
+                        <li><a href="/#addons" class="hover:text-white">AI Chat Assistant</a></li>
+                        <li><a href="/#addons" class="hover:text-white">Website Build</a></li>
+                        <li><a href="/#addons" class="hover:text-white">Security Audits</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                        <li><a href="industries.html" class="hover:text-white">Industries</a></li>
+                        <li><a href="/#packages" class="hover:text-white">Packages</a></li>
                         <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-4">Service Areas</h4>
-                    <p class="text-xs text-gray-400 mb-2">Legal recreational cannabis states only</p>
-                    <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><strong>NYC:</strong> Manhattan, Brooklyn, Queens, Bronx, Staten Island</li>
-                        <li><strong>NY:</strong> Long Island, Westchester, Buffalo, Albany</li>
-                        <li><strong>NJ:</strong> Jersey City, Newark, Hoboken</li>
-                        <li><strong>CT:</strong> Hartford, New Haven, Stamford</li>
-                        <li><strong>MA:</strong> Boston, Worcester, Springfield</li>
+                        <li><a href="book-call.html" class="hover:text-white">Book a Discovery Call</a></li>
+                        <li><a href="login.html" class="hover:text-white">Client Login</a></li>
                     </ul>
                     <div class="mt-4 space-y-2">
                         <a href="tel:+13477498146" class="flex items-center text-gray-300 hover:text-white">
@@ -970,31 +634,371 @@ document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
                             <i class="fas fa-envelope mr-2"></i>
                             <span class="text-sm">info@seamlessflow.ai</span>
                         </a>
+                        <p class="flex items-center text-gray-400 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>NYC based, available to travel</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-700 pt-8 mt-8">
                 <div class="text-center text-gray-300 mb-4">
                     <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
                         <span class="flex items-center">
-                            <i class="fas fa-cannabis mr-2 text-green-400"></i>
-                            NYC Cannabis Specialists
+                            <i class="fas fa-video mr-2 text-blue-400"></i>
+                            Shoot, Edit, Post, Ads
                         </span>
                         <span class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-green-400"></i>
-                            Local SEO Experts
+                            <i class="fas fa-pen mr-2 text-blue-400"></i>
+                            Scripts Written For You
                         </span>
                         <span class="flex items-center">
-                            <i class="fas fa-robot mr-2 text-purple-400"></i>
-                            AI-Powered Solutions
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
+                            NYC Based, We Travel
                         </span>
                     </div>
                 </div>
+                <div class="flex justify-center gap-6 mb-4">
+                    <a href="https://linkedin.com/company/seamlessflow" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="https://www.youtube.com/@SeamlessflowSEO" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
+                    <a href="https://x.com/seamlessflowai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="X"><i class="fab fa-x-twitter text-xl"></i></a>
+                </div>
                 <div class="text-center text-gray-400 text-sm">
-                    <p>&copy; 2026 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+                    <p>&copy; 2026 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a> | <a href="cookies-policy.html" class="hover:text-white">Cookies Policy</a></p>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- FOOTER:END -->
 
+    <!-- JavaScript -->
+    <script>
+        // Calendar booking function
+        function openCalendarBooking() {
+            window.location.href = 'contract2.html';
+        }
+
+        // Smooth scrolling function (shared by desktop and mobile)
+        function smoothScrollToSection(targetHref) {
+            const target = document.querySelector(targetHref);
+            if (target) {
+                const nav = document.querySelector('nav');
+                const navHeight = nav ? nav.offsetHeight : 64; // h-16 = 64px
+                const extraPadding = 20; // Better padding for section positioning
+                const targetPosition = target.offsetTop - navHeight - extraPadding;
+                
+                window.scrollTo({
+                    top: Math.max(0, targetPosition), // Don't scroll to negative position
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Desktop navigation smooth scrolling (exclude mobile menu links)
+        document.querySelectorAll('nav a[href^="#"]:not(#mobile-menu a)').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                smoothScrollToSection(this.getAttribute('href'));
+            });
+        });
+
+        // Track phone number clicks
+        document.querySelectorAll('a[href^="tel:"], .phone-number').forEach(element => {
+            element.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'phone_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'phone_number'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle - Premium slide-in
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+                const overlay = document.getElementById('mobile-overlay');
+
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                    if (overlay) overlay.classList.remove('show');
+                    if (chatToggle) chatToggle.style.display = '';
+                } else if (mobileMenu) {
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                    if (overlay) overlay.classList.add('show');
+                    if (chatToggle) chatToggle.style.display = 'none';
+                }
+            });
+        }
+
+        // Mobile menu close button (X inside slide-in panel)
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                const overlay = document.getElementById('mobile-overlay');
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                if (overlay) overlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
+            });
+        }
+
+        // Mobile menu link clicks - close menu and scroll
+        document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                const overlay = document.getElementById('mobile-overlay');
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                if (overlay) overlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
+                smoothScrollToSection(this.getAttribute('href'));
+            });
+        });
+
+        // Hide mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            const overlay = document.getElementById('mobile-overlay');
+            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
+                mobileButton.classList.remove('active');
+                if (overlay) overlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
+            }
+        });
+
+        // Mobile dropdown toggle functionality
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const dropdown = this.closest('.mobile-dropdown');
+                const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
+                const icon = this.querySelector('.fa-chevron-right');
+
+                // Toggle this dropdown
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+
+                    // Close all nested dropdowns
+                    content.querySelectorAll('.mobile-dropdown-content').forEach(nested => {
+                        nested.style.maxHeight = '0px';
+                    });
+                    content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => {
+                        nestedIcon.style.transform = 'rotate(0deg)';
+                    });
+                } else {
+                    // Calculate total height including nested content
+                    const calculateHeight = (element) => {
+                        let totalHeight = 0;
+                        Array.from(element.children).forEach(child => {
+                            totalHeight += child.offsetHeight;
+                            const nestedContent = child.querySelector('.mobile-dropdown-content');
+                            if (nestedContent && nestedContent.style.maxHeight && nestedContent.style.maxHeight !== '0px') {
+                                totalHeight += parseInt(nestedContent.style.maxHeight);
+                            }
+                        });
+                        return totalHeight;
+                    };
+
+                    content.style.maxHeight = calculateHeight(content) + 500 + 'px'; // Extra space for nested dropdowns
+                    if (icon) icon.style.transform = 'rotate(90deg)';
+
+                    // Update parent dropdown heights when nested dropdowns open
+                    const updateParentHeights = () => {
+                        let parent = dropdown.closest('.mobile-dropdown-content');
+                        while (parent) {
+                            const parentDropdown = parent.closest('.mobile-dropdown');
+                            if (parentDropdown) {
+                                parent.style.maxHeight = calculateHeight(parent) + 500 + 'px';
+                                parent = parentDropdown.closest('.mobile-dropdown-content');
+                            } else {
+                                break;
+                            }
+                        }
+                    };
+                    updateParentHeights();
+                }
+            });
+        });
+
+        // === PREMIUM: Nav glass effect on scroll ===
+        const mainNav = document.getElementById('main-nav');
+        if (mainNav) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 40) {
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
+            }, { passive: true });
+        }
+
+        // === PREMIUM: Mobile overlay toggle ===
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                mobileOverlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
+            });
+        }
+
+        // === PREMIUM: Scroll reveal with Intersection Observer ===
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // === PREMIUM: Count-up animation on scroll ===
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.count-up').forEach(counter => {
+                        const text = counter.textContent.trim();
+                        const match = text.match(/^([<>$]?)(\d+(?:\.\d+)?)(.*)$/);
+                        if (!match) return;
+                        const prefix = match[1], target = parseFloat(match[2]), suffix = match[3];
+                        const isFloat = text.includes('.');
+                        const duration = 1600;
+                        const start = performance.now();
+                        counter.classList.add('count-up-animated');
+                        const animate = (now) => {
+                            const elapsed = now - start;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = eased * target;
+                            counter.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+                            if (progress < 1) requestAnimationFrame(animate);
+                            else counter.textContent = prefix + (isFloat ? target.toFixed(1) : target) + suffix;
+                        };
+                        requestAnimationFrame(animate);
+                    });
+                    countObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.count-up').forEach(el => {
+            const section = el.closest('section') || el.closest('div');
+            if (section && !section.dataset.countObserved) {
+                section.dataset.countObserved = 'true';
+                countObserver.observe(section);
+            }
+        });
+
+        // Lazy load hero video after page load, then force autoplay (mobile needs explicit play())
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            if (!video) return;
+            const source = video.querySelector('source[data-src]');
+            if (!source) return;
+
+            video.muted = true;
+            video.playsInline = true;
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
+
+            const tryPlay = () => {
+                const p = video.play();
+                if (p && typeof p.catch === 'function') {
+                    p.catch(() => {
+                        // iOS sometimes blocks until first touch; retry on first interaction
+                        const resume = () => { video.play().catch(() => {}); };
+                        document.addEventListener('touchstart', resume, { once: true, passive: true });
+                        document.addEventListener('click', resume, { once: true });
+                    });
+                }
+            };
+
+            source.src = source.dataset.src;
+            video.load();
+            if (video.readyState >= 2) tryPlay();
+            else video.addEventListener('loadeddata', tryPlay, { once: true });
+        });
+    </script>
+
+    <!-- Case Study Stats Animation (Lazy Load) -->
+    <script>
+        // Animated counters + bar charts with Intersection Observer
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate counters
+                    entry.target.querySelectorAll('.stat-number').forEach(counter => {
+                        const target = parseInt(counter.dataset.target);
+                        const suffix = counter.dataset.suffix || '';
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.textContent = Math.floor(current) + suffix;
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target + suffix;
+                            }
+                        };
+                        updateCounter();
+                    });
+                    // Animate bar charts
+                    entry.target.querySelectorAll('[data-width]').forEach(bar => {
+                        setTimeout(() => {
+                            bar.style.width = bar.dataset.width;
+                        }, 300);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.case-study-stats').forEach(s => statsObserver.observe(s));
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-B68C3RNBVD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B68C3RNBVD');
+        
+        // Track page view
+        gtag('event', 'page_view', {
+            'page_title': document.title,
+            'page_location': window.location.href
+        });
+    </script>
+    
+    <!-- Google Search Console verification (Replace with actual verification code) -->
+    <meta name="google-site-verification" content="googlef24fe0a0e8ba99b6">
+    
+    <!-- Bing Webmaster Tools verification -->
+    <meta name="msvalidate.01" content="093DED81024C3E7C8E3FEA6706BA9DE1">
+<script src="assets/js/counter-animation.js"></script>
+</body>
+</html>
