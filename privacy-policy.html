@@ -1,109 +1,387 @@
-<!-- PART 1: START - Basic HTML structure and navigation -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B68C3RNBVD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B68C3RNBVD');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <!-- Favicon Setup -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#007bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="SeamlessFlow">
+
     <!-- PERFORMANCE OPTIMIZATIONS -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <title>Privacy Policy - SeamlessFlow.ai</title>
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Privacy Policy - SeamlessFlow.ai">
-    <meta property="og:description" content="SeamlessFlow.ai Privacy Policy - How we collect, use, and protect your personal information. Your privacy is important to us. Last updated April 2026.">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Priority preloads for LCP optimization -->
+    <link rel="preload" as="image" href="assets/website-homelogo.webp" type="image/webp" fetchpriority="high">
+    
+    
+    <!-- Font preload for layout shift prevention -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical font files to prevent FOIT/FOUT -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Privacy Policy | SeamlessFlow</title>
+    <meta name="description" content="How SeamlessFlow collects, uses, and protects your information.">
+    <meta name="keywords" content="content marketing agency NYC, social media content agency, short form video agency, done for you content, reels production NYC, social media management and ads">
+    <meta property="og:title" content="Privacy Policy | SeamlessFlow">
+    <meta property="og:description" content="How SeamlessFlow collects, uses, and protects your information.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seamlessflow.ai/privacy-policy.html">
-    <meta property="og:image" content="https://seamlessflow.ai/assets/website homelogo.png">
-
-    <!-- Twitter Card Meta Tags -->
+    <meta property="og:url" content="https://www.seamlessflow.ai/privacy-policy">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Privacy Policy - SeamlessFlow.ai">
-    <meta name="twitter:description" content="SeamlessFlow.ai Privacy Policy - How we collect, use, and protect your personal information. Your privacy is important to us. Last updated April 2026.">
-    <meta name="twitter:image" content="https://seamlessflow.ai/assets/website homelogo.png">
+    <meta property="og:image" content="https://www.seamlessflow.ai/assets/imagetaglogo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://www.seamlessflow.ai/assets/imagetaglogo.jpg">
 
-    <meta name="description" content="SeamlessFlow.ai Privacy Policy - How we collect, use, and protect your personal information. Your privacy is important to us. Last updated April 2026.">
-<link rel="canonical" href="https://www.seamlessflow.ai/privacy-policy.html">
-    <!-- Tailwind CSS -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.seamlessflow.ai/privacy-policy">
+
+
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <!-- Load Tailwind CSS immediately (site depends on it) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <!-- CRITICAL CSS - Inline for fastest render -->
     <style>
-        /* Mobile Menu - Simple and Working */
+        /* ===== PREMIUM DESIGN SYSTEM ===== */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --accent: #0ea5e9;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --surface: #f8fafc;
+            --text: #334155;
+            --text-dim: #64748b;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+            --shadow-glow: 0 0 40px rgba(37,99,235,0.3);
+        }
+
+        /* Subtle grain texture overlay for depth */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* ===== NAVIGATION - Glass morphism ===== */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+            z-index: 60;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        nav.scrolled {
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        nav a, nav button { transition: color 0.2s, transform 0.2s; }
+        nav .hidden.md\\:block a:hover, nav .hidden.md\\:block button:hover { transform: translateY(-1px); }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            position: relative; min-height: 100vh; display: flex;
+            align-items: center; color: white; overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero-video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: -2; aspect-ratio: 16/9;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.6) 50%, rgba(37,99,235,0.3) 100%);
+            z-index: -1;
+        }
+        /* Gradient mesh accent orbs */
+        .hero-section::before {
+            content: ''; position: absolute;
+            width: 600px; height: 600px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
+            top: -200px; right: -100px; z-index: -1;
+            animation: float-orb 8s ease-in-out infinite;
+        }
+        .hero-section::after {
+            content: ''; position: absolute;
+            width: 400px; height: 400px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+            bottom: -100px; left: -50px; z-index: -1;
+            animation: float-orb 10s ease-in-out infinite reverse;
+        }
+        @keyframes float-orb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.1); }
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* CTA shimmer animation */
+        .btn-shimmer {
+            position: relative; overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: ''; position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        /* ===== BUTTONS - Premium ===== */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white; padding: 14px 28px; border-radius: var(--radius);
+            text-decoration: none; font-weight: 700; display: inline-block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1); color: white;
+            border: 2px solid rgba(255,255,255,0.4); padding: 14px 28px;
+            border-radius: var(--radius); text-decoration: none;
+            font-weight: 600; display: inline-block;
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.95); color: var(--primary-dark);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+        }
+
+        /* ===== SECTION SYSTEM - 8px grid ===== */
+        .section-padding { padding: 96px 0; }
+        .section-title {
+            font-size: 2.75rem; font-weight: 800; text-align: center;
+            margin-bottom: 1rem; letter-spacing: -0.025em; line-height: 1.15;
+        }
+        .section-subtitle {
+            font-size: 1.2rem; text-align: center; color: var(--text-dim);
+            margin-bottom: 3rem; max-width: 600px;
+            margin-left: auto; margin-right: auto; line-height: 1.6;
+        }
+
         /* ===== MOBILE MENU - Premium slide-in ===== */
-#mobile-menu {
-    position: fixed; top: 0; right: 0; bottom: 0;
-    width: 85%; max-width: 380px;
-    background: rgba(255,255,255,0.98);
-    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-    box-shadow: -8px 0 32px rgba(0,0,0,0.15);
-    z-index: 70;
-    transform: translateX(100%);
-    opacity: 1; visibility: hidden;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
-    overflow-y: auto;
-    padding-top: 16px;
-}
-#mobile-menu.show {
-    transform: translateX(0);
-    visibility: visible;
-}
-/* Mobile menu overlay */
-.mobile-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(15,23,42,0.5); z-index: 50;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-}
-.mobile-overlay.show {
-    opacity: 1; visibility: visible;
-}
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
+        #mobile-menu {
+            position: fixed; top: 0; right: 0; bottom: 0;
+            width: 85%; max-width: 380px;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            box-shadow: -8px 0 32px rgba(0,0,0,0.15);
+            z-index: 70;
+            transform: translateX(100%);
+            opacity: 1; visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+            overflow-y: auto;
+            padding-top: 16px;
+        }
+        #mobile-menu.show {
+            transform: translateX(0);
+            visibility: visible;
+        }
+        /* Mobile menu overlay */
+        .mobile-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15,23,42,0.5); z-index: 50;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .mobile-overlay.show {
+            opacity: 1; visibility: visible;
+        }
+
+        /* Hamburger Animation */
+        .hamburger {
+            cursor: pointer; width: 28px; height: 24px;
+            position: relative; z-index: 80;
+            transition: all 0.3s ease;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 6px;
+            background: none; border: none; padding: 0;
+        }
+        .hamburger span {
+            display: block; height: 2px; width: 100%;
+            background: #374151; border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            position: relative;
+        }
+        .hamburger.active { gap: 0; }
+        .hamburger.active span { position: absolute; top: 50%; left: 0; }
+        .hamburger.active span:nth-child(1) { transform: translateY(-50%) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateY(-50%) scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: translateY(-50%) rotate(-45deg); }
+
+        /* ===== CARDS - Premium hover ===== */
+        .service-card, .benefit-card {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        .service-card:hover, .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Gradient icon containers */
+        .icon-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            width: 56px; height: 56px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+        }
+        .icon-gradient i { color: white; }
+        .icon-gradient-purple {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            box-shadow: 0 4px 12px rgba(139,92,246,0.25);
+        }
+        .icon-gradient-orange {
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            box-shadow: 0 4px 12px rgba(249,115,22,0.25);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-                /* Hamburger Animation - Improved */
-        .hamburger {
-    cursor: pointer; width: 28px; height: 24px;
-    position: relative; z-index: 80;
-    transition: all 0.3s ease;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center; gap: 6px;
-    background: none; border: none; padding: 0;
-}
-.hamburger span {
-    display: block; height: 2px; width: 100%;
-    background: #374151; border-radius: 2px;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    position: relative;
-}
-.hamburger.active { gap: 0; }
-.hamburger.active span { position: absolute; top: 50%; left: 0; }
-.hamburger.active span:nth-child(1) { transform: translateY(-50%) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; transform: translateY(-50%) scaleX(0); }
-.hamburger.active span:nth-child(3) { transform: translateY(-50%) rotate(-45deg); }</style>
-<link rel="stylesheet" href="assets/css/chatbot-widget.css">
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0; transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Count-up animation flash */
+        .count-up-animated {
+            transition: color 0.3s;
+        }
+
+        .phone-number {
+            font-size: 1.5rem; font-weight: bold; color: var(--primary);
+        }
+        .urgency-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white; padding: 4px 12px; border-radius: 20px;
+            font-size: 0.875rem; font-weight: 600;
+            display: inline-block; margin-bottom: 1rem;
+        }
+        .trust-badge {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.875rem; color: #0284c7; margin-top: 1rem;
+        }
+
+        /* Trust bar in hero */
+        .hero-trust-bar {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 24px; margin-top: 32px; padding: 16px 24px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+        }
+        .hero-trust-bar span {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        .hero-trust-bar i {
+            color: var(--primary-light); font-size: 0.9rem;
+        }
+
+        /* ===== WHY-US CARDS - Glass effect ===== */
+        #why-us .bg-white {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(37,99,235,0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #why-us .bg-white:hover {
+            background: rgba(255,255,255,1);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(37,99,235,0.15);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .section-title { font-size: 2rem; }
+            .section-padding { padding: 64px 0; }
+            .hero-section h1 { font-size: 2.25rem !important; }
+            .hero-section p { font-size: 1rem !important; }
+            .hero-trust-bar { gap: 16px; padding: 12px 16px; }
+            .hero-trust-bar span { font-size: 0.75rem; }
+        }
+        @media (min-width: 1024px) {
+            .section-title { font-size: 3.25rem; }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-        <div class="mobile-overlay" id="mobile-overlay"></div>
-    <nav class="fixed top-0 w-full bg-white shadow-lg z-[60]">
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Navigation Bar -->
+<!-- NAV:START -->
+    <nav class="fixed top-0 w-full z-[60]" id="main-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex justify-center md:justify-between items-center h-16 pr-16 md:pr-0">
                 <div class="flex items-center">
-                    <a href="index.html#home" class="flex items-center">
+                    <a href="/" class="flex items-center">
                         <picture>
                             <source srcset="assets/website-homelogo.webp" type="image/webp">
                             <img src="assets/website homelogo.png"
@@ -119,50 +397,27 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="/#how" class="text-gray-900 hover:text-blue-600 px-3 py-2">How It Works</a>
+                        <a href="/#packages" class="text-gray-900 hover:text-blue-600 px-3 py-2">Packages</a>
                         <div class="relative group">
-                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
-                                Services <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                                Add-Ons <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
-                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>Dispensary Local SEO</a>
-                                <a href="google-my-business-optimization.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-store mr-2 text-green-500"></i>GBP Optimization</a>
-                                <a href="ai-budtender.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-robot mr-2 text-green-500"></i>AI Budtender</a>
-                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-laptop-code mr-2 text-green-500"></i>Dispensary Websites</a>
-                                <a href="security-audits.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600"><i class="fas fa-shield-alt mr-2 text-green-500"></i>Security Audits</a>
+                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="local-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>Google SEO</a>
+                                <a href="google-my-business-optimization.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-store mr-2 text-blue-500"></i>Google Business Profile</a>
+                                <a href="marketing-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-bolt mr-2 text-blue-500"></i>Lead Follow-Up Automation</a>
+                                <a href="cannabis-ai-automation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-robot mr-2 text-blue-500"></i>AI Chat Assistant</a>
+                                <a href="website-development.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-laptop-code mr-2 text-blue-500"></i>Website Build</a>
+                                <a href="security-audits.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-shield-alt mr-2 text-blue-500"></i>Security Audits</a>
                             </div>
                         </div>
-                        <a href="cannabis-industry-solutions.html" class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center"><i class="fas fa-cannabis mr-1 text-green-500"></i>Cannabis Solutions</a>
-                        <div class="relative group">
-                            <button class="text-gray-900 hover:text-green-600 px-3 py-2 flex items-center">
-                                Locations <i class="fas fa-chevron-down ml-1 text-sm"></i>
-                            </button>
-                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <div class="relative group/ny">
-                                    <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 flex items-center justify-between">
-                                        <span><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>New York</span> <i class="fas fa-chevron-right text-xs"></i>
-                                    </button>
-                                    <div class="absolute left-full top-0 bg-white shadow-xl rounded-lg py-2 w-48 opacity-0 invisible group-hover/ny:opacity-100 group-hover/ny:visible transition-all duration-200 z-50">
-                                        <a href="manhattan-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Manhattan</a>
-                                        <a href="brooklyn-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Brooklyn</a>
-                                        <a href="queens-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Queens</a>
-                                        <a href="bronx-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Bronx</a>
-                                        <a href="albany-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Albany</a>
-                                        <a href="syracuse-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Syracuse</a>
-                                        <a href="rochester-seo.html" class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600">Rochester</a>
-                                    </div>
-                                </div>
-                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>New Jersey - Coming Soon</div>
-                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Connecticut - Coming Soon</div>
-                                <div class="px-4 py-2 text-gray-400 text-sm cursor-default"><i class="fas fa-clock mr-2"></i>Massachusetts - Coming Soon</div>
-                            </div>
-                        </div>
-                        <a href="pricing.html" class="text-gray-900 hover:text-green-600 px-3 py-2">Pricing</a>
-                        <a href="faq.html" class="text-gray-900 hover:text-green-600 px-3 py-2">FAQ</a>
-                        <a href="login.html" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium">Login</a>
-                        <a href="contract2.html" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">Contact</a>
+                        <a href="faq.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">FAQ</a>
+                        <a href="login.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">Login</a>
+                        <a href="book-call.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all">Book a Call</a>
                     </div>
                 </div>
-                <div class="md:hidden absolute right-4">
+                <div class="md:hidden absolute right-4" style="z-index: 80;">
                     <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
                         <span></span>
                         <span></span>
@@ -170,11 +425,11 @@
                     </button>
                 </div>
             </div>
-            <!-- Mobile Menu -->
-            
         </div>
     </nav>
-    <div id="mobile-menu" class="md:hidden bg-white shadow-xl border-t border-gray-100 relative z-[60]">
+
+    <!-- Mobile Menu - Premium slide-in (outside nav to avoid z-index stacking context) -->
+    <div id="mobile-menu" class="md:hidden">
         <div class="flex justify-end px-6 pt-5 pb-2">
             <button id="mobile-menu-close" aria-label="Close menu" style="background:none;border:none;cursor:pointer;padding:8px;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round">
@@ -182,94 +437,54 @@
                 </svg>
             </button>
         </div>
-                <div class="px-6 py-4 space-y-1">
-                <a href="login.html" class="block text-gray-500 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium text-sm border-b border-gray-100 mb-2"><i class="fas fa-sign-in-alt mr-3 text-gray-400"></i>Login</a>
-                    <a href="index.html#home" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-home mr-3 text-blue-500"></i>Home
-                    </a>
-                    
-                    <!-- Services Collapsible -->
-                    <div class="mobile-dropdown">
-                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
-                            <span><i class="fas fa-cogs mr-3 text-green-500"></i>Services</span>
-                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
-                        </button>
-                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                            <a href="local-seo.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-map-marker-alt mr-3 text-green-500"></i>Dispensary Local SEO
-                            </a>
-                            <a href="google-my-business-optimization.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-store mr-3 text-green-500"></i>GBP Optimization
-                            </a>
-                            <a href="ai-budtender.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-robot mr-3 text-green-500"></i>AI Budtender
-                            </a>
-                            <a href="website-development.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-laptop-code mr-3 text-green-500"></i>Dispensary Websites
-                            </a>
-                            <a href="security-audits.html" class="block text-gray-700 hover:text-green-600 hover:bg-green-50 py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-shield-alt mr-3 text-green-500"></i>Security Audits
-                            </a>
-                        </div>
-                    </div>
+        <div class="px-6 py-4 space-y-1">
+            <a href="login.html" class="block text-gray-500 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium text-sm border-b border-gray-100 mb-2"><i class="fas fa-sign-in-alt mr-3 text-gray-400"></i>Login</a>
+            <a href="/" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-home mr-3 text-blue-500"></i>Home
+            </a>
+            <a href="/#how" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-video mr-3 text-blue-500"></i>How It Works
+            </a>
+            <a href="/#packages" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-layer-group mr-3 text-blue-500"></i>Packages
+            </a>
 
-                    <!-- Cannabis Solutions Direct Link -->
-                    <a href="cannabis-industry-solutions.html" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-cannabis mr-3 text-green-500"></i>Cannabis Solutions
+            <!-- Add-Ons Collapsible -->
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
+                    <span><i class="fas fa-plus-circle mr-3 text-blue-500"></i>Add-Ons</span>
+                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
+                </button>
+                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
+                    <a href="local-seo.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Google SEO
                     </a>
-                    
-                    <!-- Locations Collapsible -->
-                    <div class="mobile-dropdown">
-                        <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
-                            <span><i class="fas fa-map-marked-alt mr-3 text-red-500"></i>Locations</span>
-                            <i class="fas fa-chevron-right transition-transform duration-200"></i>
-                        </button>
-                        <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                            <!-- New York State -->
-                            <div class="mobile-dropdown">
-                                <button class="mobile-dropdown-btn w-full text-left text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors flex items-center justify-between">
-                                    <span><i class="fas fa-apple-alt mr-3 text-green-700"></i>New York</span>
-                                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
-                                </button>
-                                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                                    <a href="manhattan-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Manhattan</a>
-                                    <a href="brooklyn-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Brooklyn</a>
-                                    <a href="queens-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Queens</a>
-                                    <a href="bronx-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Bronx</a>
-                                    <a href="albany-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Albany</a>
-                                    <a href="syracuse-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Syracuse</a>
-                                    <a href="rochester-seo.html" class="block text-gray-600 hover:text-blue-600 hover:bg-blue-50 py-1 px-4 rounded-lg transition-colors">Rochester</a>
-                                </div>
-                            </div>
-                            <!-- Coming Soon States -->
-                            <div class="text-gray-400 py-2 px-4 text-sm">
-                                <i class="fas fa-clock mr-2"></i>New Jersey - Coming Soon
-                            </div>
-                            <div class="text-gray-400 py-2 px-4 text-sm">
-                                <i class="fas fa-clock mr-2"></i>Connecticut - Coming Soon
-                            </div>
-                            <div class="text-gray-400 py-2 px-4 text-sm">
-                                <i class="fas fa-clock mr-2"></i>Massachusetts - Coming Soon
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="pricing.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-dollar-sign mr-3 text-yellow-500"></i>Pricing
+                    <a href="google-my-business-optimization.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-store mr-3 text-blue-500"></i>Google Business Profile
                     </a>
-                    <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-question-circle mr-3 text-purple-500"></i>FAQ
+                    <a href="marketing-automation.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-bolt mr-3 text-blue-500"></i>Lead Follow-Up Automation
                     </a>
-                    <a href="index.html#results" class="block text-gray-800 hover:text-green-600 hover:bg-green-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-cannabis mr-3 text-green-500"></i>Why Us
+                    <a href="cannabis-ai-automation.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-robot mr-3 text-blue-500"></i>AI Chat Assistant
                     </a>
-                    <a href="contract2.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                        <i class="fas fa-envelope mr-3 text-red-500"></i>Contact
+                    <a href="website-development.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-laptop-code mr-3 text-blue-500"></i>Website Build
                     </a>
-                                <div class="pt-4 border-t border-gray-100 mt-4 space-y-3">
-                <a href="free-audit.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
-                    <i class="fas fa-search mr-2"></i>Get Free Audit
+                    <a href="security-audits.html" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+                        <i class="fas fa-shield-alt mr-3 text-blue-500"></i>Security Audits
+                    </a>
+                </div>
+            </div>
+
+            <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-question-circle mr-3 text-blue-500"></i>FAQ
+            </a>
+            <div class="pt-4 border-t border-gray-100 mt-4 space-y-3">
+                <a href="book-call.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transition-all">
+                    <i class="fas fa-calendar-check mr-2"></i>Book a Discovery Call
                 </a>
+                <a href="tel:+13477498146" class="block text-center text-gray-700 font-semibold py-2"><i class="fas fa-phone mr-2"></i>(347) 749-8146</a>
                 <div class="flex justify-center items-center gap-6 pt-2">
                     <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-pink-500 transition-colors" aria-label="Instagram">
                         <i class="fab fa-instagram text-xl"></i>
@@ -278,229 +493,78 @@
                         <i class="fab fa-youtube text-xl"></i>
                     </a>
                 </div>
-            </div></div>
             </div>
-
-    <!-- Main container start -->
-    <div class="pt-24 pb-16 px-4 mx-auto max-w-screen-xl">
-     <div class="bg-white p-8 rounded-lg shadow">
-    <h1 class="text-3xl font-bold mb-6">Privacy Policy</h1>
-    <p class="text-gray-600 mb-4">Last Updated: April 2026</p>
-
-    <div class="space-y-6">
-        <section>
-            <h2 class="text-2xl font-semibold mb-3">1. Introduction</h2>
-            <p class="text-gray-700">
-                SeamlessFlow.ai ("we," "our," or "us") respects your privacy. We are a cannabis dispensary SEO and marketing agency based in New York City, serving dispensaries across New York, New Jersey, Connecticut, and Massachusetts. This Privacy Policy explains what information we collect, how we use it, and how we protect it when you visit our website at seamlessflow.ai or use our services. By using our site, you agree to the practices described in this policy.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">2. Information We Collect</h2>
-
-            <h3 class="text-xl font-semibold mb-2">2.1 Information You Provide</h3>
-            <p class="text-gray-700 mb-3">
-                When you fill out our free audit form, contact form, or book a call through Calendly, we collect the information you submit. This may include your name, email address, phone number, business name, website URL, service area, and business type. We only collect what you voluntarily provide to us through these interactions.
-            </p>
-
-            <h3 class="text-xl font-semibold mb-2 mt-6">2.2 Information Collected Automatically</h3>
-            <p class="text-gray-700 mb-3">
-                When you visit seamlessflow.ai, we automatically collect certain technical information through Google Analytics (tracking ID: G-B68C3RNBVD). This includes your IP address, browser type, device information, pages visited, time spent on each page, and referring URLs. This data helps us understand how visitors use our site so we can improve the experience.
-            </p>
-
-            <h3 class="text-xl font-semibold mb-2 mt-6">2.3 Cookies</h3>
-            <p class="text-gray-700 mb-3">
-                Our site uses Google Analytics cookies to track usage patterns and session cookies to keep the site functioning properly. These cookies help us measure traffic, understand visitor behavior, and maintain your session as you browse. We do not use third-party advertising cookies. See Section 9 for more details on our cookie practices.
-            </p>
-
-            <h3 class="text-xl font-semibold mb-2 mt-6">2.4 Third-Party Data</h3>
-            <p class="text-gray-700 mb-3">
-                When providing SEO services to clients, we may access Google Business Profile data, Google Search Console data, and website analytics data that clients share with us. This information is used solely to deliver the services our clients have engaged us to perform.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">3. How We Use Your Information</h2>
-            <p class="text-gray-700 mb-3">
-                We use the information we collect for the following purposes:
-            </p>
-            <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                <li>To provide and improve our services, including SEO, website development, and AI-powered tools for cannabis dispensaries</li>
-                <li>To communicate with you about our services and respond to your inquiries submitted through our contact form, free audit form, or Calendly booking</li>
-                <li>To generate SEO audit reports and recommendations tailored to your dispensary</li>
-                <li>To operate the Jamie AI chatbot on our website and the AI Budtender product for our clients</li>
-                <li>To send service-related communications such as project updates and deliverables. We do not send marketing emails unless you have explicitly opted in to receive them</li>
-                <li>To analyze website usage through Google Analytics and Google Search Console, allowing us to improve the user experience on seamlessflow.ai</li>
-            </ul>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">4. AI and Chatbot Data</h2>
-            <p class="text-gray-700 mb-3">
-                Our website features Jamie, an AI chatbot designed to help visitors learn about our services and answer common questions. Conversations with Jamie may be logged to improve the quality and accuracy of responses. Jamie does not collect personal information unless you voluntarily provide it during a conversation.
-            </p>
-            <p class="text-gray-700 mb-3">
-                For clients who use our AI Budtender product, the chatbot processes customer queries on the client's website. The client is responsible for informing their own customers about data collection practices related to the AI Budtender. We process this data on behalf of our clients and in accordance with our service agreements.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">5. Information Sharing</h2>
-            <p class="text-gray-700 mb-3">
-                We do not sell your personal information to anyone. Period. We may share your information only in the following limited circumstances:
-            </p>
-            <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                <li><strong>Service providers:</strong> We use Google Analytics for website analytics and n8n webhooks for processing form submissions. These tools receive data necessary to perform their functions on our behalf</li>
-                <li><strong>Legal requirements:</strong> We may disclose your information if required to do so by law, court order, or government regulation</li>
-                <li><strong>Client data protection:</strong> SEO data, rankings, and strategy information belonging to one client is never shared with competitors or other clients. Each client's data is treated as strictly confidential</li>
-            </ul>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">6. Data Security</h2>
-            <p class="text-gray-700 mb-3">
-                We use reasonable administrative, technical, and physical security measures to protect the personal information we collect and store. This includes secure form processing, encrypted data transmission, and limited access to client data.
-            </p>
-            <p class="text-gray-700 mb-3">
-                However, no method of transmission over the internet and no method of electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security. We encourage all clients to use strong passwords and limit access to their accounts.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">7. Cannabis Industry Data</h2>
-            <p class="text-gray-700 mb-3">
-                We understand the unique sensitivity of operating in the cannabis industry. Business information provided by dispensary clients, including sales data, operational details, and marketing strategies, is treated as strictly confidential.
-            </p>
-            <p class="text-gray-700 mb-3">
-                We do not share client business data with regulatory agencies unless we are legally compelled to do so. We do not collect customer medical information, patient records, or purchase histories through any of our services. Our work focuses exclusively on marketing, SEO, and web presence, not point-of-sale or compliance data.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">8. Your Rights</h2>
-            <p class="text-gray-700 mb-3">
-                You have the following rights regarding your personal information:
-            </p>
-            <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                <li><strong>Access:</strong> You can request a copy of the personal data we hold about you</li>
-                <li><strong>Deletion:</strong> You can request that we delete your personal data from our systems</li>
-                <li><strong>Opt out:</strong> You can opt out of marketing communications at any time by contacting us or using the unsubscribe link in any marketing email</li>
-                <li><strong>Correction:</strong> You can request that we correct any inaccurate or incomplete personal data</li>
-            </ul>
-            <p class="text-gray-700 mt-3">
-                To exercise any of these rights, contact us at <a href="mailto:info@seamlessflow.ai" class="text-green-600 hover:underline">info@seamlessflow.ai</a>. We will respond to your request within 30 days.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">9. Cookies Policy</h2>
-            <p class="text-gray-700 mb-3">
-                Our website uses a limited number of cookies to function properly and to understand how visitors use the site:
-            </p>
-            <ul class="list-disc ml-6 text-gray-700 space-y-2">
-                <li><strong>Google Analytics cookies:</strong> These track page views, session duration, traffic sources, and other usage metrics. They help us understand which pages are most useful and where we can improve</li>
-                <li><strong>Essential cookies:</strong> These are necessary for basic site functionality, such as maintaining your session and remembering your preferences</li>
-                <li><strong>No advertising cookies:</strong> We do not use third-party advertising or retargeting cookies on seamlessflow.ai</li>
-            </ul>
-            <p class="text-gray-700 mt-3">
-                You can disable cookies at any time through your browser settings. Please note that disabling cookies may affect certain features of the website.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">10. Third-Party Links</h2>
-            <p class="text-gray-700 mb-3">
-                Our website may contain links to external websites, including cannabis industry resources such as Weedmaps, Leafly, Google Business Profile, and other third-party platforms. These links are provided for your convenience and reference. We are not responsible for the privacy practices, content, or data collection policies of any third-party websites. We encourage you to review the privacy policies of any external site you visit.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">11. Children's Privacy</h2>
-            <p class="text-gray-700 mb-3">
-                Our services are designed for cannabis businesses and are not directed to anyone under the age of 18. We do not knowingly collect personal information from minors. If we become aware that we have collected data from a person under 18, we will take steps to delete that information promptly. If you believe a minor has provided us with personal data, please contact us at <a href="mailto:info@seamlessflow.ai" class="text-green-600 hover:underline">info@seamlessflow.ai</a>.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">12. Changes to This Policy</h2>
-            <p class="text-gray-700 mb-3">
-                We may update this Privacy Policy from time to time to reflect changes in our practices, services, or legal requirements. When we make changes, we will post the revised policy on this page and update the "Last Updated" date at the top. Your continued use of seamlessflow.ai after any changes are posted constitutes your acceptance of the updated policy.
-            </p>
-        </section>
-
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold mb-3">13. Contact Us</h2>
-            <p class="text-gray-700 mb-3">
-                If you have any questions about this Privacy Policy or how we handle your data, please reach out:
-            </p>
-            <ul class="list-none text-gray-700 space-y-2">
-                <li><i class="fas fa-envelope mr-2 text-green-500"></i>Email: <a href="mailto:info@seamlessflow.ai" class="text-green-600 hover:underline">info@seamlessflow.ai</a></li>
-                <li><i class="fas fa-phone mr-2 text-green-500"></i>Phone: <a href="tel:+13477498146" class="text-green-600 hover:underline">(347) 749-8146</a></li>
-                <li><i class="fas fa-map-marker-alt mr-2 text-green-500"></i>Location: New York, NY</li>
-            </ul>
-        </section>
-
+        </div>
     </div>
-</div>
-    </div>
-    <!-- footer -->
-        <!-- Footer -->
-        <footer class="bg-gray-900 text-white py-12">
+    <!-- NAV:END -->
+
+    <main id="home" class="pt-28 pb-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Privacy Policy</h1>
+            <p class="text-gray-500 mb-8">Last updated: October 2026</p>
+            <div role="navigation" aria-label="On this page" class="bg-gray-50 border border-gray-100 rounded-2xl p-6 mb-4">
+                <p class="font-bold text-gray-900 mb-3">On this page</p>
+                <ol class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-sm text-gray-600"><li><a href="#s1" class="hover:text-blue-700">1. Who we are</a></li><li><a href="#s2" class="hover:text-blue-700">2. Information you give us</a></li><li><a href="#s3" class="hover:text-blue-700">3. Information collected automatically</a></li><li><a href="#s4" class="hover:text-blue-700">4. How we use it</a></li><li><a href="#s5" class="hover:text-blue-700">5. Who we share it with</a></li><li><a href="#s6" class="hover:text-blue-700">6. Footage and people on camera</a></li><li><a href="#s7" class="hover:text-blue-700">7. How long we keep it</a></li><li><a href="#s8" class="hover:text-blue-700">8. Security</a></li><li><a href="#s9" class="hover:text-blue-700">9. Your choices and rights</a></li><li><a href="#s10" class="hover:text-blue-700">10. Children</a></li><li><a href="#s11" class="hover:text-blue-700">11. Changes to this policy</a></li><li><a href="#s12" class="hover:text-blue-700">12. Contact</a></li></ol>
+            </div>
+            <h2 id="s1" class="text-2xl font-bold text-gray-900 mt-12 mb-4">1. Who we are</h2><p class="text-gray-700 leading-relaxed mb-4">This Privacy Policy explains how SeamlessFlow.ai ("SeamlessFlow", "we", "us") collects and uses information when you visit seamlessflow.ai, book a call, or work with us.</p><h2 id="s2" class="text-2xl font-bold text-gray-900 mt-12 mb-4">2. Information you give us</h2><ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4"><li><strong>Discovery call form:</strong> your name, business name, email, phone, social or website links, your goals, timeline, which package interests you, and which accounts you already have</li><li><strong>Call booking:</strong> what you enter when you schedule through Calendly</li><li><strong>Client work:</strong> business details, brand materials, account access we are granted, and the footage and photos we film with you</li><li><strong>Messages:</strong> anything you send us by email, phone, text, or social media</li></ul><h2 id="s3" class="text-2xl font-bold text-gray-900 mt-12 mb-4">3. Information collected automatically</h2><p class="text-gray-700 leading-relaxed mb-4">When you visit the site, Google Analytics collects basic usage data such as pages viewed, device type, approximate location, and how you arrived. See our <a href="cookies-policy.html" class="text-blue-700 underline">Cookies Policy</a> for details.</p><p class="text-gray-700 leading-relaxed mb-4">When we manage your social or ad accounts, we see the analytics those platforms provide, such as views, engagement, and ad performance.</p><h2 id="s4" class="text-2xl font-bold text-gray-900 mt-12 mb-4">4. How we use it</h2><ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4"><li>To prepare for and hold your discovery call</li><li>To audit your accounts, quote, and deliver our services</li><li>To plan, film, edit, post, and report on your content</li><li>To send invoices and handle billing</li><li>To improve our site and services</li><li>To meet legal obligations</li></ul><p class="text-gray-700 leading-relaxed mb-4">We do not sell your personal information.</p><h2 id="s5" class="text-2xl font-bold text-gray-900 mt-12 mb-4">5. Who we share it with</h2><p class="text-gray-700 leading-relaxed mb-4">We use trusted services to run our business. They only get what they need to do their job:</p><ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4"><li><strong>Supabase:</strong> stores form submissions and powers client login</li><li><strong>Calendly:</strong> call scheduling</li><li><strong>Google Analytics:</strong> website analytics</li><li><strong>Meta, TikTok, YouTube, and Google:</strong> posting and ads on your behalf, using the access you grant</li><li><strong>Email and payment providers:</strong> communication and billing</li></ul><p class="text-gray-700 leading-relaxed mb-4">We may also share information if the law requires it, or to protect our rights or someone's safety.</p><h2 id="s6" class="text-2xl font-bold text-gray-900 mt-12 mb-4">6. Footage and people on camera</h2><p class="text-gray-700 leading-relaxed mb-4">Footage we film for you is used to make your content. We store it securely and only use it for your work, or in our portfolio unless you opt out. If you want footage of a specific person removed, contact us and we will work with you on it.</p><h2 id="s7" class="text-2xl font-bold text-gray-900 mt-12 mb-4">7. How long we keep it</h2><p class="text-gray-700 leading-relaxed mb-4">Discovery form details are kept for up to 2 years if we don't end up working together. Client records are kept while we work together and as long as needed for billing, tax, and legal reasons after that. Raw footage is kept for up to 12 months after a project ends unless we agree otherwise.</p><h2 id="s8" class="text-2xl font-bold text-gray-900 mt-12 mb-4">8. Security</h2><p class="text-gray-700 leading-relaxed mb-4">We use access controls and encrypted services to protect your information, and we ask for partner or manager access to your accounts instead of passwords wherever platforms allow. No system is perfectly secure, but if a breach affects your information, we will notify you as New York law requires.</p><h2 id="s9" class="text-2xl font-bold text-gray-900 mt-12 mb-4">9. Your choices and rights</h2><p class="text-gray-700 leading-relaxed mb-4">You can ask to see, correct, or delete the personal information we hold about you by emailing <a href="mailto:info@seamlessflow.ai" class="text-blue-700 underline">info@seamlessflow.ai</a>. You can opt out of marketing emails at any time with the unsubscribe link or by replying to us.</p><h2 id="s10" class="text-2xl font-bold text-gray-900 mt-12 mb-4">10. Children</h2><p class="text-gray-700 leading-relaxed mb-4">Our site and services are for businesses and are not directed at anyone under 18. We do not knowingly collect information from children.</p><h2 id="s11" class="text-2xl font-bold text-gray-900 mt-12 mb-4">11. Changes to this policy</h2><p class="text-gray-700 leading-relaxed mb-4">If we change this policy, we will update the date at the top of this page. Big changes will be emailed to active clients.</p><h2 id="s12" class="text-2xl font-bold text-gray-900 mt-12 mb-4">12. Contact</h2><p class="text-gray-700 leading-relaxed mb-4">Questions about your privacy? Email <a href="mailto:info@seamlessflow.ai" class="text-blue-700 underline">info@seamlessflow.ai</a> or call <a href="tel:+13477498146" class="text-blue-700 underline">(347) 749-8146</a>.</p>
+        </div>
+    </main>
+
+<!-- FOOTER:START -->
+    <footer class="bg-gray-950 text-white py-16 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
                 <div>
                     <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
-                    <p class="text-gray-300 mb-4">Starting at $497/month - Cancel anytime</p>
+                    <p class="text-gray-300 mb-4">Brand growth through content that makes a difference.</p>
                     <div class="space-y-2 text-sm">
-                        <div class="flex items-center text-green-400">
-                            <i class="fas fa-handshake mr-2"></i>
-                            <span>Cancel anytime</span>
+                        <div class="flex items-center text-blue-400">
+                            <i class="fas fa-bolt mr-2"></i>
+                            <span>Results in as little as 7 days</span>
                         </div>
-                        <div class="flex items-center text-green-400">
+                        <div class="flex items-center text-blue-400">
                             <i class="fas fa-phone mr-2"></i>
                             <span>(347) 749-8146</span>
                         </div>
                     </div>
                     <div class="mt-6">
-                        <a href="free-audit.html" class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded-lg font-bold text-sm inline-block transition-colors">
-                            <i class="fas fa-search mr-2"></i>Free Ranking Check
+                        <a href="book-call.html" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-bold text-sm inline-block transition-colors">
+                            <i class="fas fa-calendar-check mr-2"></i>Book a Discovery Call
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="font-bold mb-4">Services</h4>
+                    <h4 class="font-bold mb-4">What We Do</h4>
                     <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="local-seo.html" class="hover:text-white">Local SEO</a></li>
-                        <li><a href="google-my-business-optimization.html" class="hover:text-white">GMB Optimization</a></li>
-                        <li><a href="cannabis-ai-automation.html" class="hover:text-white">Cannabis AI Automation</a></li>
-                        <li><a href="website-development.html" class="hover:text-white">Website Development</a></li>
-                        <li><a href="ai-budtender.html" class="hover:text-white">AI Budtender</a></li>
+                        <li><a href="/#how" class="hover:text-white">Discovery Call + Brand Audit</a></li>
+                        <li><a href="/#how" class="hover:text-white">Content Plans + Scripts</a></li>
+                        <li><a href="/#how" class="hover:text-white">Shoot Days + Editing</a></li>
+                        <li><a href="/#how" class="hover:text-white">Posting + Analytics</a></li>
+                        <li><a href="/#how" class="hover:text-white">Ads on Proven Content</a></li>
+                        <li><a href="/#first-30" class="hover:text-white">Your First 30 Days</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Add-Ons</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="local-seo.html" class="hover:text-white">Google SEO</a></li>
+                        <li><a href="google-my-business-optimization.html" class="hover:text-white">Google Business Profile</a></li>
+                        <li><a href="marketing-automation.html" class="hover:text-white">Lead Follow-Up Automation</a></li>
+                        <li><a href="cannabis-ai-automation.html" class="hover:text-white">AI Chat Assistant</a></li>
+                        <li><a href="website-development.html" class="hover:text-white">Website Build</a></li>
                         <li><a href="security-audits.html" class="hover:text-white">Security Audits</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-bold mb-4">Resources</h4>
+                    <h4 class="font-bold mb-4">Company</h4>
                     <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="blog.html" class="hover:text-white">Blog</a></li>
-                        <li><a href="#services" class="hover:text-white">Dispensary SEO Services</a></li>
-                        <li><a href="#why-us" class="hover:text-white">Why Choose Us</a></li>
-                        <li><a href="free-audit.html" class="hover:text-white">Free Dispensary Audit</a></li>
-                        <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+                        <li><a href="/#packages" class="hover:text-white">Packages</a></li>
                         <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-4">Service Areas</h4>
-                    <p class="text-xs text-gray-400 mb-2">Legal recreational cannabis states only</p>
-                    <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><strong>NYC:</strong> Manhattan, Brooklyn, Queens, Bronx, Staten Island</li>
-                        <li><strong>NY:</strong> Long Island, Westchester, Buffalo, Albany</li>
-                        <li><strong>NJ:</strong> Jersey City, Newark, Hoboken</li>
-                        <li><strong>CT:</strong> Hartford, New Haven, Stamford</li>
-                        <li><strong>MA:</strong> Boston, Worcester, Springfield</li>
+                        <li><a href="book-call.html" class="hover:text-white">Book a Discovery Call</a></li>
+                        <li><a href="login.html" class="hover:text-white">Client Login</a></li>
                     </ul>
                     <div class="mt-4 space-y-2">
                         <a href="tel:+13477498146" class="flex items-center text-gray-300 hover:text-white">
@@ -511,45 +575,150 @@
                             <i class="fas fa-envelope mr-2"></i>
                             <span class="text-sm">info@seamlessflow.ai</span>
                         </a>
+                        <p class="flex items-center text-gray-400 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>NYC based, available to travel</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-700 pt-8 mt-8">
                 <div class="text-center text-gray-300 mb-4">
                     <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
                         <span class="flex items-center">
-                            <i class="fas fa-cannabis mr-2 text-green-400"></i>
-                            NYC Cannabis Specialists
+                            <i class="fas fa-video mr-2 text-blue-400"></i>
+                            Shoot, Edit, Post, Ads
                         </span>
                         <span class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-green-400"></i>
-                            Local SEO Experts
+                            <i class="fas fa-pen mr-2 text-blue-400"></i>
+                            Scripts Written For You
                         </span>
                         <span class="flex items-center">
-                            <i class="fas fa-robot mr-2 text-purple-400"></i>
-                            AI-Powered Solutions
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
+                            NYC Based, We Travel
                         </span>
                     </div>
                 </div>
+                <div class="flex justify-center gap-6 mb-4">
+                    <a href="https://linkedin.com/company/seamlessflow" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="https://www.youtube.com/@SeamlessflowSEO" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
+                    <a href="https://x.com/seamlessflowai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="X"><i class="fab fa-x-twitter text-xl"></i></a>
+                </div>
                 <div class="text-center text-gray-400 text-sm">
-                    <p>&copy; 2026 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a></p>
+                    <p>&copy; 2026 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a> | <a href="cookies-policy.html" class="hover:text-white">Cookies Policy</a></p>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- FOOTER:END -->
 
-    
-<script src="assets/js/chatbot-widget.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Calendar booking function
+        function openCalendarBooking() {
+            window.location.href = 'contract2.html';
+        }
+
+        // Smooth scrolling function (shared by desktop and mobile)
+        function smoothScrollToSection(targetHref) {
+            const target = document.querySelector(targetHref);
+            if (target) {
+                const nav = document.querySelector('nav');
+                const navHeight = nav ? nav.offsetHeight : 64; // h-16 = 64px
+                const extraPadding = 20; // Better padding for section positioning
+                const targetPosition = target.offsetTop - navHeight - extraPadding;
+                
+                window.scrollTo({
+                    top: Math.max(0, targetPosition), // Don't scroll to negative position
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Desktop navigation smooth scrolling (exclude mobile menu links)
+        document.querySelectorAll('nav a[href^="#"]:not(#mobile-menu a)').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                smoothScrollToSection(this.getAttribute('href'));
+            });
+        });
+
+        // Track phone number clicks
+        document.querySelectorAll('a[href^="tel:"], .phone-number').forEach(element => {
+            element.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'phone_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'phone_number'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle - Premium slide-in
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = this;
+                const overlay = document.getElementById('mobile-overlay');
+
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (mobileMenu && mobileMenu.classList.contains('show')) {
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                    if (overlay) overlay.classList.remove('show');
+                    if (chatToggle) chatToggle.style.display = '';
+                } else if (mobileMenu) {
+                    mobileMenu.classList.add('show');
+                    hamburger.classList.add('active');
+                    if (overlay) overlay.classList.add('show');
+                    if (chatToggle) chatToggle.style.display = 'none';
+                }
+            });
+        }
+
+        // Mobile menu close button (X inside slide-in panel)
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                const overlay = document.getElementById('mobile-overlay');
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                if (overlay) overlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
+            });
+        }
+
+        // Mobile menu link clicks - close menu and scroll
+        document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                const overlay = document.getElementById('mobile-overlay');
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                if (overlay) overlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
+                smoothScrollToSection(this.getAttribute('href'));
+            });
+        });
 
         // Hide mobile menu when clicking outside
         document.addEventListener('click', function(e) {
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileButton = document.getElementById('mobile-menu-button');
-            
+            const overlay = document.getElementById('mobile-overlay');
             if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
                 mobileMenu.classList.remove('show');
                 mobileButton.classList.remove('active');
+                if (overlay) overlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
             }
         });
 
@@ -608,109 +777,169 @@
                     updateParentHeights();
                 }
             });
-</script>
- });
+        });
 
-    <script>
-// Mobile menu toggle - Premium slide-in
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-if (mobileMenuButton) {
-    mobileMenuButton.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = this;
-        const overlay = document.getElementById('mobile-overlay');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (mobileMenu && mobileMenu.classList.contains('show')) {
-            mobileMenu.classList.remove('show');
-            hamburger.classList.remove('active');
-            if (overlay) overlay.classList.remove('show');
-            if (chatToggle) chatToggle.style.display = '';
-        } else if (mobileMenu) {
-            mobileMenu.classList.add('show');
-            hamburger.classList.add('active');
-            if (overlay) overlay.classList.add('show');
-            if (chatToggle) chatToggle.style.display = 'none';
+        // === PREMIUM: Nav glass effect on scroll ===
+        const mainNav = document.getElementById('main-nav');
+        if (mainNav) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 40) {
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
+            }, { passive: true });
         }
-    });
-}
 
-// Mobile menu close button
-const mobileMenuClose = document.getElementById('mobile-menu-close');
-if (mobileMenuClose) {
-    mobileMenuClose.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = document.getElementById('mobile-menu-button');
-        const overlay = document.getElementById('mobile-overlay');
-        if (mobileMenu) mobileMenu.classList.remove('show');
-        if (hamburger) hamburger.classList.remove('active');
-        if (overlay) overlay.classList.remove('show');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (chatToggle) chatToggle.style.display = '';
-    });
-}
-
-// Overlay click closes menu
-const mobileOverlay = document.getElementById('mobile-overlay');
-if (mobileOverlay) {
-    mobileOverlay.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = document.getElementById('mobile-menu-button');
-        if (mobileMenu) mobileMenu.classList.remove('show');
-        if (hamburger) hamburger.classList.remove('active');
-        mobileOverlay.classList.remove('show');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (chatToggle) chatToggle.style.display = '';
-    });
-}
-
-// Mobile menu link clicks - close menu
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburger = document.getElementById('mobile-menu-button');
-        const overlay = document.getElementById('mobile-overlay');
-        if (mobileMenu) mobileMenu.classList.remove('show');
-        if (hamburger) hamburger.classList.remove('active');
-        if (overlay) overlay.classList.remove('show');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (chatToggle) chatToggle.style.display = '';
-    });
-});
-
-// Hide mobile menu when clicking outside
-document.addEventListener('click', function(e) {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileButton = document.getElementById('mobile-menu-button');
-    const overlay = document.getElementById('mobile-overlay');
-    if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
-        mobileMenu.classList.remove('show');
-        mobileButton.classList.remove('active');
-        if (overlay) overlay.classList.remove('show');
-        const chatToggle = document.querySelector('.chat-toggle');
-        if (chatToggle) chatToggle.style.display = '';
-    }
-});
-
-// Mobile dropdown toggle functionality
-document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const dropdown = this.closest('.mobile-dropdown');
-        const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
-        const icon = this.querySelector('.fa-chevron-right');
-        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-            content.style.maxHeight = '0px';
-            if (icon) icon.style.transform = 'rotate(0deg)';
-            content.querySelectorAll('.mobile-dropdown-content').forEach(nested => { nested.style.maxHeight = '0px'; });
-            content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => { nestedIcon.style.transform = 'rotate(0deg)'; });
-        } else {
-            content.style.maxHeight = content.scrollHeight + 'px';
-            if (icon) icon.style.transform = 'rotate(90deg)';
+        // === PREMIUM: Mobile overlay toggle ===
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const hamburger = document.getElementById('mobile-menu-button');
+                if (mobileMenu) mobileMenu.classList.remove('show');
+                if (hamburger) hamburger.classList.remove('active');
+                mobileOverlay.classList.remove('show');
+                const chatToggle = document.querySelector('.chat-toggle');
+                if (chatToggle) chatToggle.style.display = '';
+            });
         }
-    });
-});
+
+        // === PREMIUM: Scroll reveal with Intersection Observer ===
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // === PREMIUM: Count-up animation on scroll ===
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.count-up').forEach(counter => {
+                        const text = counter.textContent.trim();
+                        const match = text.match(/^([<>$]?)(\d+(?:\.\d+)?)(.*)$/);
+                        if (!match) return;
+                        const prefix = match[1], target = parseFloat(match[2]), suffix = match[3];
+                        const isFloat = text.includes('.');
+                        const duration = 1600;
+                        const start = performance.now();
+                        counter.classList.add('count-up-animated');
+                        const animate = (now) => {
+                            const elapsed = now - start;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = eased * target;
+                            counter.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+                            if (progress < 1) requestAnimationFrame(animate);
+                            else counter.textContent = prefix + (isFloat ? target.toFixed(1) : target) + suffix;
+                        };
+                        requestAnimationFrame(animate);
+                    });
+                    countObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.count-up').forEach(el => {
+            const section = el.closest('section') || el.closest('div');
+            if (section && !section.dataset.countObserved) {
+                section.dataset.countObserved = 'true';
+                countObserver.observe(section);
+            }
+        });
+
+        // Lazy load hero video after page load, then force autoplay (mobile needs explicit play())
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            if (!video) return;
+            const source = video.querySelector('source[data-src]');
+            if (!source) return;
+
+            video.muted = true;
+            video.playsInline = true;
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
+
+            const tryPlay = () => {
+                const p = video.play();
+                if (p && typeof p.catch === 'function') {
+                    p.catch(() => {
+                        // iOS sometimes blocks until first touch; retry on first interaction
+                        const resume = () => { video.play().catch(() => {}); };
+                        document.addEventListener('touchstart', resume, { once: true, passive: true });
+                        document.addEventListener('click', resume, { once: true });
+                    });
+                }
+            };
+
+            source.src = source.dataset.src;
+            video.load();
+            if (video.readyState >= 2) tryPlay();
+            else video.addEventListener('loadeddata', tryPlay, { once: true });
+        });
     </script>
+
+    <!-- Case Study Stats Animation (Lazy Load) -->
+    <script>
+        // Animated counters + bar charts with Intersection Observer
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate counters
+                    entry.target.querySelectorAll('.stat-number').forEach(counter => {
+                        const target = parseInt(counter.dataset.target);
+                        const suffix = counter.dataset.suffix || '';
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.textContent = Math.floor(current) + suffix;
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target + suffix;
+                            }
+                        };
+                        updateCounter();
+                    });
+                    // Animate bar charts
+                    entry.target.querySelectorAll('[data-width]').forEach(bar => {
+                        setTimeout(() => {
+                            bar.style.width = bar.dataset.width;
+                        }, 300);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.case-study-stats').forEach(s => statsObserver.observe(s));
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-B68C3RNBVD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B68C3RNBVD');
+        
+        // Track page view
+        gtag('event', 'page_view', {
+            'page_title': document.title,
+            'page_location': window.location.href
+        });
+    </script>
+    
+    <!-- Google Search Console verification (Replace with actual verification code) -->
+    <meta name="google-site-verification" content="googlef24fe0a0e8ba99b6">
+    
+    <!-- Bing Webmaster Tools verification -->
+    <meta name="msvalidate.01" content="093DED81024C3E7C8E3FEA6706BA9DE1">
+<script src="assets/js/counter-animation.js"></script>
 </body>
 </html>
-<!-- PART 3: END -->
