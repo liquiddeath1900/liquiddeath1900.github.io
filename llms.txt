@@ -1,64 +1,31 @@
 # SeamlessFlow.ai
 
-> Cannabis dispensary SEO, AI automation, and marketing agency based in NYC. We help licensed dispensaries rank #1 on Google Maps, deploy AI budtender chatbots, automate Metrc compliance, and build high-converting websites.
+> Brand growth agency based in New York City. We make content that brings in customers: a discovery call and full brand audit, then a monthly cycle of content planning, scripts, shoot days, editing, posting on Instagram, Facebook, TikTok and YouTube, analytics, and paid ads on the videos that already perform. We travel for clients.
 
-## Services
+## How it works
+- Once, at the start: discovery call, full brand audit (Google Business Profile, Instagram, Facebook, TikTok, YouTube, website), brand roadmap.
+- Every month: content plan, scripts and shot list, shoot day, editing, posting, analytics, ads on proven content.
+- Results in as little as 30, 15, or 7 days depending on the package. "Results" means first videos live and real numbers coming in.
 
-### Dispensary Local SEO
-We optimize Google Business Profiles, build cannabis-friendly citations, and use geo-grid ranking technology to track visibility across entire delivery zones. Most dispensaries see ranking improvements within 30-60 days. Starting at $497/month with no contracts.
+## Packages (monthly, starting at)
+- Launch: from $3,000/mo. 8 videos, half-day shoot, posting on 4 platforms, boosts on top videos, monthly report.
+- Growth: from $4,500/mo. 12 videos, full-day shoot, comment and DM replies using approved answers, ad campaigns on top videos, report every two weeks.
+- Full Service: from $6,500/mo. 20+ videos, two shoot days, ads on Instagram, Facebook, TikTok and YouTube, Google SEO and Business Profile, auto-replies, weekly report and strategy call.
+- Final price is set after the audit based on market, locations, and shoot volume. One-time onboarding fee set by the audit. Ad spend is paid directly to the platforms.
 
-### AI Budtender Chatbot
-A 24/7 AI-powered chatbot trained on your dispensary's menu, strain inventory, and local regulations. Recommends products based on desired effects (relaxation, pain relief, energy), handles age verification, and pre-qualifies delivery orders. Integrates with Dutchie, Jane, and Weedmaps.
+## Add-ons
+Google SEO, Google Business Profile, lead follow-up automation, AI chat assistant, website builds, security audits.
 
-### Metrc Compliance Automation
-Automated seed-to-sale tracking that connects your POS system with Metrc. Handles package reporting, transfer manifests, inventory reconciliation, and compliance alerts. Prevents costly violations and saves hours of manual data entry.
-
-### Dispensary Website Development
-Mobile-first, SEO-optimized websites built specifically for cannabis businesses. Includes online menu integration, age-gate verification, schema markup for rich search results, and Core Web Vitals optimization. 30-day build timeline.
-
-### Google Business Profile Optimization
-Complete GBP setup and optimization including category selection, service area configuration, post scheduling, review generation strategy, and Q&A management. Focused on cannabis-specific local search visibility.
-
-## Coverage Areas
-- **New York:** Manhattan, Brooklyn, Queens, Bronx, Albany, Syracuse, Rochester
-- **New Jersey:** Jersey City, Newark, Hoboken
-- **Connecticut:** Hartford, New Haven, Stamford
-- **Massachusetts:** Boston, Worcester, Springfield
-
-## Pricing
-- All plans are priced per location
-- **Starter** — Starting at $497/month per location: GBP optimization, on-page SEO, cannabis keyword research, 10-15 directory listings, NAP audit, competitor analysis, monthly geo-grid ranking reports
-- **Growth** — Starting at $997/month per location: Everything in Starter plus AI Budtender chatbot, 25-30 directory listings, GBP posts, review generation, strain/product pages, bi-weekly strategy calls
-- **Custom** — Tailored packages for multi-location SEO, website development, Metrc compliance automation, security audits, and advanced automation workflows
-- Add-ons available: Website Development (from $2,500), Security Audits (from $99), AI Budtender standalone (from $497/mo), Voice Agents, Marketing Automation, Review Management, Content Creation
-
-## Key Facts
-- NYC-based agency specializing exclusively in licensed cannabis businesses
-- No long-term contracts — month-to-month services, cancel anytime
-- 30-day satisfaction guarantee on all packages
-- Uses geo-grid ranking reports (Local Falcon, BrightLocal) for transparent performance tracking
-- AI-first approach: budtender chatbots, compliance automation, marketing workflows, voice agents
-- Cannabis-only agency — every tool and strategy is built for dispensaries
-
-## Contact
-- Website: https://www.seamlessflow.ai
-- Phone: (347) 749-8146
-- Email: info@seamlessflow.ai
-- Free Audit: https://www.seamlessflow.ai/free-audit.html
+## Industries
+Roofing, HVAC, plumbing, electrical, remodeling and contractors, junk removal, moving, landscaping. Open to any business ready to grow.
 
 ## Pages
-
 - [Home](https://www.seamlessflow.ai/)
-- [Local SEO](https://www.seamlessflow.ai/local-seo.html)
-- [AI Budtender / Marketing Automation](https://www.seamlessflow.ai/marketing-automation.html)
-- [Website Development](https://www.seamlessflow.ai/website-development.html)
-- [Cannabis Industry Solutions](https://www.seamlessflow.ai/cannabis-industry-solutions.html)
-- [Cannabis AI Automation](https://www.seamlessflow.ai/cannabis-ai-automation.html)
-- [GBP Optimization](https://www.seamlessflow.ai/google-my-business-optimization.html)
-- [Pricing](https://www.seamlessflow.ai/pricing.html)
-- [Free Audit](https://www.seamlessflow.ai/free-audit.html)
-- [FAQ](https://www.seamlessflow.ai/faq.html)
+- [Industries](https://www.seamlessflow.ai/industries.html)
 - [About](https://www.seamlessflow.ai/about.html)
-- [Blog](https://www.seamlessflow.ai/blog.html)
-- [Discovery Call](https://www.seamlessflow.ai/discovery-call.html)
-- [Contact](https://www.seamlessflow.ai/contract2.html)
+- [FAQ](https://www.seamlessflow.ai/faq.html)
+- [Book a discovery call](https://www.seamlessflow.ai/book-call.html)
+
+## Contact
+Phone: (347) 749-8146
+Email: info@seamlessflow.ai

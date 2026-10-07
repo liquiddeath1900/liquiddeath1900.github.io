@@ -21,21 +21,21 @@ INDUSTRIES = [
 ]
 
 ADDONS = [
-    ("local-seo.html", "fa-map-marker-alt", "Google SEO"),
-    ("google-my-business-optimization.html", "fa-store", "Google Business Profile"),
-    ("marketing-automation.html", "fa-bolt", "Lead Follow-Up Automation"),
-    ("cannabis-ai-automation.html", "fa-robot", "AI Chat Assistant"),
-    ("website-development.html", "fa-laptop-code", "Website Build"),
-    ("security-audits.html", "fa-shield-alt", "Security Audits"),
+    ("ADDONS_ANCHOR", "fa-map-marker-alt", "Google SEO"),
+    ("ADDONS_ANCHOR", "fa-store", "Google Business Profile"),
+    ("ADDONS_ANCHOR", "fa-bolt", "Lead Follow-Up Automation"),
+    ("ADDONS_ANCHOR", "fa-robot", "AI Chat Assistant"),
+    ("ADDONS_ANCHOR", "fa-laptop-code", "Website Build"),
+    ("ADDONS_ANCHOR", "fa-shield-alt", "Security Audits"),
 ]
 
 
 def nav(p):
     desk_addons = "\n".join(
-        f'                                <a href="{h}" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas {i} mr-2 text-blue-500"></i>{t}</a>'
+        f'                                <a href="{p}#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas {i} mr-2 text-blue-500"></i>{t}</a>'
         for h, i, t in ADDONS)
     mob_addons = "\n".join(
-        f'''                    <a href="{h}" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
+        f'''                    <a href="{p}#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
                         <i class="fas {i} mr-3 text-blue-500"></i>{t}
                     </a>''' for h, i, t in ADDONS)
     desk_ind = "\n".join(
@@ -175,7 +175,7 @@ def footer(p):
             ("#how", "Shoot Days + Editing"), ("#how", "Posting + Analytics"),
             ("#how", "Ads on Proven Content"), ("#first-30", "Your First 30 Days")]
     what_li = "\n".join(f'                        <li><a href="{p}{h}" class="hover:text-white">{t}</a></li>' for h, t in what)
-    add_li = "\n".join(f'                        <li><a href="{h}" class="hover:text-white">{t}</a></li>' for h, _, t in ADDONS)
+    add_li = "\n".join(f'                        <li><a href="{p}#addons" class="hover:text-white">{t}</a></li>' for h, _, t in ADDONS)
     return f'''<!-- FOOTER:START -->
     <footer class="bg-gray-950 text-white py-16 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
