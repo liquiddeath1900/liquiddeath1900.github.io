@@ -147,7 +147,7 @@
         .hero-section {
             position: relative; min-height: 100vh; display: flex;
             align-items: center; color: white; overflow: hidden;
-            padding-top: 80px;
+            padding-top: 150px; padding-bottom: 80px; /* hero copy stays inside the viewfinder corners */
         }
         .hero-video {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -369,11 +369,11 @@
         /* ===== SECTION SYSTEM - 8px grid ===== */
         .section-padding { padding: 96px 0; }
         .section-title {
-            font-size: 2.75rem; font-weight: 800; text-align: center;
+            font-size: clamp(1.6rem, 0.6rem + 4.2vw, 3.25rem); font-weight: 800; text-align: center;
             margin-bottom: 1rem; letter-spacing: -0.025em; line-height: 1.15;
         }
         .section-subtitle {
-            font-size: 1.2rem; text-align: center; color: var(--text-dim);
+            font-size: clamp(1rem, 0.9rem + 0.5vw, 1.2rem); text-align: center; color: var(--text-dim);
             margin-bottom: 3rem; max-width: 600px;
             margin-left: auto; margin-right: auto; line-height: 1.6;
         }
@@ -529,16 +529,16 @@
         }
 
         /* ===== RESPONSIVE ===== */
+        /* fluid type: scales with the screen instead of jumping at breakpoints */
+        .hero-section h1 { font-size: clamp(1.75rem, 1rem + 3.75vw, 3.75rem) !important; }
+        .hero-section .hero-content p { font-size: clamp(0.95rem, 0.85rem + 0.55vw, 1.25rem) !important; }
         @media (max-width: 768px) {
-            .section-title { font-size: 2rem; }
             .section-padding { padding: 64px 0; }
-            .hero-section h1 { font-size: 2.25rem !important; }
-            .hero-section p { font-size: 1rem !important; }
+            /* keep hero copy inside the viewfinder: clear the REC row on top, the corners at the bottom */
+            .hero-section { padding-top: 124px; padding-bottom: 60px; }
+            .rec { font-size: 11px; top: 12px; right: 14px; }
             .hero-trust-bar { gap: 16px; padding: 12px 16px; }
             .hero-trust-bar span { font-size: 0.75rem; }
-        }
-        @media (min-width: 1024px) {
-            .section-title { font-size: 3.25rem; }
         }
     </style>
 </head>
@@ -916,8 +916,8 @@
                 <p class="text-gray-300 max-w-2xl mx-auto text-lg">Content gets people to call. How you treat them decides whether they come back and tell their friends.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-user-check text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Show up on shoot day</h3><p class="text-gray-400 text-sm">A few hours a month. We bring the plan and the gear.</p></div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-comment-dots text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Say what we wrote</h3><p class="text-gray-400 text-sm">Put it in your own words if you want. We'll coach you through it.</p></div>
+                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-user-check text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">We film where you work</h3><p class="text-gray-400 text-sm">A few hours a month at your shop, office, or job site. We bring the plan and the gear.</p></div>
+                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-comment-dots text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Say it your way</h3><p class="text-gray-400 text-sm">We write the talking points. You say them in your own words, at your own pace. We'll coach you through it.</p></div>
                 <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-mobile-alt text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Film your stories</h3><p class="text-gray-400 text-sm">Quick phone clips from the shot list and talking points we send you.</p></div>
                 <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-star text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Do great work, get the review</h3><p class="text-gray-400 text-sm">Take care of every customer and ask the happy ones for a Google review. That's what keeps the growth going.</p></div>
             </div>

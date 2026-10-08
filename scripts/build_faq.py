@@ -14,7 +14,7 @@ GROUPS = [
   ("Do I have to be on camera?",
    "No, but it helps. People buy from people, and owners on camera usually perform best. If that's not you, your team can be the face, or we build content around the work itself. Either way, we write what to say and coach you through it."),
   ("How much of my time does this take?",
-   "Not much. Show up for shoot day, film a few stories from the shot list we send, and review content when it's ready. We handle the planning, editing, posting, and ads."),
+   "Not much. On shoot day we come to you and film at your shop, office, or job site. The scripts are a guide, not lines to memorize. You say it your way, in your own words and your own rhythm. Between shoots, film a few stories from the shot list we send and review content when it's ready. We handle the planning, editing, posting, and ads."),
  ]),
  ("Pricing and contracts", [
   ("How much does it cost?",
