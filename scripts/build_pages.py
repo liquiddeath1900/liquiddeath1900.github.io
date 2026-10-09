@@ -22,7 +22,7 @@ CTA = f'''    <section class="py-20 bg-gradient-to-br from-gray-900 via-blue-900
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">{{h}}</h2>
             <p class="text-lg text-gray-300 mb-8">{{p}}</p>
-            <a href="{BOOK}" class="btn-primary btn-shimmer text-white px-8 py-4 rounded-xl text-lg font-bold inline-flex items-center justify-center"><i class="fas fa-calendar-check mr-3"></i>Book a Discovery Call</a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="sms:+13477498146?&body=Hi%20SeamlessFlow%21%20I%20found%20you%20on%20your%20website%20and%20want%20to%20talk%20about%20content%20for%20my%20business.%20My%20business%20is%3A%20" class="text-cta btn-primary btn-shimmer text-white px-8 py-4 rounded-xl text-lg font-bold inline-flex items-center justify-center"><i class="fas fa-comment-dots mr-3"></i>Let's Talk</a></div>
         </div>
     </section>
 '''
@@ -75,12 +75,11 @@ industries_main = f'''    <main id="home">
                 </div>
                 <div class="reveal mt-10 text-center bg-white rounded-2xl border-2 border-dashed border-blue-200 p-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-2">Don't see your industry?</h2>
-                    <p class="text-gray-600 mb-6 max-w-xl mx-auto">We work with any business that's serious about growing. If people buy from you, we can make content that brings them in.</p>
-                    <a href="{BOOK}" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold"><i class="fas fa-calendar-check mr-2"></i>Let's talk about your business</a>
+                    <p class="text-gray-600 max-w-xl mx-auto">We work with any business that's serious about growing. If people buy from you, we can make content that brings them in.</p>
                 </div>
             </div>
         </section>
-''' + CTA.replace("{h}", "Ready to be the name people call?").replace("{p}", "30 minutes. We audit where you stand and show you what content can do for your business.") + "    </main>\n"
+''' + CTA.replace("{h}", "Ready to be the name people call?").replace("{p}", "Text us what you do. We'll get back to you the same day and show you what content can do for your business.") + "    </main>\n"
 
 page("industries.html", "Industries We Work With | SeamlessFlow",
      "Content and ads for roofing, HVAC, plumbing, electrical, remodeling, junk removal, moving, and landscaping companies.",
@@ -159,7 +158,7 @@ about_main = f'''    <main id="home">
                 <div class="reveal"><div class="text-5xl font-extrabold text-blue-600">5</div><p class="text-gray-600 mt-2">Platforms: Instagram, Facebook, TikTok, YouTube, Google</p></div>
             </div>
         </section>
-''' + CTA.replace("{h}", "Let's build your brand.").replace("{p}", "Start with a 30-minute discovery call. We'll audit where you stand and show you the plan.") + "    </main>\n"
+''' + CTA.replace("{h}", "Let's build your brand.").replace("{p}", "Text us what you do. We'll get back to you the same day, audit where you stand, and show you the plan.") + "    </main>\n"
 
 page("about.html", "About SeamlessFlow | Brand Growth Agency in NYC",
      "Over 10 years of social media experience. SeamlessFlow is a NYC brand growth agency that plans, films, posts, and runs ads to bring in customers.",

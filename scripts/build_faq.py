@@ -8,7 +8,7 @@ BOOK = "book-call.html"
 GROUPS = [
  ("Getting started", [
   ("How do we get started?",
-   "Book a discovery call. We learn about your business and goals, then audit your Google profile and social accounts to see where you stand. You get a quote with the right package. Once you approve it, we start onboarding."),
+   "Text or call us. We set up a discovery call, learn about your business and goals, then audit your Google profile and social accounts to see where you stand. You get a quote with the right package. Once you approve it, we start onboarding."),
   ("How fast can we get going?",
    "It depends on your package and what the audit finds. You can see results in as little as 30, 15, or 7 days depending on the package. By results we mean your first videos live and real numbers coming in."),
   ("Do I have to be on camera?",
@@ -90,15 +90,15 @@ main = f'''    <main id="home">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="text-blue-400 font-semibold uppercase tracking-wider text-sm">FAQ</span>
                 <h1 class="text-4xl sm:text-5xl font-extrabold mt-3 mb-4">Questions, answered</h1>
-                <p class="text-lg text-gray-300">The things business owners ask us most. Don't see yours? Ask us on a discovery call.</p>
+                <p class="text-lg text-gray-300">The things business owners ask us most. Don't see yours? Text us.</p>
             </div>
         </section>
         <section class="pb-20 bg-gray-50">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">{body}
                 <div class="mt-14 text-center bg-white rounded-2xl border-2 border-dashed border-blue-200 p-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-2">Still have questions?</h2>
-                    <p class="text-gray-600 mb-6">Book a 30-minute discovery call or call us at <a href="tel:+13477498146" class="text-blue-700 font-semibold">(347) 749-8146</a>.</p>
-                    <a href="{BOOK}" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold"><i class="fas fa-calendar-check mr-2"></i>Book a Discovery Call</a>
+                    <p class="text-gray-600 mb-6">Send us a text and we'll get back to you the same day.</p>
+                    <a href="sms:+13477498146?&body=Hi%20SeamlessFlow%21%20I%20found%20you%20on%20your%20website%20and%20want%20to%20talk%20about%20content%20for%20my%20business.%20My%20business%20is%3A%20" class="text-cta inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold"><i class="fas fa-comment-dots mr-2"></i>Let's Talk</a>
                 </div>
             </div>
         </section>
