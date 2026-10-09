@@ -8,6 +8,7 @@ anchors (#how); every other page gets /#how so links work from anywhere.
 import sys
 
 BOOK = "book-call.html"
+SMS = "sms:+13477498146?&body=Hi%20SeamlessFlow%21%20I%20found%20you%20on%20your%20website%20and%20want%20to%20talk%20about%20content%20for%20my%20business.%20My%20business%20is%3A%20"
 
 INDUSTRIES = [
     ("roofing", "fa-home", "Roofing"),
@@ -66,10 +67,10 @@ def nav(p):
                     </a>
                 </div>
                 <div class="hidden xl:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
+                    <div class="ml-6 flex items-center space-x-2 whitespace-nowrap">
                         <a href="{p}#how" class="text-gray-900 hover:text-blue-600 px-3 py-2">How It Works</a>
                         <div class="relative group">
-                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center whitespace-nowrap">
                                 Industries <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
                             <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -79,7 +80,7 @@ def nav(p):
                         </div>
                         <a href="{p}#packages" class="text-gray-900 hover:text-blue-600 px-3 py-2">Packages</a>
                         <div class="relative group">
-                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center">
+                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center whitespace-nowrap">
                                 Add-Ons <i class="fas fa-chevron-down ml-1 text-sm"></i>
                             </button>
                             <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -88,7 +89,7 @@ def nav(p):
                         </div>
                         <a href="about.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">About</a>
                         <a href="https://seamlessflow-hub.vercel.app/login" class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">Login</a>
-                        <a href="{BOOK}" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all">Book a Call</a>
+                        <a href="{BOOK}" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
                     </div>
                 </div>
                 <div class="xl:hidden absolute right-4" style="z-index: 80;">
@@ -151,11 +152,10 @@ def nav(p):
             <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
                 <i class="fas fa-question-circle mr-3 text-blue-500"></i>FAQ
             </a>
+            <a href="{BOOK}" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
+                <i class="fas fa-envelope mr-3 text-blue-500"></i>Contact
+            </a>
             <div class="pt-4 border-t border-gray-100 mt-4 space-y-3">
-                <a href="{BOOK}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg block text-center font-bold shadow-lg hover:shadow-xl transition-all">
-                    <i class="fas fa-calendar-check mr-2"></i>Book a Discovery Call
-                </a>
-                <a href="tel:+13477498146" class="block text-center text-gray-700 font-semibold py-2"><i class="fas fa-phone mr-2"></i>(347) 749-8146</a>
                 <div class="flex justify-center items-center gap-6 pt-2">
                     <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-pink-500 transition-colors" aria-label="Instagram">
                         <i class="fab fa-instagram text-xl"></i>
@@ -188,15 +188,6 @@ def footer(p):
                             <i class="fas fa-bolt mr-2"></i>
                             <span>Results in as little as 7 days</span>
                         </div>
-                        <div class="flex items-center text-blue-400">
-                            <i class="fas fa-phone mr-2"></i>
-                            <span>(347) 749-8146</span>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <a href="{BOOK}" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-bold text-sm inline-block transition-colors">
-                            <i class="fas fa-calendar-check mr-2"></i>Book a Discovery Call
-                        </a>
                     </div>
                 </div>
 
@@ -221,7 +212,7 @@ def footer(p):
                         <li><a href="industries.html" class="hover:text-white">Industries</a></li>
                         <li><a href="{p}#packages" class="hover:text-white">Packages</a></li>
                         <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
-                        <li><a href="{BOOK}" class="hover:text-white">Book a Discovery Call</a></li>
+                        <li><a href="{BOOK}" class="hover:text-white">Contact us</a></li>
                         <li><a href="https://seamlessflow-hub.vercel.app/login" class="hover:text-white">Client Login</a></li>
                     </ul>
                     <div class="mt-4 space-y-2">
@@ -249,10 +240,6 @@ def footer(p):
                             <i class="fas fa-pen mr-2 text-blue-400"></i>
                             Scripts Written For You
                         </span>
-                        <span class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
-                            NYC Based, We Travel
-                        </span>
                     </div>
                 </div>
                 <div class="flex justify-center gap-6 mb-4">
@@ -267,6 +254,7 @@ def footer(p):
             </div>
         </div>
     </footer>
+    <script>(function(){{var mob=/Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);document.querySelectorAll('a[href^="sms:"]').forEach(function(a){{if(!mob)a.setAttribute('href','book-call.html#contact');a.addEventListener('click',function(){{if(typeof gtag!=='undefined')gtag('event','text_click',{{event_category:'engagement'}});}});}});}})();</script>
     <!-- FOOTER:END -->'''
 
 
