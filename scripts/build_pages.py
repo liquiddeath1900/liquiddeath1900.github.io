@@ -1,4 +1,5 @@
 """Builds industries.html and about.html on the book-call.html shell. Run site_chrome.py after."""
+raise SystemExit("Retired 2026-10-13: the site is now built by scripts/build_ig.py. Running this would overwrite the new pages with the old design.")
 import re
 from site_chrome import INDUSTRIES
 

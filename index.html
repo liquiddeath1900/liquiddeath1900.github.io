@@ -1,70 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-a="assets/">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Favicon Setup -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Done-For-You Content &amp; Ads Agency NYC | SeamlessFlow</title>
+    <meta name="description" content="Done-for-you content and ads agency in NYC. We plan, script, film, edit, post, and run ads on the videos that work. Text us to get started.">
+    <link rel="canonical" href="https://www.seamlessflow.ai/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#007bff">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ffffff">
     <meta name="apple-mobile-web-app-title" content="SeamlessFlow">
-
-    <!-- PERFORMANCE OPTIMIZATIONS -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    
-    <!-- Priority preloads for LCP optimization -->
-    <link rel="preload" as="image" href="assets/website-homelogo.webp" type="image/webp" fetchpriority="high">
-    <link rel="preload" as="image" href="assets/website%20homelogo.png">
-    
-    <!-- Font preload for layout shift prevention -->
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Preload critical font files to prevent FOIT/FOUT -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Done-For-You Content &amp; Ads Agency NYC | SeamlessFlow</title>
-    <meta name="description" content="Done-for-you content and ads agency in NYC. We plan, script, film, edit, post, and run ads on the videos that work. Text us to get started.">
-    <meta name="keywords" content="content marketing agency NYC, social media content agency, short form video agency, done for you content, reels production NYC, social media management and ads">
     <meta property="og:title" content="SeamlessFlow | Content that makes a difference">
     <meta property="og:description" content="Content that makes a difference. Brand growth is what we do best.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.seamlessflow.ai/">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="SeamlessFlow">
     <meta property="og:image" content="https://www.seamlessflow.ai/assets/og-seamlessflow-2026.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta name="twitter:image" content="https://www.seamlessflow.ai/assets/og-seamlessflow-2026.jpg">
-    <meta property="og:site_name" content="SeamlessFlow">
     <meta property="og:image:alt" content="SeamlessFlow: Content that makes a difference. Customers that keep coming.">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SeamlessFlow | Content that makes a difference">
     <meta name="twitter:description" content="Content that makes a difference. Brand growth is what we do best.">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.seamlessflow.ai/">
-
-    <!-- Redirect /index.html to root for SEO consolidation -->
-    <script>
-        if (window.location.pathname === '/index.html') {
-            window.location.replace(window.location.origin + '/');
-        }
-    </script>
-
-    <!-- Schema Markup for LocalBusiness -->
-    <script type="application/ld+json">
-    {
+    <meta name="twitter:image" content="https://www.seamlessflow.ai/assets/og-seamlessflow-2026.jpg">
+    <script>if (location.pathname === '/index.html') location.replace(location.origin + '/');</script>
+    <script type="application/ld+json">{
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "SeamlessFlow",
@@ -87,1390 +50,286 @@
         ]
       },
       "knowsAbout": ["Short-form video", "Content strategy", "Social media marketing", "Paid social ads", "Local SEO"]
-    }
-    </script>
-    
-    <!-- Defer non-critical CSS -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
-    
-    <!-- Load Tailwind CSS immediately (site depends on it) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- CRITICAL CSS - Inline for fastest render -->
-    <style>
-        /* ===== PREMIUM DESIGN SYSTEM ===== */
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --primary-light: #3b82f6;
-            --accent: #0ea5e9;
-            --dark: #0f172a;
-            --dark-mid: #1e293b;
-            --surface: #f8fafc;
-            --text: #334155;
-            --text-dim: #64748b;
-            --radius: 12px;
-            --radius-lg: 20px;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
-            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
-            --shadow-glow: 0 0 40px rgba(37,99,235,0.3);
-        }
-
-        /* Subtle grain texture overlay for depth */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 9999;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        /* ===== NAVIGATION - Glass morphism ===== */
-        nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-            z-index: 60;
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-        nav.scrolled {
-            background: rgba(255,255,255,0.95);
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-        }
-        nav a, nav button { transition: color 0.2s, transform 0.2s; }
-        nav .hidden.md\\:block a:hover, nav .hidden.md\\:block button:hover { transform: translateY(-1px); }
-
-        /* ===== HERO SECTION ===== */
-        .hero-section {
-            position: relative; min-height: 100vh; display: flex;
-            align-items: center; color: white; overflow: hidden;
-            padding-top: 150px; padding-bottom: 80px; /* hero copy stays inside the viewfinder corners */
-        }
-        .hero-video {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; z-index: -2; aspect-ratio: 16/9;
-        }
-        /* ===== HERO REEL WALL (temporary stand-in for hero video) ===== */
-        .hero-section { isolation: isolate; background: radial-gradient(1200px 600px at 80% 20%, #1e3a8a 0%, transparent 60%), radial-gradient(900px 500px at 10% 90%, #0c4a6e 0%, transparent 60%), #0b1120; }
-        .reel-wall { position: absolute; inset: 0; z-index: -2; display: flex; gap: 18px; justify-content: flex-end; padding-right: 4vw; overflow: hidden; transform: rotate(-6deg) scale(1.15); transform-origin: 70% 50%; }
-        .reel-col { display: flex; flex-direction: column; gap: 18px; width: 170px; flex-shrink: 0; align-self: flex-start; animation: reelUp 38s linear infinite; }
-        .reel-col.down { animation-name: reelDown; animation-duration: 46s; }
-        .reel-col.slow { animation-duration: 54s; }
-        @keyframes reelUp { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-        @keyframes reelDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
-        .reel-card { position: relative; flex-shrink: 0; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.08); }
-        .reel-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.55)); }
-        .reel-card .play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; }
-        .reel-card .bar { position: absolute; left: 12px; right: 12px; bottom: 14px; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.25); overflow: hidden; }
-        .reel-card .bar i { display: block; height: 100%; width: 0; background: #fff; animation: watch 6s ease-in-out infinite; }
-        .reel-card .side { position: absolute; right: 10px; bottom: 30px; display: flex; flex-direction: column; gap: 12px; color: rgba(255,255,255,0.9); font-size: 15px; text-align: center; }
-        .reel-card .heart { position: absolute; right: 14px; bottom: 90px; color: #f472b6; opacity: 0; animation: heartPop 5s ease-out infinite; }
-        .reel-card .lines { position: absolute; left: 12px; bottom: 26px; width: 55%; }
-        .reel-card .lines span { display: block; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.55); margin-top: 6px; }
-        .reel-card .lines span + span { width: 70%; background: rgba(255,255,255,0.3); }
-        @keyframes watch { 0% { width: 0; } 80%, 100% { width: 100%; } }
-        @keyframes heartPop { 0%, 55% { opacity: 0; transform: translateY(0) scale(0.6); } 65% { opacity: 1; transform: translateY(-10px) scale(1.15); } 100% { opacity: 0; transform: translateY(-50px) scale(1); } }
-        .g1 { background: linear-gradient(160deg, #1d4ed8, #0ea5e9); } .g2 { background: linear-gradient(160deg, #0f172a, #334155); }
-        .g3 { background: linear-gradient(160deg, #6366f1, #0ea5e9); } .g4 { background: linear-gradient(160deg, #0369a1, #22d3ee); }
-        .g5 { background: linear-gradient(160deg, #1e293b, #2563eb); } .g6 { background: linear-gradient(160deg, #0284c7, #a5b4fc); }
-        .viewfinder { position: absolute; inset: 96px 28px 28px; pointer-events: none; z-index: 0; }
-        .viewfinder i { position: absolute; width: 34px; height: 34px; border-color: rgba(255,255,255,0.55); border-style: solid; }
-        .viewfinder i:nth-child(1) { top: 0; left: 0; border-width: 2px 0 0 2px; } .viewfinder i:nth-child(2) { top: 0; right: 0; border-width: 2px 2px 0 0; }
-        .viewfinder i:nth-child(3) { bottom: 0; left: 0; border-width: 0 0 2px 2px; } .viewfinder i:nth-child(4) { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
-        .rec { position: absolute; top: 14px; right: 18px; display: flex; align-items: center; gap: 8px; font: 600 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; color: rgba(255,255,255,0.85); letter-spacing: 0.08em; }
-        .rec b { width: 10px; height: 10px; border-radius: 50%; background: #ef4444; animation: recBlink 1.2s steps(1) infinite; }
-        @keyframes recBlink { 50% { opacity: 0; } }
-        @media (max-width: 1023px) {
-            .reel-wall { justify-content: center; padding-right: 0; opacity: 0.4; }
-            .reel-col { width: 130px; }
-            .viewfinder { inset: 80px 12px 12px; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .reel-col, .reel-card .bar i, .reel-card .heart, .rec b { animation: none; }
-        }
-        /* ---- Social-feed sections: How it works = profile, First 30 = stories ---- */
-        .ig-profile { background: #fff; border: 1px solid #e5e7eb; border-radius: 28px; padding: 28px; box-shadow: 0 20px 60px rgba(15,23,42,0.06); }
-        .ig-head { display: flex; align-items: center; gap: 22px; padding-bottom: 22px; border-bottom: 1px solid #f1f5f9; }
-        .ig-avatar { width: 84px; height: 84px; border-radius: 50%; padding: 3px; background: conic-gradient(from 200deg, #1d4ed8, #0ea5e9, #6366f1, #22d3ee, #1d4ed8); flex-shrink: 0; }
-        .ig-avatar span { display: flex; width: 100%; height: 100%; border-radius: 50%; border: 3px solid #fff; background: linear-gradient(160deg, #0f172a, #2563eb); color: #fff; align-items: center; justify-content: center; font-weight: 800; font-size: 22px; }
-        .ig-handle { font-weight: 700; color: #0f172a; font-size: 18px; display: flex; align-items: center; gap: 6px; }
-        .ig-handle .fa-circle-check { color: #3b82f6; font-size: 15px; }
-        .ig-stats { display: flex; gap: 22px; margin-top: 6px; color: #475569; font-size: 14px; }
-        .ig-stats b { color: #0f172a; }
-        .ig-label { display: flex; align-items: center; gap: 10px; margin: 24px 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; }
-        .ig-label::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
-        .ig-hl-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-        .ig-hl { text-align: center; }
-        .ig-hl-ring { width: 76px; height: 76px; margin: 0 auto 10px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #1d4ed8, #22d3ee); }
-        .ig-hl-ring span { display: flex; width: 100%; height: 100%; border-radius: 50%; border: 3px solid #fff; background: #eff6ff; color: #1d4ed8; align-items: center; justify-content: center; font-size: 24px; }
-        .ig-hl h3 { font-weight: 700; color: #0f172a; margin-bottom: 4px; }
-        .ig-hl p { color: #4b5563; font-size: 14px; line-height: 1.5; }
-        .ig-tabs { display: flex; justify-content: center; gap: 40px; border-top: 1px solid #e5e7eb; margin-top: 28px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; }
-        .ig-tabs span { padding-top: 12px; margin-top: -1px; }
-        .ig-tabs .on { color: #0f172a; border-top: 2px solid #0f172a; }
-        .ig-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 14px; border-radius: 14px; overflow: hidden; }
-        .ig-post { position: relative; aspect-ratio: 4/5; color: #fff; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
-        .ig-post::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.55)); }
-        .ig-post > * { position: relative; }
-        .ig-post .bg-ic { position: absolute; top: 14px; left: 14px; font-size: 44px; opacity: 0.22; }
-        .ig-post .kind { position: absolute; top: 12px; right: 12px; font-size: 15px; opacity: 0.95; }
-        .ig-post .num { font-size: 12px; font-weight: 800; letter-spacing: 0.08em; opacity: 0.85; }
-        .ig-post h3 { font-weight: 800; font-size: 17px; line-height: 1.2; margin: 2px 0 4px; }
-        .ig-post p { font-size: 13px; line-height: 1.4; color: rgba(255,255,255,0.88); }
-        .ig-post .hover { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 22px; background: rgba(15,23,42,0.55); font-weight: 700; opacity: 0; transition: opacity .2s; }
-        .ig-post:hover .hover { opacity: 1; }
-        .ig-post.loop { background: #f8fafc; color: #0f172a; align-items: center; justify-content: center; text-align: center; }
-        .ig-post.loop::before { display: none; }
-        .ig-post.loop i { color: #2563eb; font-size: 26px; margin-bottom: 10px; }
-        .ig-post.loop .spin { animation: igSpin 3s linear infinite; }
-        @keyframes igSpin { to { transform: rotate(360deg); } }
-
-        .feed-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-        .ig-post > .feed-vid { position: absolute; }
-        .ig-post::before { z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.85)) !important; }
-        .ig-post > *:not(.feed-vid) { z-index: 2; }
-        .ig-post .hover { z-index: 3; }
-        .story::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 22%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.75) 100%); }
-        .story > *:not(.feed-vid) { position: relative; z-index: 2; }
-        .stories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .story { position: relative; aspect-ratio: 9/16; border-radius: 22px; overflow: hidden; color: #fff; padding: 16px 18px 18px; display: flex; flex-direction: column; box-shadow: 0 18px 40px rgba(15,23,42,0.18); }
-        .story-bars { display: flex; gap: 4px; }
-        .story-bars i { flex: 1; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.3); overflow: hidden; position: relative; }
-        .story-bars i.done { background: #fff; }
-        .story-bars i.now::after { content: ''; position: absolute; inset: 0; background: #fff; transform-origin: left; transform: scaleX(0); }
-        .stories.visible .story-bars i.now::after { animation: storyFill 1.6s linear forwards; }
-        .stories.visible .story:nth-child(2) .story-bars i.now::after { animation-delay: .4s; }
-        .stories.visible .story:nth-child(3) .story-bars i.now::after { animation-delay: .8s; }
-        .stories.visible .story:nth-child(4) .story-bars i.now::after { animation-delay: 1.2s; }
-        @keyframes storyFill { to { transform: scaleX(1); } }
-        .story-top { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 13px; font-weight: 600; }
-        .story-top .av { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; background: #0f172a; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; }
-        .story-top em { font-style: normal; opacity: 0.7; font-weight: 500; }
-        .story-body { margin-top: auto; margin-bottom: auto; padding-top: 18px; }
-        .story-wk { display: inline-block; background: #fff; color: #0f172a; font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 8px; transform: rotate(-3deg); margin-bottom: 12px; }
-        .story h3 { font-weight: 800; font-size: 22px; line-height: 1.15; margin-bottom: 10px; }
-        .story p { font-size: 14px; line-height: 1.45; color: rgba(255,255,255,0.92); }
-        .story-reply { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
-        .story-reply span { flex: 1; border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; padding: 8px 14px; font-size: 12px; color: rgba(255,255,255,0.75); }
-        .dm { display: flex; align-items: flex-end; gap: 10px; max-width: 640px; margin: 28px auto 0; }
-        .dm .av { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(160deg, #0f172a, #2563eb); color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .dm p { background: #f1f5f9; color: #334155; border-radius: 20px 20px 20px 6px; padding: 12px 16px; font-size: 14px; line-height: 1.5; }
-        .dm small { display: block; color: #94a3b8; font-size: 11px; margin-top: 6px; }
-
-        @media (max-width: 1023px) {
-            .ig-grid { grid-template-columns: repeat(2, 1fr); }
-            .stories { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -16px; padding: 4px 16px 12px; scrollbar-width: none; }
-            .stories::-webkit-scrollbar { display: none; }
-            .story { flex: 0 0 72%; max-width: 280px; scroll-snap-align: center; }
-        }
-        @media (max-width: 640px) {
-            .ig-profile { padding: 18px; border-radius: 22px; }
-            .ig-head { gap: 14px; }
-            .ig-avatar { width: 64px; height: 64px; }
-            .ig-avatar span { font-size: 17px; }
-            .ig-stats { gap: 14px; font-size: 13px; }
-            .ig-hl-row { grid-template-columns: 1fr; gap: 16px; }
-            .ig-hl { display: flex; gap: 14px; text-align: left; align-items: flex-start; }
-            .ig-hl-ring { width: 60px; height: 60px; margin: 0; flex-shrink: 0; }
-            .ig-hl-ring span { font-size: 19px; }
-            .ig-tabs { gap: 24px; }
-            .ig-post { padding: 12px; }
-            .ig-post h3 { font-size: 15px; }
-            .ig-post p { font-size: 12px; }
-            .ig-post .bg-ic { font-size: 34px; }
-            .ig-post::before { background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.88)) !important; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .ig-post.loop .spin, .stories.visible .story-bars i.now::after { animation: none; }
-            .story-bars i.now::after { transform: scaleX(1); }
-        }
-        .hero-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, rgba(11,17,32,0.96) 0%, rgba(11,17,32,0.82) 42%, rgba(11,17,32,0.15) 100%);
-            z-index: -1;
-        }
-        /* Gradient mesh accent orbs */
-        .hero-section::before {
-            content: ''; position: absolute;
-            width: 600px; height: 600px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
-            top: -200px; right: -100px; z-index: -1;
-            animation: float-orb 8s ease-in-out infinite;
-        }
-        .hero-section::after {
-            content: ''; position: absolute;
-            width: 400px; height: 400px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
-            bottom: -100px; left: -50px; z-index: -1;
-            animation: float-orb 10s ease-in-out infinite reverse;
-        }
-        @keyframes float-orb {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -20px) scale(1.1); }
-        }
-
-        /* Gradient text effect */
-        .gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* CTA shimmer animation */
-        .btn-shimmer {
-            position: relative; overflow: hidden;
-            isolation: isolate; transform: translateZ(0); /* own GPU layer: no repaint flicker over the animated hero */
-        }
-        .btn-shimmer::after {
-            content: ''; position: absolute; pointer-events: none;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: translateX(-100%);
-            will-change: transform;
-            animation: shimmer 4s ease-in-out infinite;
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            40%, 100% { transform: translateX(200%); }
-        }
-        @media (prefers-reduced-motion: reduce) { .btn-shimmer::after { animation: none; } }
-
-        /* ===== BUTTONS - Premium ===== */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white; padding: 14px 28px; border-radius: var(--radius);
-            text-decoration: none; font-weight: 700; display: inline-block;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 16px rgba(37,99,235,0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 24px rgba(37,99,235,0.4);
-        }
-        .btn-secondary {
-            background: rgba(255,255,255,0.1); color: white;
-            border: 2px solid rgba(255,255,255,0.4); padding: 14px 28px;
-            border-radius: var(--radius); text-decoration: none;
-            font-weight: 600; display: inline-block;
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.95); color: var(--primary-dark);
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(255,255,255,0.2);
-        }
-
-        /* ===== SECTION SYSTEM - 8px grid ===== */
-        .section-padding { padding: 96px 0; }
-        .section-title {
-            font-size: clamp(1.6rem, 0.6rem + 4.2vw, 3.25rem); font-weight: 800; text-align: center;
-            margin-bottom: 1rem; letter-spacing: -0.025em; line-height: 1.15;
-        }
-        .section-subtitle {
-            font-size: clamp(1rem, 0.9rem + 0.5vw, 1.2rem); text-align: center; color: var(--text-dim);
-            margin-bottom: 3rem; max-width: 600px;
-            margin-left: auto; margin-right: auto; line-height: 1.6;
-        }
-
-        /* ===== MOBILE MENU - Premium slide-in ===== */
-        #mobile-menu {
-            position: fixed; top: 0; right: 0; bottom: 0;
-            width: 85%; max-width: 380px;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-            box-shadow: -8px 0 32px rgba(0,0,0,0.15);
-            z-index: 70;
-            transform: translateX(100%);
-            opacity: 1; visibility: hidden;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
-            overflow-y: auto;
-            padding-top: 16px;
-        }
-        #mobile-menu.show {
-            transform: translateX(0);
-            visibility: visible;
-        }
-        /* Mobile menu overlay */
-        .mobile-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15,23,42,0.5); z-index: 50;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-        .mobile-overlay.show {
-            opacity: 1; visibility: visible;
-        }
-
-        /* Hamburger Animation */
-        .hamburger {
-            cursor: pointer; width: 28px; height: 24px;
-            position: relative; z-index: 80;
-            transition: all 0.3s ease;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center; gap: 6px;
-            background: none; border: none; padding: 0;
-        }
-        .hamburger span {
-            display: block; height: 2px; width: 100%;
-            background: #374151; border-radius: 2px;
-            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-            position: relative;
-        }
-        .hamburger.active { gap: 0; }
-        .hamburger.active span { position: absolute; top: 50%; left: 0; }
-        .hamburger.active span:nth-child(1) { transform: translateY(-50%) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateY(-50%) scaleX(0); }
-        .hamburger.active span:nth-child(3) { transform: translateY(-50%) rotate(-45deg); }
-
-        /* ===== CARDS - Premium hover ===== */
-        .service-card, .benefit-card {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform;
-        }
-        .service-card:hover, .benefit-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        /* Gradient icon containers */
-        .icon-gradient {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            width: 56px; height: 56px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 12px rgba(37,99,235,0.25);
-        }
-        .icon-gradient i { color: white; }
-        .icon-gradient-purple {
-            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-            box-shadow: 0 4px 12px rgba(139,92,246,0.25);
-        }
-        .icon-gradient-orange {
-            background: linear-gradient(135deg, #f97316, #fb923c);
-            box-shadow: 0 4px 12px rgba(249,115,22,0.25);
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fade-in 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0; transform: translateY(32px);
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.visible {
-            opacity: 1; transform: translateY(0);
-        }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-
-        /* Count-up animation flash */
-        .count-up-animated {
-            transition: color 0.3s;
-        }
-
-        .phone-number {
-            font-size: 1.5rem; font-weight: bold; color: var(--primary);
-        }
-        .urgency-badge {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white; padding: 4px 12px; border-radius: 20px;
-            font-size: 0.875rem; font-weight: 600;
-            display: inline-block; margin-bottom: 1rem;
-        }
-        .trust-badge {
-            display: flex; align-items: center; gap: 8px;
-            font-size: 0.875rem; color: #0284c7; margin-top: 1rem;
-        }
-
-        /* Trust bar in hero */
-        .hero-trust-bar {
-            display: flex; flex-wrap: wrap; justify-content: center;
-            gap: 24px; margin-top: 32px; padding: 16px 24px;
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius);
-        }
-        .hero-trust-bar span {
-            display: flex; align-items: center; gap: 8px;
-            font-size: 0.85rem; color: rgba(255,255,255,0.9);
-            font-weight: 500;
-        }
-        .hero-trust-bar i {
-            color: var(--primary-light); font-size: 0.9rem;
-        }
-
-        /* ===== WHY-US CARDS - Glass effect ===== */
-        #why-us .bg-white {
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(37,99,235,0.08);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        #why-us .bg-white:hover {
-            background: rgba(255,255,255,1);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(37,99,235,0.15);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        /* fluid type: scales with the screen instead of jumping at breakpoints */
-        .hero-section h1 { font-size: clamp(1.75rem, 1rem + 3.75vw, 3.75rem) !important; }
-        .hero-section .hero-content p { font-size: clamp(0.95rem, 0.85rem + 0.55vw, 1.25rem) !important; }
-        @media (max-width: 768px) {
-            .section-padding { padding: 64px 0; }
-            /* keep hero copy inside the viewfinder: clear the REC row on top, the corners at the bottom */
-            .hero-section { padding-top: 124px; padding-bottom: 60px; }
-            .rec { font-size: 11px; top: 12px; right: 14px; }
-            .hero-trust-bar { gap: 16px; padding: 12px 16px; }
-            .hero-trust-bar span { font-size: 0.75rem; }
-        }
-    </style>
+    }</script>
+    <link rel="stylesheet" href="assets/css/ig.css?v=1791928814">
 </head>
-<body>
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-overlay" id="mobile-overlay"></div>
+<body id="top">
 
-    <!-- Navigation Bar -->
-<!-- NAV:START -->
-    <nav class="fixed top-0 w-full z-[60]" id="main-nav">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="flex justify-center xl:justify-between items-center h-16 pr-16 xl:pr-0">
-                <div class="flex items-center">
-                    <a href="#home" class="flex items-center">
-                        <picture>
-                            <source srcset="assets/website-homelogo.webp" type="image/webp">
-                            <img src="assets/website homelogo.png"
-                                 alt="SeamlessFlow.ai"
-                                 class="h-8 sm:h-10"
-                                 width="280"
-                                 height="32"
-                                 fetchpriority="high"
-                                 decoding="async"
-                                 style="width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
-                        </picture>
-                    </a>
-                </div>
-                <div class="hidden xl:block">
-                    <div class="ml-6 flex items-center space-x-2 whitespace-nowrap">
-                        <a href="#how" class="text-gray-900 hover:text-blue-600 px-3 py-2">How It Works</a>
-                        <div class="relative group">
-                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center whitespace-nowrap">
-                                Industries <i class="fas fa-chevron-down ml-1 text-sm"></i>
-                            </button>
-                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <a href="industries.html#roofing" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-home mr-2 text-blue-500"></i>Roofing</a>
-                                <a href="industries.html#hvac" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-fan mr-2 text-blue-500"></i>HVAC</a>
-                                <a href="industries.html#plumbing" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-wrench mr-2 text-blue-500"></i>Plumbing</a>
-                                <a href="industries.html#electrical" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-plug mr-2 text-blue-500"></i>Electrical</a>
-                                <a href="industries.html#remodeling" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-hammer mr-2 text-blue-500"></i>Remodeling + Contractors</a>
-                                <a href="industries.html#junk-removal" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-truck-pickup mr-2 text-blue-500"></i>Junk Removal</a>
-                                <a href="industries.html#moving" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-truck-moving mr-2 text-blue-500"></i>Moving</a>
-                                <a href="industries.html#landscaping" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-leaf mr-2 text-blue-500"></i>Landscaping</a>
-                                <a href="industries.html" class="block px-4 py-2 mt-1 border-t border-gray-100 text-blue-700 font-semibold hover:bg-blue-50">See all industries <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
-                            </div>
-                        </div>
-                        <a href="#packages" class="text-gray-900 hover:text-blue-600 px-3 py-2">Packages</a>
-                        <div class="relative group">
-                            <button class="text-gray-900 hover:text-blue-600 px-3 py-2 flex items-center whitespace-nowrap">
-                                Add-Ons <i class="fas fa-chevron-down ml-1 text-sm"></i>
-                            </button>
-                            <div class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                <a href="#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>Google SEO</a>
-                                <a href="#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-store mr-2 text-blue-500"></i>Google Business Profile</a>
-                                <a href="#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-bolt mr-2 text-blue-500"></i>Lead Follow-Up Automation</a>
-                                <a href="#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-robot mr-2 text-blue-500"></i>AI Chat Assistant</a>
-                                <a href="#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-laptop-code mr-2 text-blue-500"></i>Website Build</a>
-                                <a href="#addons" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"><i class="fas fa-shield-alt mr-2 text-blue-500"></i>Security Audits</a>
-                            </div>
-                        </div>
-                        <a href="about.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">About</a>
-                        <a href="https://seamlessflow-hub.vercel.app/login" class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium">Login</a>
-                        <a href="book-call.html" class="text-gray-900 hover:text-blue-600 px-3 py-2">Contact</a>
-                    </div>
-                </div>
-                <div class="xl:hidden absolute right-4" style="z-index: 80;">
-                    <button class="hamburger" id="mobile-menu-button" aria-label="Toggle mobile menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 9.5l9-7 9 7V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z"/></symbol>
+    <symbol id="i-reels" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8.5h18M8 3l3 5.5M14 3l3 5.5"/><path d="M10 12.2v5l4.2-2.5z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></symbol>
+    <symbol id="i-tagged" viewBox="0 0 24 24"><path d="M12 3l2 2h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5z"/><circle cx="12" cy="11" r="2.5"/><path d="M7.5 18a4.5 4.5 0 0 1 9 0"/></symbol>
+    <symbol id="i-comment" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 17v5M6 17h12l-2-4V5h1V3H7v2h1v8z"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4z"/><path d="M8 2v16M16 6v16"/></symbol>
+    <symbol id="i-mappin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-stack" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-usercheck" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M17 11l2 2 4-4"/></symbol>
+    <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5z"/><rect x="1" y="5" width="15" height="14" rx="2"/></symbol>
+    <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+</svg>
+
+<aside class="side">
+    <a class="side-logo" href="#top" aria-label="SeamlessFlow home"><img class="wm" src="assets/img/wordmark.png" alt="SeamlessFlow.ai" width="565" height="66"><i class="av" aria-hidden="true">SF</i></a>
+    <nav aria-label="Main">
+        <a href="#top" class="cur"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg><span>Home</span></a>
+        <a href="faq.html" aria-label="FAQ"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>FAQ</span></a>
+        <button type="button" data-story="0" aria-label="How it works"><svg class="ic" aria-hidden="true"><use href="#i-reels"/></svg><span>How it works</span></button>
+        <a href="industries.html" aria-label="Industries"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg><span>Industries</span></a>
+        <a href="#talk" aria-label="Messages"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><span>Messages</span></a>
+        <a href="#packages" aria-label="Packages"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg><span>Packages</span></a>
+        <a href="about.html" aria-label="About"><i class="av" aria-hidden="true">SF</i><span>About</span></a>
+        <button class="more" type="button" data-menu aria-label="More"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg><span>More</span></button>
     </nav>
+</aside>
 
-    <!-- Mobile Menu - Premium slide-in (outside nav to avoid z-index stacking context) -->
-    <div id="mobile-menu" class="xl:hidden">
-        <div class="flex justify-end px-6 pt-5 pb-2">
-            <button id="mobile-menu-close" aria-label="Close menu" style="background:none;border:none;cursor:pointer;padding:8px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round">
-                    <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
-                </svg>
-            </button>
-        </div>
-        <div class="px-6 py-4 space-y-1">
-            <a href="https://seamlessflow-hub.vercel.app/login" class="block text-gray-500 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium text-sm border-b border-gray-100 mb-2"><i class="fas fa-sign-in-alt mr-3 text-gray-400"></i>Login</a>
-            <a href="#home" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                <i class="fas fa-home mr-3 text-blue-500"></i>Home
-            </a>
-            <a href="#how" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                <i class="fas fa-video mr-3 text-blue-500"></i>How It Works
-            </a>
-            <!-- Industries Collapsible -->
-            <div class="mobile-dropdown">
-                <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
-                    <span><i class="fas fa-briefcase mr-3 text-blue-500"></i>Industries</span>
-                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
-                </button>
-                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                    <a href="industries.html#roofing" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-home mr-3 text-blue-500"></i>Roofing
-                    </a>
-                    <a href="industries.html#hvac" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-fan mr-3 text-blue-500"></i>HVAC
-                    </a>
-                    <a href="industries.html#plumbing" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-wrench mr-3 text-blue-500"></i>Plumbing
-                    </a>
-                    <a href="industries.html#electrical" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-plug mr-3 text-blue-500"></i>Electrical
-                    </a>
-                    <a href="industries.html#remodeling" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-hammer mr-3 text-blue-500"></i>Remodeling + Contractors
-                    </a>
-                    <a href="industries.html#junk-removal" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-truck-pickup mr-3 text-blue-500"></i>Junk Removal
-                    </a>
-                    <a href="industries.html#moving" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-truck-moving mr-3 text-blue-500"></i>Moving
-                    </a>
-                    <a href="industries.html#landscaping" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-leaf mr-3 text-blue-500"></i>Landscaping
-                    </a>
-                    <a href="industries.html" class="block text-blue-700 font-semibold hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">See all industries</a>
+<div class="wrap">
+<header class="fbar">
+    <button type="button" data-menu aria-label="Menu"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></button>
+    <a href="#top" class="wm-link" aria-label="SeamlessFlow home"><img class="wm" src="assets/img/wordmark.png" alt="SeamlessFlow.ai" width="565" height="66"></a>
+    <a href="#packages" aria-label="Packages"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></a>
+</header>
+
+<main class="shell">
+    <div class="feed">
+
+        <!-- Stories = How it works, one story per step -->
+        <section id="first-30" aria-label="How it works">
+            <p class="sr-label">How it works · tap to watch</p>
+            <div class="sr-wrap">
+            <ol class="sr" id="sr">
+                <li data-n="01" data-week="Week 1" data-once="1" data-v="call"><button type="button" data-story="0" aria-label="Step 01: Discovery call"><span class="ring"><span style="background-image:url(assets/feed/call.jpg)"></span></span><span class="nm">Discovery</span></button><div hidden><h3>Discovery call</h3><p>Who you are, who buys from you, what you want to happen and how fast. Then we recommend the package that fits.</p></div></li>
+                <li data-n="02" data-week="Week 1" data-once="1" data-v="audit"><button type="button" data-story="1" aria-label="Step 02: Full brand audit"><span class="ring"><span style="background-image:url(assets/feed/audit.jpg)"></span></span><span class="nm">Audit</span></button><div hidden><h3>Full brand audit</h3><p>Google Business Profile, Instagram, Facebook, TikTok, YouTube. Are they set up right, active, working for you? We find every gap, then fix or set up what's missing.</p></div></li>
+                <li data-n="03" data-week="Week 1" data-once="1" data-v="roadmap"><button type="button" data-story="2" aria-label="Step 03: Brand roadmap"><span class="ring"><span style="background-image:url(assets/feed/roadmap.jpg)"></span></span><span class="nm">Roadmap</span></button><div hidden><h3>Brand roadmap</h3><p>Where your brand is going and how we get there, built on what the audit found. Every month runs off this plan.</p></div></li>
+                <li data-n="04" data-week="Week 1" data-once="0" data-v="plan"><button type="button" data-story="3" aria-label="Step 04: Content plan for the month"><span class="ring"><span style="background-image:url(assets/feed/plan.jpg)"></span></span><span class="nm">Plan</span></button><div hidden><h3>Content plan for the month</h3><p>Every video mapped out before filming.</p></div></li>
+                <li data-n="05" data-week="Week 2" data-once="0" data-v="scripts"><button type="button" data-story="4" aria-label="Step 05: Scripts + shot list"><span class="ring"><span style="background-image:url(assets/feed/scripts.jpg)"></span></span><span class="nm">Scripts</span></button><div hidden><h3>Scripts + shot list</h3><p>What to say and every shot, ready before shoot day.</p></div></li>
+                <li data-n="06" data-week="Week 2" data-once="0" data-v="shoot"><button type="button" data-story="5" aria-label="Step 06: Shoot day"><span class="ring"><span style="background-image:url(assets/feed/shoot.jpg)"></span></span><span class="nm">Shoot day</span></button><div hidden><h3>Shoot day</h3><p>Scripts in hand, cameras rolling. You talk, we direct. Higher packages move faster.</p></div></li>
+                <li data-n="07" data-week="Week 3" data-once="0" data-v="edit"><button type="button" data-story="6" aria-label="Step 07: Edit"><span class="ring"><span style="background-image:url(assets/feed/edit.jpg)"></span></span><span class="nm">Edit</span></button><div hidden><h3>Edit</h3><p>Cut, captioned, and built to keep people watching.</p></div></li>
+                <li data-n="08" data-week="Week 3" data-once="0" data-v="post"><button type="button" data-story="7" aria-label="Step 08: Post"><span class="ring"><span style="background-image:url(assets/feed/post.jpg)"></span></span><span class="nm">Post</span></button><div hidden><h3>Post</h3><p>On schedule, every platform. You get your story shot list and talking points.</p></div></li>
+                <li data-n="09" data-week="Week 4" data-once="0" data-v="numbers"><button type="button" data-story="8" aria-label="Step 09: Watch the numbers"><span class="ring"><span style="background-image:url(assets/feed/numbers.jpg)"></span></span><span class="nm">Numbers</span></button><div hidden><h3>Watch the numbers</h3><p>Views, watch time, and the calls they bring in.</p></div></li>
+                <li data-n="10" data-week="Week 4" data-once="0" data-v="ads"><button type="button" data-story="9" aria-label="Step 10: Ads on what works"><span class="ring"><span style="background-image:url(assets/feed/ads.jpg)"></span></span><span class="nm">Ads</span></button><div hidden><h3>Ads on what works</h3><p>Ad money only goes behind videos already performing.</p></div></li>
+                <li data-n="11" data-week="Week 4" data-once="0" data-v="wk4"><button type="button" data-story="10" aria-label="Step 11: First report"><span class="ring"><span style="background-image:url(assets/feed/wk4.jpg)"></span></span><span class="nm">Report</span></button><div hidden><h3>First report</h3><p>You get a report showing what worked and what next month looks like. Next month starts from what worked.</p></div></li>
+            </ol>
+            <button class="sr-next" type="button" id="sr-next" aria-label="More steps"><svg class="ic"><use href="#i-right"/></svg></button>
+            </div>
+        </section>
+
+        <!-- Post 1: the hero -->
+        <article class="post" id="home">
+            <div class="post-head"><i class="av" aria-hidden="true">SF</i><span class="who"><b>seamlessflow.ai</b><small>Brand growth agency</small></span><svg class="ic" aria-hidden="true"><use href="#i-dots"/></svg></div>
+            <div class="media">
+                <video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/shoot.jpg" data-src="assets/feed/shoot.mp4" aria-hidden="true"></video>
+                <div class="ov">
+                    <span class="chip">NYC based, available to travel</span>
+                    <h1>Content that makes a difference. <span>Customers that keep coming.</span></h1>
                 </div>
             </div>
-            <a href="#packages" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                <i class="fas fa-layer-group mr-3 text-blue-500"></i>Packages
-            </a>
+            <a class="cta-strip text-cta" href="sms:+13477498146?&body=Hi%20SeamlessFlow%21%20I%20found%20you%20on%20your%20website%20and%20want%20to%20talk%20about%20content%20for%20my%20business.%20My%20business%20is%3A%20">Let's Talk<svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></a>
+            <div class="acts"><button type="button" class="like" aria-label="Like" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button><svg class="ic" aria-hidden="true"><use href="#i-comment"/></svg><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><svg class="ic" aria-hidden="true"><use href="#i-bookmark"/></svg></div>
+            <div class="post-cap"><b>seamlessflow.ai</b> Brand growth is what we do best. Don't waste another month guessing what to post. Let us build your brand and bring the customers to you.
+                <ul class="ph-lines">
+                    <li><svg class="ic"><use href="#i-zap"/></svg>Results in as little as 7 days</li>
+                    <li><svg class="ic"><use href="#i-target"/></svg>Built around your goals</li>
+                    <li><svg class="ic"><use href="#i-trend"/></svg>Real numbers every month</li>
+                </ul>
+                <a class="more" href="#packages">See packages<svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></a>
+            </div>
+        </article>
 
-            <!-- Add-Ons Collapsible -->
-            <div class="mobile-dropdown">
-                <button class="mobile-dropdown-btn w-full text-left text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors flex items-center justify-between">
-                    <span><i class="fas fa-plus-circle mr-3 text-blue-500"></i>Add-Ons</span>
-                    <i class="fas fa-chevron-right transition-transform duration-200"></i>
-                </button>
-                <div class="mobile-dropdown-content pl-6 space-y-1" style="max-height: 0; overflow-y: auto; transition: max-height 0.3s ease;">
-                    <a href="#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Google SEO
-                    </a>
-                    <a href="#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-store mr-3 text-blue-500"></i>Google Business Profile
-                    </a>
-                    <a href="#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-bolt mr-3 text-blue-500"></i>Lead Follow-Up Automation
-                    </a>
-                    <a href="#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-robot mr-3 text-blue-500"></i>AI Chat Assistant
-                    </a>
-                    <a href="#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-laptop-code mr-3 text-blue-500"></i>Website Build
-                    </a>
-                    <a href="#addons" class="block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-2 px-4 rounded-lg transition-colors">
-                        <i class="fas fa-shield-alt mr-3 text-blue-500"></i>Security Audits
-                    </a>
+        <!-- Post 2: the problem, with a comment thread -->
+        <section id="problem">
+        <article class="post">
+                <div class="post-head"><i class="av" aria-hidden="true">SF</i><span class="who"><b>seamlessflow.ai</b><small>The problem</small></span><svg class="ic" aria-hidden="true"><use href="#i-dots"/></svg></div>
+                <div class="post-card"><h2>Social media can be complicated. We show the world how great you are.</h2></div>
+                <div class="acts"><button type="button" class="like" aria-label="Like" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button><svg class="ic" aria-hidden="true"><use href="#i-comment"/></svg><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><svg class="ic" aria-hidden="true"><use href="#i-bookmark"/></svg></div>
+                <p class="post-cap"><b>seamlessflow.ai</b> You're great at what you do. The hard part is getting people to see it, with all the platforms, trends, and numbers to keep up with. That's where we come in.</p>
+                <ul class="cm">
+                    <li>
+                        <i class="av yb" aria-hidden="true">YB</i>
+                        <div><b>yourbusiness</b> <h3>No time to plan</h3><div class="meta" aria-hidden="true">Reply</div></div>
+                        <div class="re"><i class="av" aria-hidden="true">SF</i><p><b>seamlessflow.ai</b><span class="tag">Author</span> Coming up with ideas every week is a job of its own. Most owners post when they remember, then go quiet for a month.</p></div>
+                    </li>
+                    <li>
+                        <i class="av yb" aria-hidden="true">YB</i>
+                        <div><b>yourbusiness</b> <h3>Not sure what to say</h3><div class="meta" aria-hidden="true">Reply</div></div>
+                        <div class="re"><i class="av" aria-hidden="true">SF</i><p><b>seamlessflow.ai</b><span class="tag">Author</span> Standing in front of a camera not knowing what to say feels awkward, and it shows in the video.</p></div>
+                    </li>
+                    <li>
+                        <i class="av yb" aria-hidden="true">YB</i>
+                        <div><b>yourbusiness</b> <h3>No idea what's working</h3><div class="meta" aria-hidden="true">Reply</div></div>
+                        <div class="re"><i class="av" aria-hidden="true">SF</i><p><b>seamlessflow.ai</b><span class="tag">Author</span> Boosting random posts burns money. Without someone watching the numbers, you're guessing.</p></div>
+                    </li>
+                </ul>
+                <div class="addc" aria-hidden="true"><i class="av yb">YB</i>Add a comment…</div>
+            </article>
+        </section>
+
+        <!-- Post 3: why us, a swipe carousel -->
+        <article class="post" id="why">
+            <div class="post-head"><i class="av" aria-hidden="true">SF</i><span class="who"><b>seamlessflow.ai</b><small>Why us</small></span><svg class="ic" aria-hidden="true"><use href="#i-dots"/></svg></div>
+            <div class="car-wrap"><div class="car" tabindex="0" aria-label="Why us, 4 slides"><div class="slide cover img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/w-cover.jpg" data-src="assets/feed/w-cover.mp4" aria-hidden="true"></video><h2>Speed. Results. More clients through the door.</h2><span class="swipe" aria-hidden="true">Swipe <span class="arrows"><svg class="ic"><use href="#i-right"/></svg><svg class="ic"><use href="#i-right"/></svg><svg class="ic"><use href="#i-right"/></svg></span></span></div><div class="slide img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/w-speed.jpg" data-src="assets/feed/w-speed.mp4" aria-hidden="true"></video><span class="n">01</span><h3>Speed</h3><p>Results in as little as 7 days. The faster we start, the faster we find what works and put money behind it.</p></div><div class="slide img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/w-results.jpg" data-src="assets/feed/w-results.mp4" aria-hidden="true"></video><span class="n">02</span><h3>Results</h3><p>We track the calls, bookings, and sales your content brings in. Not just likes.</p></div><div class="slide img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/w-lifting.jpg" data-src="assets/feed/w-lifting.mp4" aria-hidden="true"></video><span class="n">03</span><h3>The heavy lifting</h3><p>Planning, filming, editing, posting, replies, and ads. All handled, so new clients keep coming through the door.</p></div></div><span class="count" aria-hidden="true">1/4</span><button class="car-btn prev" type="button" aria-label="Previous slide"><svg class="ic"><use href="#i-left"/></svg></button><button class="car-btn next" type="button" aria-label="Next slide"><svg class="ic"><use href="#i-right"/></svg></button></div><div class="acts"><button type="button" class="like" aria-label="Like" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button><svg class="ic" aria-hidden="true"><use href="#i-comment"/></svg><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span><svg class="ic" aria-hidden="true"><use href="#i-bookmark"/></svg></div>
+            <p class="post-cap"><b>seamlessflow.ai</b> You run the business. We do the heavy lifting of getting people to call.</p>
+        </article>
+
+        <!-- Post 4: how it works, opens the stories -->
+        <article class="post" id="how">
+            <div class="post-head"><i class="av" aria-hidden="true">SF</i><span class="who"><b>seamlessflow.ai</b><small>How it works</small></span><svg class="ic" aria-hidden="true"><use href="#i-dots"/></svg></div>
+            <div class="media">
+                <video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/edit.jpg" data-src="assets/feed/edit.mp4" aria-hidden="true"></video>
+                <div class="ov">
+                    <h2>Set up once. Then we go to work every month.</h2>
+                    <button class="watch" type="button" data-story="0"><span class="rg" aria-hidden="true"></span>Watch how it works</button>
                 </div>
             </div>
+            <div class="acts"><button type="button" class="like" aria-label="Like" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button><svg class="ic" aria-hidden="true"><use href="#i-comment"/></svg><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><svg class="ic" aria-hidden="true"><use href="#i-bookmark"/></svg></div>
+            <p class="post-cap"><b>seamlessflow.ai</b> We get to know your business, audit everything you have, and map out your brand one time. After that, the same cycle runs every month, and each one gets sharper from what the last one taught us.</p>
+            <p class="post-cap">Leads build month over month as we learn what your customers respond to. We agree on the number that matters to you on day one and report against it.</p>
+        </article>
 
-            <a href="about.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                <i class="fas fa-user mr-3 text-blue-500"></i>About
-            </a>
-            <a href="faq.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                <i class="fas fa-question-circle mr-3 text-blue-500"></i>FAQ
-            </a>
-            <a href="book-call.html" class="block text-gray-800 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg font-medium transition-colors">
-                <i class="fas fa-envelope mr-3 text-blue-500"></i>Contact
-            </a>
-            <div class="pt-4 border-t border-gray-100 mt-4 space-y-3">
-                <div class="flex justify-center items-center gap-6 pt-2">
-                    <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-pink-500 transition-colors" aria-label="Instagram">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@SeamlessflowSEO" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-red-500 transition-colors" aria-label="YouTube">
-                        <i class="fab fa-youtube text-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <!-- Post 5: your part, a swipe carousel -->
+        <article class="post" id="your-part">
+            <div class="post-head"><i class="av" aria-hidden="true">SF</i><span class="who"><b>seamlessflow.ai</b><small>Your part</small></span><svg class="ic" aria-hidden="true"><use href="#i-dots"/></svg></div>
+            <div class="car-wrap"><div class="car" tabindex="0" aria-label="Your part, 5 slides"><div class="slide cover img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/yp-cover.jpg" data-src="assets/feed/yp-cover.mp4" aria-hidden="true"></video><h2>Your part is small. It still matters.</h2><span class="swipe" aria-hidden="true">Swipe <span class="arrows"><svg class="ic"><use href="#i-right"/></svg><svg class="ic"><use href="#i-right"/></svg><svg class="ic"><use href="#i-right"/></svg></span></span></div><div class="slide img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/shoot.jpg" data-src="assets/feed/shoot.mp4" aria-hidden="true"></video><span class="n">01</span><h3>We film where you work</h3><p>A few hours a month at your shop, office, or job site. We bring the plan and the gear.</p></div><div class="slide img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/scripts.jpg" data-src="assets/feed/scripts.mp4" aria-hidden="true"></video><span class="n">02</span><h3>Say it your way</h3><p>We write the talking points. You say them in your own words, at your own pace. We'll coach you through it.</p></div><div class="slide img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/post.jpg" data-src="assets/feed/post.mp4" aria-hidden="true"></video><span class="n">03</span><h3>Film your stories</h3><p>Quick phone clips from the shot list and talking points we send you.</p></div><div class="slide img"><video class="tm feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk3.jpg" data-src="assets/feed/wk3.mp4" aria-hidden="true"></video><span class="n">04</span><h3>Do great work, get the review</h3><p>Take care of every customer and ask the happy ones for a Google review. That's what keeps the growth going.</p></div></div><span class="count" aria-hidden="true">1/5</span><button class="car-btn prev" type="button" aria-label="Previous slide"><svg class="ic"><use href="#i-left"/></svg></button><button class="car-btn next" type="button" aria-label="Next slide"><svg class="ic"><use href="#i-right"/></svg></button></div><div class="acts"><button type="button" class="like" aria-label="Like" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button><svg class="ic" aria-hidden="true"><use href="#i-comment"/></svg><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span><svg class="ic" aria-hidden="true"><use href="#i-bookmark"/></svg></div>
+            <p class="post-cap"><b>seamlessflow.ai</b> Content gets people to call. How you treat them decides whether they come back and tell their friends.</p>
+        </article>
+
+        <!-- Post 6: packages. Swipe the cards; the three prices stay visible underneath. -->
+        <article class="post" id="packages">
+            <div class="post-head"><i class="av" aria-hidden="true">SF</i><span class="who"><b>seamlessflow.ai</b><small>Packages</small></span><svg class="ic" aria-hidden="true"><use href="#i-dots"/></svg></div>
+            <div class="car-wrap"><div class="car" tabindex="0" aria-label="Packages, 3 slides"><div class="slide price t1"><h3>Launch</h3><div class="from">Starting at</div><div class="amt">$3,000<small>/mo</small></div><p class="term">3-month minimum, then month to month</p><p class="fast">See results in as little as 30 days</p><ul><li><svg class="ic"><use href="#i-check"/></svg>8 short-form videos a month</li><li><svg class="ic"><use href="#i-check"/></svg>Half-day shoot every month</li><li><svg class="ic"><use href="#i-check"/></svg>Roadmap, monthly plan, all scripts</li><li><svg class="ic"><use href="#i-check"/></svg>Posting on Instagram, Facebook, TikTok, YouTube</li><li><svg class="ic"><use href="#i-check"/></svg>Boost your top 1–2 videos</li><li><svg class="ic"><use href="#i-check"/></svg>Monthly report</li></ul></div><div class="slide price t2"><span class="pop-badge">Most popular</span><h3>Growth</h3><div class="from">Starting at</div><div class="amt">$4,500<small>/mo</small></div><p class="term">3-month minimum, then month to month</p><p class="fast">See results in as little as 15 days</p><ul><li><svg class="ic"><use href="#i-check"/></svg>12 short-form videos a month</li><li><svg class="ic"><use href="#i-check"/></svg>Full-day shoot every month</li><li><svg class="ic"><use href="#i-check"/></svg>Everything in Launch</li><li><svg class="ic"><use href="#i-check"/></svg>Comment + DM replies, using answers you approve</li><li><svg class="ic"><use href="#i-check"/></svg>Ad campaigns on your best videos</li><li><svg class="ic"><use href="#i-check"/></svg>Report every two weeks</li></ul></div><div class="slide price t3"><h3>Full Service</h3><div class="from">Starting at</div><div class="amt">$6,500<small>/mo</small></div><p class="term">6-month minimum, then month to month</p><p class="fast">See results in as little as 7 days</p><ul><li><svg class="ic"><use href="#i-check"/></svg>20+ short-form videos a month</li><li><svg class="ic"><use href="#i-check"/></svg>Two shoot days, full pro production</li><li><svg class="ic"><use href="#i-check"/></svg>Everything in Growth</li><li><svg class="ic"><use href="#i-check"/></svg>Ads on Instagram, Facebook, TikTok + YouTube</li><li><svg class="ic"><use href="#i-check"/></svg>Google SEO + Business Profile + reviews</li><li><svg class="ic"><use href="#i-check"/></svg>Auto-replies set up, leads sent straight to you</li><li><svg class="ic"><use href="#i-check"/></svg>Weekly report + strategy call</li></ul></div></div><span class="count" aria-hidden="true">1/3</span><button class="car-btn prev" type="button" aria-label="Previous slide"><svg class="ic"><use href="#i-left"/></svg></button><button class="car-btn next" type="button" aria-label="Next slide"><svg class="ic"><use href="#i-right"/></svg></button></div><div class="tiers"><button type="button" class="on"><span>Launch</span><b>$3,000</b></button><button type="button"><span>Growth</span><b>$4,500</b></button><button type="button"><span>Full Service</span><b>$6,500</b></button></div><div class="acts"><button type="button" class="like" aria-label="Like" aria-pressed="false"><svg class="ic"><use href="#i-heart"/></svg></button><svg class="ic" aria-hidden="true"><use href="#i-comment"/></svg><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></span><svg class="ic" aria-hidden="true"><use href="#i-bookmark"/></svg></div>
+            <div class="post-cap"><h2 class="cap-h">Pick how fast you want to move</h2>Every package runs the same monthly cycle. Higher tiers get you results faster, with more videos and more of your marketing handled. All packages are short-form: videos run 30 seconds to 2 minutes.</div>
+            <p class="post-cap"><strong>Long-form and YouTube watch time are priced separately.</strong> That's for brands already past the basics and ready to go full steam on content. We'll scope it on a call.</p>
+            <ul class="cm">
+                <li><i class="av" aria-hidden="true">SF</i><div><b>seamlessflow.ai</b><span class="tag">Pinned</span> <h3><strong>Every client starts with an audit.</strong></h3> We check your Google profile and every social account before we quote. Your final price is set by your market, locations, and shoot volume.</div></li>
+                <li><i class="av" aria-hidden="true">SF</i><div><b>seamlessflow.ai</b><span class="tag">Pinned</span> <h3><strong>One-time onboarding fee.</strong></h3> Set by what the audit finds. Accounts in good shape cost less to start. After the first month, you pay the flat monthly rate.</div></li>
+                <li><i class="av" aria-hidden="true">SF</i><div><b>seamlessflow.ai</b><span class="tag">Pinned</span> <h3><strong>What "results" means.</strong></h3> Your first videos live and real numbers coming in. Ad spend is paid by you, straight to the platform.</div></li>
+            </ul>
+        </article>
     </div>
-    <!-- NAV:END -->
 
-    <!-- Hero -->
-    <section class="hero-section" id="home">
-        <!-- Temporary stand-in for the hero video: a feed of reels. Swap back to <video> when the new edit is ready (assets/hero-explainer.mp4 kept). -->
-        <div class="reel-wall" aria-hidden="true">
-            <div class="reel-col"><div class="reel-card g1"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:0.7s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:0.9s"></i></span></div><div class="reel-card g2"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:1.4s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:1.8s"></i></span></div><div class="reel-card g3"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:2.1s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:2.7s"></i></span></div><div class="reel-card g4"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:2.8s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:3.6s"></i></span></div><div class="reel-card g1"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:3.5s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:4.5s"></i></span></div><div class="reel-card g2"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:4.2s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:5.4s"></i></span></div><div class="reel-card g3"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:4.9s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:6.3s"></i></span></div><div class="reel-card g4"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:5.6s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:7.2s"></i></span></div></div>
-            <div class="reel-col down"><div class="reel-card g5"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:6.3s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:8.1s"></i></span></div><div class="reel-card g6"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:7.0s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:9.0s"></i></span></div><div class="reel-card g1"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:7.7s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:9.9s"></i></span></div><div class="reel-card g2"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:8.4s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:10.8s"></i></span></div><div class="reel-card g5"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:9.1s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:11.7s"></i></span></div><div class="reel-card g6"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:9.8s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:12.6s"></i></span></div><div class="reel-card g1"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:10.5s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:13.5s"></i></span></div><div class="reel-card g2"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:11.2s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:14.4s"></i></span></div></div>
-            <div class="reel-col slow"><div class="reel-card g4"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:11.9s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:15.3s"></i></span></div><div class="reel-card g3"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:12.6s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:16.2s"></i></span></div><div class="reel-card g5"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:13.3s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:17.1s"></i></span></div><div class="reel-card g6"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:14.0s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:18.0s"></i></span></div><div class="reel-card g4"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:14.7s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:18.9s"></i></span></div><div class="reel-card g3"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:15.4s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:19.8s"></i></span></div><div class="reel-card g5"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:16.1s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:20.7s"></i></span></div><div class="reel-card g6"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:16.8s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:21.6s"></i></span></div></div>
-            <div class="reel-col down slow"><div class="reel-card g2"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:17.5s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:22.5s"></i></span></div><div class="reel-card g1"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:18.2s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:23.4s"></i></span></div><div class="reel-card g6"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:18.9s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:24.3s"></i></span></div><div class="reel-card g4"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:19.6s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:25.2s"></i></span></div><div class="reel-card g2"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:20.3s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:26.1s"></i></span></div><div class="reel-card g1"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:21.0s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:27.0s"></i></span></div><div class="reel-card g6"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:21.7s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:27.9s"></i></span></div><div class="reel-card g4"><span class="play"><i class="fas fa-play"></i></span><span class="heart" style="animation-delay:22.4s"><i class="fas fa-heart"></i></span><span class="side"><i class="fas fa-heart"></i><i class="fas fa-comment"></i><i class="fas fa-paper-plane"></i></span><span class="lines"><span></span><span></span></span><span class="bar"><i style="animation-delay:28.8s"></i></span></div></div>
+    <!-- Add-ons: "Suggested for you" (right column on a computer) -->
+    <aside id="addons" class="side-col">
+        <div class="side-me"><i class="av" aria-hidden="true">SF</i><div><b>seamlessflow.ai</b><small>SeamlessFlow</small></div><a href="about.html">About</a></div>
+        <div class="cap">
+            <small>Suggested for you</small>
+            <h2>Need more? Add it on.</h2>
+            <p>Content brings people in. These make sure you catch every one of them.</p>
         </div>
-        <div class="viewfinder" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="rec"><b></b><span id="rec-time">REC 00:00:00</span></span></div>
+        <ul class="sug">
+            <li><div class="ring"><svg class="ic"><use href="#i-mappin"/></svg></div><h3>Google SEO + Business Profile</h3><p>Show up when people search for what you do nearby. Included in Full Service.</p></li>
+            <li><div class="ring"><svg class="ic"><use href="#i-zap"/></svg></div><h3>Lead follow-up automation</h3><p>Missed-call text back and automatic follow-ups so no lead goes cold.</p></li>
+            <li><div class="ring"><svg class="ic"><use href="#i-chat"/></svg></div><h3>AI chat assistant</h3><p>Answers questions and books calls on your site, day or night.</p></li>
+            <li><div class="ring"><svg class="ic"><use href="#i-monitor"/></svg></div><h3>Website build</h3><p>A fast, mobile-first site built to turn viewers into calls.</p></li>
+        </ul>
+    </aside>
 
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content h-full flex items-center w-full">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                    <div class="text-center lg:text-left">
-                        <div class="animate-fade-in" style="animation-delay: 0.1s;">
-                            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold bg-white/10 border border-white/20 backdrop-blur-sm text-blue-300 mb-6">
-                                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                                Brand growth agency
-                            </span>
-                        </div>
-
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-fade-in leading-[1.1] tracking-tight" style="animation-delay: 0.2s;">
-                            Content that makes a difference.<br><span class="gradient-text">Customers that keep coming.</span>
-                        </h1>
-
-                        <p class="text-lg sm:text-xl text-gray-300 mb-8 animate-fade-in max-w-xl leading-relaxed mx-auto lg:mx-0" style="animation-delay: 0.4s;">
-                            Brand growth is what we do best. Don't waste another month guessing what to post. Let us build your brand and bring the customers to you.
-                        </p>
-
-                        <div class="animate-fade-in flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" style="animation-delay: 0.6s;">
-                            <a href="sms:+13477498146?&body=Hi%20SeamlessFlow%21%20I%20found%20you%20on%20your%20website%20and%20want%20to%20talk%20about%20content%20for%20my%20business.%20My%20business%20is%3A%20" class="text-cta btn-primary btn-shimmer text-white px-8 py-4 rounded-xl text-lg font-bold inline-flex items-center justify-center"><i class="fas fa-comment-dots mr-3"></i>Let's Talk</a>
-                            <a href="#packages" class="btn-secondary text-white px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center">
-                                See Packages
-                            </a>
-                        </div>
-
-                        <div class="hero-trust-bar animate-fade-in lg:justify-start mt-8" style="animation-delay: 0.8s;">
-                            <span><i class="fas fa-bolt"></i> Results in as little as 7 days</span>
-                            <span><i class="fas fa-bullseye"></i> Built around your goals</span>
-                            <span><i class="fas fa-chart-line"></i> Real numbers every month</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The problem -->
-    <section id="problem" class="section-padding bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <h2 class="section-title font-extrabold text-gray-900 mb-4">Social media can be complicated.<br class="hidden sm:block"> We show the world how great you are.</h2>
-                <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">You're great at what you do. The hard part is getting people to see it, with all the platforms, trends, and numbers to keep up with. That's where we come in.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="reveal bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                    <i class="fas fa-hourglass-half text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="font-bold text-lg text-gray-900 mb-2">No time to plan</h3>
-                    <p class="text-gray-600">Coming up with ideas every week is a job of its own. Most owners post when they remember, then go quiet for a month.</p>
-                </div>
-                <div class="reveal bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                    <i class="fas fa-video text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="font-bold text-lg text-gray-900 mb-2">Not sure what to say</h3>
-                    <p class="text-gray-600">Standing in front of a camera not knowing what to say feels awkward, and it shows in the video.</p>
-                </div>
-                <div class="reveal bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                    <i class="fas fa-question text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="font-bold text-lg text-gray-900 mb-2">No idea what's working</h3>
-                    <p class="text-gray-600">Boosting random posts burns money. Without someone watching the numbers, you're guessing.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why us: speed, results, heavy lifting -->
-    <section id="why" class="section-padding bg-gray-950 text-white relative overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <h2 class="section-title font-extrabold mb-4">Speed. Results. <span class="gradient-text">More clients through the door.</span></h2>
-                <p class="text-gray-300 max-w-2xl mx-auto text-lg">You run the business. We do the heavy lifting of getting people to call.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7">
-                    <i class="fas fa-bolt text-blue-400 text-2xl mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Speed</h3>
-                    <p class="text-gray-400">Results in as little as 7 days. The faster we start, the faster we find what works and put money behind it.</p>
-                </div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7">
-                    <i class="fas fa-chart-line text-blue-400 text-2xl mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Results</h3>
-                    <p class="text-gray-400">We track the calls, bookings, and sales your content brings in. Not just likes.</p>
-                </div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-7">
-                    <i class="fas fa-dumbbell text-blue-400 text-2xl mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">The heavy lifting</h3>
-                    <p class="text-gray-400">Planning, filming, editing, posting, replies, and ads. All handled, so new clients keep coming through the door.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How it works (styled as a social profile: setup = highlights, monthly cycle = post grid) -->
-    <section id="how" class="section-padding bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">How it works</span>
-                <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">Set up once. Then we go to work every month.</h2>
-                <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">We get to know your business, audit everything you have, and map out your brand one time. After that, the same cycle runs every month, and each one gets sharper from what the last one taught us.</p>
-            </div>
-            <div class="ig-profile reveal">
-                <div class="ig-head">
-                    <div class="ig-avatar" aria-hidden="true"><span>YB</span></div>
-                    <div>
-                        <div class="ig-handle">yourbusiness <i class="fas fa-circle-check" aria-hidden="true"></i></div>
-                        <div class="ig-stats"><span><b>3</b> setup steps</span><span><b>7</b> every month</span><span><b>1</b> plan</span></div>
-                    </div>
-                </div>
-                <div class="ig-label">Once, at the start</div>
-                <div class="ig-hl-row">
-                    <div class="ig-hl"><div class="ig-hl-ring"><span><i class="fas fa-phone"></i></span></div><div><h3>Discovery call</h3><p>Who you are, who buys from you, what you want to happen and how fast. Then we recommend the package that fits.</p></div></div>
-                    <div class="ig-hl"><div class="ig-hl-ring"><span><i class="fas fa-magnifying-glass"></i></span></div><div><h3>Full brand audit</h3><p>Google Business Profile, Instagram, Facebook, TikTok, YouTube. Are they set up right, active, working for you? We find every gap before we start.</p></div></div>
-                    <div class="ig-hl"><div class="ig-hl-ring"><span><i class="fas fa-map"></i></span></div><div><h3>Brand roadmap</h3><p>Where your brand is going and how we get there, built on what the audit found. Every month runs off this plan.</p></div></div>
-                </div>
-                <div class="ig-tabs" aria-hidden="true"><span class="on"><i class="fas fa-table-cells mr-1"></i> Every month</span><span><i class="fas fa-clapperboard mr-1"></i> Reels</span></div>
-                <div class="ig-grid">
-                    <div class="ig-post g2"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/plan.jpg" data-src="assets/feed/plan.mp4" aria-hidden="true"></video><i class="fas fa-images kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">04</div><h3>Content plan for the month</h3><p>Every video mapped out before filming.</p></div>
-                    <div class="ig-post g1"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/scripts.jpg" data-src="assets/feed/scripts.mp4" aria-hidden="true"></video><i class="fas fa-images kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">05</div><h3>Scripts + shot list</h3><p>What to say and every shot, ready before shoot day.</p></div>
-                    <div class="ig-post g3"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/shoot.jpg" data-src="assets/feed/shoot.mp4" aria-hidden="true"></video><i class="fas fa-clapperboard kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">06</div><h3>Shoot day</h3><p>Scripts in hand, cameras rolling. You talk, we direct.</p></div>
-                    <div class="ig-post g5"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/edit.jpg" data-src="assets/feed/edit.mp4" aria-hidden="true"></video><i class="fas fa-clapperboard kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">07</div><h3>Edit</h3><p>Cut, captioned, and built to keep people watching.</p></div>
-                    <div class="ig-post g4"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/post.jpg" data-src="assets/feed/post.mp4" aria-hidden="true"></video><i class="fas fa-clapperboard kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">08</div><h3>Post</h3><p>On schedule, every platform. Plus a story shot list for you.</p></div>
-                    <div class="ig-post g2"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/numbers.jpg" data-src="assets/feed/numbers.mp4" aria-hidden="true"></video><i class="fas fa-images kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">09</div><h3>Watch the numbers</h3><p>Views, watch time, and the calls they bring in.</p></div>
-                    <div class="ig-post g1"><video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/ads.jpg" data-src="assets/feed/ads.mp4" aria-hidden="true"></video><i class="fas fa-clapperboard kind" aria-hidden="true"></i><span class="hover" aria-hidden="true"><span><i class="fas fa-heart"></i></span><span><i class="fas fa-comment"></i></span></span><div class="num">10</div><h3>Ads on what works</h3><p>Ad money only goes behind videos already performing.</p></div>
-                    <div class="ig-post loop"><i class="fas fa-rotate-right spin" aria-hidden="true"></i><h3>Next month starts from what worked</h3></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- First 30 days (styled as stories, one per week) -->
-    <section id="first-30" class="section-padding bg-white overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">Fast start</span>
-                <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">What happens in your first 30 days</h2>
-                <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">You want to see things moving. The faster we get you onboarded, the faster the first videos go out and the sooner we know what to put money behind.</p>
-            </div>
-            <div class="stories reveal">
-                <div class="story g2">
-                    <video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk1.jpg" data-src="assets/feed/wk1.mp4" aria-hidden="true"></video>
-                    <div class="story-bars" aria-hidden="true"><i class="now"></i><i></i><i></i><i></i></div>
-                    <div class="story-top" aria-hidden="true"><span class="av">SF</span>seamlessflow.ai <em>· day 1</em></div>
-                    <div class="story-body"><span class="story-wk">Week 1</span><h3>Discovery call, audit, roadmap</h3><p>We learn your goals, audit every account you have, fix or set up what's missing, and plan the full month of content.</p></div>
-                    <div class="story-reply" aria-hidden="true"><span>Send message</span><i class="fas fa-heart"></i><i class="fas fa-paper-plane"></i></div>
-                </div>
-                <div class="story g1">
-                    <video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk2.jpg" data-src="assets/feed/wk2.mp4" aria-hidden="true"></video>
-                    <div class="story-bars" aria-hidden="true"><i class="done"></i><i class="now"></i><i></i><i></i></div>
-                    <div class="story-top" aria-hidden="true"><span class="av">SF</span>seamlessflow.ai <em>· day 8</em></div>
-                    <div class="story-body"><span class="story-wk">Week 2</span><h3>Shoot day</h3><p>Scripts in hand, we film the month's videos. Higher packages move faster.</p></div>
-                    <div class="story-reply" aria-hidden="true"><span>Send message</span><i class="fas fa-heart"></i><i class="fas fa-paper-plane"></i></div>
-                </div>
-                <div class="story g3">
-                    <video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk3.jpg" data-src="assets/feed/wk3.mp4" aria-hidden="true"></video>
-                    <div class="story-bars" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="now"></i><i></i></div>
-                    <div class="story-top" aria-hidden="true"><span class="av">SF</span>seamlessflow.ai <em>· day 15</em></div>
-                    <div class="story-body"><span class="story-wk">Week 3</span><h3>Videos go live</h3><p>Edited videos start posting on schedule. You get your story shot list and talking points.</p></div>
-                    <div class="story-reply" aria-hidden="true"><span>Send message</span><i class="fas fa-heart"></i><i class="fas fa-paper-plane"></i></div>
-                </div>
-                <div class="story g5">
-                    <video class="feed-vid" muted loop playsinline preload="none" poster="assets/feed/wk4.jpg" data-src="assets/feed/wk4.mp4" aria-hidden="true"></video>
-                    <div class="story-bars" aria-hidden="true"><i class="done"></i><i class="done"></i><i class="done"></i><i class="now"></i></div>
-                    <div class="story-top" aria-hidden="true"><span class="av">SF</span>seamlessflow.ai <em>· day 22</em></div>
-                    <div class="story-body"><span class="story-wk">Week 4</span><h3>First ads + first report</h3><p>The videos that pull ahead get ad money behind them. You get a report showing what worked and what next month looks like.</p></div>
-                    <div class="story-reply" aria-hidden="true"><span>Send message</span><i class="fas fa-heart"></i><i class="fas fa-paper-plane"></i></div>
-                </div>
-            </div>
-            <div class="dm reveal"><span class="av" aria-hidden="true">SF</span><p>Leads build month over month as we learn what your customers respond to. We agree on the number that matters to you on day one and report against it.<small>Seen</small></p></div>
-        </div>
-    </section>
-
-    <!-- Your part -->
-    <section id="your-part" class="section-padding bg-gray-900 text-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <h2 class="section-title font-extrabold mb-4">Your part is small. It still matters.</h2>
-                <p class="text-gray-300 max-w-2xl mx-auto text-lg">Content gets people to call. How you treat them decides whether they come back and tell their friends.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-user-check text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">We film where you work</h3><p class="text-gray-400 text-sm">A few hours a month at your shop, office, or job site. We bring the plan and the gear.</p></div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-comment-dots text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Say it your way</h3><p class="text-gray-400 text-sm">We write the talking points. You say them in your own words, at your own pace. We'll coach you through it.</p></div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-mobile-alt text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Film your stories</h3><p class="text-gray-400 text-sm">Quick phone clips from the shot list and talking points we send you.</p></div>
-                <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6"><i class="fas fa-star text-blue-400 text-xl mb-3"></i><h3 class="font-bold mb-1">Do great work, get the review</h3><p class="text-gray-400 text-sm">Take care of every customer and ask the happy ones for a Google review. That's what keeps the growth going.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Packages teaser -->
-    <section id="packages" class="section-padding bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">Packages</span>
-                <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">Pick how fast you want to move</h2>
-                <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">Every package runs the same monthly cycle. Higher tiers get you results faster, with more videos and more of your marketing handled. All packages are short-form: videos run 30 seconds to 2 minutes.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-                <div class="reveal bg-white rounded-2xl p-7 border border-gray-200 flex flex-col">
-                    <h3 class="font-bold text-xl text-gray-900">Launch</h3>
-                    <div class="mt-3 text-xs font-semibold uppercase tracking-wider text-gray-400">Starting at</div>
-                    <div class="mb-1"><span class="text-4xl font-extrabold text-gray-900">$3,000</span><span class="text-gray-500">/mo</span></div>
-                    <p class="text-xs font-semibold text-blue-600 mb-1">3-month minimum, then month to month</p>
-                    <p class="text-sm text-gray-500 mb-5">See results in as little as 30 days</p>
-                    <ul class="space-y-2 text-gray-700 text-sm flex-1">
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>8 short-form videos a month</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Half-day shoot every month</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Roadmap, monthly plan, all scripts</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Posting on Instagram, Facebook, TikTok, YouTube</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Boost your top 1–2 videos</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Monthly report</li>
-                    </ul>
-                </div>
-                <div class="reveal bg-white rounded-2xl p-7 border-2 border-blue-600 shadow-lg flex flex-col relative">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Most popular</span>
-                    <h3 class="font-bold text-xl text-gray-900">Growth</h3>
-                    <div class="mt-3 text-xs font-semibold uppercase tracking-wider text-gray-400">Starting at</div>
-                    <div class="mb-1"><span class="text-4xl font-extrabold text-gray-900">$4,500</span><span class="text-gray-500">/mo</span></div>
-                    <p class="text-xs font-semibold text-blue-600 mb-1">3-month minimum, then month to month</p>
-                    <p class="text-sm text-gray-500 mb-5">See results in as little as 15 days</p>
-                    <ul class="space-y-2 text-gray-700 text-sm flex-1">
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>12 short-form videos a month</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Full-day shoot every month</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Everything in Launch</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Comment + DM replies, using answers you approve</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Ad campaigns on your best videos</li>
-                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Report every two weeks</li>
-                    </ul>
-                </div>
-                <div class="reveal bg-gray-900 text-white rounded-2xl p-7 flex flex-col">
-                    <h3 class="font-bold text-xl">Full Service</h3>
-                    <div class="mt-3 text-xs font-semibold uppercase tracking-wider text-gray-400">Starting at</div>
-                    <div class="mb-1"><span class="text-4xl font-extrabold">$6,500</span><span class="text-gray-400">/mo</span></div>
-                    <p class="text-xs font-semibold text-blue-400 mb-1">6-month minimum, then month to month</p>
-                    <p class="text-sm text-gray-400 mb-5">See results in as little as 7 days</p>
-                    <ul class="space-y-2 text-gray-200 text-sm flex-1">
-                        <li><i class="fas fa-check text-blue-400 mr-2"></i>20+ short-form videos a month</li>
-                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Two shoot days, full pro production</li>
-                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Everything in Growth</li>
-                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Ads on Instagram, Facebook, TikTok + YouTube</li>
-                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Google SEO + Business Profile + reviews</li>
-                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Auto-replies set up, leads sent straight to you</li>
-                        <li><i class="fas fa-check text-blue-400 mr-2"></i>Weekly report + strategy call</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="reveal mt-6 text-center text-sm text-gray-600 max-w-2xl mx-auto"><i class="fas fa-film text-blue-600 mr-2"></i><strong class="text-gray-900">Long-form and YouTube watch time are priced separately.</strong> That's for brands already past the basics and ready to go full steam on content. We'll scope it on a call.</p>
-            <div class="reveal mt-8 bg-white rounded-2xl border border-gray-200 p-6 sm:p-7 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-600">
-                <div><h3 class="font-bold text-gray-900 mb-1"><i class="fas fa-search text-blue-600 mr-2"></i>Every client starts with an audit</h3><p>We check your Google profile and every social account before we quote. Your final price is set by your market, locations, and shoot volume.</p></div>
-                <div><h3 class="font-bold text-gray-900 mb-1"><i class="fas fa-tools text-blue-600 mr-2"></i>One-time onboarding fee</h3><p>Set by what the audit finds. Accounts in good shape cost less to start. After the first month, you pay the flat monthly rate.</p></div>
-                <div><h3 class="font-bold text-gray-900 mb-1"><i class="fas fa-bolt text-blue-600 mr-2"></i>What "results" means</h3><p>Your first videos live and real numbers coming in. Ad spend is paid by you, straight to the platform.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Add-ons -->
-    <section id="addons" class="section-padding bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">Add-ons</span>
-                <h2 class="section-title font-extrabold text-gray-900 mt-2 mb-4">Need more? Add it on.</h2>
-                <p class="section-subtitle text-gray-600 max-w-2xl mx-auto">Content brings people in. These make sure you catch every one of them.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="reveal bg-gray-50 rounded-2xl p-6 border border-gray-100"><i class="fas fa-map-marker-alt text-blue-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Google SEO + Business Profile</h3><p class="text-gray-600 text-sm">Show up when people search for what you do nearby. Included in Full Service.</p></div>
-                <div class="reveal bg-gray-50 rounded-2xl p-6 border border-gray-100"><i class="fas fa-bolt text-blue-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Lead follow-up automation</h3><p class="text-gray-600 text-sm">Missed-call text back and automatic follow-ups so no lead goes cold.</p></div>
-                <div class="reveal bg-gray-50 rounded-2xl p-6 border border-gray-100"><i class="fas fa-robot text-blue-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">AI chat assistant</h3><p class="text-gray-600 text-sm">Answers questions and books calls on your site, day or night.</p></div>
-                <div class="reveal bg-gray-50 rounded-2xl p-6 border border-gray-100"><i class="fas fa-laptop-code text-blue-600 text-xl mb-3"></i><h3 class="font-bold text-gray-900 mb-1">Website build</h3><p class="text-gray-600 text-sm">A fast, mobile-first site built to turn viewers into calls.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-            <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Let's find out what you want to build.</h2>
-            <p class="text-lg text-gray-300 mb-8">Text us what you do and what you want out of it. We'll get back to you the same day and tell you which package fits and why.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="sms:+13477498146?&body=Hi%20SeamlessFlow%21%20I%20found%20you%20on%20your%20website%20and%20want%20to%20talk%20about%20content%20for%20my%20business.%20My%20business%20is%3A%20" class="text-cta btn-primary btn-shimmer text-white px-8 py-4 rounded-xl text-lg font-bold inline-flex items-center justify-center"><i class="fas fa-comment-dots mr-3"></i>Let's Talk</a>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-<!-- FOOTER:START -->
-    <footer class="bg-gray-950 text-white py-16 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 md:gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">SeamlessFlow.ai</h3>
-                    <p class="text-gray-300 mb-4">Brand growth through content that makes a difference.</p>
-                    <div class="space-y-2 text-sm">
-                        <div class="flex items-center text-blue-400">
-                            <i class="fas fa-bolt mr-2"></i>
-                            <span>Results in as little as 7 days</span>
+    <!-- Last post: the DM thread. The message box is the button. -->
+    <section id="talk" class="talk">
+        <div class="dm">
+                <div class="dm-head"><i class="av lg" aria-hidden="true">SF</i><div><b>seamlessflow.ai</b><small>Replies the same day</small></div></div>
+                <div class="dm-body">
+                    <div class="day" aria-hidden="true">Today</div>
+                    <div class="from">
+                        <i class="av" aria-hidden="true">SF</i>
+                        <div class="stack">
+                            <div class="bubble"><h2>Let's find out what you want to build.</h2></div>
+                            <p class="bubble">Text us what you do and what you want out of it. We'll get back to you the same day and tell you which package fits and why.</p>
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    <h4 class="font-bold mb-4">What We Do</h4>
-                    <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="#how" class="hover:text-white">Discovery Call + Brand Audit</a></li>
-                        <li><a href="#how" class="hover:text-white">Content Plans + Scripts</a></li>
-                        <li><a href="#how" class="hover:text-white">Shoot Days + Editing</a></li>
-                        <li><a href="#how" class="hover:text-white">Posting + Analytics</a></li>
-                        <li><a href="#how" class="hover:text-white">Ads on Proven Content</a></li>
-                        <li><a href="#first-30" class="hover:text-white">Your First 30 Days</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-4">Add-Ons</h4>
-                    <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="#addons" class="hover:text-white">Google SEO</a></li>
-                        <li><a href="#addons" class="hover:text-white">Google Business Profile</a></li>
-                        <li><a href="#addons" class="hover:text-white">Lead Follow-Up Automation</a></li>
-                        <li><a href="#addons" class="hover:text-white">AI Chat Assistant</a></li>
-                        <li><a href="#addons" class="hover:text-white">Website Build</a></li>
-                        <li><a href="#addons" class="hover:text-white">Security Audits</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold mb-4">Company</h4>
-                    <ul class="space-y-2 text-gray-300 text-sm">
-                        <li><a href="about.html" class="hover:text-white">About Us</a></li>
-                        <li><a href="industries.html" class="hover:text-white">Industries</a></li>
-                        <li><a href="#packages" class="hover:text-white">Packages</a></li>
-                        <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
-                        <li><a href="book-call.html" class="hover:text-white">Contact us</a></li>
-                        <li><a href="https://seamlessflow-hub.vercel.app/login" class="hover:text-white">Client Login</a></li>
-                    </ul>
-                    <div class="mt-4 space-y-2">
-                        <a href="tel:+13477498146" class="flex items-center text-gray-300 hover:text-white">
-                            <i class="fas fa-phone mr-2"></i>
-                            <span class="font-bold">(347) 749-8146</span>
-                        </a>
-                        <a href="mailto:info@seamlessflow.ai" class="flex items-center text-gray-300 hover:text-white">
-                            <i class="fas fa-envelope mr-2"></i>
-                            <span class="text-sm">info@seamlessflow.ai</span>
-                        </a>
-                        <p class="flex items-center text-gray-400 text-sm"><i class="fas fa-map-marker-alt mr-2"></i>NYC based, available to travel</p>
-                    </div>
-                </div>
+                <a class="composer text-cta" href="sms:+13477498146?&body=Hi%20SeamlessFlow%21%20I%20found%20you%20on%20your%20website%20and%20want%20to%20talk%20about%20content%20for%20my%20business.%20My%20business%20is%3A%20">
+                    <span aria-hidden="true">Message…</span>
+                    <span class="send">Let's Talk<svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></span>
+                </a>
             </div>
+    </section>
+</main>
 
-            <div class="border-t border-gray-700 pt-8 mt-8">
-                <div class="text-center text-gray-300 mb-4">
-                    <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
-                        <span class="flex items-center">
-                            <i class="fas fa-video mr-2 text-blue-400"></i>
-                            Shoot, Edit, Post, Ads
-                        </span>
-                        <span class="flex items-center">
-                            <i class="fas fa-pen mr-2 text-blue-400"></i>
-                            Scripts Written For You
-                        </span>
-                    </div>
-                </div>
-                <div class="flex justify-center gap-6 mb-4">
-                    <a href="https://linkedin.com/company/seamlessflow" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
-                    <a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="https://www.youtube.com/@SeamlessflowSEO" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="YouTube"><i class="fab fa-youtube text-xl"></i></a>
-                    <a href="https://x.com/seamlessflowai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="X"><i class="fab fa-x-twitter text-xl"></i></a>
-                </div>
-                <div class="text-center text-gray-400 text-sm">
-                    <p>&copy; 2026 SeamlessFlow.ai. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white">Terms of Service</a> | <a href="cookies-policy.html" class="hover:text-white">Cookies Policy</a></p>
-                </div>
-            </div>
+<footer>
+    <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="book-call.html">Contact us</a></li>
+        <li><a href="https://seamlessflow-hub.vercel.app/login">Client Login</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="terms-of-service.html">Terms</a></li>
+        <li><a href="cookies-policy.html">Cookies</a></li>
+    </ul>
+    <ul>
+        <li><a href="tel:+13477498146">(347) 749-8146</a></li>
+        <li><a href="mailto:info@seamlessflow.ai">info@seamlessflow.ai</a></li>
+        <li><a href="https://instagram.com/seamlessflow.ai" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.youtube.com/@SeamlessflowSEO" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        <li><a href="https://linkedin.com/company/seamlessflow" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://x.com/seamlessflowai" target="_blank" rel="noopener noreferrer">X</a></li>
+    </ul>
+    <p>&copy; 2026 SeamlessFlow.ai · NYC based, available to travel</p>
+</footer>
+</div>
+
+<nav class="pill" aria-label="Quick links">
+    <a href="#top" class="cur" aria-label="Home"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg></a>
+    <button type="button" data-story="0" aria-label="How it works"><svg class="ic" aria-hidden="true"><use href="#i-reels"/></svg></button>
+    <a href="#talk" aria-label="Messages"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></a>
+    <a href="faq.html" aria-label="FAQ"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></a>
+    <a href="about.html" aria-label="About"><i class="av" aria-hidden="true">SF</i></a>
+</nav>
+
+<dialog class="sv" id="sv" aria-label="How it works">
+    <div class="sv-in">
+        <div class="sv-bg" id="sv-bg"></div>
+        <div class="sv-bars" id="sv-bars" aria-hidden="true"></div>
+        <div class="sv-top"><i class="av" aria-hidden="true">SF</i><span>seamlessflow.ai <em id="sv-week"></em></span><button type="button" id="sv-close" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button></div>
+        <div class="sv-mid" aria-live="polite">
+            <div class="sv-media"><video id="sv-vid" muted loop playsinline></video></div>
+            <div class="sv-txt"><span class="sv-tag" id="sv-tag"></span><h3 id="sv-title"></h3><p id="sv-text"></p></div>
         </div>
-    </footer>
-    <script>(function(){var mob=/Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);document.querySelectorAll('a[href^="sms:"]').forEach(function(a){if(!mob)a.setAttribute('href','book-call.html#contact');a.addEventListener('click',function(){if(typeof gtag!=='undefined')gtag('event','text_click',{event_category:'engagement'});});});})();</script>
-    <!-- FOOTER:END -->
+        <button class="sv-tap prev" type="button" id="sv-prev" aria-label="Previous step"></button>
+        <button class="sv-tap next" type="button" id="sv-next" aria-label="Next step"></button>
+        <div class="sv-reply"><a class="text-cta" href="sms:+13477498146?&body=Hi%20SeamlessFlow%21%20I%20found%20you%20on%20your%20website%20and%20want%20to%20talk%20about%20content%20for%20my%20business.%20My%20business%20is%3A%20">Send message</a><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></div>
+    </div>
+</dialog>
 
-    <!-- JavaScript -->
-    <script>
-        // Calendar booking function
-        function openCalendarBooking() {
-            window.location.href = 'book-call.html';
-        }
+<dialog class="sheet" id="menu" aria-label="Menu">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="industries.html">Industries</a>
+    <a href="faq.html">FAQ</a>
+    <a href="book-call.html">Contact us</a>
+    <a href="https://seamlessflow-hub.vercel.app/login">Client Login</a>
+    <button type="button" data-close>Cancel</button>
+</dialog>
 
-        // Smooth scrolling function (shared by desktop and mobile)
-        function smoothScrollToSection(targetHref) {
-            const target = document.querySelector(targetHref);
-            if (target) {
-                const nav = document.querySelector('nav');
-                const navHeight = nav ? nav.offsetHeight : 64; // h-16 = 64px
-                const extraPadding = 20; // Better padding for section positioning
-                const targetPosition = target.offsetTop - navHeight - extraPadding;
-                
-                window.scrollTo({
-                    top: Math.max(0, targetPosition), // Don't scroll to negative position
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        // Desktop navigation smooth scrolling (exclude mobile menu links)
-        document.querySelectorAll('nav a[href^="#"]:not(#mobile-menu a)').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                smoothScrollToSection(this.getAttribute('href'));
-            });
-        });
-
-        // Track phone number clicks
-        document.querySelectorAll('a[href^="tel:"], .phone-number').forEach(element => {
-            element.addEventListener('click', function() {
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'phone_click', {
-                        'event_category': 'engagement',
-                        'event_label': 'phone_number'
-                    });
-                }
-            });
-        });
-
-        // Mobile menu toggle - Premium slide-in
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburger = this;
-                const overlay = document.getElementById('mobile-overlay');
-
-                const chatToggle = document.querySelector('.chat-toggle');
-                if (mobileMenu && mobileMenu.classList.contains('show')) {
-                    mobileMenu.classList.remove('show');
-                    hamburger.classList.remove('active');
-                    if (overlay) overlay.classList.remove('show');
-                    if (chatToggle) chatToggle.style.display = '';
-                } else if (mobileMenu) {
-                    mobileMenu.classList.add('show');
-                    hamburger.classList.add('active');
-                    if (overlay) overlay.classList.add('show');
-                    if (chatToggle) chatToggle.style.display = 'none';
-                }
-            });
-        }
-
-        // Mobile menu close button (X inside slide-in panel)
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        if (mobileMenuClose) {
-            mobileMenuClose.addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburger = document.getElementById('mobile-menu-button');
-                const overlay = document.getElementById('mobile-overlay');
-                if (mobileMenu) mobileMenu.classList.remove('show');
-                if (hamburger) hamburger.classList.remove('active');
-                if (overlay) overlay.classList.remove('show');
-                const chatToggle = document.querySelector('.chat-toggle');
-                if (chatToggle) chatToggle.style.display = '';
-            });
-        }
-
-        // Mobile menu link clicks - close menu and scroll
-        document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburger = document.getElementById('mobile-menu-button');
-                const overlay = document.getElementById('mobile-overlay');
-                if (mobileMenu) mobileMenu.classList.remove('show');
-                if (hamburger) hamburger.classList.remove('active');
-                if (overlay) overlay.classList.remove('show');
-                const chatToggle = document.querySelector('.chat-toggle');
-                if (chatToggle) chatToggle.style.display = '';
-                smoothScrollToSection(this.getAttribute('href'));
-            });
-        });
-
-        // Hide mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileButton = document.getElementById('mobile-menu-button');
-            const overlay = document.getElementById('mobile-overlay');
-            if (mobileMenu && mobileButton && !mobileMenu.contains(e.target) && !mobileButton.contains(e.target) && mobileMenu.classList.contains('show')) {
-                mobileMenu.classList.remove('show');
-                mobileButton.classList.remove('active');
-                if (overlay) overlay.classList.remove('show');
-                const chatToggle = document.querySelector('.chat-toggle');
-                if (chatToggle) chatToggle.style.display = '';
-            }
-        });
-
-        // Mobile dropdown toggle functionality
-        document.querySelectorAll('.mobile-dropdown-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const dropdown = this.closest('.mobile-dropdown');
-                const content = dropdown.querySelector(':scope > .mobile-dropdown-content');
-                const icon = this.querySelector('.fa-chevron-right');
-
-                // Toggle this dropdown
-                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                    content.style.maxHeight = '0px';
-                    if (icon) icon.style.transform = 'rotate(0deg)';
-
-                    // Close all nested dropdowns
-                    content.querySelectorAll('.mobile-dropdown-content').forEach(nested => {
-                        nested.style.maxHeight = '0px';
-                    });
-                    content.querySelectorAll('.fa-chevron-right').forEach(nestedIcon => {
-                        nestedIcon.style.transform = 'rotate(0deg)';
-                    });
-                } else {
-                    // Calculate total height including nested content
-                    const calculateHeight = (element) => {
-                        let totalHeight = 0;
-                        Array.from(element.children).forEach(child => {
-                            totalHeight += child.offsetHeight;
-                            const nestedContent = child.querySelector('.mobile-dropdown-content');
-                            if (nestedContent && nestedContent.style.maxHeight && nestedContent.style.maxHeight !== '0px') {
-                                totalHeight += parseInt(nestedContent.style.maxHeight);
-                            }
-                        });
-                        return totalHeight;
-                    };
-
-                    content.style.maxHeight = calculateHeight(content) + 500 + 'px'; // Extra space for nested dropdowns
-                    if (icon) icon.style.transform = 'rotate(90deg)';
-
-                    // Update parent dropdown heights when nested dropdowns open
-                    const updateParentHeights = () => {
-                        let parent = dropdown.closest('.mobile-dropdown-content');
-                        while (parent) {
-                            const parentDropdown = parent.closest('.mobile-dropdown');
-                            if (parentDropdown) {
-                                parent.style.maxHeight = calculateHeight(parent) + 500 + 'px';
-                                parent = parentDropdown.closest('.mobile-dropdown-content');
-                            } else {
-                                break;
-                            }
-                        }
-                    };
-                    updateParentHeights();
-                }
-            });
-        });
-
-        // === PREMIUM: Nav glass effect on scroll ===
-        const mainNav = document.getElementById('main-nav');
-        if (mainNav) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 40) {
-                    mainNav.classList.add('scrolled');
-                } else {
-                    mainNav.classList.remove('scrolled');
-                }
-            }, { passive: true });
-        }
-
-        // === PREMIUM: Mobile overlay toggle ===
-        const mobileOverlay = document.getElementById('mobile-overlay');
-        if (mobileOverlay) {
-            mobileOverlay.addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburger = document.getElementById('mobile-menu-button');
-                if (mobileMenu) mobileMenu.classList.remove('show');
-                if (hamburger) hamburger.classList.remove('active');
-                mobileOverlay.classList.remove('show');
-                const chatToggle = document.querySelector('.chat-toggle');
-                if (chatToggle) chatToggle.style.display = '';
-            });
-        }
-
-        // Hero REC timecode
-        (function () {
-            const el = document.getElementById('rec-time');
-            if (!el) return;
-            const start = Date.now();
-            const pad = n => String(n).padStart(2, '0');
-            setInterval(() => {
-                const s = Math.floor((Date.now() - start) / 1000);
-                el.textContent = 'REC ' + pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60) + ':' + pad(s % 60);
-            }, 1000);
-        })();
-
-        // === PREMIUM: Scroll reveal with Intersection Observer ===
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // === PREMIUM: Count-up animation on scroll ===
-        const countObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.count-up').forEach(counter => {
-                        const text = counter.textContent.trim();
-                        const match = text.match(/^([<>$]?)(\d+(?:\.\d+)?)(.*)$/);
-                        if (!match) return;
-                        const prefix = match[1], target = parseFloat(match[2]), suffix = match[3];
-                        const isFloat = text.includes('.');
-                        const duration = 1600;
-                        const start = performance.now();
-                        counter.classList.add('count-up-animated');
-                        const animate = (now) => {
-                            const elapsed = now - start;
-                            const progress = Math.min(elapsed / duration, 1);
-                            const eased = 1 - Math.pow(1 - progress, 3);
-                            const current = eased * target;
-                            counter.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
-                            if (progress < 1) requestAnimationFrame(animate);
-                            else counter.textContent = prefix + (isFloat ? target.toFixed(1) : target) + suffix;
-                        };
-                        requestAnimationFrame(animate);
-                    });
-                    countObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        document.querySelectorAll('.count-up').forEach(el => {
-            const section = el.closest('section') || el.closest('div');
-            if (section && !section.dataset.countObserved) {
-                section.dataset.countObserved = 'true';
-                countObserver.observe(section);
-            }
-        });
-
-        // Lazy load hero video after page load, then force autoplay (mobile needs explicit play())
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('hero-video');
-            if (!video) return;
-            const source = video.querySelector('source[data-src]');
-            if (!source) return;
-
-            video.muted = true;
-            video.playsInline = true;
-            video.setAttribute('muted', '');
-            video.setAttribute('playsinline', '');
-
-            const tryPlay = () => {
-                const p = video.play();
-                if (p && typeof p.catch === 'function') {
-                    p.catch(() => {
-                        // iOS sometimes blocks until first touch; retry on first interaction
-                        const resume = () => { video.play().catch(() => {}); };
-                        document.addEventListener('touchstart', resume, { once: true, passive: true });
-                        document.addEventListener('click', resume, { once: true });
-                    });
-                }
-            };
-
-            source.src = source.dataset.src;
-            video.load();
-            if (video.readyState >= 2) tryPlay();
-            else video.addEventListener('loadeddata', tryPlay, { once: true });
-        });
-    </script>
-
-
-    <!-- Feed clips: load + play only while on screen; posters only for reduced motion -->
-    <script>
-    (function () {
-        const vids = document.querySelectorAll('.feed-vid');
-        if (!vids.length || !('IntersectionObserver' in window)) return;
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(({ target: v, isIntersecting }) => {
-                if (isIntersecting) {
-                    if (!v.src) v.src = v.dataset.src;
-                    v.play().catch(() => {});
-                } else if (v.src) v.pause();
-            });
-        }, { rootMargin: '200px 0px' });
-        vids.forEach(v => io.observe(v));
-    })();
-    </script>
-    <!-- Case Study Stats Animation (Lazy Load) -->
-    <script>
-        // Animated counters + bar charts with Intersection Observer
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Animate counters
-                    entry.target.querySelectorAll('.stat-number').forEach(counter => {
-                        const target = parseInt(counter.dataset.target);
-                        const suffix = counter.dataset.suffix || '';
-                        const duration = 2000;
-                        const increment = target / (duration / 16);
-                        let current = 0;
-                        const updateCounter = () => {
-                            current += increment;
-                            if (current < target) {
-                                counter.textContent = Math.floor(current) + suffix;
-                                requestAnimationFrame(updateCounter);
-                            } else {
-                                counter.textContent = target + suffix;
-                            }
-                        };
-                        updateCounter();
-                    });
-                    // Animate bar charts
-                    entry.target.querySelectorAll('[data-width]').forEach(bar => {
-                        setTimeout(() => {
-                            bar.style.width = bar.dataset.width;
-                        }, 300);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        document.querySelectorAll('.case-study-stats').forEach(s => statsObserver.observe(s));
-    </script>
-
-    <!-- Google Analytics 4 -->
-    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-B68C3RNBVD"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-B68C3RNBVD');
-        
-        // Track page view
-        gtag('event', 'page_view', {
-            'page_title': document.title,
-            'page_location': window.location.href
-        });
-    </script>
-    
-    <!-- Google Search Console verification (Replace with actual verification code) -->
-    <meta name="google-site-verification" content="googlef24fe0a0e8ba99b6">
-    
-    <!-- Bing Webmaster Tools verification -->
-    <meta name="msvalidate.01" content="093DED81024C3E7C8E3FEA6706BA9DE1">
-<script src="assets/js/counter-animation.js"></script>
+<script src="assets/js/ig.js?v=1791927688"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B68C3RNBVD"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-B68C3RNBVD');</script>
 </body>
 </html>

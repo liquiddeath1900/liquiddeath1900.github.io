@@ -5,6 +5,7 @@ Each page must contain the markers <!-- NAV:START --> ... <!-- NAV:END -->
 and <!-- FOOTER:START --> ... <!-- FOOTER:END -->. The homepage gets in-page
 anchors (#how); every other page gets /#how so links work from anywhere.
 """
+raise SystemExit("Retired 2026-10-13: the site is now built by scripts/build_ig.py. Running this would overwrite the new pages with the old design.")
 import sys
 
 BOOK = "book-call.html"

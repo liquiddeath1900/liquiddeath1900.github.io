@@ -1,6 +1,7 @@
 """Builds faq.html on the book-call.html shell. Questions ranked from 30 agency FAQ
 pages + owner threads (research 2026-10-07). Answers must match terms-of-service.html.
 Run site_chrome.py after."""
+raise SystemExit("Retired 2026-10-13: the site is now built by scripts/build_ig.py. Running this would overwrite the new pages with the old design.")
 import json, re, html
 
 BOOK = "book-call.html"
