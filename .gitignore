@@ -12,3 +12,9 @@ data/
 __pycache__/
 *.pyc
 .venv/
+
+# Local preview build + old concept files for the feed redesign (never publish)
+preview/
+index-ig.html
+index-feed.html
+scripts/build_feed_concept.py

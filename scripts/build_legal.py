@@ -1,5 +1,6 @@
 """Builds terms-of-service.html, privacy-policy.html, cookies-policy.html on the
 book-call.html shell (same head CSS, nav, footer, scripts). Run site_chrome.py after."""
+raise SystemExit("Retired 2026-10-13: the site is now built by scripts/build_ig.py. Running this would overwrite the new pages with the old design.")
 import re
 
 UPDATED = "October 2026"

@@ -1,0 +1,24 @@
+{
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "SeamlessFlow",
+      "alternateName": "SeamlessFlow.ai",
+      "image": "https://www.seamlessflow.ai/assets/og-seamlessflow-2026.jpg",
+      "email": "info@seamlessflow.ai",
+      "sameAs": ["https://www.instagram.com/seamlessflow.ai", "https://www.facebook.com/profile.php?id=61594879577412"],
+      "description": "Done-for-you content and ads agency. Content planning, scripts, shoot days, editing, posting, analytics, and paid ads on proven content.",
+      "url": "https://www.seamlessflow.ai",
+      "telephone": "+1-347-749-8146",
+      "address": {"@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY", "addressCountry": "US"},
+      "areaServed": {"@type": "State", "name": "New York"},
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Content & Ads Packages",
+        "itemListElement": [
+          {"@type": "Offer", "name": "Launch", "price": "3000", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Launch content package", "description": "8 short-form videos a month (30 seconds to 2 minutes), half-day shoot, scripts, posting, boosts on top videos. 3-month minimum, then month to month"}},
+          {"@type": "Offer", "name": "Growth", "price": "4500", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Growth content package", "description": "12 short-form videos a month (30 seconds to 2 minutes), full-day shoot, community management, ad campaigns on top videos. 3-month minimum, then month to month"}},
+          {"@type": "Offer", "name": "Full Service", "price": "6500", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Full Service content package", "description": "20+ short-form videos a month (30 seconds to 2 minutes), two shoot days, multi-platform ads, Google SEO and Business Profile. 6-month minimum, then month to month"}}
+        ]
+      },
+      "knowsAbout": ["Short-form video", "Content strategy", "Social media marketing", "Paid social ads", "Local SEO"]
+    }
