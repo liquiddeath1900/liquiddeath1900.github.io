@@ -26,11 +26,47 @@
         menu.querySelector('[data-close]').addEventListener('click', function () { menu.close(); });
     }
 
+    // Share, save, and a small toast to confirm what happened.
+    var toastEl, toastT;
+    function toast(msg) {
+        if (!toastEl) { toastEl = document.createElement('div'); toastEl.className = 'toast'; toastEl.setAttribute('role', 'status'); document.body.appendChild(toastEl); }
+        toastEl.textContent = msg; toastEl.classList.add('show');
+        clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove('show'); }, 3200);
+    }
+    var siteUrl = 'https://seamlessflow.ai/';
+    $$('[data-share]').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var data = { title: 'SeamlessFlow', text: 'Check out SeamlessFlow, they make content for local businesses.', url: siteUrl };
+            if (navigator.share) { navigator.share(data).catch(function () {}); return; }
+            if (navigator.clipboard) navigator.clipboard.writeText(siteUrl).then(function () { toast('Link copied. Send it to someone.'); }, function () { toast(siteUrl); });
+            else toast(siteUrl);
+        });
+    });
+    // Websites can't add a bookmark for you, so the save button says how.
+    var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var android = /Android/.test(navigator.userAgent), mac = /Mac/.test(navigator.platform);
+    var saveTip = ios ? 'tap Share, then "Add to Home Screen".' : android ? 'tap ⋮ in your browser, then the star.' : 'press ' + (mac ? '⌘' : 'Ctrl') + '+D.';
+    $$('[data-save]').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var on = !b.classList.contains('on');
+            $$('[data-save]').forEach(function (x) { x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); });
+            if (!on) return;
+            toast('To save us: ' + saveTip);
+        });
+    });
+
     // Likes: tap the heart, or double-tap the picture.
     $$('.post').forEach(function (post) {
         var like = post.querySelector('.like'), media = post.querySelector('.media, .car-wrap, .post-card'), last = 0;
         if (!like) return;
-        function set(on) { like.classList.toggle('on', on); like.setAttribute('aria-pressed', on); }
+        function set(on) {
+            like.classList.toggle('on', on); like.setAttribute('aria-pressed', on);
+            // First like of the visit: one playful nudge to keep us close. Never again that visit.
+            if (on && !sessionStorage.getItem('sf-liked')) {
+                sessionStorage.setItem('sf-liked', '1');
+                setTimeout(function () { toast('Liking us already? Keep us one tap away: ' + saveTip); }, 500);
+            }
+        }
         like.addEventListener('click', function () { set(!like.classList.contains('on')); });
         if (media) media.addEventListener('click', function (e) {
             if (e.target.closest('button, a')) return;

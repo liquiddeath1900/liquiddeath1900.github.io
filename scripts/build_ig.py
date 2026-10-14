@@ -33,7 +33,9 @@ def ic(name, cls="ic"):
 
 AV = '<i class="av" aria-hidden="true">SF</i>'
 ACTS = ('<div class="acts"><button type="button" class="like" aria-label="Like" aria-pressed="false">' + ic("heart") + '</button>'
-        + ic("comment") + ic("send") + '{dots}' + ic("bookmark") + '</div>')
+        + '<a class="act" href="book-call.html" aria-label="Message us">' + ic("comment") + '</a>'
+        + '<button type="button" class="act" data-share aria-label="Share this site">' + ic("send") + '</button>'
+        + '{dots}<button type="button" class="act save" data-save aria-label="Save this site" aria-pressed="false">' + ic("bookmark") + '</button></div>')
 
 
 def post_head(sub):
