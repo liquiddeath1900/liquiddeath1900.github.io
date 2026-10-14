@@ -15,9 +15,9 @@
         "@type": "OfferCatalog",
         "name": "Content & Ads Packages",
         "itemListElement": [
-          {"@type": "Offer", "name": "Launch", "price": "3000", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Launch content package", "description": "8 short-form videos a month (30 seconds to 2 minutes), half-day shoot, scripts, posting, boosts on top videos. 3-month minimum, then month to month"}},
-          {"@type": "Offer", "name": "Growth", "price": "4500", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Growth content package", "description": "12 short-form videos a month (30 seconds to 2 minutes), full-day shoot, community management, ad campaigns on top videos. 3-month minimum, then month to month"}},
-          {"@type": "Offer", "name": "Full Service", "price": "6500", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Full Service content package", "description": "20+ short-form videos a month (30 seconds to 2 minutes), two shoot days, multi-platform ads, Google SEO and Business Profile. 6-month minimum, then month to month"}}
+          {"@type": "Offer", "name": "Launch", "price": "3000", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Launch content package", "description": "8 short-form videos a month (30 seconds to 2 minutes), half-day shoot, scripts, story topics, posting, boosts on top videos. 3-month minimum, then month to month"}},
+          {"@type": "Offer", "name": "Growth", "price": "4500", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Growth content package", "description": "12 short-form videos a month (30 seconds to 2 minutes), full-day shoot, weekly story topics, an outline for one live a month, community management, ad campaigns on top videos. 3-month minimum, then month to month"}},
+          {"@type": "Offer", "name": "Full Service", "price": "8000", "priceCurrency": "USD", "itemOffered": {"@type": "Service", "name": "Full Service content package", "description": "20+ short-form videos a month (30 seconds to 2 minutes), two shoot days, full scripts for stories and lives, multi-platform ads, Google SEO and Business Profile. 6-month minimum, then month to month"}}
         ]
       },
       "knowsAbout": ["Short-form video", "Content strategy", "Social media marketing", "Paid social ads", "Local SEO"]

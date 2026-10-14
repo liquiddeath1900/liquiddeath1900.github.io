@@ -369,7 +369,7 @@ GROUPS = [
  ]),
  ("Pricing and contracts", [
   ("How much does it cost?",
-   "Packages start at $3,000, $4,500, and $6,500 a month. Your final price is set after your audit, based on your market, locations, and shoot volume. There's also a one-time onboarding fee set by what the audit finds. Ad spend is separate and paid directly to the platforms. Accounts that are already in good shape cost less to start. " + PK + "."),
+   "Packages start at $3,000, $4,500, and $8,000 a month. Your final price is set after your audit, based on your market, locations, and shoot volume. There's also a one-time onboarding fee set by what the audit finds. Ad spend is separate and paid directly to the platforms. Accounts that are already in good shape cost less to start. " + PK + "."),
   ("Is there a contract?",
    "Launch and Growth have a 3-month minimum. Full Service has 6 months. Content builds on itself, and the first months are when we learn what your audience responds to. After the minimum, it's month to month with 30 days' notice."),
   ("Is ad spend included?",
