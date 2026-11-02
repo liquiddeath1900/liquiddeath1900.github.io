@@ -1,0 +1,7 @@
+# GitHub Pages build settings: keep build files off the public site.
+exclude:
+  - scripts
+  - demos
+  - preview
+  - README.md
+  - CLAUDE.md
