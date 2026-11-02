@@ -18,3 +18,16 @@ preview/
 index-ig.html
 index-feed.html
 scripts/build_feed_concept.py
+
+# Internal: never publish (2026-11-02 sweep)
+CLAUDE.md
+README.md
+BUILD-TRACKER.md
+NEXTJS-CONVERSION-SCOPE.md
+*.md
+!llms.txt
+audits/
+quotes/
+db/
+*.sql
+.DS_Store
