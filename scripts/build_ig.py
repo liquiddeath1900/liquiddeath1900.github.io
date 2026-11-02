@@ -199,6 +199,10 @@ def build(page, title, desc, main, bar_title="", og_desc=None, schema=None, dial
     doc = (head(page, title, desc, og_desc, schema, og_title) + f'<body id="top">\n\n{part("sprite.html")}\n\n{rail}\n\n<div class="wrap">\n{bar}\n\n'
            + main + f"\n\n{footer}\n</div>\n\n{pill}\n\n{dialogs}{menu}\n\n"
            + f'<script src="{P}assets/js/ig.js?v={ver("assets/js/ig.js")}"></script>\n{ga}</body>\n</html>\n')
+    # Video covers load as you scroll near them (assets/js/ig.js). The homepage keeps its first cover so it shows at once.
+    keep = 1 if page == "index" else 0
+    parts = doc.split(' poster="')
+    doc = ' poster="'.join(parts[:keep + 1]) + "".join(' data-poster="' + p for p in parts[keep + 1:])
     if P:  # preview pages live one folder down, so asset paths step back up
         doc = doc.replace('"assets/', f'"{P}assets/').replace("(assets/", f"({P}assets/")
     open(f"{OUT}{page}.html", "w").write(doc)
@@ -318,7 +322,11 @@ INDUSTRIES = [
      "Outdoor work is some of the most satisfying content there is. A great before and after sells the next job.",
      ["Yard transformations", "Seasonal care tips", "Design walk-throughs with the owner"]),
 ]
-tiles = "".join(f'<a href="#{s}"><img src="assets/ind/{s}.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"><span>{n}</span></a>'
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from trades import TRADES
+PAGE = {t["key"]: t["file"] + ".html" for t in TRADES}
+SHORT = {t["key"]: t["short"] for t in TRADES}
+tiles = "".join(f'<a href="{PAGE[s]}"><img src="assets/ind/{s}.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"><span>{n}</span></a>'
                 for s, n, alt, why, ideas in INDUSTRIES)
 ind_posts = "".join(f'''
             <article class="post" id="{s}">
@@ -328,6 +336,7 @@ ind_posts = "".join(f'''
                 <div class="post-cap"><b>seamlessflow.ai</b> {why}
                     <span class="lbl">Content we'd make</span>
                     <ul class="vlist">{"".join(f"<li>{ic('video')}<span>{x}</span></li>" for x in ideas)}</ul>
+                    <p style="margin-top:10px"><a class="ln" href="{PAGE[s]}">See the full plan for {SHORT[s]}</a></p>
                 </div>
             </article>''' for s, n, alt, why, ideas in INDUSTRIES)
 industries_main = f'''<main>
@@ -355,6 +364,92 @@ industries_main = f'''<main>
 build("industries", "Industries We Work With | SeamlessFlow",
       "Content and ads for roofing, HVAC, plumbing, electrical, remodeling, junk removal, moving, and landscaping companies.",
       industries_main, bar_title="Industries")
+
+# ---------------------------------------------------------------- one page per trade (copy lives in scripts/trades.py)
+
+
+def trade_page(t):
+    others = "".join(f'<a href="{o["file"]}.html"><img src="assets/ind/{o["key"]}.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"><span>{o["name"]}</span></a>'
+                     for o in TRADES if o is not t)
+    ideas = "".join(f'<li>{ic("video")}<span><b>{a}.</b> {b}</span></li>' for a, b in t["ideas"])
+    worries = "".join(f'''
+                    <li><i class="av yb" aria-hidden="true">YC</i><div><b>yourcustomer</b> <h3>{w}</h3></div></li>''' for w in t["worries"])
+    faq = "".join(f"""
+                <li><details>
+                    <summary><i class="av yb" aria-hidden="true">YB</i><div><h3>{q}</h3><div class="meta"><span class="v">View reply</span><span class="h">Hide reply</span></div></div></summary>
+                    <div class="re">{AV}<p><b>seamlessflow.ai</b><span class="tag">Author</span> {a}</p></div>
+                </details></li>""" for q, a in t["faq"])
+    main = f'''<main>
+    <div class="col">
+        <header class="page-cap">
+            <h1>Social media and video marketing for {t["who"]}</h1>
+            <p>{t["intro"]}</p>
+        </header>
+    </div>
+    <div class="shell one">
+        <div class="feed" style="padding-top:6px">
+            <article class="post" id="why">
+                {post_head(t["name"])}
+                <div class="media named"><img class="tm" src="assets/ind/{t["key"]}.jpg" alt="{t["alt"]}" width="800" height="1000" fetchpriority="high" decoding="async"><div class="ov"><h2>Why video works for {t["short"]}</h2></div></div>
+                {acts()}
+                <div class="post-cap"><b>seamlessflow.ai</b> {t["why"][0]}<p style="margin-top:8px">{t["why"][1]}</p></div>
+            </article>
+            <article class="post" id="ideas">
+                {post_head("Content we'd make")}
+                <div class="post-card"><h2>6 videos we'd make for {t["who"]}</h2></div>
+                {acts()}
+                <div class="post-cap"><b>seamlessflow.ai</b> Filmed on your real jobs, with your real crew. No stock footage, no actors.
+                    <ul class="vlist">{ideas}</ul>
+                </div>
+            </article>
+            <article class="post" id="worries">
+                {post_head("Before they call")}
+                <div class="post-card"><h2>What your customers are thinking before they call</h2></div>
+                {acts()}
+                <p class="post-cap"><b>seamlessflow.ai</b> Every video we plan answers one of these. When people have already seen the answer, the call is easy.</p>
+                <ul class="cm">{worries}
+                </ul>
+            </article>
+            <article class="post" id="month">
+                {post_head("How it works")}
+                <div class="post-card"><h2>How a month works</h2></div>
+                {acts()}
+                <div class="post-cap"><b>seamlessflow.ai</b> We plan the month, write what to say, film at your job sites, edit, and post on Instagram, Facebook, TikTok and YouTube. You approve everything before it goes live. Then we put ad money behind the videos that are already working.
+                    <span class="lbl">Timing for {t["short"]}</span>
+                    <p style="margin-top:4px">{t["season"]}</p>
+                    <p style="margin-top:8px"><a class="ln" href="{HOME}#packages">See what's in each package</a></p>
+                </div>
+            </article>
+        </div>
+        <section class="faq-g" aria-label="Questions">
+            <h2 style="padding:18px 16px 4px">Questions from {t["short"]}</h2>
+            <ul class="cm faq">{faq}
+            </ul>
+        </section>
+        <section id="talk" class="talk">
+        {dm("Want this for your company?", "Text us what you do and where you work. We'll get back to you the same day and show you what we'd film first.")}
+        </section>
+        <section aria-label="Other trades" style="padding:22px 0 8px">
+            <h2 style="padding:0 16px 10px;font-size:15px">Other trades we work with</h2>
+            <nav class="xgrid">{others}<a class="other" href="industries.html"><span>All industries</span></a></nav>
+        </section>
+    </div>
+</main>'''
+    schema = [json.dumps({"@context": "https://schema.org", "@type": "Service",
+                          "name": f"Social media and video marketing for {t['who']}",
+                          "serviceType": "Social media marketing and short-form video production",
+                          "audience": {"@type": "BusinessAudience", "name": t["who"].capitalize()},
+                          "provider": {"@type": "ProfessionalService", "name": "SeamlessFlow", "url": SITE, "telephone": "+1-347-749-8146"},
+                          "areaServed": {"@type": "City", "name": "New York"}, "url": f"{SITE}{t['file']}.html"}),
+              json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+                  {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE},
+                  {"@type": "ListItem", "position": 2, "name": "Industries", "item": f"{SITE}industries.html"},
+                  {"@type": "ListItem", "position": 3, "name": t["name"], "item": f"{SITE}{t['file']}.html"}]})]
+    build(t["file"], t["title"], t["desc"], main, bar_title=t["name"], schema=schema)
+
+
+for t in TRADES:
+    trade_page(t)
 
 # ---------------------------------------------------------------- faq (search + comment threads)
 PK = f'<a href="{HOME}#packages">See what\'s in each package</a>'

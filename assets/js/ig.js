@@ -16,6 +16,11 @@
     if ('IntersectionObserver' in window) {
         var vio = new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? play(e.target) : e.target.pause(); }); }, { threshold: 0.25 });
         $$('.feed-vid').forEach(function (v) { vio.observe(v); });
+        // Cover images below the first screen load when you get close, so the first post shows up faster.
+        var pio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.poster = e.target.dataset.poster; pio.unobserve(e.target); } }); }, { rootMargin: '900px 2000px' });
+        $$('video[data-poster]').forEach(function (v) { pio.observe(v); });
+    } else {
+        $$('video[data-poster]').forEach(function (v) { v.poster = v.dataset.poster; });
     }
 
     // Dialogs: click the dark area to close. More menu.
