@@ -31,7 +31,7 @@ img, video { display: block; max-width: 100%; }
 [id] { scroll-margin-top: 56px; }
 
 /* ---- Avatars ---- */
-.av { font-style: normal; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0; background: #e6e4dc url(../img/ig-profile.jpg) center/150%; box-shadow: 0 0 0 1px rgba(0,0,0,0.08); color: transparent; font-weight: 800; font-size: 11px; width: 32px; height: 32px; letter-spacing: 0.02em; }
+.av { font-style: normal; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0; background: #6ff2e0 url(../img/ig-profile.jpg) center/cover; box-shadow: 0 0 0 1px rgba(0,0,0,0.08); color: transparent; font-weight: 800; font-size: 11px; width: 32px; height: 32px; letter-spacing: 0.02em; }
 .av.yb { background: #e5e7eb; color: #475569; box-shadow: none; }
 .av.lg { width: 44px; height: 44px; font-size: 14px; }
 
@@ -77,7 +77,7 @@ img, video { display: block; max-width: 100%; }
 /* ---- Profile header ---- */
 .ph { display: grid; grid-template-columns: 77px 1fr; grid-template-areas: "av stats" "bio bio" "btns btns"; column-gap: 20px; padding: 16px 16px 0; align-items: center; }
 .ph-av { display: block; grid-area: av; width: 77px; height: 77px; border-radius: 50%; padding: 3px; background: conic-gradient(from 210deg, #f9ce34, #ee2a7b, #6228d7, #ee2a7b, #f9ce34); }
-.ph-av span { display: flex; width: 100%; height: 100%; border-radius: 50%; border: 3px solid #fff; background: #f4f2ec url(../img/ig-profile.jpg) center/cover; align-items: center; justify-content: center; color: transparent; font-weight: 800; font-size: 22px; letter-spacing: 0.02em; }
+.ph-av span { display: flex; width: 100%; height: 100%; border-radius: 50%; border: 3px solid #fff; background: #6ff2e0 url(../img/ig-profile.jpg) center/cover; align-items: center; justify-content: center; color: transparent; font-weight: 800; font-size: 22px; letter-spacing: 0.02em; }
 .ph-handle { grid-area: handle; display: none; font-size: 20px; font-weight: 400; }
 .ph-stats { grid-area: stats; display: flex; justify-content: space-around; text-align: center; gap: 6px; }
 .ph-stats li { display: flex; flex-direction: column; font-size: 13px; line-height: 1.25; color: var(--txt); }
@@ -384,14 +384,14 @@ ol { list-style: none; margin: 0; padding: 0; }
 .heart-pop { position: absolute; top: 50%; left: 50%; z-index: 4; width: 96px; height: 96px; margin: -48px 0 0 -48px; fill: #fff; stroke: #fff; pointer-events: none; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35)); animation: pop .8s ease-out forwards; }
 .watch { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; min-height: 46px; padding: 0 20px; border-radius: 999px; background: #fff; color: #0a0a0a; font-weight: 700; font-size: 15px; }
 .watch .rg { width: 26px; height: 26px; border-radius: 50%; padding: 2px; background: conic-gradient(from 210deg, #f9ce34, #ee2a7b, #6228d7, #ee2a7b, #f9ce34); }
-.watch .rg::before { content: ''; display: block; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #fff; background: #e6e4dc url(../img/ig-profile.jpg) center/150%; }
+.watch .rg::before { content: ''; display: block; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #fff; background: #6ff2e0 url(../img/ig-profile.jpg) center/cover; }
 
 /* Carousels */
 .car-wrap { position: relative; }
 .car { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .car::-webkit-scrollbar { display: none; }
 .slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; aspect-ratio: 4/5; display: flex; flex-direction: column; justify-content: center; padding: 30px 28px; color: #fff; background: linear-gradient(150deg, #0f172a 10%, #1d4ed8 100%); }
-.slide.alt { background: linear-gradient(150deg, #0f172a 10%, #12784f 120%); }
+.slide.alt { background: linear-gradient(150deg, #0f172a 10%, #2563eb 120%); }
 .slide.img { background: #111 center/cover; justify-content: flex-end; }
 .slide.img::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,12,24,0.45), rgba(8,12,24,0.88)); }
 .slide.img > *:not(.tm) { position: relative; z-index: 2; }
@@ -420,7 +420,7 @@ ol { list-style: none; margin: 0; padding: 0; }
 .slide.price { aspect-ratio: auto; justify-content: flex-start; padding: 20px 20px 20px; }
 .slide.t1 { background: linear-gradient(160deg, #0f172a, #1e3a8a); }
 .slide.t2 { background: linear-gradient(160deg, #1d4ed8, #2563eb 60%, #0ea5e9 140%); }
-.slide.t3 { background: linear-gradient(160deg, #0a0a0a, #0f172a 70%, #12784f 170%); }
+.slide.t3 { background: linear-gradient(160deg, #0a0a0a, #0f172a 70%, #2563eb 170%); }
 .slide.price h3 { font-size: 22px; margin-bottom: 0; }
 .slide.price .from { margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
 .slide.price .amt { font-size: clamp(38px, 10.5vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
