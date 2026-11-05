@@ -458,7 +458,7 @@ GROUPS = [
   ("How do we get started?",
    "Text or call us. We set up a discovery call, learn about your business and goals, then audit your Google profile and social accounts to see where you stand. You get a quote with the right package. Once you approve it, we start onboarding."),
   ("How fast can we get going?",
-   "It depends on your package and what the audit finds. You can see results in as little as 30, 15, or 7 days depending on the package. By results we mean your first videos live and real numbers coming in."),
+   "It depends on your package and what the audit finds. You can see results in as little as 30, 15, or 10 days depending on the package. By results we mean your first videos live and real numbers coming in."),
   ("Do I have to be on camera?",
    "No, but it helps. People buy from people, and owners on camera usually perform best. If that's not you, your team can be the face, or we build content around the work itself. Either way, we write what to say and coach you through it."),
   ("How much of my time does this take?",
@@ -466,7 +466,7 @@ GROUPS = [
  ]),
  ("Pricing and contracts", [
   ("How much does it cost?",
-   "Packages start at $3,000, $4,500, and $8,000 a month. Your final price is set after your audit, based on your market, locations, and shoot volume. There's also a one-time onboarding fee set by what the audit finds. Ad spend is separate and paid directly to the platforms. Accounts that are already in good shape cost less to start. " + PK + "."),
+   "Packages are $3,000, $4,500, and $8,000 a month for one location. Each extra location is priced up front, before you sign. Every package starts by fixing your foundation: your Google profile and every account set up right. There's also a one-time onboarding fee set by what the audit finds. Ad spend is separate and paid directly to the platforms. Accounts that are already in good shape cost less to start. " + PK + "."),
   ("Is there a contract?",
    "Launch and Growth have a 3-month minimum. Full Service has 6 months. Content builds on itself, and the first months are when we learn what your audience responds to. After the minimum, it's month to month with 30 days' notice."),
   ("Is ad spend included?",
